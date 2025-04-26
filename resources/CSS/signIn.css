@@ -1,0 +1,337 @@
+/* ^$\n */
+body {
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  color: #222;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  font-feature-settings: "tnum";
+  width: 100%;
+  height: 100%;
+  font-family: Open Sans, Roboto, Arial, Helvetica, sans-serif, SimSun;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #191919;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.user-email-password-container {
+  display: flex;
+}
+
+.user-email-SIP,
+.user-password-SIP {
+  margin-right: 20px;
+  font-size: 16px;
+  color: #757575;
+  line-height: 20px;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.footer-SIP {
+  color: #9d9d9d;
+  background-color: #333;
+  line-height: 18px;
+  padding: 8px 0;
+  height: 36px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.footer-inner-SIP {
+  width: 990px;
+  margin: auto;
+}
+
+.IPP-footer-text-SIP,
+.PP-footer-text-SIP,
+.sitemap-footer-text-SIP,
+.terms-footer-text-SIP,
+.IEC-footer-text-SIP,
+.UILEG-footer-text-SIP {
+  display: inline;
+  white-space: nowrap;
+  margin: 0 2px;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  transition: color 0.3s;
+}
+
+#black-circle-transparent-x-logo-SIP,
+#invisible-eye-icon-SIP {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#black-circle-transparent-x-logo-SIP {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#black-circle-transparent-x-logo-SIP:hover,
+#invisible-eye-icon-SIP:hover {
+  opacity: 1;
+}
+
+.pw-input-icons-SIP {
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 16px;
+  height: 40.8666px;
+  width: 40px;
+}
+
+.password-input-field-wrap-SIP {
+  font-size: 12px;
+  line-height: 1.5;
+  z-index: 1;
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+#password-input-field-SIP {
+  padding-top: 19px;
+  width: 338.867px;
+  border: none;
+  outline: none;
+}
+
+#pw-indicator-SIP {
+  position: absolute;
+  right: 12px;
+  left: 3px;
+  color: #999;
+  font-size: 14px;
+  line-height: 40px;
+  pointer-events: none;
+  transition: font-size 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.pw-input-field-outer {
+  width: 382.867px;
+  height: 40.8667px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 3px 12px;
+  color: #222;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pw-input-field-outer:hover {
+  border-color: #222;
+  outline: 0;
+}
+
+.pw-input-field-inner {
+  background-color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  z-index: 1;
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.safe-payment-logo-SIP,
+.security-logo-SIP,
+.protection-logo-SIP {
+  height: 26px;
+  width: 26px;
+  margin-right: 8px;
+}
+
+.safe-payment-text-SIP,
+.security-text-SIP,
+.protection-text-SIP {
+  font-weight: 700;
+  font-size: 15px;
+  font-family: SFProDisplay-Bold;
+  color: #fff;
+}
+
+.header-logo-safe-wrap-SIP {
+  margin-left: 61px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: SFProDisplay-Bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 26px;
+  width: 121.1px;
+}
+
+.header-logo-security-wrap-SIP {
+  margin-left: 35px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: SFProDisplay-Bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo-protection-wrap-SIP {
+  margin-left: 35px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: SFProDisplay-Bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-left-SIP {
+  width: 900px;
+  height: 100%;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-logo-main-SIP {
+  display: block;
+  width: 199px;
+  height: 48px;
+  text-indent: -999em;
+  overflow: hidden;
+  background-image: url(https://ae01.alicdn.com/kf/S0a9d2e8fbe5c4493bb14ce82330acebeJ/356x88.png);
+  background-repeat: no-repeat;
+  background-size: 199px 48px;
+}
+
+.sign-in-container-outer-box-SIP {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 612.8px;
+}
+
+.content-wrap-main-SIP {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -80px;
+}
+
+.whole-header-SIP {
+  width: 100%;
+  height: 96px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sign-in-button-SIP {
+  color: rgb(255, 255, 255);
+  background: rgb(211, 3, 28);
+  margin: 16px 0px 8px;
+  min-width: 80px;
+  padding: 12px 24px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  height: 48px;
+  width: 408px;
+  border-radius: 24px;
+  border: 0px solid rgb(0, 0, 0);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#sign-in-button-disabled-SIP {
+  color: rgb(255, 255, 255);
+  background: rgb(255, 181, 187);
+  margin: 16px 0px 8px;
+  border: 0px solid rgb(0, 0, 0);
+  cursor: not-allowed;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.sign-in-button-wrap-SIP {
+  display: flex;
+  justify-content: center;
+}
+
+.login-main-row-SIP {
+  width: 520px;
+  height: 612.8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 48px;
+}
+
+.login-main-container-SIP {
+  display: flex;
+  justify-content: center;
+  width: 520px;
+}
+
+.sign-in-container-SIP {
+  width: 520px;
+  height: 24px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #191919;
+  text-align: center;
+  line-height: 24px;
+  padding-top: 16px;
+  padding-bottom: 8px !important;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.login-container-middle-SIP {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #222;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.login-avatar {
+  background-image: url(//ae01.alicdn.com/kf/Sd0d9a41458df45b39c31d0dd3b50fe8b6/144x144.png);
+  background-repeat: no-repeat;
+  background-size: 90px 90px;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 14px;
+  margin-top: 24px;
+  border-radius: 50% 50%;
+}

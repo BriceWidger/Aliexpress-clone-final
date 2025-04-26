@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/dealsPages.css" />
+  <title>Under Two</title>
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh">
+  <!-- HEADER -->
+  <header>
+    <!-- NAV -->
+    <div class="upper-nav-container" style="position: relative; z-index: 1">
+      <div class="upper-nav">
+        <div class="upper-nav-items-container">
+          <div class="name-logo-container">
+            <a href="/index.html" style="text-decoration: none">
+              <div class="name-logo-container-link-director_pp"></div>
+            </a>
+            <div class="name-logo" href="/Item_Pages/beatsbydre.html">
+              <div class="circle-menu-background_pp">
+                <img class="circle-menu-img_pp"
+                  src="https://ae01.alicdn.com/kf/S6f0463893f4341e49c75f0dc3bb85ffbo/36x36.png" />
+                <div class="circle-menu-hover-keeper"></div>
+                <div class="circle-menu-hover-box">
+                  <div class="inside-menu-title-container">
+                    <div class="inside-menu-drop-box"></div>
+                    <div class="category-dropdown-title_pp">All Items</div>
+                  </div>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/automotiveDegreaser.html">Automotive
+                    Degreaser</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by Dre</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL Partybox</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/makeup.html">Makeup</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr Potato Head</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus Camera</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/pillow.html">Pillow</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race Car</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon Rabbit</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth Hoodie</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="search-bar-container">
+            <input id="search-bar" type="text" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
+              placeholder="Search items.." />
+            <div id="search-bar-filler"></div>
+            <div id="search-list">
+              <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Automotive Degreaser
+                </div>
+              </a>
+              <a href="/Item_Pages/beatsbydre.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Beats by Dre
+                </div>
+              </a>
+              <a href="/Item_Pages/jblPartybox.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  JBL Partybox
+                </div>
+              </a>
+              <a href="/Item_Pages/makeup.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Makeup
+                </div>
+              </a>
+              <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Mr Potato Head
+                </div>
+              </a>
+              <a href="/Item_Pages/olympusCamera.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Olympus Camera
+                </div>
+              </a>
+              <a href="/Item_Pages/pillow.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Pillow
+                </div>
+              </a>
+              <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  RC Race Car
+                </div>
+              </a>
+              <a href="/Item_Pages/simonRabbit.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Simon Rabbit
+                </div>
+              </a>
+              <a href="/Item_Pages/truthHoodie.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">
+                  Truth Hoodie
+                </div>
+              </a>
+            </div>
+            <div id="search-submit-container">
+              <input id="search-submit" type="image" src="/resources/images/search-button.jpg" alt="Submit" />
+            </div>
+          </div>
+          <div class="header-items-container">
+            <div class="acc-dropdown">
+              <div class="acc-dropbtn">
+                <img class="person-account-icon" src="/resources/images/person-account-icon.png" />
+                <div class="acc-category-dropdown-title">
+                  <h4>Account</h4>
+                  <img class="acc-up-menu-arrow-black" src="/resources/images/menu-arrow-white.png" width="20"
+                    height="20" />
+                </div>
+              </div>
+              <div class="acc-dropdown-content">
+                <div class="acc-img-title-container">
+                  <div class="account-img"></div>
+                  <div class="acc-title-sign-wrap">
+                    <div id="signed-in-text-notification">
+                      Welcome back, User!
+                    </div>
+                    <div id="signed-out-text-notification">
+                      You're signed out
+                    </div>
+                    <div id="sign-out" onclick="signOut()">Sign out</div>
+                    <a href="/signIn.html">
+                      <button id="sign-in" onclick="signIn()">Sign in</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cart-icon-text-checkout">
+              <a href="/Checkout_Pages/shoppingCart.html"><img class="cart-check-out-white"
+                  src="/resources/images/check-out-cart-white.png" /></a>
+              <div class="cart-number-cart-text-wrap">
+                <a href="/Checkout_Pages/shoppingCart.html">
+                  <h4 id="cart-number"></h4>
+                </a>
+                <a href="/Checkout_Pages/shoppingCart.html">
+                  <h4 class="cart-text">Cart</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="product-row" style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10px;
+      ">
+    <div class="page-title-text">From $1.99</div>
+    <div class="products-per-row-wrap">
+      <a href="/Item_Pages/underTwo_items/olympusCamera_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/olympus-camera.jpg" onclick="camera_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span>
+                                    <span class="price-digits-large ">6</span> -->
+                  <span class="price-digits-large">5</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <div class="reduced-price_underTwo">$20.68</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">1 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text" title="Olympus OM-1 | 35mm Film Camera">Olympus OM-1 | 35mm Film
+                    Camera</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/pillow_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/pillow.jpg" onclick="pillow_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span> -->
+                  <span class="price-digits-large">3</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>6</span>
+                  <span class="price-digits-small" price-digits>8</span>
+                  <div class="reduced-price_underTwo">$15.54</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">5 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers Standard, 26 x 20 Inch - Pack of 2, White">Basics
+                    Down Alternative Bed Pillow, Medium Density for
+                    Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of
+                    2, White</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/makeup_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/makeup-img.jpg" onclick="makeupOne_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span> -->
+                  <span class="price-digits-large">1</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <div class="reduced-price_underTwo">$9.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">3 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt"
+                  title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
+                  <span class="product-info-span-text">All In One Makeup Kit 12 Colors Naked Eyeshadow Palette,
+                    Makeup Brush, Buff Beige Foundation, Vibely Mascara,
+                    Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged
+                    Eyeliner Stamp, Makeup Sets for Women Full Kit (Set
+                    B)</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/simonRabbit_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/simon-toy.png" onclick="simon_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span> -->
+                  <span class="price-digits-large">2</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>8</span>
+                  <span class="price-digits-small" price-digits>3</span>
+                  <div class="reduced-price_underTwo">$8.64</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">14 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">Simon – Plush
+                    toy Rabbit Simon Quality super soft
+                    (11’41″/29cm, SUPER HERO)</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/jblPartybox_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/JBLspeaker.jpg" onclick="jbl_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">3</span>
+                                    <span class="price-digits-large ">8</span> -->
+                  <span class="price-digits-large">9</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$29.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">1 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">JBL
+                    100% Original Partybox Encore Essential Wireless
+                    Bluetooth Speaker Portable 100W Sound Built-In Dynamic
+                    Light Show</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/automotiveDegreaser_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/automotiveDegreaser.jpg" onclick="degreaser_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <span class="price-digits-large">1</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$8.98</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">1 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text" title="1 Gal. Max Automotive Cleaner and Degreaser">1 Gal. Max
+                    Automotive Cleaner and Degreaser</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="products-per-row-wrap">
+      <a href="/Item_Pages/underTwo_items/mrPotatoHead_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/potatohead.jpg" onclick="potatoHead_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">1</span> -->
+                  <span class="price-digits-large">5</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$15.32</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">2 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">New
+                    Mr. Potato Head Playskool Egg Head Toy Fun Assembled
+                    Gift Figure Collection Hobby Mrs Potatoes The Joker
+                    Surprise Gifts Doll</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/truthHoodie_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/truthhoodie.jpg" onclick="truthHoodie_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">4</span> -->
+                  <span class="price-digits-large">4</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$29.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">3 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text" title="New York Times Truth Hoodie">New York Times Truth
+                    Hoodie</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/jblPartybox_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/JBLspeaker.jpg" onclick="jbl_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">3</span>
+                                    <span class="price-digits-large ">8</span> -->
+                  <span class="price-digits-large">9</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$29.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">1 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">JBL
+                    100% Original Partybox Encore Essential Wireless
+                    Bluetooth Speaker Portable 100W Sound Built-In Dynamic
+                    Light Show</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/makeupTwo_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/makeup-img-two.jpg" onclick="makeupTwo_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">1</span> -->
+                  <span class="price-digits-large">2</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <span class="price-digits-small" price-digits>4</span>
+                  <div class="reduced-price_underTwo">$10.50</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">2 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter Makeup Pallet, Colorful Powder Long Lasting Eye Shadow">Rechoo
+                    99 Colors Eyeshadow Palette, Rainbow Colors Fusion
+                    Eyeshadow Palette, Professional Matte Glitter Makeup
+                    Pallet, Colorful Powder Long Lasting Eye Shadow</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/rcRaceCar_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/rc-toy.jpg" onclick="car_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">3</span> -->
+                  <span class="price-digits-large">9</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$18.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">4 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">Adventure Force Radio Control
+                    1:8 Trail Chaser Buggy,
+                    Green</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/pillow_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/pillow.jpg" onclick="pillow_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span> -->
+                  <span class="price-digits-large">3</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>6</span>
+                  <span class="price-digits-small" price-digits>8</span>
+                  <div class="reduced-price_underTwo">$15.54</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">5 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers Standard, 26 x 20 Inch - Pack of 2, White">Basics
+                    Down Alternative Bed Pillow, Medium Density for
+                    Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of
+                    2, White</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="products-per-row-wrap">
+      <a href="/Item_Pages/underTwo_items/beatsbydre_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/beatsbydre.jpg" onclick="beats_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">1</span>
+                                    <span class="price-digits-large ">4</span> -->
+                  <span class="price-digits-large">9</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>5</span>
+                  <div class="reduced-price_underTwo">$26.78</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">3 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="Beats by Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon)">Beats
+                    by Dr. Dre Beats Solo3 Wireless On-Ear Headphones
+                    ((PRODUCT)RED Citrus Red / Icon)</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/automotiveDegreaser_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/automotiveDegreaser.jpg" onclick="degreaser_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <span class="price-digits-large">1</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$8.98</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">1 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text" title="1 Gal. Max Automotive Cleaner and Degreaser">1 Gal. Max
+                    Automotive Cleaner and Degreaser</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/olympusCamera_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/olympus-camera.jpg" onclick="camera_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span>
+                                    <span class="price-digits-large ">6</span> -->
+                  <span class="price-digits-large">5</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <div class="reduced-price_underTwo">$20.68</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">1 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text" title="Olympus OM-1 | 35mm Film Camera">Olympus OM-1 | 35mm Film
+                    Camera</span>
+                </span>
+              </div>
+              <!-- <div class="choice-img-cnt">
+                                <img class="choice-img"
+                                    src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                                    style="width: 43.3125px; height: 18px; margin-right: 3px;" loading="lazy" />
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/mrPotatoHead_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/potatohead.jpg" onclick="potatoHead_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">1</span> -->
+                  <span class="price-digits-large">5</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$15.32</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">2 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text"
+                    title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">New
+                    Mr. Potato Head Playskool Egg Head Toy Fun Assembled
+                    Gift Figure Collection Hobby Mrs Potatoes The Joker
+                    Surprise Gifts Doll</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/truthHoodie_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/truthhoodie.jpg" onclick="truthHoodie_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">4</span> -->
+                  <span class="price-digits-large">4</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <div class="reduced-price_underTwo">$29.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">3 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt">
+                  <span class="product-info-span-text" title="New York Times Truth Hoodie">New York Times Truth
+                    Hoodie</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/underTwo_items/makeup_underTwo.html">
+        <div class="entire-product-cnt-outer">
+          <div class="entire-product-cnt-inner">
+            <img class="product-img" src="/resources/images/makeup-img.jpg" onclick="makeupOne_underTwo()" />
+            <div class="product-info-wrap">
+              <div class="product-price-cnt">
+                <div class="product-price-inline">
+                  <span class="price-digits-small" price-digits>$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-large ">2</span> -->
+                  <span class="price-digits-large">1</span>
+                  <span class="price-digits-small" price-digits>.</span>
+                  <span class="price-digits-small" price-digits>9</span>
+                  <span class="price-digits-small" price-digits>7</span>
+                  <div class="reduced-price_underTwo">$9.99</div>
+                </div>
+              </div>
+              <div class="star-rating-cnt">
+                <div class="four-half-black-stars-container">
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="full-black-star" src="/resources/images/black-star.png" />
+                  <img class="half-black-star-left" src="/resources/images/black-star.png" />
+                </div>
+                <img class="half-gray-star-right" src="/resources/images/black-star.png" />
+                <span class="amount-sold">3 sold</span>
+              </div>
+              <div class="product-info-sub">
+                <span class="product-info-span-text-cnt"
+                  title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
+                  <span class="product-info-span-text">All In One Makeup Kit 12 Colors Naked Eyeshadow Palette,
+                    Makeup Brush, Buff Beige Foundation, Vibely Mascara,
+                    Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged
+                    Eyeliner Stamp, Makeup Sets for Women Full Kit (Set
+                    B)</span>
+                </span>
+              </div>
+              <div class="choice-img-cnt">
+                <img class="choice-img"
+                  src="https://ae01.alicdn.com/kf/S1887a285b60743859ac7bdbfca5e0896Z/154x64.png_.webp"
+                  style="width: 43.3125px; height: 18px; margin-right: 3px" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="footer-main-sc">
+    <div class="footer-all-cnt-wrap">
+      <div class="footer-bottom-half-sc">
+        <div class="footer-top-wrap-sc">
+          <div class="footer-help-cnt">
+            <dl class="footer-help-dl">
+              <dt class="dt-help">Help</dt>
+              <dd class="dd-footer-help">
+                <a>Help Center</a>, Help Center, Disputes & Reports, Buyer
+                Protection, Report IPR infringement, Regulated Information,
+                Integrity Compliance, Transparency Center, Non-login complaint
+                entrance
+              </dd>
+            </dl>
+          </div>
+          <div class="footer-language-cnt">
+            <dl class="footer-language-dl">
+              <dt class="dt-language">AliExpress Multi-Language Sites</dt>
+              <dd class="dd-footer-language">
+                Russian, Portuguese, Spanish, French, German, Italian, Dutch,
+                Turkish, Japanese, Korean, Thai, Vietnamese, Arabic, Hebrew,
+                Polish
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="footer-bottom-wrap-sc">
+          <div class="footer-browse-cnt">
+            <dl class="footer-browse-dl">
+              <dt class="dt-browse">Browse by Category</dt>
+              <dd class="dd-footer-browse">
+                <span>
+                  All Popular, Product, Promotion, Low Price, Great Value,
+                  Reviews Blog, Seller Portal, BLACK FRIDAY, AliExpress
+                  Assistant
+                </span>
+              </dd>
+            </dl>
+          </div>
+          <div class="footer-alibaba-group-cnt">
+            <dl class="footer-alibaba-group-dl">
+              <dt class="dt-alibaba-group">Alibaba Group</dt>
+              <dd class="dd-footer-alibaba-group">
+                Alibaba Group Website, AliExpress, Alimama, Alipay, Fliggy,
+                Alibaba Cloud, Alibaba International, AliTelecom, DingTalk,
+                Juhuasuan, Taobao Marketplace, Tmall, Taobao Global, AliOS,
+                1688
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copywrite-sc">
+    <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
+  </div>
+  <div class="footer-copywrite-all-text-wrap-sc">
+    <!-- <a>Intellectual Property Protection</a> - <a>Privacy Policy</a> -
+        <a>Sitemap</a> - <a>Terms of Use</a> -
+        <a>Information for EU consumers</a> - <a>Imprint</a> -
+        <a>Transaction Services Agreement for non-EU/UK Consumers</a> -
+        <a>Terms and Conditions for EU/EEA/UK Consumers</a> -
+        <a>User Information Legal Enquiry Guide</a>
+        ©️2010-2024 AliExpress.com. All rights reserved.
+        <a
+          ><img
+            alt="增值电信业务经营许可证"
+            style="width: 22px"
+            src="https://ae01.alicdn.com/kf/Hfff52cf71f784d99ad93c73a334e7e37a/65x70.gif"
+        /></a>
+        <a> 增值电信业务经营许可证 浙B2-20120091-8</a>
+        <a
+          ><img
+            src="//ae01.alicdn.com/kf/H107313c145a24eec94287c19fd2aa5c0e/20x20.png"
+            alt="浙公网安备"
+          />
+          浙公网安备 33010802002248号</a
+        > -->
+  </div>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.js"></script>
+  <script src="/resources/JS/index.js"></script>
+  <script src="/resources/JS/cartCountManager.js"></script>
+  <script src="/resources/JS/storeLocalStorageImg.js"></script>
+  <script src="/resources/JS/showAdded.js"></script>
+  <script src="/resources/JS/noMatch.js"></script>
+  <script src="/resources/JS/displayLocalStorageImg.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/productCountSubtotalManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/productCheckmarkManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/customDisplayPromptManager.js"></script>
+</body>
+
+</html>

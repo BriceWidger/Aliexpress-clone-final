@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/CSS/shoppingCart.css" />
+    <title>Empty Cart</title>
+</head>
+
+<body>
+    <div class="page-wrap-sc"></div>
+    <!-- HEADER -->
+    <header>
+        <!-- NAV -->
+        <div class="upper-nav-container">
+            <div class="upper-nav">
+                <div class="upper-nav-items-container">
+                    <div class="name-logo-container">
+                        <a href="/index.html" style="text-decoration:none">
+                            <div class="name-logo-container-link-director_pp"></div>
+                        </a>
+                        <div class="name-logo" href="/Item_Pages/beatsbydre.html">
+                            <div class="circle-menu-background_pp">
+                                <img class="circle-menu-img_pp"
+                                    src="https://ae01.alicdn.com/kf/S6f0463893f4341e49c75f0dc3bb85ffbo/36x36.png" />
+                                <div class="circle-menu-hover-keeper"></div>
+                                <div class="circle-menu-hover-box">
+                                    <div class="inside-menu-title-container">
+                                        <div class="inside-menu-drop-box"></div>
+                                        <div class="category-dropdown-title_pp">
+                                            All Items
+                                        </div>
+                                    </div>
+                                    <a class="circle-menu-hover-box-links"
+                                        href="/Item_Pages/automotiveDegreaser.html">Automotive
+                                        Degreaser</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by
+                                        Dre</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL
+                                        Partybox</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/makeup.html">Makeup</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr
+                                        Potato Head</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus
+                                        Camera</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/pillow.html">Pillow</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race
+                                        Car</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon
+                                        Rabbit</a>
+                                    <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth
+                                        Hoodie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="search-bar-container">
+                        <input id="search-bar" type="text" onkeyup="search_items()"
+                            onblur="this.value=removeSpaces(this.value);" placeholder="Search items..">
+                        <div id="search-bar-filler"></div>
+                        <div id='search-list'>
+                            <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Automotive Degreaser</div>
+                            </a>
+                            <a href="/Item_Pages/beatsbydre.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Beats by Dre</div>
+                            </a>
+                            <a href="/Item_Pages/jblPartybox.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">JBL Partybox</div>
+                            </a>
+                            <a href="/Item_Pages/makeup.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Makeup</div>
+                            </a>
+                            <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Mr Potato Head</div>
+                            </a>
+                            <a href="/Item_Pages/olympusCamera.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Olympus Camera</div>
+                            </a>
+                            <a href="/Item_Pages/pillow.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Pillow</div>
+                            </a>
+                            <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">RC Race Car</div>
+                            </a>
+                            <a href="/Item_Pages/simonRabbit.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Simon Rabbit</div>
+                            </a>
+                            <a href="/Item_Pages/truthHoodie.html" target="_blank">
+                                <div id="search-item-names" class="search-item-names">Truth Hoodie</div>
+                            </a>
+                        </div>
+                        <div id="search-submit-container"><input id="search-submit" type="image"
+                                src="/resources/images/search-button.jpg" alt="Submit">
+                        </div>
+                    </div>
+                    <div class="header-items-container">
+                        <div class="acc-dropdown">
+                            <div class="acc-dropbtn">
+                                <img class="person-account-icon" src="/resources/images/person-account-icon.png" />
+                                <div class="acc-category-dropdown-title">
+                                    <h4>Account</h4>
+                                    <img class="acc-up-menu-arrow-black" src="/resources/images/menu-arrow-white.png"
+                                        width="20" height="20" />
+                                </div>
+                            </div>
+                            <div class="acc-dropdown-content">
+                                <div class="acc-img-title-container">
+                                    <div class="account-img"></div>
+                                    <div class="acc-title-sign-wrap">
+                                        <div id="signed-in-text-notification">Welcome back, User!</div>
+                                        <div id="signed-out-text-notification">You're signed out</div>
+                                        <div id="sign-out" onclick="signOut()">Sign out</div>
+                                        <a href="/signIn.html">
+                                            <button id="sign-in" onclick="signIn()">Sign in</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-icon-text-checkout">
+                            <a href="/Checkout_Pages/shoppingCart.html"><img class="cart-check-out-white"
+                                    src="/resources/images/check-out-cart-white.png" /></a>
+                            <div class="cart-number-cart-text-wrap">
+                                <a href="/Checkout_Pages/shoppingCart.html">
+                                    <h4 id="cart-number"></h4>
+                                </a>
+                                <a href="/Checkout_Pages/shoppingCart.html">
+                                    <h4 class="cart-text">Cart</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main-content-wrap-SCE">
+        <div class="cart-body-SCE">
+            <div class="cart-main-SCE">
+                <div class="cart-empty-group-SCE">
+                    <div class="cart-mid-main-wrap-SCE">
+                        <img class="main-empty-cart-img-SCE"
+                            src="https://ae01.alicdn.com/kf/Sa15be314eadd4a9bb186ab4a0cb971b5D/360x360.png_.webp"><span
+                            class="main-empty-cart-title-text-SCE">No items
+                            yet? Continue shopping to explore more.</span>
+                        <button class="explore-items-button-cnt-SCE" onclick="window.location.href = '/index.html'">
+                            <a class="explore-items-text-wrap-span">
+                                <span>Explore items</span>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ROW B -->
+    <div class="row-container-b-SC">
+        <h2 class="row-b-title">Quality picks for you</h2>
+        <div class="all-row-b-containers">
+            <section class="slider-wrapper">
+                <div id="decoy-one"></div>
+                <img class="slide-arrow" id="slide-arrow-prev" tabindex=0 src="/resources/images/left-black-arrow.png"
+                    onclick="decoyFunctionOne()" />
+                <div id="decoy-two"></div>
+                <img class="slide-arrow" id="slide-arrow-next" tabindex=0 src="/resources/images/right-black-arrow.png"
+                    onclick="decoyFunctionTwo()" />
+                <div class="slides-container-fake"></div>
+                <div class="slides-container" id="slides-container">
+                    <div class="slide">
+                        <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+                            <div class="row-b-card-container_car">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-RCCar" class="row-b-card-img"
+                                        src="resources/images/rc-toy.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-rccar"
+                                                onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">
+                                            Adventure Force Radio
+                                            Control
+                                            1:8 Trail
+                                            Chaser Buggy,
+                                            Green</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">4 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>39.97</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/simonRabbit.html" target="_blank">
+                            <div class="row-b-card-container_simon">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-SimonRabbit" class="row-b-card-img"
+                                        src="resources/images/simon-toy.png" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-simonrabbit"
+                                                onclick="clickCounter('simonrabbit'); showAdded(this); updateImageSimonRabbit(); return false; "
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">
+                                            Simon –
+                                            Plush
+                                            toy Rabbit Simon Quality super
+                                            soft (11’41″/29cm, SUPER HERO)</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">2 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>24.99</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <div class="free-shipping">Free shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/pillow.html" target="_blank">
+                            <div class="row-b-card-container_pillow">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-Pillow" class="row-b-card-img"
+                                        src="resources/images/pillow.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-pillow"
+                                                onclick="clickCounter('pillow'); showAdded(this); updateImagePillow(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+                                            Basics Down Alternative Bed Pillow, Medium Density for
+                                            Back and Side
+                                            Sleepers,
+                                            Standard, 26 x 20 Inch - Pack of 2, White</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">5 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>23.50</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <div class="free-shipping">Free shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/makeupTwo.html" target="_blank">
+                            <div class="row-b-card-container_makeupTwo">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-MakeupTwo" class="row-b-card-img"
+                                        src="resources/images/makeup-img-two.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-makeuptwo"
+                                                onclick="clickCounter('makeuptwo'); showAdded(this); updateImageMakeupTwo(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter Makeup Pallet, Colorful Powder Long Lasting Eye Shadow">
+                                            Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors
+                                            Fusion Eyeshadow Palette,
+                                            Professional Matte Glitter Makeup Pallet, Colorful Powder Long Lasting
+                                            Eye Shadow</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">2 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>17.09</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <!-- <div class="free-shipping">Free shipping</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/olympusCamera.html" target="_blank">
+                            <div class="row-b-card-container_camera">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-Camera" class="row-b-card-img"
+                                        src="resources/images/olympus-camera.jpg" />
+                                    <div class="product-title-word-break">
+                                        <!-- <div class="notification-text-no-cutoff">+1</div> -->
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-camera"
+                                                onclick="clickCounter('camera'); showAdded(this); updateImageCamera(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="Olympus OM-1 | 35mm Film Camera">
+                                            Olympus
+                                            OM-1 |
+                                            35mm
+                                            Film Camera</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">1 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>269.99</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <div class="free-shipping">Free shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+                            <div class="row-b-card-container_degreaser">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-Degreaser" class="row-b-card-img"
+                                        src="resources/images/automotiveDegreaser.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-degreaser"
+                                                onclick="clickCounter('degreaser'); showAdded(this); updateImageDegreaser(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="1 Gal. Max Automotive Cleaner and Degreaser">1
+                                            Gal.
+                                            Max Automotive Cleaner and Degreaser
+                                        </div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">1 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>8.98</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <div class="free-shipping">Free shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/makeup.html" target="_blank">
+                            <div class="row-b-card-container_makeupOne">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-MakeupOne" class="row-b-card-img"
+                                        src="resources/images/makeup-img.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-makeupone"
+                                                onclick="clickCounter('makeupone'); showAdded(this); updateImageMakeupOne(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
+                                            All In One Makeup Kit 12 Colors Naked Eyeshadow Palette,
+                                            Makeup Brush, Buff Beige
+                                            Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap
+                                            Kit, Winged Eyeliner
+                                            Stamp, Makeup
+                                            Sets for Women Full Kit (Set B)</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">3 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>23.88</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <!-- <div class="free-shipping">Free shipping</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+                            <div class="row-b-card-container_potatoHead">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-PotatoHead" class="row-b-card-img"
+                                        src="resources/images/potatohead.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-potatohead"
+                                                onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
+                                            New Mr. Potato Head Playskool Egg Head Toy Fun
+                                            Assembled Gift Figure Collection
+                                            Hobby Mrs Potatoes The Joker Surprise Gifts Doll</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">2 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>17.98</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <div class="free-shipping">Free shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/jblPartybox.html" target="_blank">
+                            <div class="row-b-card-container_jbl">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-JBLspeaker" class="row-b-card-img"
+                                        src="resources/images/JBLspeaker.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-jblspeaker"
+                                                onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
+                                            JBL 100% Original Partybox Encore Essential Wireless
+                                            Bluetooth Speaker Portable
+                                            100W Sound Built-In Dynamic Light Show</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">1 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>382.93</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <!-- <div class="free-shipping">Free shipping</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Item_Pages/truthHoodie.html" target="_blank">
+                            <div class="row-b-card-container_truth">
+                                <div class="row-b-card">
+                                    <img id="localStorageImg-TruthHoodie" class="row-b-card-img"
+                                        src="resources/images/truthhoodie.jpg" />
+                                    <div class="product-title-word-break">
+                                        <div class="add-on-icon-wrapper">
+                                            <div class="add-on-icon-truthhoodie"
+                                                onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie(); return false;"
+                                                style="height: 28px; width: 28px">
+                                                <div class="notification-text"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row-b-item-title" alt="alternative text"
+                                            title="New York Times Truth Hoodie">New York
+                                            Times Truth
+                                            Hoodie</div>
+                                        <div class="sold-amount-wrap">
+                                            <div class="sold-amount">3 sold</div>
+                                        </div>
+                                        <div class="black-price-wrap">
+                                            <span style="font-size: 24px;"><span
+                                                    style="font-size: 12px;">$</span>49.95</span>
+                                        </div>
+                                        <div class="free-shipping-wrap">
+                                            <div class="free-shipping">Free shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    </ul>
+            </section>
+        </div>
+    </div>
+    <div class="footer-main-sc">
+        <div class="footer-all-cnt-wrap">
+            <div class="footer-bottom-half-sc">
+                <div class="footer-top-wrap-sc">
+                    <div class="footer-help-cnt">
+                        <dl class="footer-help-dl">
+                            <dt class="dt-help">Help</dt>
+                            <dd class="dd-footer-help"><a>Help Center</a>,
+                                Help Center, Disputes & Reports, Buyer Protection, Report IPR infringement, Regulated
+                                Information, Integrity Compliance, Transparency Center, Non-login complaint entrance
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="footer-language-cnt">
+                        <dl class="footer-language-dl">
+                            <dt class="dt-language">AliExpress Multi-Language Sites</dt>
+                            <dd class="dd-footer-language">
+                                Russian, Portuguese, Spanish, French, German, Italian, Dutch, Turkish, Japanese, Korean,
+                                Thai, Vietnamese, Arabic, Hebrew, Polish
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="footer-bottom-wrap-sc">
+                    <div class="footer-browse-cnt">
+                        <dl class="footer-browse-dl">
+                            <dt class="dt-browse">Browse by Category</dt>
+                            <dd class="dd-footer-browse">
+                                <span>
+                                    All Popular, Product, Promotion, Low Price, Great Value, Reviews Blog, Seller
+                                    Portal,
+                                    BLACK
+                                    FRIDAY, AliExpress Assistant
+                                </span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="footer-alibaba-group-cnt">
+                        <dl class="footer-alibaba-group-dl">
+                            <dt class="dt-alibaba-group">Alibaba Group</dt>
+                            <dd class="dd-footer-alibaba-group">
+                                Alibaba Group Website, AliExpress, Alimama, Alipay, Fliggy, Alibaba Cloud, Alibaba
+                                International, AliTelecom, DingTalk, Juhuasuan, Taobao Marketplace, Tmall, Taobao
+                                Global,
+                                AliOS,
+                                1688
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copywrite-sc">
+        <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
+    </div>
+    <div class="footer-copywrite-all-text-wrap-sc">
+        <!-- <a>Intellectual Property Protection</a> -
+            <a>Privacy Policy</a> -
+            <a>Sitemap</a> -
+            <a>Terms of Use</a> -
+            <a>Information for EU consumers</a> -
+            <a>Imprint</a> -
+            <a>Transaction Services Agreement for non-EU/UK Consumers</a> -
+            <a>Terms and Conditions for EU/EEA/UK Consumers</a> -
+            <a>User Information Legal Enquiry Guide</a>
+            ©️2010-2024 AliExpress.com. All rights reserved.
+            <a><img alt="增值电信业务经营许可证" style="width:22px;"
+                    src="https://ae01.alicdn.com/kf/Hfff52cf71f784d99ad93c73a334e7e37a/65x70.gif"></a>
+            <a> 增值电信业务经营许可证 浙B2-20120091-8</a>
+            <a><img src="//ae01.alicdn.com/kf/H107313c145a24eec94287c19fd2aa5c0e/20x20.png" alt="浙公网安备"> 浙公网安备
+                33010802002248号</a> -->
+    </div>
+    </div>
+    <!-- JS SCRIPT -->
+    <script src="/resources/JS/index.js"></script>
+    <script src="/resources/JS/cartCountManager.js"></script>
+    <script src="/resources/JS/storeLocalStorageImg.js"></script>
+    <script src="/resources/JS/showAdded.js"></script>
+    <script src="/resources/JS/shoppingCartEmpty.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/shoppingCart.css" />
+  <title>Shopping Cart</title>
+</head>
+<!-- ^$\n -->
+
+<body>
+  <div class="page-wrap-sc"></div>
+  <header>
+    <!-- NAV -->
+    <div class="upper-nav">
+      <div class="upper-nav-items-container">
+        <div class="name-logo-container">
+          <a href="/index.html" style="text-decoration: none">
+            <div class="name-logo-container-link-director_pp"></div>
+          </a>
+          <div class="name-logo" href="/Item_Pages/beatsbydre.html">
+            <div class="circle-menu-background_pp">
+              <img class="circle-menu-img_pp"
+                src="https://ae01.alicdn.com/kf/S6f0463893f4341e49c75f0dc3bb85ffbo/36x36.png" />
+              <div class="circle-menu-hover-keeper"></div>
+              <div class="circle-menu-hover-box">
+                <div class="inside-menu-title-container">
+                  <div class="inside-menu-drop-box"></div>
+                  <div class="category-dropdown-title_pp">All Items</div>
+                </div>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/automotiveDegreaser.html">Automotive
+                  Degreaser</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by Dre</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL Partybox</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/makeup.html">Makeup</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr Potato Head</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus Camera</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/pillow.html">Pillow</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race Car</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon Rabbit</a>
+                <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth Hoodie</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="search-bar-container">
+          <input id="search-bar" type="text" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
+            placeholder="Search items.." />
+          <div id="search-bar-filler"></div>
+          <div id="search-list">
+            <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Automotive Degreaser
+              </div>
+            </a>
+            <a href="/Item_Pages/beatsbydre.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Beats by Dre
+              </div>
+            </a>
+            <a href="/Item_Pages/jblPartybox.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                JBL Partybox
+              </div>
+            </a>
+            <a href="/Item_Pages/makeup.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Makeup
+              </div>
+            </a>
+            <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Mr Potato Head
+              </div>
+            </a>
+            <a href="/Item_Pages/olympusCamera.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Olympus Camera
+              </div>
+            </a>
+            <a href="/Item_Pages/pillow.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Pillow
+              </div>
+            </a>
+            <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                RC Race Car
+              </div>
+            </a>
+            <a href="/Item_Pages/simonRabbit.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Simon Rabbit
+              </div>
+            </a>
+            <a href="/Item_Pages/truthHoodie.html" target="_blank">
+              <div id="search-item-names" class="search-item-names">
+                Truth Hoodie
+              </div>
+            </a>
+          </div>
+          <div id="search-submit-container">
+            <input id="search-submit" type="image" src="/resources/images/search-button.jpg" alt="Submit" />
+          </div>
+        </div>
+        <div class="header-items-container">
+          <div class="acc-dropdown">
+            <div class="acc-dropbtn">
+              <img class="person-account-icon" src="/resources/images/person-account-icon.png" />
+              <div class="acc-category-dropdown-title">
+                <h4>Account</h4>
+                <img class="acc-up-menu-arrow-black" src="/resources/images/menu-arrow-white.png" width="20"
+                  height="20" />
+              </div>
+            </div>
+            <div class="acc-dropdown-content">
+              <div class="acc-img-title-container">
+                <div class="account-img"></div>
+                <div class="acc-title-sign-wrap">
+                  <div id="signed-in-text-notification">
+                    Welcome back, User!
+                  </div>
+                  <div id="signed-out-text-notification">
+                    You're signed out
+                  </div>
+                  <div id="sign-out" onclick="signOut()">Sign out</div>
+                  <a href="/signIn.html">
+                    <button id="sign-in" onclick="signIn()">Sign in</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-icon-text-checkout">
+            <a href="/Checkout_Pages/shoppingCart.html"><img class="cart-check-out-white"
+                src="/resources/images/check-out-cart-white.png" /></a>
+            <div class="cart-number-cart-text-wrap">
+              <a href="/Checkout_Pages/shoppingCart.html">
+                <h4 id="cart-number"></h4>
+              </a>
+              <a href="/Checkout_Pages/shoppingCart.html">
+                <h4 class="cart-text">Cart</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="main-content-wrap-SC">
+    <div class="cart-body">
+      <div class="cart-main">
+        <div class="group-header-container">
+          <div class="group-header-wrap">
+            <div class="cart-header-content">
+              <div class="cart-header-title">
+                Shopping Cart (<span id="shopping-cart-number"></span>)
+              </div>
+            </div>
+            <div class="cart-header-checkbox">
+              <div class="cart-header-checkbox-wrap">
+                <label class="check-select-all-wrap">
+                  <div class="select-all-empty-circle-check-mark-icon-sc"></div>
+                  <svg class="select-all-check-mark-icon-SC"></svg>
+                  <span class="select-all-items-text">Select all items</span>
+                </label>
+                <div class="cart-header-delete-wrap">
+                  <div class="cart-header-delete-items-text">
+                    Delete selected items
+                  </div>
+                </div>
+                <!-- Prompt to delete for all items when "Delete selected items" is pressed -->
+                <div id="custom-prompt-co">
+                  <div class="content-btn">
+                    <span id="close-btn">
+                      <div id="close-btn-x-symbol"></div>
+                    </span>
+                    <h2>Remove all</h2>
+                    <p>
+                      This action will remove these item(s) from your shopping
+                      cart.
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap">
+                      <div id="confirm-btn-prompt">
+                        <span id="confirm-btn-prompt-text">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt">
+                        <span id="cancel-btn-prompt-text">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Prompts to delete for individual products if their productCount shows 0 -->
+                <div id="custom-prompt-co-individualCount-one">
+                  <div class="content-btn-individualCount-one">
+                    <span id="close-btn-individualCount-one">
+                      <div id="close-btn-x-symbol-individualCount-one"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-one">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-one">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-one">
+                      <div id="confirm-btn-prompt-individualCount-one">
+                        <span id="confirm-btn-prompt-text-individualCount-one">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-one">
+                        <span id="cancel-btn-prompt-text-individualCount-one">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-two">
+                  <div class="content-btn-individualCount-two">
+                    <span id="close-btn-individualCount-two">
+                      <div id="close-btn-x-symbol-individualCount-two"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-two">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-two">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-two">
+                      <div id="confirm-btn-prompt-individualCount-two">
+                        <span id="confirm-btn-prompt-text-individualCount-two">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-two">
+                        <span id="cancel-btn-prompt-text-individualCount-two">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-three">
+                  <div class="content-btn-individualCount-three">
+                    <span id="close-btn-individualCount-three">
+                      <div id="close-btn-x-symbol-individualCount-three"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-three">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-three">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-three">
+                      <div id="confirm-btn-prompt-individualCount-three">
+                        <span id="confirm-btn-prompt-text-individualCount-three">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-three">
+                        <span id="cancel-btn-prompt-text-individualCount-three">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-four">
+                  <div class="content-btn-individualCount-four">
+                    <span id="close-btn-individualCount-four">
+                      <div id="close-btn-x-symbol-individualCount-four"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-four">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-four">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-four">
+                      <div id="confirm-btn-prompt-individualCount-four">
+                        <span id="confirm-btn-prompt-text-individualCount-four">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-four">
+                        <span id="cancel-btn-prompt-text-individualCount-four">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-five">
+                  <div class="content-btn-individualCount-five">
+                    <span id="close-btn-individualCount-five">
+                      <div id="close-btn-x-symbol-individualCount-five"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-five">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-five">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-five">
+                      <div id="confirm-btn-prompt-individualCount-five">
+                        <span id="confirm-btn-prompt-text-individualCount-five">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-five">
+                        <span id="cancel-btn-prompt-text-individualCount-five">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-six">
+                  <div class="content-btn-individualCount-six">
+                    <span id="close-btn-individualCount-six">
+                      <div id="close-btn-x-symbol-individualCount-six"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-six">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-six">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-six">
+                      <div id="confirm-btn-prompt-individualCount-six">
+                        <span id="confirm-btn-prompt-text-individualCount-six">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-six">
+                        <span id="cancel-btn-prompt-text-individualCount-six">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-seven">
+                  <div class="content-btn-individualCount-seven">
+                    <span id="close-btn-individualCount-seven">
+                      <div id="close-btn-x-symbol-individualCount-seven"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-seven">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-seven">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-seven">
+                      <div id="confirm-btn-prompt-individualCount-seven">
+                        <span id="confirm-btn-prompt-text-individualCount-seven">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-seven">
+                        <span id="cancel-btn-prompt-text-individualCount-seven">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-eight">
+                  <div class="content-btn-individualCount-eight">
+                    <span id="close-btn-individualCount-eight">
+                      <div id="close-btn-x-symbol-individualCount-eight"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-eight">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-eight">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-eight">
+                      <div id="confirm-btn-prompt-individualCount-eight">
+                        <span id="confirm-btn-prompt-text-individualCount-eight">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-eight">
+                        <span id="cancel-btn-prompt-text-individualCount-eight">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-nine">
+                  <div class="content-btn-individualCount-nine">
+                    <span id="close-btn-individualCount-nine">
+                      <div id="close-btn-x-symbol-individualCount-nine"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-nine">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-nine">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-nine">
+                      <div id="confirm-btn-prompt-individualCount-nine">
+                        <span id="confirm-btn-prompt-text-individualCount-nine">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-nine">
+                        <span id="cancel-btn-prompt-text-individualCount-nine">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-ten">
+                  <div class="content-btn-individualCount-ten">
+                    <span id="close-btn-individualCount-ten">
+                      <div id="close-btn-x-symbol-individualCount-ten"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-ten">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-ten">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-ten">
+                      <div id="confirm-btn-prompt-individualCount-ten">
+                        <span id="confirm-btn-prompt-text-individualCount-ten">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-ten">
+                        <span id="cancel-btn-prompt-text-individualCount-ten">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="custom-prompt-co-individualCount-eleven">
+                  <div class="content-btn-individualCount-eleven">
+                    <span id="close-btn-individualCount-eleven">
+                      <div id="close-btn-x-symbol-individualCount-eleven"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-eleven">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-eleven">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-eleven">
+                      <div id="confirm-btn-prompt-individualCount-eleven">
+                        <span id="confirm-btn-prompt-text-individualCount-eleven">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-eleven">
+                        <span id="cancel-btn-prompt-text-individualCount-eleven">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt one -->
+                <div id="custom-prompt-co-individualCount-trash-one">
+                  <div class="content-btn-individualCount-trash-one">
+                    <span id="close-btn-individualCount-trash-one">
+                      <div id="close-btn-x-symbol-individualCount-trash-one"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-one">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-one">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-one">
+                      <div id="confirm-btn-prompt-individualCount-trash-one">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-one">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-one">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-one">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt two -->
+                <div id="custom-prompt-co-individualCount-trash-two">
+                  <div class="content-btn-individualCount-trash-two">
+                    <span id="close-btn-individualCount-trash-two">
+                      <div id="close-btn-x-symbol-individualCount-trash-two"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-two">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-two">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-two">
+                      <div id="confirm-btn-prompt-individualCount-trash-two">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-two">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-two">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-two">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt three -->
+                <div id="custom-prompt-co-individualCount-trash-three">
+                  <div class="content-btn-individualCount-trash-three">
+                    <span id="close-btn-individualCount-trash-three">
+                      <div id="close-btn-x-symbol-individualCount-trash-three"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-three">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-three">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-three">
+                      <div id="confirm-btn-prompt-individualCount-trash-three">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-three">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-three">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-three">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt four -->
+                <div id="custom-prompt-co-individualCount-trash-four">
+                  <div class="content-btn-individualCount-trash-four">
+                    <span id="close-btn-individualCount-trash-four">
+                      <div id="close-btn-x-symbol-individualCount-trash-four"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-four">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-four">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-four">
+                      <div id="confirm-btn-prompt-individualCount-trash-four">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-four">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-four">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-four">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt five -->
+                <div id="custom-prompt-co-individualCount-trash-five">
+                  <div class="content-btn-individualCount-trash-five">
+                    <span id="close-btn-individualCount-trash-five">
+                      <div id="close-btn-x-symbol-individualCount-trash-five"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-five">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-five">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-five">
+                      <div id="confirm-btn-prompt-individualCount-trash-five">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-five">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-five">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-five">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt six -->
+                <div id="custom-prompt-co-individualCount-trash-six">
+                  <div class="content-btn-individualCount-trash-six">
+                    <span id="close-btn-individualCount-trash-six">
+                      <div id="close-btn-x-symbol-individualCount-trash-six"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-six">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-six">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-six">
+                      <div id="confirm-btn-prompt-individualCount-trash-six">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-six">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-six">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-six">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt seven -->
+                <div id="custom-prompt-co-individualCount-trash-seven">
+                  <div class="content-btn-individualCount-trash-seven">
+                    <span id="close-btn-individualCount-trash-seven">
+                      <div id="close-btn-x-symbol-individualCount-trash-seven"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-seven">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-seven">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-seven">
+                      <div id="confirm-btn-prompt-individualCount-trash-seven">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-seven">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-seven">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-seven">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt eight -->
+                <div id="custom-prompt-co-individualCount-trash-eight">
+                  <div class="content-btn-individualCount-trash-eight">
+                    <span id="close-btn-individualCount-trash-eight">
+                      <div id="close-btn-x-symbol-individualCount-trash-eight"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-eight">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-eight">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-eight">
+                      <div id="confirm-btn-prompt-individualCount-trash-eight">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-eight">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-eight">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-eight">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt nine -->
+                <div id="custom-prompt-co-individualCount-trash-nine">
+                  <div class="content-btn-individualCount-trash-nine">
+                    <span id="close-btn-individualCount-trash-nine">
+                      <div id="close-btn-x-symbol-individualCount-trash-nine"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-nine">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-nine">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-nine">
+                      <div id="confirm-btn-prompt-individualCount-trash-nine">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-nine">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-nine">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-nine">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt ten -->
+                <div id="custom-prompt-co-individualCount-trash-ten">
+                  <div class="content-btn-individualCount-trash-ten">
+                    <span id="close-btn-individualCount-trash-ten">
+                      <div id="close-btn-x-symbol-individualCount-trash-ten"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-ten">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-ten">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-ten">
+                      <div id="confirm-btn-prompt-individualCount-trash-ten">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-ten">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-ten">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-ten">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- trashcan prompt eleven -->
+                <div id="custom-prompt-co-individualCount-trash-eleven">
+                  <div class="content-btn-individualCount-trash-eleven">
+                    <span id="close-btn-individualCount-trash-eleven">
+                      <div id="close-btn-x-symbol-individualCount-trash-eleven"></div>
+                    </span>
+                    <h2 id="prompt-title-individualCount-trash-eleven">
+                      Remove Product
+                    </h2>
+                    <p id="prompt-text-individualCount-trash-eleven">
+                      Remove item from cart?
+                    </p>
+                    <div class="confirm-cancel-prompt-wrap-individualCount-trash-eleven">
+                      <div id="confirm-btn-prompt-individualCount-trash-eleven">
+                        <span id="confirm-btn-prompt-text-individualCount-trash-eleven">Remove</span>
+                      </div>
+                      <div id="cancel-btn-prompt-individualCount-trash-eleven">
+                        <span id="cancel-btn-prompt-text-individualCount-trash-eleven">Cancel</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-list">
+          <div class="cart-list-group-container">
+            <div class="cl-group-title-ctn"></div>
+            <div class="group-shop-container">
+              <div class="cart-product-details-wrap-one">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-one-icon-check-mark-empty_id" class="product-one-empty-circle-check-mark-icon-sc"></div>
+                    <svg id="p-one-icon-check-mark_id" class="product-one-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-one" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-one">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-one"
+                        title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White"
+                        onclick="window.open(localStorage.getItem('productPriceOne_fiftyOff') ? '/Item_Pages/fiftyOff_items/pillow_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceOne_underTwo') ? '/Item_Pages/underTwo_items/pillow_underTwo.html' : 
+                                                         localStorage.getItem('productPriceOne_superDeals') ? '/Item_Pages/superDeals_items/pillow_superDeals.html' : 
+                                                         '/Item_Pages/pillow.html', '_blank');">
+                        Basics Down Alternative Bed Pillow, Medium Density for
+                        Back and Side Sleepers, Standard, 26 x 20 Inch - Pack
+                        of 2, White
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-one"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-one">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-one" onclick="decrementProductCountOne()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountOne">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-one"
+                            onclick="incrementProductCountOne()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-two">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-two-icon-check-mark-empty_id" class="product-two-empty-circle-check-mark-icon-sc"></div>
+                    <svg id="p-two-icon-check-mark_id" class="product-two-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-two" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-two">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-two" title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green"
+                        onclick="window.open(localStorage.getItem('productPriceTwo_fiftyOff') ? '/Item_Pages/fiftyOff_items/rcRaceCar_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceTwo_underTwo') ? '/Item_Pages/underTwo_items/rcRaceCar_underTwo.html' : 
+                                                         localStorage.getItem('productPriceTwo_superDeals') ? '/Item_Pages/superDeals_items/rcRaceCar_superDeals.html' : 
+                                                         '/Item_Pages/rcRaceCar.html', '_blank');">
+                        Adventure Force Radio Control 1:8 Trail Chaser Buggy,
+                        Green
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-two"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-two">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-two" onclick="decrementProductCountTwo()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountTwo">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-two"
+                            onclick="incrementProductCountTwo()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-three">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-three-icon-check-mark-empty_id" class="product-three-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-three-icon-check-mark_id" class="product-three-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-three" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-three">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-three" title="Olympus OM-1 | 35mm Film Camera" onclick="window.open(localStorage.getItem('productPriceThree_fiftyOff') ? '/Item_Pages/fiftyOff_items/olympusCamera_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceThree_underTwo') ? '/Item_Pages/underTwo_items/olympusCamera_underTwo.html' : 
+                                                         localStorage.getItem('productPriceThree_superDeals') ? '/Item_Pages/superDeals_items/olympusCamera_superDeals.html' : 
+                                                         '/Item_Pages/olympusCamera.html', '_blank');">
+                        Olympus OM-1 | 35mm Film Camera
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-three"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-three">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-three" onclick="decrementProductCountThree()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountThree">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-three"
+                            onclick="incrementProductCountThree()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-four">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-four-icon-check-mark-empty_id" class="product-four-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-four-icon-check-mark_id" class="product-four-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-four" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-four">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-four"
+                        title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll"
+                        onclick="window.open(localStorage.getItem('productPriceFour_fiftyOff') ? '/Item_Pages/fiftyOff_items/mrPotatoHead_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceFour_underTwo') ? '/Item_Pages/underTwo_items/mrPotatoHead_underTwo.html' : 
+                                                         localStorage.getItem('productPriceFour_superDeals') ? '/Item_Pages/superDeals_items/mrPotatoHead_superDeals.html' : 
+                                                         '/Item_Pages/mrPotatoHead.html', '_blank');">
+                        New Mr. Potato Head Playskool Egg Head Toy Fun
+                        Assembled Gift Figure Collection Hobby Mrs Potatoes
+                        The Joker Surprise Gifts Doll
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-four"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-four">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-four" onclick="decrementProductCountFour()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountFour">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-four"
+                            onclick="incrementProductCountFour()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-five">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-five-icon-check-mark-empty_id" class="product-five-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-five-icon-check-mark_id" class="product-five-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-five" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-five">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-five"
+                        title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)"
+                        onclick="window.open(localStorage.getItem('productPriceFive_fiftyOff') ? '/Item_Pages/fiftyOff_items/makeup_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceFive_underTwo') ? '/Item_Pages/underTwo_items/makeup_underTwo.html' : 
+                                                         localStorage.getItem('productPriceFive_superDeals') ? '/Item_Pages/superDeals_items/makeup_superDeals.html' : 
+                                                         '/Item_Pages/makeup.html', '_blank');">
+                        All In One Makeup Kit 12 Colors Naked Eyeshadow
+                        Palette, Makeup Brush, Buff Beige Foundation, Vibely
+                        Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap
+                        Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full
+                        Kit (Set B)
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-five"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-five">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-five" onclick="decrementProductCountFive()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountFive">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-five"
+                            onclick="incrementProductCountFive()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-six">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-six-icon-check-mark-empty_id" class="product-six-empty-circle-check-mark-icon-sc"></div>
+                    <svg id="p-six-icon-check-mark_id" class="product-six-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-six" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-six">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-six"
+                        title="Beats by Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon)"
+                        onclick="window.open(localStorage.getItem('productPriceSix_fiftyOff') ? '/Item_Pages/fiftyOff_items/beatsbydre_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceSix_underTwo') ? '/Item_Pages/underTwo_items/beatsbydre_underTwo.html' : 
+                                                         localStorage.getItem('productPriceSix_superDeals') ? '/Item_Pages/superDeals_items/beatsbydre_superDeals.html' : 
+                                                         '/Item_Pages/beatsbydre.html', '_blank');">
+                        Beats by Dr. Dre Beats Solo3 Wireless On-Ear
+                        Headphones ((PRODUCT)RED Citrus Red / Icon)
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-six"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-six">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-six" onclick="decrementProductCountSix()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountSix">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-six"
+                            onclick="incrementProductCountSix()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-seven">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-seven-icon-check-mark-empty_id" class="product-seven-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-seven-icon-check-mark_id" class="product-seven-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-seven" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-seven">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-seven"
+                        title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show"
+                        onclick="window.open(localStorage.getItem('productPriceSeven_fiftyOff') ? '/Item_Pages/fiftyOff_items/jblPartybox_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceSeven_underTwo') ? '/Item_Pages/underTwo_items/jblPartybox_underTwo.html' : 
+                                                         localStorage.getItem('productPriceSeven_superDeals') ? '/Item_Pages/superDeals_items/jblPartybox_superDeals.html' : 
+                                                         '/Item_Pages/jblPartybox.html', '_blank');">
+                        JBL 100% Original Partybox Encore Essential Wireless
+                        Bluetooth Speaker Portable 100W Sound Built-In Dynamic
+                        Light Show
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-seven"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-seven">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-seven" onclick="decrementProductCountSeven()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountSeven">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-seven"
+                            onclick="incrementProductCountSeven()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-eight">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-eight-icon-check-mark-empty_id" class="product-eight-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-eight-icon-check-mark_id" class="product-eight-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-eight" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-eight">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-eight"
+                        title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)" onclick="window.open(localStorage.getItem('productPriceEight_fiftyOff') ? '/Item_Pages/fiftyOff_items/simonRabbit_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceEight_underTwo') ? '/Item_Pages/underTwo_items/simonRabbit_underTwo.html' : 
+                                                         localStorage.getItem('productPriceEight_superDeals') ? '/Item_Pages/superDeals_items/simonRabbit_superDeals.html' : 
+                                                         '/Item_Pages/simonRabbit.html', '_blank');">
+                        Simon – Plush toy Rabbit Simon Quality super soft
+                        (11’41″/29cm, SUPER HERO)
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-eight"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-eight">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-eight" onclick="decrementProductCountEight()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountEight">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-eight"
+                            onclick="incrementProductCountEight()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-nine">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-nine-icon-check-mark-empty_id" class="product-nine-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-nine-icon-check-mark_id" class="product-nine-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-nine" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-nine">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-nine" title="New York Times Truth Hoodie" onclick="window.open(localStorage.getItem('productPriceNine_fiftyOff') ? '/Item_Pages/fiftyOff_items/truthHoodie_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceNine_underTwo') ? '/Item_Pages/underTwo_items/truthHoodie_underTwo.html' : 
+                                                         localStorage.getItem('productPriceNine_superDeals') ? '/Item_Pages/superDeals_items/truthHoodie_superDeals.html' : 
+                                                         '/Item_Pages/truthHoodie.html', '_blank');">
+                        New York Times Truth Hoodie
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-nine"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-nine">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-nine" onclick="decrementProductCountNine()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountNine">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-nine"
+                            onclick="incrementProductCountNine()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-ten">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-ten-icon-check-mark-empty_id" class="product-ten-empty-circle-check-mark-icon-sc"></div>
+                    <svg id="p-ten-icon-check-mark_id" class="product-ten-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-ten" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-ten">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-ten"
+                        title="Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter Makeup Pallet, Colorful Powder Long Lasting Eye Shadow"
+                        onclick="window.open(localStorage.getItem('productPriceTen_fiftyOff') ? '/Item_Pages/fiftyOff_items/makeupTwo_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceTen_underTwo') ? '/Item_Pages/underTwo_items/makeupTwo_underTwo.html' : 
+                                                         localStorage.getItem('productPriceTen_superDeals') ? '/Item_Pages/superDeals_items/makeupTwo_superDeals.html' : 
+                                                         '/Item_Pages/makeupTwo.html', '_blank');">
+                        Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors
+                        Fusion Eyeshadow Palette, Professional Matte Glitter
+                        Makeup Pallet, Colorful Powder Long Lasting Eye Shadow
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-ten"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-ten">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-ten" onclick="decrementProductCountTen()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountTen">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-ten"
+                            onclick="incrementProductCountTen()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-details-wrap-eleven">
+                <div class="cart-product-details">
+                  <div class="cp-details-left-wrap">
+                    <div id="p-eleven-icon-check-mark-empty_id" class="product-eleven-empty-circle-check-mark-icon-sc">
+                    </div>
+                    <svg id="p-eleven-icon-check-mark_id" class="product-eleven-check-mark-icon-SC"></svg>
+                    <img id="cart-product-img-eleven" src="" />
+                  </div>
+                  <div class="cart-product-info-wrap-eleven">
+                    <div class="product-title-delete-wrap">
+                      <div id="cp-product-title-eleven" title="1 Gal. Max Automotive Cleaner and Degreaser" onclick="window.open(localStorage.getItem('productPriceEleven_fiftyOff') ? '/Item_Pages/fiftyOff_items/automotiveDegreaser_fiftyOff.html' : 
+                                                         localStorage.getItem('productPriceEleven_underTwo') ? '/Item_Pages/underTwo_items/automotiveDegreaser_underTwo.html' : 
+                                                         localStorage.getItem('productPriceEleven_superDeals') ? '/Item_Pages/superDeals_items/automotiveDegreaser_superDeals.html' : 
+                                                         '/Item_Pages/automotiveDegreaser.html', '_blank');">
+                        1 Gal. Max Automotive Cleaner and Degreaser
+                      </div>
+                      <div class="cart-delete-trash-icon-wrap">
+                        <div class="co-trashcan-delete-eleven"></div>
+                      </div>
+                    </div>
+                    <div class="cp-block-price-wrapper">
+                      <div id="cp-price-eleven">0.00</div>
+                      <div class="quantity-plus-minus-icons-wrap-co">
+                        <div>
+                          <div class="quantity-minus-icons-radius-co-eleven" onclick="decrementProductCountEleven()"
+                            id="decrementButton">
+                            <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+                          </div>
+                        </div>
+                        <div class="action-box-text-co" id="productCountEleven">
+                          1
+                        </div>
+                        <div>
+                          <div id="incrementButton" class="quantity-plus-icons-radius-co-eleven"
+                            onclick="incrementProductCountEleven()">
+                            <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="return-shipping-text-wrap">
+                      <div class="cp-free-returns-text">Free returns</div>
+                      <div class="cp-free-shipping-text">Free shipping</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-right-side">
+        <div class="cart-summary">
+          <div class="cart-summary-title">Summary</div>
+          <div class="cart-summary-list">
+            <div class="summary-list-subtotal-price-wrap">
+              <div class="summary-subtotal-text">Subtotal</div>
+              <div class="summary-subtitle-price" id="multiplied-subtotal">
+                0
+              </div>
+            </div>
+            <div class="summary-list-shipping-wrap">
+              <div class="summary-shipping-text">Shipping</div>
+              <div class="summary-shipping-price">Free</div>
+            </div>
+            <div class="summary-list-tax-wrap">
+              <div class="summary-tax-text">Tax</div>
+              <div class="summary-tax-price" id="calculated-tax">0</div>
+            </div>
+            <div class="summary-list-total-price-wrap">
+              <div class="summary-total-text">Total</div>
+              <div class="summary-total-price">
+                <span class="summary-total-price-span" id="multiplied-total">0</span>
+              </div>
+            </div>
+          </div>
+          <a href="/Checkout_Pages/checkOut.html" onclick="window.location.reload();">
+            <button class="cp-checkout-button">
+              <span class="cp-checkout-button-span">Checkout (<span id="cart-number-checkout"></span>)</span>
+            </button>
+          </a>
+        </div>
+        <div class="cp-payment-options">
+          <div class="cp-pay-with-title">Pay with</div>
+          <div class="cp-pay-with-list">
+            <img class="cp-cart-icon-visa"
+              src="https://ae01.alicdn.com/kf/S4235fb14b1774ed2a85494fbef85c02d9/216x144.png" />
+            <img class="cp-cart-icon-mastercard"
+              src="https://ae01.alicdn.com/kf/S7b20ce778ba44e60a062008c35e98b57M/216x144.png" />
+            <img class="cp-cart-icon-americanexpress"
+              src="https://ae01.alicdn.com/kf/S91ee3e0f4fde4535aad35f7c30f6bacfh/216x144.png" />
+            <img class="cp-cart-icon-discover"
+              src="https://ae01.alicdn.com/kf/Sf14f351eb8754ed29274ff420aae88b4y/216x144.png" />
+            <img class="cp-cart-icon-paypal"
+              src="https://ae01.alicdn.com/kf/S8df1a1d99c8049d1b1a86c9a144719b6W/216x144.png" />
+            <img class="cp-cart-icon-gpay"
+              src="https://ae01.alicdn.com/kf/S173da9e53a234dcb9795cebd1856c4d7J/216x144.png" />
+            <img class="cp-cart-icon-payafter"
+              src="https://ae01.alicdn.com/kf/Sdf4f036432294444ac2d1d1dd96ec54ak/333x72.png" />
+            <img class="cp-cart-icon-applepay"
+              src="https://ae01.alicdn.com/kf/S2a5881f5906b4fb58a0c6da600ddf7bf1/216x144.png" />
+          </div>
+          <div class="cp-cart-icons-line"></div>
+          <div class="cp-buyer-protection-title">Buyer protection</div>
+          <div class="cp-buyer-protection-checkmark-sub-wrap">
+            <img class="cp-buyer-protection-checkmark"
+              src="https://ae01.alicdn.com/kf/S5d155b426fd74b24bd10e73f9ac90a93b/64x76.png" height="21"
+              style="vertical-align: middle" />&nbsp; Get full refund if the item is not as described or if is
+            not delivered
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="footer-main-sc">
+    <div class="footer-all-cnt-wrap">
+      <div class="footer-bottom-half-sc">
+        <div class="footer-top-wrap-sc">
+          <div class="footer-help-cnt">
+            <dl class="footer-help-dl">
+              <dt class="dt-help">Help</dt>
+              <dd class="dd-footer-help">
+                <a>Help Center</a>, Help Center, Disputes & Reports, Buyer
+                Protection, Report IPR infringement, Regulated Information,
+                Integrity Compliance, Transparency Center, Non-login complaint
+                entrance
+              </dd>
+            </dl>
+          </div>
+          <div class="footer-language-cnt">
+            <dl class="footer-language-dl">
+              <dt class="dt-language">AliExpress Multi-Language Sites</dt>
+              <dd class="dd-footer-language">
+                Russian, Portuguese, Spanish, French, German, Italian, Dutch,
+                Turkish, Japanese, Korean, Thai, Vietnamese, Arabic, Hebrew,
+                Polish
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="footer-bottom-wrap-sc">
+          <div class="footer-browse-cnt">
+            <dl class="footer-browse-dl">
+              <dt class="dt-browse">Browse by Category</dt>
+              <dd class="dd-footer-browse">
+                <span>
+                  All Popular, Product, Promotion, Low Price, Great Value,
+                  Reviews Blog, Seller Portal, BLACK FRIDAY, AliExpress
+                  Assistant
+                </span>
+              </dd>
+            </dl>
+          </div>
+          <div class="footer-alibaba-group-cnt">
+            <dl class="footer-alibaba-group-dl">
+              <dt class="dt-alibaba-group">Alibaba Group</dt>
+              <dd class="dd-footer-alibaba-group">
+                Alibaba Group Website, AliExpress, Alimama, Alipay, Fliggy,
+                Alibaba Cloud, Alibaba International, AliTelecom, DingTalk,
+                Juhuasuan, Taobao Marketplace, Tmall, Taobao Global, AliOS,
+                1688
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copywrite-sc">
+    <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
+  </div>
+  <!-- JS SCRIPT -->
+  <script src="/resources/JS/index.js"></script>
+  <script src="/resources/JS/shoppingCartEmpty.js"></script>
+  <script src="/resources/JS/displayLocalStorageImg.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/shoppingCart.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/customDisplayPromptManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/productCountSubtotalManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/productCheckmarkManager.js"></script>
+  <script src="/resources/JS/noMatch.js"></script>
+</body>
+
+</html>

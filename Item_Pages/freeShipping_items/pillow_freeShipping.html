@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
+  <title>Pillow</title>
+</head>
+<!-- ^$\n -->
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- NAV -->
+    <div class="upper-nav-container">
+      <div class="upper-nav">
+        <div class="upper-nav-items-container">
+          <div class="name-logo-container">
+            <a href="/index.html" style="text-decoration:none">
+              <div class="name-logo-container-link-director_pp"></div>
+            </a>
+            <div class="name-logo" href="/Item_Pages/beatsbydre.html">
+              <div class="circle-menu-background_pp">
+                <img class="circle-menu-img_pp"
+                  src="https://ae01.alicdn.com/kf/S6f0463893f4341e49c75f0dc3bb85ffbo/36x36.png" />
+                <div class="circle-menu-hover-keeper"></div>
+                <div class="circle-menu-hover-box">
+                  <div class="inside-menu-title-container">
+                    <div class="inside-menu-drop-box"></div>
+                    <div class="category-dropdown-title_pp">
+                      All Items
+                    </div>
+                  </div>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/automotiveDegreaser.html">Automotive
+                    Degreaser</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by Dre</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL Partybox</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/makeup.html">Makeup</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr Potato Head</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus Camera</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/pillow.html">Pillow</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race Car</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon Rabbit</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth Hoodie</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="search-bar-container">
+            <input id="search-bar" type="text" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
+              placeholder="Search items..">
+            <div id="search-bar-filler"></div>
+            <div id='search-list'>
+              <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Automotive Degreaser</div>
+              </a>
+              <a href="/Item_Pages/beatsbydre.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Beats by Dre</div>
+              </a>
+              <a href="/Item_Pages/jblPartybox.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">JBL Partybox</div>
+              </a>
+              <a href="/Item_Pages/makeup.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Makeup</div>
+              </a>
+              <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Mr Potato Head</div>
+              </a>
+              <a href="/Item_Pages/olympusCamera.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Olympus Camera</div>
+              </a>
+              <a href="/Item_Pages/pillow.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Pillow</div>
+              </a>
+              <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">RC Race Car</div>
+              </a>
+              <a href="/Item_Pages/simonRabbit.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Simon Rabbit</div>
+              </a>
+              <a href="/Item_Pages/truthHoodie.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Truth Hoodie</div>
+              </a>
+            </div>
+            <div id="search-submit-container"><input id="search-submit" type="image"
+                src="/resources/images/search-button.jpg" alt="Submit">
+            </div>
+          </div>
+          <div class="header-items-container">
+            <div class="acc-dropdown">
+              <div class="acc-dropbtn">
+                <img class="person-account-icon" src="/resources/images/person-account-icon.png" />
+                <div class="acc-category-dropdown-title">
+                  <h4>Account</h4>
+                  <img class="acc-up-menu-arrow-black" src="/resources/images/menu-arrow-white.png" width="20"
+                    height="20" />
+                </div>
+              </div>
+              <div class="acc-dropdown-content">
+                <div class="acc-img-title-container">
+                  <div class="account-img"></div>
+                  <div class="acc-title-sign-wrap">
+                    <div id="signed-in-text-notification">Welcome back, User!</div>
+                    <div id="signed-out-text-notification">You're signed out</div>
+                    <div id="sign-out" onclick="signOut()">Sign out</div>
+                    <a href="/signIn.html">
+                      <button id="sign-in" onclick="signIn()">Sign in</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cart-icon-text-checkout">
+              <a href="/Checkout_Pages/shoppingCart.html"><img class="cart-check-out-white"
+                  src="/resources/images/check-out-cart-white.png" /></a>
+              <div class="cart-number-cart-text-wrap">
+                <a href="/Checkout_Pages/shoppingCart.html">
+                  <h4 id="cart-number"></h4>
+                </a>
+                <a href="/Checkout_Pages/shoppingCart.html">
+                  <h4 class="cart-text">Cart</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- BODY WRAP (TOP LEFT) -->
+  <div class="product-page-body-wrap">
+    <div class="body-wrap-top-left">
+      <div class="main-img-details-block">
+        <div class="main-img-preview-img-wrap">
+          <div class="main-img-container">
+            <img id="main-img" onmousemove="zoomIn(event)" src="/resources/images/pillow.jpg">
+            <div id="mag-overlay_pillow"></div>
+            <div id="mag-overlay-two_pillow"></div>
+          </div>
+          <div class="product-preview-imgs-container-center">
+            <div class="preview-imgs-wrap">
+              <img id="preview-img-one_pillow" src="/resources/images/pillow.jpg"
+                onmouseover="prevImgDecoyFunctionOne_pillow()" />
+              <img id="preview-img-one-after_pillow" src="/resources/images/pillow.jpg" />
+              <img id="preview-img-two_pillow" src="/resources/images/pillow_one.jpg"
+                onmouseover="prevImgDecoyFunctionTwo_pillow()" />
+              <img id="preview-img-two-after_pillow" src="/resources/images/pillow_one.jpg" />
+              <img id="preview-img-three_pillow" src="/resources/images/pillow_side.jpg"
+                onmouseover="prevImgDecoyFunctionThree_pillow()" />
+              <img id="preview-img-three-after_pillow" src="/resources/images/pillow_side.jpg" />
+              <img id="preview-img-four_pillow" src="/resources/images/pillow_push.jpg"
+                onmouseover="prevImgDecoyFunctionFour_pillow()" />
+              <img id="preview-img-four-after_pillow" src="/resources/images/pillow_push.jpg" />
+              <img id="preview-img-five_pillow" src="/resources/images/pillow_details.jpg"
+                onmouseover="prevImgDecoyFunctionFive_pillow()" />
+              <img id="preview-img-five-after_pillow" src="/resources/images/pillow_details.jpg" />
+            </div>
+          </div>
+        </div>
+        <div class="product-info-right-wrap">
+          <div class="price-and-info-wrap">
+            <div class="price-discount-wholesale-wrap">
+              <div class="price-wrap-center-product-page">
+                <!-- #productPrice_change is necessary to update price changes on product pages if the product has deals. -->
+                <div id="productPrice_change"></div>
+                <div class="product-price-inline_pillow">
+                  <span class="price-digits-dollarSign">$</span>
+                  <span class="price-digits-space"></span>
+                  <!-- <span class="price-digits-hundreds">1</span> -->
+                  <span class="price-digits-tens">2</span>
+                  <span class="price-digits-ones">3</span>
+                  <span class="price-digits-period">.</span>
+                  <span class="price-digits-tenths">5</span>
+                  <span class="price-digits-hundreths">0</span>
+                </div>
+                <div class="reduced-price-percent-wrap">
+                  <div class="reduced-price-product-page">$299.90</div>
+                  <div class="percent-discount-product-page">-50%</div>
+                </div>
+              </div>
+              <img class="wholesale-icon" src="/resources/images/wholesale-icon.jpg" />
+            </div>
+          </div>
+          <h1 class="product-info-highlights">Basics Down Alternative Bed Pillow, Medium Density for Back and Side
+            Sleepers, Standard, 26 x 20 Inch - Pack of 2, White</h1>
+          <div class="sold-amount-product-page">4 sold</div>
+          <hr class="divider-product-section">
+        </div>
+      </div>
+      <hr class="row-divider">
+      <h1 class="category-title">Description</h1>
+      <p class="description-title-sub">
+        Standard-size medium density pillow (2-pack) offers exceptional comfort and support; ideal for back and side
+        sleepers.
+        Down alternative fill for a supportive, plush feel; a great option for allergy sufferers.
+        100% polyester microfiber shell provides a smooth, soft surface; piping along the edge creates a neatly tailored
+        look.
+        <br><br>
+      </p>
+      <img class="decription-section-imgs" src="/resources/images/pillow.jpg" />
+      <img class="decription-section-imgs" src="/resources/images/pillow_details.jpg" />
+      <p class="decription-specs-section-imgs-sub-info">
+        <br><br>
+        PACKAGE DIMENSIONS: 17.2 x 12.1 x 6.3 inches
+        <br><br>
+        SHIPPING<br>
+        We offer FAST AND FREE SHIPPING on all USA orders<br>
+        We usually handle the order within 4 days (often 2 to 3 days), and it usually takes 3 days for delivery. It
+        means you will receive your order no later than 7 days after payment.<br>
+        We use USPS, UPS Ground, or FedEx.<br>
+        Local pick-up is not available at the moment<br>
+        We DO NOT offer shipping options to PO BOX addresses, warehouse addresses, or freight company addresses.<br>
+        <br>
+        RETURN<br>
+        We offer 30 Days' Returns<br>
+        The item needs to return in NEW condition and with the original packing<br>
+        Free returns are available<br>
+        PLEASE CONTACT US BEFORE OPENING A RETURN REQUEST<br>
+        <br>
+        FEEDBACK<br>
+        Customer Service is our priority<br>
+        If you are happy with your purchase, 5-star feedback will be much appreciated, and we will leave feedback right
+        back.<br>
+        If you have any problems with the order, please contact us, we will do our best to fix the problem.<br>
+        Please give us the opportunity to solve the problem before leaving any negative feedback.<br>
+        We will guarantee that your issue will be resolved quickly.
+      </p>
+      <hr class="row-divider">
+      <h1 class="category-title">Specifications</h1>
+      <div class="origin-boxes-wrap">
+        <div class="origin-box"><span class="decription-specs-section-imgs-sub-info"
+            style="font-size: 15px;">Origin</span></div>
+        <div class="US-origin-box"><span class="decription-specs-section-imgs-sub-info"
+            style="font-size: 15px;">US(Origin)</span></div>
+      </div>
+      <hr class="row-divider">
+    </div>
+    <!-- ACTION BOX -->
+    <div class="body-wrap-top-right">
+      <div class="action-box-container">
+        <div id="action-box-top-id" class="action-box-top action-box-top-hide">
+          <div class="action-box-top-price-wrap">
+            <div class="dollar-sign-product-page-action-box-top">$</div>
+            <!-- <div class="hundreds-digit-product-page-action-box-top">1</div> -->
+            <div class="tens-digit-product-page-action-box-top">2</div>
+            <div class="ones-digit-product-page-action-box-top">3</div>
+            <div class="decimal-point-product-page-action-box-top">.</div>
+            <div class="tenths-digit-product-page-action-box-top">5</div>
+            <div class="one-hundreths-digit-product-page-action-box-top">0</div>
+          </div>
+          <div class="action-box-top-before-tax">
+            <div class="action-box-top-before-tax-text">Price shown before tax</div>
+          </div>
+        </div>
+        <div class="action-box-wrap">
+          <div class="ship-destination-wrap">
+            <div class="action-box-text">Ship to</div>
+            <div class="destination-icon-location-wrap">
+              <img class="destination-icon" src="/resources/images/destination-icon.png" />
+              <div class="ship-to-location">New York, New York, United States</div>
+            </div>
+          </div>
+          <hr class="action-box-divider">
+          <div class="action-box-text-sections-wrap">
+            <div class="action-box-text">Delivery</div>
+            <div style="font-size: small;">></div>
+          </div>
+          <div class="action-box-text" style="font-size: 15px;">Free Shipping</div>
+          <div style="color: #666666; font-size: 15px; font-weight: 200">Estimated Delivery:
+            5-9 days</div>
+          <hr class="action-box-divider">
+          <div class="action-box-text-sections-wrap">
+            <div class="action-box-text" style="font-size: 15px;">Service</div>
+            <div style="font-size: small;">></div>
+          </div>
+          <div style="color: rgb(0, 153, 102); font-size: 15px; font-weight: 200; margin-top: 4px;">Free Returns</div>
+          <hr class="action-box-divider">
+          <div class="action-box-text" style="font-size: 15px;">Quantity</div>
+          <div class="quantity-plus-minus-icons-wrap-co">
+            <div onclick="divideCount()">
+              <div class="quantity-minus-icons-radius-co-one" onclick="decrementProductCountOne()">
+                <img class="quantity-minus-icon-co" src="/resources/images/minus-icon-black.png" />
+              </div>
+            </div>
+            <div class="action-box-text-co" id="productCountOne">1</div>
+            <div onclick="multiplyCount()">
+              <div class="quantity-plus-icons-radius-co-one" onclick="incrementProductCountOne()">
+                <img class="quantity-plus-icon-co" src="/resources/images/plus-icon-black.png" />
+              </div>
+            </div>
+          </div>
+          <div style="color: #666666; font-size: 15px; font-weight: 200">2+ pieces extra 5% off</div>
+          <div style="color: rgb(255, 65, 47); font-size: 15px; font-weight: 200">Only 8 left</div>
+          <a id="localStorageImg" src="/resources/images/beatsbydre.jpg" href="/Checkout_Pages/buyNow_checkOut.html"
+            onclick="updateImagePillow()">
+            <div id="buy-now-wrap">
+              <div class="buy-now-text">Buy now</div>
+            </div>
+          </a>
+          <div class="add-to-cart-wrap"
+            onclick="clickCounter('pillow'); showAdded_addToCartBtn(this); updateImagePillow()">
+            <div class="add-to-cart-text">Add to Cart</div>
+            <div class="notification-text-add-to-cart-button"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="category-title">You may also like</h1>
+    <!-- BODY WRAP (BOTTOM) -->
+    <div class="recommended-imgs-row-wrap">
+      <a href="/Item_Pages/pillow.html" target="_blank">
+        <div class="recommended-img-card_pillow">
+          <img class="recommended-imgs" id="localStorageImg-Pillow" src="/resources/images/pillow.jpg">
+          <div class="product-page-add-on-icon-pillow"
+            onclick="clickCounter('pillow'); showAdded(this); updateImagePillow(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+              Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch -
+              Pack
+              of
+              2, White
+            </div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+        <div class="recommended-img-card_car">
+          <img class="recommended-imgs" id="localStorageImg-RCCar" src="/resources/images/rc-toy.jpg">
+          <div class="product-page-add-on-icon-rccar"
+            onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">
+              Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green
+            </div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>39.97</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/olympusCamera.html" target="_blank">
+        <div class="recommended-img-card_camera">
+          <img class="recommended-imgs" id="localStorageImg-Camera" src="/resources/images/olympus-camera.jpg">
+          <div class="product-page-add-on-icon-camera"
+            onclick="clickCounter('camera'); showAdded(this); updateImageCamera(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text" title="Olympus OM-1 | 35mm Film Camera">
+              Olympus OM-1 | 35mm Film Camera</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>269.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+        <div class="recommended-img-card_potatoHead">
+          <img class="recommended-imgs" id="localStorageImg-PotatoHead" src="/resources/images/potatohead.jpg">
+          <div class="product-page-add-on-icon-potatohead"
+            onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
+              New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The
+              Joker Surprise Gifts Doll</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.98</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/makeup.html" target="_blank">
+        <div class="recommended-img-card_makeupOne">
+          <img class="recommended-imgs" id="localStorageImg-MakeupOne" src="/resources/images/makeup-img.jpg">
+          <div class="product-page-add-on-icon-makeupOne"
+            onclick="clickCounter('makeupone'); showAdded(this); updateImageMakeupOne(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
+              All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely
+              Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women
+              Full Kit (Set B)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.88</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/beatsbydre.html" target="_blank">
+        <div class="recommended-img-card_beats">
+          <img class="recommended-imgs" id="localStorageImg-BeatsByDre" src="/resources/images/beatsbydre.jpg">
+          <div class="product-page-add-on-icon-beatsbydre"
+            onclick="clickCounter('beatsbydre'); showAdded(this); updateImageBeatsByDre(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Beats by Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon">Beats by
+              Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>149.95</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/jblPartybox.html" target="_blank">
+        <div class="recommended-img-card_jbl">
+          <img class="recommended-imgs" id="localStorageImg-JBLspeaker" src="/resources/images/JBLspeaker.jpg">
+          <div class="product-page-add-on-icon-jblspeaker"
+            onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
+              JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In
+              Dynamic Light Show</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>382.93</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/simonRabbit.html" target="_blank">
+        <div class="recommended-img-card_simon">
+          <img class="recommended-imgs" id="localStorageImg-SimonRabbit" src="/resources/images/simon-toy.png">
+          <div class="product-page-add-on-icon-simonrabbit"
+            onclick="clickCounter('simonrabbit'); showAdded(this); updateImageSimonRabbit(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">Simon – Plush toy
+              Rabbit Simon Quality super soft (11’41″/29cm, SUPER
+              HERO)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>24.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="recommended-imgs-row-wrap">
+      <a href="/Item_Pages/truthHoodie.html" target="_blank">
+        <div class="recommended-img-card_truth">
+          <img class="recommended-imgs" id="localStorageImg-TruthHoodie" src="/resources/images/truthhoodie.jpg">
+          <div class="product-page-add-on-icon-truthhoodie"
+            onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text" title="New York Times Truth Hoodie">New York
+              Times Truth Hoodie</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>49.95</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/makeupTwo.html" target="_blank">
+        <div class="recommended-img-card_makeupTwo">
+          <img class="recommended-imgs" id="localStorageImg-MakeupTwo" src="/resources/images/makeup-img-two.jpg">
+          <div class="product-page-add-on-icon-makeupTwo"
+            onclick="clickCounter('makeuptwo'); showAdded(this); updateImageMakeupTwo(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter Makeup Pallet, Colorful Powder Long Lasting Eye Shadow">
+              Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter
+              Makeup Pallet, Colorful Powder Long Lasting Eye Shadow</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.09</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+        <div class="recommended-img-card_degreaser">
+          <img class="recommended-imgs" id="localStorageImg-Degreaser" src="/resources/images/automotiveDegreaser.jpg">
+          <div class="product-page-add-on-icon-degreaser"
+            onclick="clickCounter('degreaser'); showAdded(this); updateImageDegreaser(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="1 Gal. Max Automotive Cleaner and Degreaser">1 Gal. Max Automotive Cleaner and Degreaser</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>8.98</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/simonRabbit.html" target="_blank">
+        <div class="recommended-img-card_simon">
+          <img class="recommended-imgs" id="localStorageImg-SimonRabbit" src="/resources/images/simon-toy.png">
+          <div class="product-page-add-on-icon-simonrabbit"
+            onclick="clickCounter('simonrabbit'); showAdded(this); updateImageSimonRabbit(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">Simon – Plush toy
+              Rabbit Simon Quality super soft (11’41″/29cm, SUPER
+              HERO)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>24.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+        <div class="recommended-img-card_car">
+          <img class="recommended-imgs" id="localStorageImg-RCCar" src="/resources/images/rc-toy.jpg">
+          <div class="product-page-add-on-icon-rccar"
+            onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">Adventure Force Radio Control 1:8
+              Trail Chaser Buggy, Green</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>39.97</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/pillow.html" target="_blank">
+        <div class="recommended-img-card_pillow">
+          <img class="recommended-imgs" id="localStorageImg-Pillow" src="/resources/images/pillow.jpg">
+          <div class="product-page-add-on-icon-pillow"
+            onclick="clickCounter('pillow'); showAdded(this); updateImagePillow(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+              Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch -
+              Pack of 2, White</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/olympusCamera.html" target="_blank">
+        <div class="recommended-img-card_camera">
+          <img class="recommended-imgs" id="localStorageImg-Camera" src="/resources/images/olympus-camera.jpg">
+          <div class="product-page-add-on-icon-camera"
+            onclick="clickCounter('camera'); showAdded(this); updateImageCamera(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text" title="Olympus OM-1 | 35mm Film Camera">
+              Olympus OM-1 | 35mm Film Camera</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>269.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+        <div class="recommended-img-card_potatoHead">
+          <img class="recommended-imgs" id="localStorageImg-PotatoHead" src="/resources/images/potatohead.jpg">
+          <div class="product-page-add-on-icon-potatohead"
+            onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
+              New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The
+              Joker Surprise Gifts Doll</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.98</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="recommended-imgs-row-wrap">
+      <a href="/Item_Pages/makeup.html" target="_blank">
+        <div class="recommended-img-card_makeupOne">
+          <img class="recommended-imgs" id="localStorageImg-MakeupOne" src="/resources/images/makeup-img.jpg">
+          <div class="product-page-add-on-icon-makeupOne"
+            onclick="clickCounter('makeupone'); showAdded(this); updateImageMakeupOne(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
+              All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely
+              Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women
+              Full Kit (Set B)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.88</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/beatsbydre.html" target="_blank">
+        <div class="recommended-img-card_beats">
+          <img class="recommended-imgs" id="localStorageImg-BeatsByDre" src="/resources/images/beatsbydre.jpg">
+          <div class="product-page-add-on-icon-beatsbydre"
+            onclick="clickCounter('beatsbydre'); showAdded(this); updateImageBeatsByDre(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Beats by Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon">Beats by
+              Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>149.95</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+        <div class="recommended-img-card_car">
+          <img class="recommended-imgs" id="localStorageImg-RCCar" src="/resources/images/rc-toy.jpg">
+          <div class="product-page-add-on-icon-rccar"
+            onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">Adventure Force Radio Control 1:8
+              Trail Chaser Buggy, Green</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>39.97</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/pillow.html" target="_blank">
+        <div class="recommended-img-card_pillow">
+          <img class="recommended-imgs" id="localStorageImg-Pillow" src="/resources/images/pillow.jpg">
+          <div class="product-page-add-on-icon-pillow"
+            onclick="clickCounter('pillow'); showAdded(this); updateImagePillow(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+              Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch -
+              Pack of 2, White</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+        <div class="recommended-img-card_potatoHead">
+          <img class="recommended-imgs" id="localStorageImg-PotatoHead" src="/resources/images/potatohead.jpg">
+          <div class="product-page-add-on-icon-potatohead"
+            onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
+              New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The
+              Joker Surprise Gifts Doll</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.98</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/makeupTwo.html" target="_blank">
+        <div class="recommended-img-card_makeupTwo">
+          <img class="recommended-imgs" id="localStorageImg-MakeupTwo" src="/resources/images/makeup-img-two.jpg">
+          <div class="product-page-add-on-icon-makeupTwo"
+            onclick="clickCounter('makeuptwo'); showAdded(this); updateImageMakeupTwo(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter Makeup Pallet, Colorful Powder Long Lasting Eye Shadow">
+              Rechoo 99 Colors Eyeshadow Palette, Rainbow Colors Fusion Eyeshadow Palette, Professional Matte Glitter
+              Makeup Pallet, Colorful Powder Long Lasting Eye Shadow</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.09</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+        <div class="recommended-img-card_degreaser">
+          <img class="recommended-imgs" id="localStorageImg-Degreaser" src="/resources/images/automotiveDegreaser.jpg">
+          <div class="product-page-add-on-icon-degreaser"
+            onclick="clickCounter('degreaser'); showAdded(this); updateImageDegreaser(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="1 Gal. Max Automotive Cleaner and Degreaser">1 Gal. Max Automotive Cleaner and Degreaser</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>8.98</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/truthHoodie.html" target="_blank">
+        <div class="recommended-img-card_truth">
+          <img class="recommended-imgs" id="localStorageImg-TruthHoodie" src="/resources/images/truthhoodie.jpg">
+          <div class="product-page-add-on-icon-truthhoodie"
+            onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text" title="New York Times Truth Hoodie">New York
+              Times Truth Hoodie</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>49.95</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="recommended-imgs-row-wrap">
+      <a href="/Item_Pages/pillow.html" target="_blank">
+        <div class="recommended-img-card_pillow">
+          <img class="recommended-imgs" id="localStorageImg-Pillow" src="/resources/images/pillow.jpg">
+          <div class="product-page-add-on-icon-pillow"
+            onclick="clickCounter('pillow'); showAdded(this); updateImagePillow(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+              Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch -
+              Pack of 2, White</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/jblPartybox.html" target="_blank">
+        <div class="recommended-img-card_jbl">
+          <img class="recommended-imgs" id="localStorageImg-JBLspeaker" src="/resources/images/JBLspeaker.jpg">
+          <div class="product-page-add-on-icon-jblspeaker"
+            onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
+              JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In
+              Dynamic Light Show</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>382.93</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/olympusCamera.html" target="_blank">
+        <div class="recommended-img-card_camera">
+          <img class="recommended-imgs" id="localStorageImg-Camera" src="/resources/images/olympus-camera.jpg">
+          <div class="product-page-add-on-icon-camera"
+            onclick="clickCounter('camera'); showAdded(this); updateImageCamera(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text" title="Olympus OM-1 | 35mm Film Camera">
+              Olympus OM-1 | 35mm Film Camera</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>269.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/simonRabbit.html" target="_blank">
+        <div class="recommended-img-card_simon">
+          <img class="recommended-imgs" id="localStorageImg-SimonRabbit" src="/resources/images/simon-toy.png">
+          <div class="product-page-add-on-icon-simonrabbit"
+            onclick="clickCounter('simonrabbit'); showAdded(this); updateImageSimonRabbit(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">Simon – Plush toy
+              Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>24.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/beatsbydre.html" target="_blank">
+        <div class="recommended-img-card_beats">
+          <img class="recommended-imgs" id="localStorageImg-BeatsByDre" src="/resources/images/beatsbydre.jpg">
+          <div class="product-page-add-on-icon-beatsbydre"
+            onclick="clickCounter('beatsbydre'); showAdded(this); updateImageBeatsByDre(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Beats by Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon">Beats by
+              Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon)</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>149.95</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+        <div class="recommended-img-card_car">
+          <img class="recommended-imgs" id="localStorageImg-RCCar" src="/resources/images/rc-toy.jpg">
+          <div class="product-page-add-on-icon-rccar"
+            onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">Adventure Force Radio Control 1:8
+              Trail Chaser Buggy, Green</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>39.97</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/olympusCamera.html" target="_blank">
+        <div class="recommended-img-card_camera">
+          <img class="recommended-imgs" id="localStorageImg-Camera" src="/resources/images/olympus-camera.jpg">
+          <div class="product-page-add-on-icon-camera"
+            onclick="clickCounter('camera'); showAdded(this); updateImageCamera(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text" title="Olympus OM-1 | 35mm Film Camera">
+              Olympus OM-1 | 35mm Film Camera</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-amount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>269.99</span>
+            </div>
+            <div class="free-shipping-wrap">
+              <div class="free-shipping">Free shipping</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+        <div class="recommended-img-card_potatoHead">
+          <img class="recommended-imgs" id="localStorageImg-PotatoHead" src="/resources/images/potatohead.jpg">
+          <div class="product-page-add-on-icon-potatohead"
+            onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead(); return false;"
+            style="height: 28px; width: 28px">
+            <div class="notification-text"></div>
+          </div>
+          <div class="product-title-word-break">
+            <div class="recommended-product-title" alt="alternative text"
+              title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
+              New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The
+              Joker Surprise Gifts Doll</div>
+            <div class="sold-amount-wrap">
+              <div class="sold-samount">4 sold</div>
+            </div>
+            <div class="black-price-wrap">
+              <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.98</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top"></div>
+          <div class="footer-bottom">
+        <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
+      </div>
+  </footer>
+  <!-- JS SCRIPT -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.js"></script>
+  <script src="/resources/JS/index.js"></script>
+  <script src="/resources/JS/productPages_JS_Files/productPages_pillow.js"></script>
+  <script src="/resources/JS/cartCountManager.js"></script>
+  <script src="/resources/JS/storeLocalStorageImg.js"></script>
+  <script src="/resources/JS/showAdded.js"></script>
+  <script src="/resources/JS/noMatch.js"></script>
+  <script src="/resources/JS/displayLocalStorageImg.js"></script>
+  
+  <script src="/resources/JS/shoppingCart_JS_Files/productCheckmarkManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/customDisplayPromptManager.js"></script>
+  <script src="/resources/JS/dealsPages_JS_Files/productDeals_retrieve.js"></script>
+  <script src="/resources/JS/shoppingCartEmpty.js"></script>
+</body>
+
+</html>

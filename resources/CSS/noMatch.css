@@ -1,0 +1,21 @@
+.row-container-a {
+  flex: 1; /* Allow the main content to grow and shrink dynamically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  background-color: #ffffff;
+  font-size: 14px;
+  text-align: center; /* Ensure text alignment is centered */
+}
+
+.row-container-a img {
+  margin-bottom: 16px; /* Add spacing between the image and the text */
+}
+
+.sorry-txt {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+  line-height: 20px;
+}
