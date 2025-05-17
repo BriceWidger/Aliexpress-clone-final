@@ -421,10 +421,13 @@ function decoyFunctionTwo_rowC() {
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("whole-nav").style.top = "0";
+  var nav = document.getElementById("whole-nav");
+  if (currentScrollPos === 0) {
+    nav.style.top = "0";
+  } else if (prevScrollpos > currentScrollPos) {
+    nav.style.top = "0";
   } else {
-    document.getElementById("whole-nav").style.top = "-200px";
+    nav.style.top = "-200px";
   }
   prevScrollpos = currentScrollPos;
 };
