@@ -1,13 +1,8 @@
 /* ^$\n */
 
 html {
-  min-width: 100vw;
-  min-height: 100vh;
-  width: 100vw;
-  height: 100vh;
+  width: fit-content;
   box-sizing: border-box;
-  overflow-x: auto;
-  overflow-y: auto;
 }
 
 body {
@@ -15,12 +10,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: auto;
-  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -1357,7 +1349,7 @@ h4 {
 
 /* ROW C */
 .row-container-c {
-  background-image: url("/resources/images/row-container-c-image.jpg");
+  /* background-image: url("/resources/images/row-container-c-image.jpg"); */
   background-size: 100%;
   width: 100%;
   height: 448.667px;
