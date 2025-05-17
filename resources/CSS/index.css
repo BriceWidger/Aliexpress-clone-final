@@ -1349,7 +1349,7 @@ h4 {
 
 /* ROW C */
 .row-container-c {
-  /* background-image: url("/resources/images/row-container-c-image.jpg"); */
+  background-image: url("/resources/images/row-container-c-image.jpg");
   background-size: 100%;
   width: 100%;
   height: 448.667px;
