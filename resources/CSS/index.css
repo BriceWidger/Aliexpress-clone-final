@@ -1,7 +1,7 @@
 /* ^$\n */
 
 html {
-  width: fit-content;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
@@ -1363,7 +1363,6 @@ h4 {
   flex-direction: column;
   align-items: center;
   padding-bottom: 46px;
-  overflow-x: auto;
 }
 
 .title-imgs-container-c {

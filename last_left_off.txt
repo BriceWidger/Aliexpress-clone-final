@@ -2,4 +2,4 @@
 
 1. making the entire aliexpress clone site RWD is way too hard and basically will require me to write all the styling over again AND do RWD on top of that. Much easier to leave it unrespinsive as it is and just fix any mobile bugs you see.
 
-2. For containers that aren't stretch across the entire screen just do the overflow X thing so it adds a scroll to them (see Aliexpress-clone-index-rwd for this). adding   overflow-x: auto; seems to do the trick
+2. For containers that aren't stretch across the entire screen just do the overflow X thing so it adds a scroll to them (see Aliexpress-clone-index-rwd for this). adding   overflow-x: auto; seems to do the trick.......html { width: fit-content} seemed to do the trick
