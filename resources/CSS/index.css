@@ -3,8 +3,8 @@
 html {
   box-sizing: border-box;
   width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
+  min-width: 0;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -14,11 +14,13 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
-  height: 100vh;
   min-height: 100vh;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  /* Removed overflow-x: hidden and overflow-y: auto to allow normal scrolling */
 }
 
 a {
@@ -26,9 +28,18 @@ a {
   color: inherit;
 }
 
+/* Center the main content and ensure it doesn't overflow */
 .page-container {
-  position: relative;
-  top: 151.45px;
+  /* Use margin-top instead of top for spacing below fixed nav */
+  margin-top: 151.45px;
+  width: 100%;
+  max-width: 1134px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 /* NAVIGATION */
@@ -37,10 +48,57 @@ a {
   background-color: rgb(25, 25, 25);
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
   display: block;
   transition: top 0.4s;
   z-index: 3;
+  /* overflow-x: hidden; */
+  -webkit-overflow-scrolling: touch;
+}
+/* ROW CONTAINERS - Prevent overflow */
+/* Row containers: only scroll horizontally if content overflows */
+.row-container,
+.row-container-a,
+.row-container-b,
+.row-container-c,
+.row-container-d,
+.row-container-b-SC {
+  width: 100%;
+  min-width: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Only enable horizontal scroll if content actually overflows */
+@media (max-width: 1200px) {
+  .row-container,
+  .row-container-a,
+  .row-container-b,
+  .row-container-c,
+  .row-container-d,
+  .row-container-b-SC {
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
+/* Ensure .row-container-c background image stretches across viewport */
+.row-container-c {
+  background-image: url("/resources/images/row-container-c-image.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  height: 448.667px;
+  max-height: 448.667px;
+  margin-top: 24px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .upper-nav {
@@ -55,8 +113,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1134px;
+  max-width: 1134px;
+  width: 100%;
   padding: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .name-logo-container {
@@ -266,13 +327,14 @@ h4 {
 }
 
 .lower-nav {
-  width: 100%;
+  width: 100vw;
   background-color: #191919;
   padding: 0 0 12px 8px;
+  /* overflow-x: hidden; */
 }
 
 .lower-nav-row-container {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,8 +345,11 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1134px;
+  max-width: 1134px;
+  width: 100%;
   padding: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 /* Account dropdown */
@@ -581,7 +646,7 @@ h4 {
 
 /* ROW A */
 .row-container-a {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -965,6 +1030,7 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
 }
 
 .all-row-b-containers {
@@ -1357,20 +1423,21 @@ h4 {
 .row-container-c {
   background-image: url("/resources/images/row-container-c-image.jpg");
   background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   width: 100vw;
   min-width: 100vw;
-  max-width: 100vw;
   height: 448.667px;
   max-height: 448.667px;
   margin-top: 24px;
   background-color: rgb(255, 248, 220);
-  background-position: center top;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding-bottom: 46px;
+  box-sizing: border-box;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .title-imgs-container-c {
@@ -1485,7 +1552,7 @@ h4 {
 
 /* ROW D */
 .row-container-d {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1552,6 +1619,7 @@ h4 {
 .row-d-item-title {
   display: -webkit-box;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
   margin-top: 8px;
   overflow: hidden;
@@ -1560,14 +1628,16 @@ h4 {
 /* FOOTER */
 .footer-top {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: rgb(232, 232, 232);
   width: 100vw;
   min-width: 100vw;
   max-width: 100vw;
+  box-sizing: border-box;
   padding-top: 40px;
   padding-bottom: 40px;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .footer-top-text-wrap {
@@ -1615,7 +1685,7 @@ h4 {
   width: 100vw;
   min-width: 100vw;
   max-width: 100vw;
-  overflow-x: auto;
+  box-sizing: border-box;
 }
 
 .footer-bottom-text {
