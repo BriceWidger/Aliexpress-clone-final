@@ -58,6 +58,11 @@ a {
     width: 100vw;
     padding-left: 0;
     padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 251px;
   }
   .upper-nav-items-container,
   .lower-nav-items-container,
@@ -70,6 +75,11 @@ a {
     padding-left: 8px;
     padding-right: 8px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .row-a-all-containers,
   .all-row-d-containers {
@@ -77,6 +87,11 @@ a {
     width: 100vw;
     flex-wrap: wrap;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .row-b-title,
   .row-d-title {
@@ -85,11 +100,122 @@ a {
     padding-left: 8px;
     padding-right: 8px;
     box-sizing: border-box;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .row-a-all-containers {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    height: auto;
+    padding: 16px 0 0 0;
+  }
+  .row-a-bcd-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 16px;
+  }
+  .row-a-cd-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 8px;
+  }
+  .row-a-card-a-container,
+  .row-a-card-b,
+  .row-a-card-c,
+  .row-a-card-d {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 0;
+    margin: 0 auto 12px auto;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .row-a-card-a {
+    max-width: 90vw;
+    width: 90vw;
+    align-items: center;
+  }
+  .row-a-card-b-abcd-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .img-price-wrap {
+    margin: 8px 4px;
+  }
+  .all-row-b-containers {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .all-row-d-containers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto 64px auto;
+    padding: 0 0 0 0;
+    gap: 16px;
+  }
+  .row-d-card-container_degreaser,
+  .row-d-card-container_beats,
+  .row-d-card-container_jbl,
+  .row-d-card-container_makeupOne,
+  .row-d-card-container_makeupTwo,
+  .row-d-card-container_potatoHead,
+  .row-d-card-container_camera,
+  .row-d-card-container_pillow,
+  .row-d-card-container_car,
+  .row-d-card-container_simon,
+  .row-d-card-container_truth {
+    width: calc((100vw - 64px) / 3);
+    max-width: 240px;
+    min-width: 180px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+  }
+  .row-d-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .row-d-card-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  .slider-wrapper,
+  .slides-container {
+    width: 98vw !important;
+    max-width: 98vw !important;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 802px) {
+  .page-container {
+    margin-top: 291px;
   }
 }
 
 @media (max-width: 600px) {
-  html, body {
+  html,
+  body {
     width: 100vw;
     min-width: 0;
     overflow-x: hidden;
@@ -101,6 +227,11 @@ a {
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 291px;
   }
   .upper-nav-items-container,
   .lower-nav-items-container,
@@ -110,9 +241,14 @@ a {
     max-width: 100vw;
     width: 100vw;
     flex-wrap: wrap;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .row-a-all-containers,
   .all-row-d-containers {
@@ -120,14 +256,97 @@ a {
     width: 100vw;
     flex-wrap: wrap;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .row-b-title,
   .row-d-title {
     width: 100vw;
     max-width: 100vw;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
     box-sizing: border-box;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .row-a-all-containers {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: auto;
+    padding: 8px 0 0 0;
+  }
+  .row-a-bcd-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 8px;
+  }
+  .row-a-cd-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4px;
+    width: 100vw;
+    max-width: 100vw;
+    gap: 4px;
+  }
+  .row-a-card-a-container,
+  .row-a-card-b,
+  .row-a-card-c,
+  .row-a-card-d {
+    width: 98vw !important;
+    max-width: 98vw !important;
+    min-width: 0;
+    margin: 0 auto 8px auto;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .row-a-card-a {
+    max-width: 95vw;
+    width: 95vw;
+    align-items: center;
+  }
+  .row-a-card-b-abcd-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .img-price-wrap {
+    margin: 4px 2px;
+  }
+  .all-row-b-containers {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .all-row-d-containers {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto 32px auto;
+    padding: 0;
+  }
+  .slider-wrapper,
+  .slides-container {
+    width: 99vw !important;
+    max-width: 99vw !important;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 444px) {
+  .page-container {
+    margin-top: 330px;
   }
 }
 
@@ -165,7 +384,6 @@ a {
   .row-container,
   .row-container-a,
   .row-container-b,
-  .row-container-c,
   .row-container-d,
   .row-container-b-SC {
     max-width: 100vw;
