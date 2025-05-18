@@ -1,8 +1,11 @@
 /* ^$\n */
 
 html {
-  overflow-x: hidden;
   box-sizing: border-box;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -10,9 +13,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -1350,18 +1356,19 @@ h4 {
 /* ROW C */
 .row-container-c {
   background-image: url("/resources/images/row-container-c-image.jpg");
-  background-size: 100%;
-  width: 100%;
+  background-size: cover;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
   height: 448.667px;
   max-height: 448.667px;
   margin-top: 24px;
   background-color: rgb(255, 248, 220);
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: auto 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding-bottom: 46px;
   overflow-x: auto;
 }
@@ -1553,11 +1560,14 @@ h4 {
 /* FOOTER */
 .footer-top {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: rgb(232, 232, 232);
-  width: 100%;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
   padding-top: 40px;
   padding-bottom: 40px;
+  overflow-x: auto;
 }
 
 .footer-top-text-wrap {
@@ -1602,6 +1612,10 @@ h4 {
   background-color: #000;
   height: 43.8px;
   padding: 8px 0px;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  overflow-x: auto;
 }
 
 .footer-bottom-text {
