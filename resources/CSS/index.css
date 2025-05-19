@@ -1,4 +1,9 @@
 /* ^$\n */
+@media (max-width: 900px) {
+  .row-a-bcd-container {
+    display: none !important;
+  }
+}
 
 html {
   box-sizing: border-box;
@@ -21,6 +26,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 a {
@@ -111,12 +117,7 @@ a {
     padding: 16px 0 0 0;
   }
   .row-a-bcd-container {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    width: 100vw;
-    max-width: 100vw;
-    gap: 16px;
+    display: none;
   }
   .row-a-cd-container {
     flex-direction: column;
@@ -280,12 +281,7 @@ a {
     padding: 8px 0 0 0;
   }
   .row-a-bcd-container {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    width: 100vw;
-    max-width: 100vw;
-    gap: 8px;
+    display: none;
   }
   .row-a-cd-container {
     flex-direction: column;
@@ -346,6 +342,36 @@ a {
 @media (max-width: 444px) {
   .page-container {
     margin-top: 330px;
+  }
+}
+
+@media (max-width: 284px) {
+  .page-container {
+    margin-top: 370px;
+  }
+}
+
+@media (max-width: 273px) {
+  .page-container {
+    margin-top: 378px;
+  }
+}
+
+@media (max-width: 242px) {
+  .page-container {
+    margin-top: 410px;
+  }
+}
+
+@media (max-width: 235px) {
+  .page-container {
+    margin-top: 410px;
+  }
+}
+
+@media (max-width: 136px) {
+  .page-container {
+    margin-top: 420px;
   }
 }
 
