@@ -1,3 +1,19 @@
+// Hamburger menu toggle for lower nav (mobile/tablet)
+document.addEventListener("DOMContentLoaded", function () {
+  var hamburgerBtn = document.querySelector(".hamburger-menu-btn");
+  var hamburgerContainer = document.querySelector(".hamburger-menu-container");
+  if (hamburgerBtn && hamburgerContainer) {
+    hamburgerBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      hamburgerContainer.classList.toggle("active");
+    });
+    document.addEventListener("click", function (e) {
+      if (!hamburgerContainer.contains(e.target)) {
+        hamburgerContainer.classList.remove("active");
+      }
+    });
+  }
+});
 // Search bar
 function search_items() {
   let input = document.getElementById("search-bar").value;
