@@ -418,19 +418,30 @@ function decoyFunctionTwo_rowC() {
 }
 
 // Nav Scroll
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  var nav = document.getElementById("whole-nav");
-  if (currentScrollPos === 0) {
-    nav.style.top = "0";
-  } else if (prevScrollpos > currentScrollPos) {
-    nav.style.top = "0";
+// Responsive nav hide on scroll down (mobile/tablet)
+let prevScrollpos = window.pageYOffset;
+window.addEventListener("scroll", function () {
+  const nav = document.getElementById("whole-nav");
+  const isMobile = window.innerWidth <= 900;
+  const currentScrollPos = window.pageYOffset;
+  if (isMobile) {
+    if (currentScrollPos === 0 || prevScrollpos > currentScrollPos) {
+      nav.classList.remove("hide-on-scroll");
+    } else {
+      nav.classList.add("hide-on-scroll");
+    }
   } else {
-    nav.style.top = "-200px";
+    // Desktop: keep old behavior
+    if (currentScrollPos === 0) {
+      nav.style.top = "0";
+    } else if (prevScrollpos > currentScrollPos) {
+      nav.style.top = "0";
+    } else {
+      nav.style.top = "-200px";
+    }
   }
   prevScrollpos = currentScrollPos;
-};
+});
 
 // toggle sign-out notifications
 function signOut() {

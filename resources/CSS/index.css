@@ -55,8 +55,21 @@ a {
   display: block;
   transition: top 0.4s;
   z-index: 3;
-  /* overflow-x: hidden; */
   -webkit-overflow-scrolling: touch;
+}
+
+/* Hide nav on scroll down for mobile/tablet (media queries) */
+@media (max-width: 900px) {
+  #whole-nav.hide-on-scroll {
+    top: -100vh !important;
+    transition: top 0.4s;
+  }
+}
+@media (max-width: 600px) {
+  #whole-nav.hide-on-scroll {
+    top: -100vh !important;
+    transition: top 0.4s;
+  }
 }
 
 /* =====================================================
