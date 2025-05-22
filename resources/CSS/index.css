@@ -80,7 +80,8 @@ a {
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 0 48px 0 0;
+    box-sizing: border-box;
   }
   .hamburger-menu-container {
     display: flex !important;
