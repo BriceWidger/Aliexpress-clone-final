@@ -65,6 +65,9 @@ a {
 }
 
 @media (max-width: 900px) {
+  .header-items-container {
+    gap: 0 !important;
+  }
   .lower-nav-items-container {
     display: flex;
     flex-direction: row;
@@ -80,7 +83,7 @@ a {
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 0 48px 0 0;
+    padding: 0;
     box-sizing: border-box;
   }
   .hamburger-menu-container {
@@ -1609,13 +1612,27 @@ h4 {
   overflow: hidden;
 }
 @media (max-width: 900px) {
+  .lower-nav-items-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .dropdown {
     display: flex;
     align-items: center;
-    width: 100%;
+    flex: 1 1 auto;
     min-width: 0;
-    flex: 1 1 0;
     position: relative;
+    z-index: 10;
+  }
+  .hamburger-menu-container {
+    position: relative;
+    z-index: 20;
+    flex-shrink: 0;
+    margin-left: 12px;
   }
   .dropbtn {
     width: 100%;
@@ -2797,28 +2814,7 @@ h4 {
 
 /* CAROUSEL REFERENCE: https://webdesign.tutsplus.com/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734t */
 /*CAROUSEL*/
-@media (max-width: 523px) {
-  .header-items-container {
-    justify-content: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    left: 0;
-    right: 0;
-    position: relative;
-    gap: 0 !important;
-    margin-bottom: 12px !important;
-  }
-  .name-logo-container {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    left: 0;
-    right: 0;
-    position: relative;
-  }
-}
+
 .slider-wrapper {
   display: flex;
   justify-content: space-between;
@@ -2939,7 +2935,7 @@ h4 {
   cursor: not-allowed;
 }
 
-@media (max-width: 523px) {
+@media (max-width: 489px) {
   .header-items-container {
     justify-content: center !important;
     margin-left: auto !important;
@@ -2948,5 +2944,16 @@ h4 {
     right: 0;
     position: relative;
     gap: 0 !important;
+    margin-bottom: 12px !important;
+  }
+  .name-logo-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0;
+    right: 0;
+    position: relative;
   }
 }
