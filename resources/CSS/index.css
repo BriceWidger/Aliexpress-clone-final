@@ -2764,6 +2764,27 @@ h4 {
 
 /* CAROUSEL REFERENCE: https://webdesign.tutsplus.com/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734t */
 /*CAROUSEL*/
+@media (max-width: 523px) {
+  .header-items-container {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0;
+    right: 0;
+    position: relative;
+    gap: 0 !important;
+  }
+  .name-logo-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0;
+    right: 0;
+    position: relative;
+  }
+}
 .slider-wrapper {
   display: flex;
   justify-content: space-between;
@@ -2882,4 +2903,16 @@ h4 {
 #slide-arrow-next:focus,
 #slide-arrow-nextB:focus {
   cursor: not-allowed;
+}
+
+@media (max-width: 523px) {
+  .header-items-container {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0;
+    right: 0;
+    position: relative;
+    gap: 0 !important;
+  }
 }
