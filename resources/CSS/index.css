@@ -1,3 +1,36 @@
+/* Keep dropdown-content visible while hovering over dropbtn or dropdown-content */
+.dropbtn:hover + .dropdown-content,
+.dropdown-content:hover {
+  display: block;
+}
+
+/* Keep dropbtn hover effects while hovering dropbtn or dropdown-content */
+.dropbtn,
+.dropbtn:hover,
+.dropbtn:focus,
+.dropbtn:active,
+.dropbtn:has(+ .dropdown-content:hover) {
+  color: #191919;
+  background-color: #f5f5f5;
+  border: none;
+}
+/* Swap menu and arrow images to black versions on .dropbtn hover or when dropdown-content is hovered */
+.dropbtn:hover .dropdown-menu,
+.dropbtn:has(+ .dropdown-content:hover) .dropdown-menu {
+  content: url("/resources/images/dropdown-menu-black.png");
+}
+.dropbtn:hover .up-menu-arrow-black,
+.dropbtn:has(+ .dropdown-content:hover) .up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-black.png");
+}
+.dropbtn:hover .up-menu-arrow-white,
+.dropbtn:has(+ .dropdown-content:hover) .up-menu-arrow-white {
+  content: none;
+}
+.dropbtn:hover .dropdown-menu-white,
+.dropbtn:has(+ .dropdown-content:hover) .dropdown-menu-white {
+  content: none;
+}
 /* =====================================================
    BASE ELEMENTS & RESETS
    ===================================================== */
@@ -1193,9 +1226,10 @@ a {
 }
 
 #search-list {
-  position: absolute;
-  top: 52px;
-  width: 888px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
   border-radius: 22px;
   background-color: #fff;
   color: #191919;
@@ -1519,6 +1553,7 @@ h4 {
 }
 
 /* Dropdown Content (Hidden by Default) */
+/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -1593,24 +1628,22 @@ h4 {
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropbtn:hover + .dropdown-content {
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn,
-.category-dropdown-title:hover {
+.dropbtn:hover {
   color: #191919;
   background-color: #f5f5f5;
   border: none;
-
-  .dropdown-menu {
-    content: url("/resources/images/dropdown-menu-black.png");
-  }
-
-  .up-menu-arrow-black {
-    content: url("/resources/images/menu-arrow-black.png");
-  }
+}
+.dropbtn:hover ~ .dropdown-menu {
+  content: url("/resources/images/dropdown-menu-black.png");
+}
+.dropbtn:hover ~ .up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-black.png");
 }
 
 .dropdown-menu {
