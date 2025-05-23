@@ -1186,7 +1186,7 @@ a {
 
 #search-bar-filler {
   position: absolute;
-  top: 60px;
+  top: 40px;
   background-color: transparent;
   width: 632.35px;
   height: 100px;
@@ -1194,7 +1194,7 @@ a {
 
 #search-list {
   position: absolute;
-  top: 72px;
+  top: 52px;
   width: 888px;
   border-radius: 22px;
   background-color: #fff;
