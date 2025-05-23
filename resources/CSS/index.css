@@ -132,7 +132,7 @@ a {
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 10;
+    z-index: 1;
     order: 2;
     margin-left: 0;
   }
@@ -1202,7 +1202,7 @@ a {
   text-indent: 12px;
   -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-  z-index: 990;
+  z-index: 1000;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
@@ -1515,6 +1515,7 @@ h4 {
 .dropdown {
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -1548,7 +1549,9 @@ h4 {
     flex: 1 1 auto;
     min-width: 0;
     position: relative;
-    z-index: 10;
+    z-index: 1;
+    position: relative;
+    z-index: 1;
   }
   .hamburger-menu-container {
     position: relative;
