@@ -13,6 +13,30 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Account dropdown for mobile (max-width: 489px)
+  function isMobileAccountDropdown() {
+    return window.innerWidth <= 489;
+  }
+  document.querySelectorAll('.person-account-icon').forEach(function(icon) {
+    icon.addEventListener('click', function(e) {
+      if (!isMobileAccountDropdown()) return;
+      e.stopPropagation();
+      var accDropdown = icon.closest('.acc-dropdown');
+      if (accDropdown) {
+        accDropdown.classList.toggle('show-dropdown');
+      }
+    });
+  });
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!isMobileAccountDropdown()) return;
+    document.querySelectorAll('.acc-dropdown.show-dropdown').forEach(function(drop) {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('show-dropdown');
+      }
+    });
+  });
 });
 // Search bar
 function search_items() {
