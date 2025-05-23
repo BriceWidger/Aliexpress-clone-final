@@ -2953,3 +2953,35 @@ h4 {
     display: block !important;
   }
 }
+
+@media (max-width: 359px) {
+  .header-items-container {
+    margin-bottom: 12px !important;
+  }
+
+  img.cart-check-out-white {
+    display: inline !important;
+  }
+
+  .person-account-icon {
+    margin-right: 0 !important;
+  }
+  .acc-category-dropdown-title {
+    display: flex !important;
+  }
+  .acc-dropdown-content {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 100;
+  }
+
+  .acc-dropbtn {
+    padding-left: 0;
+  }
+  .acc-dropdown.show-dropdown .acc-dropdown-content {
+    display: block !important;
+  }
+}
