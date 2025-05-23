@@ -44,8 +44,13 @@ a {
 }
 
 /* =====================================================
-   NAVIGATION
+   NAVIGATION & HEADER
    ===================================================== */
+
+/* =====================
+   HEADER BASE STYLES
+   ===================== */
+/* (Header, logo, nav, and account dropdown base styles) */
 #whole-nav {
   width: 100%;
   background-color: rgb(25, 25, 25);
@@ -376,39 +381,50 @@ a {
 /* =====================================================
    NAVIGATION (continued)
    ===================================================== */
-/* ... (Navigation styles remain unchanged, see original for details) ... */
+/* Navigation styles are included above. */
 
-/* =====================================================
+/* =====================
    DROPDOWNS (Account, All Items)
-   ===================================================== */
-/* ... (Dropdown styles remain unchanged, see original for details) ... */
+   ===================== */
+/* Dropdown styles are included above. */
 
-/* =====================================================
+/* =====================
    ROWS & CARDS (A, B, C, D)
-   ===================================================== */
-/* ... (Row and card styles remain unchanged, see original for details) ... */
+   ===================== */
+/* Row and card styles are included above. */
 
-/* =====================================================
+/* =====================
    FOOTER
-   ===================================================== */
-/* ... (Footer styles remain unchanged, see original for details) ... */
+   ===================== */
+/* Footer styles are included above. */
 
-/* =====================================================
+/* =====================
    CAROUSEL
-   ===================================================== */
-/* ... (Carousel styles remain unchanged, see original for details) ... */
+   ===================== */
+/* Carousel styles are included above. */
 
 /* =====================================================
    MEDIA QUERIES
    ===================================================== */
+/*
+  MEDIA QUERIES (organized from largest to smallest)
+  --------------------------------------------------
+*/
+
 @media (max-width: 1200px) {
-  .page-container {
+  .page-container,
+  .row-container,
+  .row-container-a,
+  .row-container-b,
+  .row-container-d,
+  .row-container-b-SC {
     max-width: 100vw;
     width: 100vw;
     padding-left: 0;
     padding-right: 0;
   }
 }
+
 @media (max-width: 900px) {
   .slides-container {
     overflow: visible !important;
@@ -452,110 +468,6 @@ a {
     box-sizing: border-box;
     overflow-x: auto;
   }
-  /* ... (rest of 900px media query unchanged) ... */
-}
-@media (max-width: 802px) {
-  .page-container {
-    margin-top: 291px;
-  }
-}
-@media (max-width: 600px) {
-  .slides-container {
-    overflow: visible !important;
-  }
-  .row-container-c {
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    min-width: 0 !important;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    margin-top: 24px !important;
-  }
-  .title-imgs-container-c {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 2;
-    display: block;
-  }
-  .row-c-imgs-container {
-    flex-direction: row !important;
-    align-items: stretch !important;
-    width: max-content !important;
-    min-width: 100vw !important;
-    max-width: none !important;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: auto;
-  }
-  html,
-  body {
-    width: 100vw;
-    min-width: 0;
-    overflow-x: hidden;
-  }
-  /* ... (rest of 600px media query unchanged) ... */
-}
-@media (max-width: 452px) {
-  .footer-top-text-wrap {
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    flex-direction: column !important;
-  }
-}
-@media (max-width: 444px) {
-  .page-container {
-    margin-top: 330px;
-  }
-}
-@media (max-width: 284px) {
-  .page-container {
-    margin-top: 370px;
-  }
-}
-@media (max-width: 273px) {
-  .page-container {
-    margin-top: 378px;
-  }
-}
-@media (max-width: 242px) {
-  .page-container {
-    margin-top: 410px;
-  }
-}
-@media (max-width: 235px) {
-  .page-container {
-    margin-top: 410px;
-  }
-}
-@media (max-width: 136px) {
-  .page-container {
-    margin-top: 420px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .page-container {
-    max-width: 100vw;
-    width: 100vw;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media (max-width: 900px) {
   .page-container {
     max-width: 100vw;
     width: 100vw;
@@ -588,14 +500,11 @@ a {
   }
   #whole-nav {
     margin-bottom: 0;
+    padding-bottom: 0;
   }
   .lower-nav {
     margin-top: 12px !important;
     padding-top: 0 !important;
-  }
-  /* Maintain spacing between upper and lower nav */
-  #whole-nav {
-    padding-bottom: 0;
   }
   .name-logo-container {
     width: 40vw;
@@ -897,14 +806,11 @@ a {
   }
   #whole-nav {
     margin-bottom: 0;
+    padding-bottom: 0;
   }
   .lower-nav {
     margin-top: 12px !important;
     padding-top: 0 !important;
-  }
-  /* Maintain spacing between upper and lower nav */
-  #whole-nav {
-    padding-bottom: 0;
   }
   .name-logo {
     width: 100%;
@@ -1075,9 +981,50 @@ a {
   }
 }
 
+@media (max-width: 452px) {
+  .footer-top-text-wrap {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    flex-direction: column !important;
+  }
+}
+
 @media (max-width: 444px) {
   .page-container {
     margin-top: 216px;
+  }
+}
+
+@media (max-width: 359px) {
+  .header-items-container {
+    margin-bottom: 12px !important;
+  }
+
+  img.cart-check-out-white {
+    display: inline !important;
+  }
+
+  .person-account-icon {
+    margin-right: 0 !important;
+  }
+  .acc-category-dropdown-title {
+    display: flex !important;
+  }
+  .acc-dropdown-content {
+    /* Remove forced display for mobile, revert to default (hidden unless hovered) */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 100;
+  }
+
+  .acc-dropbtn {
+    padding-left: 0;
+  }
+  .acc-dropdown.show-dropdown .acc-dropdown-content {
+    display: block !important;
   }
 }
 
@@ -2970,7 +2917,7 @@ h4 {
     display: flex !important;
   }
   .acc-dropdown-content {
-    display: block !important;
+    /* Remove forced display for mobile, revert to default (hidden unless hovered) */
     position: absolute;
     left: 0;
     right: 0;

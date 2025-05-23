@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Account dropdown for mobile (max-width: 489px)
+  // Account dropdown for mobile (between 360px and 489px inclusive)
   function isMobileAccountDropdown() {
-    return window.innerWidth <= 489;
+    return window.innerWidth <= 489 && window.innerWidth >= 360;
   }
   document.querySelectorAll(".person-account-icon").forEach(function (icon) {
     icon.addEventListener("click", function (e) {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  // Hide dropdown when clicking outside
+  // Hide dropdown when clicking outside (only for 360px-489px)
   document.addEventListener("click", function (e) {
     if (!isMobileAccountDropdown()) return;
     document
