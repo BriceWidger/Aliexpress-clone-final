@@ -2404,12 +2404,19 @@ h4 {
   justify-content: center;
 }
 
+/* Center .category-title vertically in its parent (which is likely a flex container) */
 .category-title {
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  width: 100%;
   font-size: 20px;
   margin: 0px;
   height: 56px;
+  /* Keeps original size/spacing, always on its own row */
+  /* Center vertically if parent is flex */
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
 }
 
 .description-title-sub {
@@ -2466,6 +2473,35 @@ h4 {
   display: flex;
   justify-content: space-between;
   width: 1712px;
+  /* Responsive scroll for RWD */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 1200px) {
+  .recommended-imgs-row-wrap {
+    width: auto;
+    min-width: 0;
+    max-width: 100vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .recommended-img-card_deagreaser,
+  .recommended-img-card_beats,
+  .recommended-img-card_jbl,
+  .recommended-img-card_makeupOne,
+  .recommended-img-card_makeupTwo,
+  .recommended-img-card_potatoHead,
+  .recommended-img-card_camera,
+  .recommended-img-card_pillow,
+  .recommended-img-card_car,
+  .recommended-img-card_simon,
+  .recommended-img-card_truth {
+    flex: 0 0 auto;
+    display: inline-block;
+  }
 }
 
 .recommended-imgs {
