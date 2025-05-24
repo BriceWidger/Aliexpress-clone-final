@@ -1,3 +1,12 @@
+@media (max-width: 1615px) {
+  .body-wrap-top-right {
+    display: none !important;
+  }
+}
+.category-title.you-may-also-like-title {
+  width: 1616px; /* 1212px + 404px (.body-wrap-top-left + .body-wrap-top-right) */
+  box-sizing: border-box;
+}
 /* Override index.css to force navigation to stretch full width on product pages */
 .upper-nav-container,
 .upper-nav {
@@ -16,9 +25,16 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  width: 100%;
+  min-width: 100vw;
+  width: 100vw;
+  /* height: 100vh; */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
   /* zoom: 90%; */
 }
 
@@ -1373,6 +1389,8 @@ h4 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  box-orient: vertical;
+  line-clamp: 1;
   margin-top: 8px;
   overflow: hidden;
 }
@@ -1531,16 +1549,23 @@ h4 {
 
 /* Let the main content grow to fill space, so footer stays at bottom */
 .product-page-body-wrap {
+  margin-top: 96.083px;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 16px;
+
   box-sizing: border-box;
-  margin: 16px auto 0 auto;
-  width: 1712px;
-  height: 100%;
-  margin-top: 96.083px;
-  padding: 0 48px;
-  flex: 1 0 auto;
+  width: 100vw;
+  min-width: 0;
+  max-width: 100vw;
+  min-height: 100vh;
+  /* height: 100vh; */
+  max-height: none;
+  padding: 0;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: stretch; /* Ensures both columns stretch to the same height */
   /* background-color: #757575; */
 }
 
@@ -1549,11 +1574,15 @@ h4 {
   flex-direction: column;
   width: 1212px;
   height: auto;
+  align-self: stretch; /* Ensures left column fills the height of the flex parent */
 }
 
 .body-wrap-top-right {
-  width: 25%;
   width: 404px;
+  align-self: stretch; /* Ensures right column fills the height of the flex parent */
+  display: flex;
+  flex-direction: column;
+  position: relative;
   /* background-color: beige; */
 }
 
@@ -1629,7 +1658,7 @@ h4 {
 
 .action-box-container {
   position: sticky;
-  top: 0px;
+  top: 96.083px;
   padding: 0px 0 31px 24px;
   width: 380px;
   display: flex;
@@ -2417,7 +2446,6 @@ h4 {
   display: flex;
   align-items: center;
 }
-}
 
 .description-title-sub {
   text-align: left;
@@ -2529,6 +2557,8 @@ h4 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  box-orient: vertical;
+  line-clamp: 1;
   overflow: hidden;
   margin-top: 8px;
 }
