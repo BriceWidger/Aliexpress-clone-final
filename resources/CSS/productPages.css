@@ -33,8 +33,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-x: hidden; */
+  /* overflow-y: auto; */
   /* zoom: 90%; */
 }
 
@@ -1562,8 +1562,8 @@ h4 {
   max-height: none;
   padding: 0;
   flex: 1 1 auto;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-x: hidden; */
+  /* overflow-y: auto; */
   justify-content: center;
   align-items: stretch; /* Ensures both columns stretch to the same height */
   /* background-color: #757575; */
@@ -1658,7 +1658,7 @@ h4 {
 
 .action-box-container {
   position: sticky;
-  top: 96.083px;
+  top: 132.6px; /* Adjust this value as needed for how far down you want it */
   padding: 0px 0 31px 24px;
   width: 380px;
   display: flex;
