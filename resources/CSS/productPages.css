@@ -11,6 +11,19 @@
     display: none !important;
   }
 }
+.header-items-container {
+  /* default height for desktop and most mobile */
+  height: 72px;
+}
+
+@media (max-width: 359px) {
+  .header-items-container {
+    height: 56px !important; /* 48px original + 8px */
+  }
+  .upper-nav-container {
+    height: 180px !important;
+  }
+}
 .category-title.you-may-also-like-title {
   width: 1616px; /* 1212px + 404px (.body-wrap-top-left + .body-wrap-top-right) */
   box-sizing: border-box;
