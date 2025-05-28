@@ -1598,9 +1598,12 @@ h4 {
 .body-wrap-top-left {
   display: flex;
   flex-direction: column;
-  width: 1212px;
+  width: 100%;
+  max-width: 1212px;
   height: auto;
   align-self: stretch; /* Ensures left column fills the height of the flex parent */
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .body-wrap-top-right {
