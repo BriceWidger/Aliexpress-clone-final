@@ -1,3 +1,8 @@
+@media (max-width: 358px) {
+  .header-items-container {
+    padding-left: 24px !important;
+  }
+}
 @media (max-width: 1615px) {
   @media (max-width: 900px) {
     .product-page-body-wrap {
