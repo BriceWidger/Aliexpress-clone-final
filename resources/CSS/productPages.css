@@ -2532,6 +2532,19 @@ h4 {
   -webkit-overflow-scrolling: touch;
 }
 
+@media (max-width: 600px) {
+  .header-items-container {
+    padding-left: 0px;
+    gap: 4px;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+  .header-items-container > * {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+}
+
 @media (max-width: 1200px) {
   .recommended-imgs-row-wrap {
     width: auto;
