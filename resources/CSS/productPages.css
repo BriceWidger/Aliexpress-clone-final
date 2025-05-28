@@ -1,5 +1,8 @@
 @media (max-width: 1615px) {
   @media (max-width: 900px) {
+    .product-page-body-wrap {
+      margin-top: 148.08px !important;
+    }
     .upper-nav-container {
       height: 124px !important; /* 72px original + 52px extra */
     }
@@ -17,6 +20,9 @@
 }
 
 @media (max-width: 359px) {
+  .product-page-body-wrap {
+    margin-top: 204.08px !important;
+  }
   .header-items-container {
     height: 56px !important; /* 48px original + 8px */
   }
@@ -1573,7 +1579,6 @@ h4 {
   margin-top: 96.083px;
   display: flex;
   flex-wrap: wrap;
-
   box-sizing: border-box;
   width: 100vw;
   min-width: 0;
