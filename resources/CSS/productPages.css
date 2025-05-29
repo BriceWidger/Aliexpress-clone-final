@@ -1,3 +1,56 @@
+/* --- RWD improvements for .body-wrap-top-left and its children --- */
+.body-wrap-top-left {
+  width: 100%;
+  max-width: 100vw;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.main-img-details-block {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.main-img-preview-img-wrap,
+.product-info-right-wrap {
+  width: 100%;
+  min-width: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .body-wrap-top-left {
+    padding: 0 2vw;
+    max-width: 100vw;
+  }
+  .main-img-details-block {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+  .main-img-preview-img-wrap,
+  .product-info-right-wrap {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto 16px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .body-wrap-top-left {
+    padding: 0 1vw;
+  }
+  .main-img-preview-img-wrap,
+  .product-info-right-wrap {
+    margin-bottom: 12px;
+  }
+}
 /* --- Responsive layout for main image and product info --- */
 .main-img-details-block {
   display: flex;
