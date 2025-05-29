@@ -1966,7 +1966,7 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 545.4px;
+  /* width: 545.4px; */
   height: 625.4px;
 }
 
