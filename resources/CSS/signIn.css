@@ -285,12 +285,28 @@ body {
 }
 
 .login-main-row-SIP {
-  width: 520px;
-  height: 612.8px;
   width: 100%;
+  max-width: 100vw;
+  min-height: 612.8px;
   display: flex;
   justify-content: center;
+  align-items: stretch;
   padding: 20px 0 48px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+  .login-main-row-SIP {
+    min-height: unset;
+    padding: 12px 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-main-row-SIP {
+    padding: 6px 0 12px;
+  }
 }
 
 .login-main-container-SIP {
