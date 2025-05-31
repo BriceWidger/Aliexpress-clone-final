@@ -335,3 +335,137 @@ body {
   margin-top: 24px;
   border-radius: 50% 50%;
 }
+
+/* Responsive header for signIn.html */
+@media (max-width: 1024px) {
+  .header-left-SIP {
+    width: 100%;
+    margin: 0 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .whole-header-SIP {
+    height: auto;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-logo-main-SIP {
+    width: 150px;
+    height: 36px;
+    background-size: 150px 36px;
+  }
+  .safe-payment-logo-SIP,
+  .security-logo-SIP,
+  .protection-logo-SIP {
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+  }
+  .safe-payment-text-SIP,
+  .security-text-SIP,
+  .protection-text-SIP {
+    font-size: 13px;
+  }
+  .header-logo-safe-wrap-SIP,
+  .header-logo-security-wrap-SIP,
+  .header-logo-protection-wrap-SIP {
+    margin-left: 20px;
+    margin-right: 0;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
+
+@media (max-width: 700px) {
+  .whole-header-SIP {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+    height: auto;
+  }
+  .header-left-SIP {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+  }
+  .header-logo-main-SIP {
+    width: 120px;
+    height: 30px;
+    background-size: 120px 30px;
+    margin-bottom: 10px;
+  }
+  .header-left-SIP {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+  .header-logo-main-SIP {
+    width: 120px;
+    height: 30px;
+    background-size: 120px 30px;
+    margin-bottom: 10px;
+    order: 1;
+    align-self: center;
+  }
+  .header-info-row-SIP {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    order: 2;
+    gap: 16px;
+  }
+  .header-logo-safe-wrap-SIP,
+  .header-logo-security-wrap-SIP,
+  .header-logo-protection-wrap-SIP {
+    margin-left: 0;
+    margin-bottom: 0;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .safe-payment-text-SIP,
+  .security-text-SIP,
+  .protection-text-SIP {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whole-header-SIP {
+    padding: 6px 0;
+  }
+  .header-logo-main-SIP {
+    width: 90px;
+    height: 24px;
+    background-size: 90px 24px;
+  }
+  .safe-payment-logo-SIP,
+  .security-logo-SIP,
+  .protection-logo-SIP {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+  .safe-payment-text-SIP,
+  .security-text-SIP,
+  .protection-text-SIP {
+    font-size: 10px;
+  }
+  .header-logo-safe-wrap-SIP,
+  .header-logo-security-wrap-SIP,
+  .header-logo-protection-wrap-SIP {
+    margin-bottom: 6px;
+  }
+}
