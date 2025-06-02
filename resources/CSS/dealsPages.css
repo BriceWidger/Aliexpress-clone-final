@@ -375,10 +375,7 @@ a {
   background-color: transparent;
   overflow: hidden;
   width: 208px;
-  max-width: 100%;
-  min-width: 0;
   position: relative;
-  transition: box-shadow 0.2s, border 0.2s;
 }
 
 .entire-product-cnt-inner:hover {
@@ -396,9 +393,7 @@ a {
   border-radius: 16px 16px 20px 20px;
   background-color: white;
   overflow: hidden;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
+  width: auto;
   position: absolute;
   inset: -17px;
   z-index: 3;
