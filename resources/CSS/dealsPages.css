@@ -407,14 +407,6 @@ a {
   overflow: hidden;
 }
 
-#search-bar-filler {
-  position: absolute;
-  top: 60px;
-  background-color: transparent;
-  width: 632.35px;
-  height: 100px;
-}
-
 #search-list {
   position: absolute;
   top: 72px;
@@ -699,7 +691,7 @@ h4 {
   top: 60px;
   background-color: transparent;
   width: 632.35px;
-  height: 100px;
+  height: 40px;
 }
 
 #search-list {
