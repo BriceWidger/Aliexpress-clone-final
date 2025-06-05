@@ -399,45 +399,37 @@ a {
 
 .products-per-row-wrap {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  align-items: stretch;
   margin-top: 16px;
   position: relative;
-  box-sizing: border-box;
-  overflow-x: visible;
+  background-color: tomato;
 }
 
 .product-row {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
-  max-width: 100vw;
-  box-sizing: border-box;
+  align-items: center;
   margin-top: 16px;
-  padding: 0 8px;
 }
 
 .page-title-text {
-  font-size: 2rem;
-  line-height: 2.2rem;
+  font-size: 32px;
+  line-height: 38px;
   font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   box-sizing: border-box;
-  display: flex;
+  display: block;
   position: relative;
   background-color: rgb(255, 255, 255);
   padding-top: 16px;
   padding-bottom: 0vw;
   margin: 0px 16px;
   border-radius: 16px;
-  width: 100%;
-  max-width: 1344px;
+  display: flex;
+  width: 1344px;
 }
 
 .name-logo-container {
