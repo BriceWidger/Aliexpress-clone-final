@@ -346,18 +346,14 @@ a {
 .entire-product-cnt-outer {
   border-radius: 16px;
   cursor: pointer;
-  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.18s;
-  will-change: transform;
-  z-index: 1;
 }
 
-/* Use transform for pop effect, don't change width/height/position */
 .entire-product-cnt-outer:hover {
-  background-color: #fff;
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
-  transform: scale(1.06);
-  z-index: 10;
+  border-radius: 16px;
+  position: relative;
+  background-color: white;
+  height: 325.35px;
+  width: 224px;
 }
 
 .entire-product-cnt-inner {
@@ -377,15 +373,28 @@ a {
   overflow: hidden;
   width: 208px;
   position: relative;
-  transition: box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1),
-    border 0.18s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.18s;
 }
 
-/* Only add border, bg, shadow on hover, don't change position or size */
 .entire-product-cnt-inner:hover {
-  border: none;
-  background-color: #fff;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-content: flex-start;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 12px 8px 0vw;
+  padding: 16px;
+  direction: ltr;
+  border-radius: 16px 16px 20px 20px;
+  background-color: white;
+  overflow: hidden;
+  width: auto;
+  position: absolute;
+  inset: -17px;
+  z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
 }
 
 .products-per-row-wrap {
@@ -398,7 +407,6 @@ a {
   position: relative;
   box-sizing: border-box;
   overflow-x: visible;
-  background-color: black;
 }
 
 .product-row {
