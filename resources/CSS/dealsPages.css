@@ -411,7 +411,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px 0 26px 0;
 }
 
 .page-title-text {
