@@ -414,6 +414,41 @@ a {
 }
 
 @media (max-width: 900px) {
+  /* Disable all visual/layout hover effects for product cards at 900px and below */
+  .entire-product-cnt-outer:hover {
+    border-radius: inherit !important;
+    position: static !important;
+    background-color: inherit !important;
+    height: inherit !important;
+    width: inherit !important;
+    box-shadow: none !important;
+    z-index: auto !important;
+    /* Only pointer allowed */
+    cursor: pointer !important;
+  }
+  .entire-product-cnt-inner:hover {
+    text-decoration: inherit !important;
+    color: inherit !important;
+    box-sizing: inherit !important;
+    display: inherit !important;
+    flex-direction: inherit !important;
+    flex-shrink: inherit !important;
+    align-content: inherit !important;
+    border: inherit !important;
+    margin: inherit !important;
+    padding: inherit !important;
+    direction: inherit !important;
+    border-radius: inherit !important;
+    background-color: inherit !important;
+    overflow: inherit !important;
+    width: inherit !important;
+    position: inherit !important;
+    inset: inherit !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    /* Only pointer allowed */
+    cursor: pointer !important;
+  }
 }
 
 .products-per-row-wrap {
@@ -520,7 +555,7 @@ a {
   }
 }
 
-/* @media (max-width: 900px) {
+@media (max-width: 900px) {
   .product-row {
     max-width: 100vw;
     padding: 0 2vw;
@@ -551,9 +586,9 @@ a {
     max-width: 100%;
     min-width: 80px;
   }
-} */
+}
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   .product-row {
     max-width: 100vw;
     padding: 0 1vw;
@@ -585,7 +620,7 @@ a {
     max-width: 100%;
     min-width: 60vw;
   }
-} */
+}
 
 .page-title-text {
   font-size: 2.2rem;
