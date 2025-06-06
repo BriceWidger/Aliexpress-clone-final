@@ -345,7 +345,10 @@ a {
 
 .entire-product-cnt-outer {
   border-radius: 16px;
-  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  height: 325.35px;
+  width: 224px;
 }
 
 .entire-product-cnt-outer:hover {
@@ -401,16 +404,14 @@ a {
   display: flex;
   margin-top: 16px;
   position: relative;
-  background-color: tomato;
 }
 
 .product-row {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 16px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .page-title-text {
