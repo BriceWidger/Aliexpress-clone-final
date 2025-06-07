@@ -532,7 +532,6 @@ body {
   align-items: stretch;
   padding: 20px 0 48px;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 @media (max-width: 700px) {
