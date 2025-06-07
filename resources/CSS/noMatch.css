@@ -1,5 +1,9 @@
+body {
+  align-items: stretch !important;
+}
+
 .row-container-a {
-  flex: 1; /* Allow the main content to grow and shrink dynamically */
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,10 +11,17 @@
   background-color: #ffffff;
   font-size: 14px;
   text-align: center; /* Ensure text alignment is centered */
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 320px;
+  padding: 24px 8px 48px 8px;
+  box-sizing: border-box;
 }
 
 .row-container-a img {
-  margin-bottom: 16px; /* Add spacing between the image and the text */
+  margin-bottom: 16px;
+  max-width: 90vw;
+  height: auto;
 }
 
 .sorry-txt {
@@ -18,4 +29,21 @@
   font-size: 16px;
   color: #000;
   line-height: 20px;
+  word-break: break-word;
+  max-width: 90vw;
+}
+
+@media (max-width: 600px) {
+  .row-container-a {
+    padding: 16px 2vw 32px 2vw;
+    font-size: 13px;
+    min-height: 180px;
+  }
+  .row-container-a img {
+    max-width: 70vw;
+  }
+  .sorry-txt {
+    font-size: 14px;
+    padding: 0 2vw;
+  }
 }
