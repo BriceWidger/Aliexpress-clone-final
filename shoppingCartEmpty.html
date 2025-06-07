@@ -12,15 +12,13 @@
 </head>
 
 <body>
-    <div class="page-wrap-sc"></div>
     <!-- HEADER -->
     <header>
-        <!-- NAV -->
-        <div class="upper-nav-container">
+        <div class="upper-nav-container" style="position: relative; z-index: 1">
             <div class="upper-nav">
                 <div class="upper-nav-items-container">
                     <div class="name-logo-container">
-                        <a href="/index.html" style="text-decoration:none">
+                        <a href="/index.html" style="text-decoration: none">
                             <div class="name-logo-container-link-director_pp"></div>
                         </a>
                         <div class="name-logo" href="/Item_Pages/beatsbydre.html">
@@ -31,9 +29,7 @@
                                 <div class="circle-menu-hover-box">
                                     <div class="inside-menu-title-container">
                                         <div class="inside-menu-drop-box"></div>
-                                        <div class="category-dropdown-title_pp">
-                                            All Items
-                                        </div>
+                                        <div class="category-dropdown-title_pp">All Items</div>
                                     </div>
                                     <a class="circle-menu-hover-box-links"
                                         href="/Item_Pages/automotiveDegreaser.html">Automotive
@@ -60,42 +56,63 @@
                     </div>
                     <div id="search-bar-container">
                         <input id="search-bar" type="text" onkeyup="search_items()"
-                            onblur="this.value=removeSpaces(this.value);" placeholder="Search items..">
+                            onblur="this.value=removeSpaces(this.value);" placeholder="Search items.." />
                         <div id="search-bar-filler"></div>
-                        <div id='search-list'>
+                        <div id="search-list">
                             <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Automotive Degreaser</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Automotive Degreaser
+                                </div>
                             </a>
                             <a href="/Item_Pages/beatsbydre.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Beats by Dre</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Beats by Dre
+                                </div>
                             </a>
                             <a href="/Item_Pages/jblPartybox.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">JBL Partybox</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    JBL Partybox
+                                </div>
                             </a>
                             <a href="/Item_Pages/makeup.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Makeup</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Makeup
+                                </div>
                             </a>
                             <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Mr Potato Head</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Mr Potato Head
+                                </div>
                             </a>
                             <a href="/Item_Pages/olympusCamera.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Olympus Camera</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Olympus Camera
+                                </div>
                             </a>
                             <a href="/Item_Pages/pillow.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Pillow</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Pillow
+                                </div>
                             </a>
                             <a href="/Item_Pages/rcRaceCar.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">RC Race Car</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    RC Race Car
+                                </div>
                             </a>
                             <a href="/Item_Pages/simonRabbit.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Simon Rabbit</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Simon Rabbit
+                                </div>
                             </a>
                             <a href="/Item_Pages/truthHoodie.html" target="_blank">
-                                <div id="search-item-names" class="search-item-names">Truth Hoodie</div>
+                                <div id="search-item-names" class="search-item-names">
+                                    Truth Hoodie
+                                </div>
                             </a>
                         </div>
-                        <div id="search-submit-container"><input id="search-submit" type="image"
-                                src="/resources/images/search-button.jpg" alt="Submit">
+                        <div id="search-submit-container">
+                            <input id="search-submit" type="image" src="/resources/images/search-button.jpg"
+                                alt="Submit" />
                         </div>
                     </div>
                     <div class="header-items-container">
@@ -112,8 +129,12 @@
                                 <div class="acc-img-title-container">
                                     <div class="account-img"></div>
                                     <div class="acc-title-sign-wrap">
-                                        <div id="signed-in-text-notification">Welcome back, User!</div>
-                                        <div id="signed-out-text-notification">You're signed out</div>
+                                        <div id="signed-in-text-notification">
+                                            Welcome back, User!
+                                        </div>
+                                        <div id="signed-out-text-notification">
+                                            You're signed out
+                                        </div>
                                         <div id="sign-out" onclick="signOut()">Sign out</div>
                                         <a href="/signIn.html">
                                             <button id="sign-in" onclick="signIn()">Sign in</button>
