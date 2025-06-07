@@ -2589,3 +2589,9 @@ h4 {
   color: var(--color-grey-5, #191919);
   font-weight: 700;
 }
+
+@media (max-width: 359px) {
+  .main-content-wrap-SCE {
+    margin-top: 112px;
+  }
+}
