@@ -46,28 +46,92 @@ document.addEventListener("DOMContentLoaded", function () {
   tabBtn.style.display = "none";
   document.body.appendChild(tabBtn);
 
+  // X close button (already in HTML, but select it)
+  const closeBtn = cartRightSide.querySelector(".cart-summary-close-btn");
   let summaryOpen = false;
+
+  // Overlay for outside click
+  let overlay = null;
+
+  function showOverlay() {
+    if (!overlay) {
+      overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = "100vw";
+      overlay.style.height = "100vh";
+      overlay.style.background = "rgba(0,0,0,0.12)";
+      overlay.style.zIndex = 1001;
+      // overlay.style.cursor = "pointer";
+      overlay.className = "cart-summary-overlay";
+      document.body.appendChild(overlay);
+      overlay.addEventListener("click", function () {
+        hideSummary();
+      });
+    } else {
+      overlay.style.display = "block";
+    }
+  }
+
+  function hideOverlay() {
+    if (overlay) overlay.style.display = "none";
+  }
+
+  function showSummary() {
+    summaryOpen = true;
+    cartRightSide.classList.remove("cart-summary-hidden");
+    tabBtn.classList.add("active");
+    if (window.innerWidth <= 900) {
+      if (closeBtn) closeBtn.style.display = "flex";
+      showOverlay();
+      // Hide tabBtn when summary is open
+      tabBtn.style.display = "none";
+    }
+  }
+
+  function hideSummary() {
+    summaryOpen = false;
+    cartRightSide.classList.add("cart-summary-hidden");
+    tabBtn.classList.remove("active");
+    if (window.innerWidth <= 900) {
+      if (closeBtn) closeBtn.style.display = "none";
+      hideOverlay();
+      tabBtn.style.display = "block";
+    }
+  }
 
   function updateTabDisplay() {
     if (window.innerWidth <= 900) {
       cartRightSide.classList.add("cart-right-side-tabbed");
-      tabBtn.style.display = "block";
       if (!summaryOpen) {
         cartRightSide.classList.add("cart-summary-hidden");
+        if (closeBtn) closeBtn.style.display = "none";
+        hideOverlay();
+        tabBtn.style.display = "block";
+      } else {
+        if (closeBtn) closeBtn.style.display = "flex";
+        showOverlay();
+        tabBtn.style.display = "none";
       }
     } else {
       cartRightSide.classList.remove("cart-right-side-tabbed");
       cartRightSide.classList.remove("cart-summary-hidden");
+      if (closeBtn) closeBtn.style.display = "none";
+      hideOverlay();
       tabBtn.style.display = "none";
       summaryOpen = false;
     }
   }
 
   tabBtn.addEventListener("click", function () {
-    summaryOpen = !summaryOpen;
-    cartRightSide.classList.toggle("cart-summary-hidden", !summaryOpen);
-    tabBtn.classList.toggle("active", summaryOpen);
+    showSummary();
   });
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      hideSummary();
+    });
+  }
 
   window.addEventListener("resize", updateTabDisplay);
   updateTabDisplay();

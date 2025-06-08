@@ -1,3 +1,33 @@
+.cart-summary-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  color: #999;
+  font-weight: 700;
+  font-size: 22px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.cart-summary-close-btn:hover {
+  color: #fd384f;
+  background: #f5f5f5;
+}
+.cart-summary-close-x {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 700;
+  pointer-events: none;
+}
 .check-select-all-wrap {
   position: relative;
 }
@@ -311,8 +341,8 @@ a {
     color: #fff;
     border: none;
     border-radius: 16px 0 0 16px;
-    padding: 12px 18px;
-    font-size: 18px;
+    padding: 10px 10px;
+    font-size: 16px;
     font-weight: 700;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     cursor: pointer;
