@@ -429,9 +429,9 @@ a {
   }
   .cart-summary-tab-btn {
     position: fixed;
-    top: 50%;
     right: 0;
-    transform: translateY(-50%);
+    bottom: 90px;
+    /* 90px above the bottom is a familiar, accessible spot */
     z-index: 1100;
     background: #fd384f;
     color: #fff;
