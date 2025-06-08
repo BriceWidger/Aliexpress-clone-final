@@ -844,10 +844,13 @@ a {
 
 #custom-prompt-co .content-btn {
   background-color: #fefefe;
-  margin: 15% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   border: 1px solid #888;
   width: 360px;
-  position: relative;
   border-radius: 12px;
 }
 
@@ -1032,10 +1035,13 @@ a {
 #custom-prompt-co-individualCount-ten .content-btn-individualCount-ten,
 #custom-prompt-co-individualCount-eleven .content-btn-individualCount-eleven {
   background-color: #fefefe;
-  margin: 15% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   border: 1px solid #888;
   width: 360px;
-  position: relative;
   border-radius: 12px;
 }
 
@@ -1062,10 +1068,13 @@ a {
 #custom-prompt-co-individualCount-trash-eleven
   .content-btn-individualCount-trash-eleven {
   background-color: #fefefe;
-  margin: 15% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   border: 1px solid #888;
   width: 360px;
-  position: relative;
   border-radius: 12px;
 }
 

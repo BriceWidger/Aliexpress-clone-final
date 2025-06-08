@@ -1,3 +1,82 @@
+// --- Begin Modal Scroll Lock Logic (migrated from modalScrollLock.js) ---
+(function () {
+  // List of all prompt overlay IDs
+  const promptIds_modalScrollLock = [
+    "custom-prompt-co",
+    "custom-prompt-co-individualCount-one",
+    "custom-prompt-co-individualCount-two",
+    "custom-prompt-co-individualCount-three",
+    "custom-prompt-co-individualCount-four",
+    "custom-prompt-co-individualCount-five",
+    "custom-prompt-co-individualCount-six",
+    "custom-prompt-co-individualCount-seven",
+    "custom-prompt-co-individualCount-eight",
+    "custom-prompt-co-individualCount-nine",
+    "custom-prompt-co-individualCount-ten",
+    "custom-prompt-co-individualCount-eleven",
+    "custom-prompt-co-individualCount-trash-one",
+    "custom-prompt-co-individualCount-trash-two",
+    "custom-prompt-co-individualCount-trash-three",
+    "custom-prompt-co-individualCount-trash-four",
+    "custom-prompt-co-individualCount-trash-five",
+    "custom-prompt-co-individualCount-trash-six",
+    "custom-prompt-co-individualCount-trash-seven",
+    "custom-prompt-co-individualCount-trash-eight",
+    "custom-prompt-co-individualCount-trash-nine",
+    "custom-prompt-co-individualCount-trash-ten",
+    "custom-prompt-co-individualCount-trash-eleven",
+  ];
+
+  function isAnyPromptOpen_modalScrollLock() {
+    return promptIds_modalScrollLock.some(function (id) {
+      var el = document.getElementById(id);
+      return el && el.style.display !== "none" && el.style.display !== "";
+    });
+  }
+
+  function lockScroll_modalScrollLock() {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  }
+
+  function unlockScroll_modalScrollLock() {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  function checkPromptsAndToggleScroll_modalScrollLock() {
+    if (isAnyPromptOpen_modalScrollLock()) {
+      lockScroll_modalScrollLock();
+    } else {
+      unlockScroll_modalScrollLock();
+    }
+  }
+
+  // Observe changes to prompt overlays
+  const observer_modalScrollLock = new MutationObserver(
+    checkPromptsAndToggleScroll_modalScrollLock
+  );
+  promptIds_modalScrollLock.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) {
+      observer_modalScrollLock.observe(el, {
+        attributes: true,
+        attributeFilter: ["style"],
+      });
+    }
+  });
+
+  // Also check on DOMContentLoaded and on window resize
+  document.addEventListener(
+    "DOMContentLoaded",
+    checkPromptsAndToggleScroll_modalScrollLock
+  );
+  window.addEventListener(
+    "resize",
+    checkPromptsAndToggleScroll_modalScrollLock
+  );
+})();
+// --- End Modal Scroll Lock Logic ---
 // If no keys with imgData in their names in local storage, refresh page to shoppingCartEmpty.html
 function noImgData_refreshToEmptyShoppingCart() {
   if (window.location.pathname.endsWith("noMatch.html")) {
