@@ -1,3 +1,143 @@
+/* --- FIX: Enforce consistent checkmark icon sizing at all breakpoints --- */
+.product-one-check-mark-icon-SC,
+.product-two-check-mark-icon-SC,
+.product-three-check-mark-icon-SC,
+.product-four-check-mark-icon-SC,
+.product-five-check-mark-icon-SC,
+.product-six-check-mark-icon-SC,
+.product-seven-check-mark-icon-SC,
+.product-eight-check-mark-icon-SC,
+.product-nine-check-mark-icon-SC,
+.product-ten-check-mark-icon-SC,
+.product-eleven-check-mark-icon-SC,
+.product-one-empty-circle-check-mark-icon-sc,
+.product-two-empty-circle-check-mark-icon-sc,
+.product-three-empty-circle-check-mark-icon-sc,
+.product-four-empty-circle-check-mark-icon-sc,
+.product-five-empty-circle-check-mark-icon-sc,
+.product-six-empty-circle-check-mark-icon-sc,
+.product-seven-empty-circle-check-mark-icon-sc,
+.product-eight-empty-circle-check-mark-icon-sc,
+.product-nine-empty-circle-check-mark-icon-sc,
+.product-ten-empty-circle-check-mark-icon-sc,
+.product-eleven-empty-circle-check-mark-icon-sc {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .product-one-check-mark-icon-SC,
+  .product-two-check-mark-icon-SC,
+  .product-three-check-mark-icon-SC,
+  .product-four-check-mark-icon-SC,
+  .product-five-check-mark-icon-SC,
+  .product-six-check-mark-icon-SC,
+  .product-seven-check-mark-icon-SC,
+  .product-eight-check-mark-icon-SC,
+  .product-nine-check-mark-icon-SC,
+  .product-ten-check-mark-icon-SC,
+  .product-eleven-check-mark-icon-SC,
+  .product-one-empty-circle-check-mark-icon-sc,
+  .product-two-empty-circle-check-mark-icon-sc,
+  .product-three-empty-circle-check-mark-icon-sc,
+  .product-four-empty-circle-check-mark-icon-sc,
+  .product-five-empty-circle-check-mark-icon-sc,
+  .product-six-empty-circle-check-mark-icon-sc,
+  .product-seven-empty-circle-check-mark-icon-sc,
+  .product-eight-empty-circle-check-mark-icon-sc,
+  .product-nine-empty-circle-check-mark-icon-sc,
+  .product-ten-empty-circle-check-mark-icon-sc,
+  .product-eleven-empty-circle-check-mark-icon-sc {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    box-sizing: border-box;
+  }
+}
+/* Prevent checkmark icons from overlapping with product images in RWD */
+@media (max-width: 600px) {
+  .cp-details-left-wrap {
+    position: relative;
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    /* Remove left padding so image and checkmark keep their normal alignment */
+    padding-left: 0;
+  }
+  .product-one-empty-circle-check-mark-icon-sc,
+  .product-two-empty-circle-check-mark-icon-sc,
+  .product-three-empty-circle-check-mark-icon-sc,
+  .product-four-empty-circle-check-mark-icon-sc,
+  .product-five-empty-circle-check-mark-icon-sc,
+  .product-six-empty-circle-check-mark-icon-sc,
+  .product-seven-empty-circle-check-mark-icon-sc,
+  .product-eight-empty-circle-check-mark-icon-sc,
+  .product-nine-empty-circle-check-mark-icon-sc,
+  .product-ten-empty-circle-check-mark-icon-sc,
+  .product-eleven-empty-circle-check-mark-icon-sc,
+  .product-one-check-mark-icon-SC,
+  .product-two-check-mark-icon-SC,
+  .product-three-check-mark-icon-SC,
+  .product-four-check-mark-icon-SC,
+  .product-five-check-mark-icon-SC,
+  .product-six-check-mark-icon-SC,
+  .product-seven-check-mark-icon-SC,
+  .product-eight-check-mark-icon-SC,
+  .product-nine-check-mark-icon-SC,
+  .product-ten-check-mark-icon-SC,
+  .product-eleven-check-mark-icon-SC {
+    /* Keep their normal position, don't override top/left */
+    /* position: relative !important; */
+    margin-right: 8px !important;
+    margin-left: 0 !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 2;
+    background: #fff;
+    border-radius: 50%;
+  }
+}
+@media (max-width: 380px) {
+  .cart-product-details {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px;
+  }
+  .cp-details-left-wrap {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start !important;
+  }
+  .cart-product-info-wrap-one,
+  .cart-product-info-wrap-two,
+  .cart-product-info-wrap-three,
+  .cart-product-info-wrap-four,
+  .cart-product-info-wrap-five,
+  .cart-product-info-wrap-six,
+  .cart-product-info-wrap-seven,
+  .cart-product-info-wrap-eight,
+  .cart-product-info-wrap-nine,
+  .cart-product-info-wrap-ten,
+  .cart-product-info-wrap-eleven {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
 .cart-summary-close-btn {
   position: absolute;
   top: 12px;
