@@ -1,3 +1,6 @@
+.check-select-all-wrap {
+  position: relative;
+}
 /* ^$\n */
 body {
   background-color: #f5f5f5;
@@ -1707,6 +1710,8 @@ a {
   cursor: pointer;
   vertical-align: middle;
   position: absolute;
+  /* left: 0px;
+  top: -28px; */
   /* z-index: 1; */
 }
 
