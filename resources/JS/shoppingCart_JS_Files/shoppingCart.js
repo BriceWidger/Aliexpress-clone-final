@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create the tab button
   const tabBtn = document.createElement("button");
   tabBtn.className = "cart-summary-tab-btn";
-  tabBtn.innerHTML = "Summary";
+  tabBtn.innerHTML = "Checkout";
   tabBtn.setAttribute("aria-label", "Show cart summary");
   tabBtn.style.display = "none";
   document.body.appendChild(tabBtn);
