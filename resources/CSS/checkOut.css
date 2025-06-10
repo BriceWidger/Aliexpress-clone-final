@@ -363,6 +363,9 @@
   padding: 16px 24px;
   background: #fff;
   /* border-radius: 4px; */
+  width: 100%;
+  max-width: 732px;
+  box-sizing: border-box;
 }
 
 .cart-list {
@@ -2562,10 +2565,13 @@ h4 {
   margin-left: auto;
   padding-left: 0;
   padding-right: 0;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
   align-items: center;
   height: 100%;
   display: flex;
+  overflow-x: auto;
 }
 
 .ae-logo {
@@ -2579,9 +2585,12 @@ h4 {
 
 .pl-place-order-container {
   display: flex;
-  width: 1180px;
+  width: 100%;
+  max-width: 1180px;
   margin: 0 auto;
   position: relative;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .pl-main-container {
@@ -2589,8 +2598,9 @@ h4 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  width: 0;
+  width: 100%;
   min-width: 0;
+  box-sizing: border-box;
 }
 
 .pl-block-container {
@@ -2718,9 +2728,6 @@ h4 {
 .paypal-logo-middle-block {
   height: 18px;
   margin-right: 8px;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0;
-  -ms-flex: 0;
   flex: 0;
 }
 
@@ -2733,14 +2740,21 @@ h4 {
 .change-payments-middle-block {
   border: 0;
   padding: 0;
-  top: calc(50% - 13px);
-  right: 0;
   color: #27f;
   font-size: 14px;
   cursor: pointer;
   position: absolute;
   top: calc(50% - 7px);
   right: 12px;
+}
+
+@media (max-width: 800px) {
+  .middle-block-placeholder {
+    padding: 12px 8px;
+  }
+  .middle-block-placeholder-inner {
+    padding: 8px 2vw;
+  }
 }
 
 .paypal-button-label-container {
