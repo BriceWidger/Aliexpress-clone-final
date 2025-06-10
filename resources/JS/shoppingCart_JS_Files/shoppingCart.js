@@ -114,13 +114,16 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // --- Begin Responsive Summary Tab Logic (migrated from shoppingCartTab.js) ---
 document.addEventListener("DOMContentLoaded", function () {
+
   const cartRightSide = document.querySelector(".cart-right-side");
   if (!cartRightSide) return;
 
   // Create the tab button
   const tabBtn = document.createElement("button");
   tabBtn.className = "cart-summary-tab-btn";
-  tabBtn.innerHTML = "Checkout";
+  // Use 'Payment' on checkout page, 'Checkout' elsewhere
+  const isCheckoutPage = window.location.pathname.includes("checkOut.html");
+  tabBtn.innerHTML = isCheckoutPage ? "Payment" : "Checkout";
   tabBtn.setAttribute("aria-label", "Show cart summary");
   tabBtn.style.display = "none";
   document.body.appendChild(tabBtn);

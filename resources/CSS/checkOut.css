@@ -364,7 +364,6 @@
   background: #fff;
   /* border-radius: 4px; */
   width: 100%;
-  max-width: 732px;
   box-sizing: border-box;
 }
 
@@ -2604,24 +2603,21 @@ h4 {
 }
 
 .pl-block-container {
-  width: 732px;
-  height: 91.717px;
+  width: 100%;
+  min-width: 0;
   background: #fff;
   padding: 16px 24px;
   margin: 12px 0;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .pl-address-item-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .pl-address-item__title {
@@ -2637,13 +2633,11 @@ h4 {
 
 .pl-address-item__head {
   max-width: 328px;
-  /* overflow: hidden; */
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .pl-address-item__head__bold {
@@ -2656,13 +2650,14 @@ h4 {
 .pl-address-item__content {
   font-size: 14px;
   max-width: 90%;
-  font-size: 12px;
   color: #666;
   line-height: 18px;
-  /* overflow: hidden; */
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 300px;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .pl-address-item__arrrow {
@@ -2676,53 +2671,61 @@ h4 {
 }
 
 .middle-block-placeholder {
-  width: 732px;
-  height: 62.3667px;
+  width: 100%;
+  min-width: 0;
   padding: 16px 24px;
   background-color: #fff;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .middle-block-placeholder-inner {
   display: block;
-  padding: 0;
   width: 100%;
+  min-width: 0;
   position: relative;
   padding: 12px;
   background-color: #fff;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .middle-block-title-wrap {
   font-size: 18px;
-  margin-bottom: 20px;
-  font-size: 13px;
   font-weight: 700;
   margin-bottom: 10px;
-  white-space: nowrap;
   color: #222;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .paypal-wrap-middle-block {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
   align-items: flex-start;
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .pp-wrap-text-icon-wrap {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
   align-items: flex-start;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+@media (max-width: 800px) {
+  .pl-block-container,
+  .middle-block-placeholder {
+    padding: 12px 8px;
+  }
+  .middle-block-placeholder-inner {
+    padding: 8px 2vw;
+  }
 }
 
 .paypal-logo-middle-block {
