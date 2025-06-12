@@ -20,6 +20,8 @@
   </header>
   <!-- MAIN BODY WRAP-->
   <div id="placeorder-wrap" style="flex: 1">
+    <!-- Overlay for mobile view when summary is open -->
+    <div id="cart-summary-overlay"></div>
     <div class="pl-place-order-container">
       <div class="pl-main-container">
         <!-- TOP BLOCK -->
@@ -586,6 +588,10 @@
       </div>
       <!-- RIGHT BLOCK -->
       <div class="cart-right-side">
+        <!-- X close button for summary tab (for mobile view) -->
+        <button class="cart-summary-close-btn" aria-label="Close summary">
+          <span class="cart-summary-close-x">&times;</span>
+        </button>
         <div class="cart-summary">
           <div class="cart-summary-title">Summary</div>
           <div class="cart-summary-list">
@@ -737,6 +743,7 @@
   <script src="/resources/JS/shoppingCart_JS_Files/productCountSubtotalManager.js"></script>
   <script src="/resources/JS/paypalLoginDemo.js"></script>
   <script src="/resources/JS/checkOut.js"></script>
+  <script src="/resources/JS/checkOut_responsive.js"></script>
 </body>
 
 </html>
