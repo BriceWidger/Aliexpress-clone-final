@@ -605,6 +605,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var myScrollFunc = function () {
       var box = container.querySelector("#action-box-top-id");
       if (!box) return;
+      // If inside modal, always show and remove any scroll-triggered effects
+      if (box.closest(".action-box-modal-content")) {
+        box.className = "action-box-top action-box-top-show";
+        box.style.transition = "none"; // Remove any transition effects if present
+        return;
+      }
       var y = window.scrollY;
       if (y >= 100) {
         box.className = "action-box-top action-box-top-show";
@@ -620,6 +626,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var adjustActionBox = function () {
       var actionBox = container;
       if (!actionBox) return;
+      // If the action box is inside the modal, always set fixed position and padding
+      if (actionBox.closest(".action-box-modal-content")) {
+        actionBox.style.top = "132.60px";
+        actionBox.style.padding = "14px 0 31px 24px";
+        return;
+      }
       var scrollPosition = window.scrollY;
       if (scrollPosition > 0) {
         actionBox.style.top = "132.60px";
