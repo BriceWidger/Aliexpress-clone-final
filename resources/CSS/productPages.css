@@ -2478,7 +2478,7 @@ h4 {
 #preview-img-two-after_jbl,
 #preview-img-two-after_makeup,
 #preview-img-two-after_makeupTwo,
-#preview-img-two-after_potatoHead,
+#preview-img_two-after_potatoHead,
 #preview-img-two-after_camera,
 #preview-img-two-after_pillow,
 #preview-img-two-after_car,
@@ -2742,6 +2742,7 @@ h4 {
   text-align: left;
   color: #434649;
   font-size: 13px;
+
   line-height: inherit;
   margin: 0;
   width: 944px;
@@ -2848,4 +2849,20 @@ h4 {
   line-clamp: 1;
   overflow: hidden;
   margin-top: 8px;
+}
+
+/* --- Prevent RWD changes above 1800px and keep main content centered --- */
+@media (min-width: 1800px) {
+  .product-page-body-wrap {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Prevent further RWD changes */
+  }
+  /* Optionally, reset any RWD overrides for large screens here */
+}
+
+.product-page-body-wrap {
+  margin-left: auto;
+  margin-right: auto;
 }
