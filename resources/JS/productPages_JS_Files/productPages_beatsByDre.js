@@ -539,3 +539,100 @@ function syncLocalStorageWithProductCounts() {
 }
 
 window.addEventListener("load", syncLocalStorageWithProductCounts);
+
+// --- Action Box Toggle Tab/Modal Logic for <=1615px ---
+document.addEventListener("DOMContentLoaded", function () {
+  var tab = document.getElementById("actionBoxToggleTab");
+  var modal = document.getElementById("actionBoxModal");
+  var modalContent = document.getElementById("actionBoxModalContent");
+  var closeBtn = document.getElementById("actionBoxModalClose");
+  var actionBoxContainer = document.querySelector(".action-box-container");
+
+  function checkWidthAndToggleTab() {
+    if (window.innerWidth <= 1615) {
+      if (tab) tab.style.display = "flex";
+      if (actionBoxContainer && actionBoxContainer.parentElement)
+        actionBoxContainer.parentElement.style.display = "none";
+    } else {
+      if (tab) tab.style.display = "none";
+      if (modal) modal.classList.remove("open");
+      if (actionBoxContainer && actionBoxContainer.parentElement)
+        actionBoxContainer.parentElement.style.display = "";
+    }
+  }
+
+  // --- Modal open/close logic ---
+  if (tab) {
+    tab.addEventListener("click", function () {
+      if (modal && actionBoxContainer) {
+        modalContent.innerHTML = "";
+        modalContent.appendChild(actionBoxContainer);
+        modal.classList.add("open");
+        // Re-apply scroll logic for modal
+        setupActionBoxScrollLogic(actionBoxContainer);
+      }
+    });
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      if (modal) modal.classList.remove("open");
+      var originalParent = document.querySelector(".body-wrap-top-right");
+      if (originalParent && !originalParent.contains(actionBoxContainer)) {
+        originalParent.appendChild(actionBoxContainer);
+        setupActionBoxScrollLogic(actionBoxContainer);
+      }
+    });
+  }
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.classList.remove("open");
+        var originalParent = document.querySelector(".body-wrap-top-right");
+        if (originalParent && !originalParent.contains(actionBoxContainer)) {
+          originalParent.appendChild(actionBoxContainer);
+          setupActionBoxScrollLogic(actionBoxContainer);
+        }
+      }
+    });
+  }
+  window.addEventListener("resize", checkWidthAndToggleTab);
+  checkWidthAndToggleTab();
+
+  // --- Helper: Setup scroll logic for action box in current parent ---
+  function setupActionBoxScrollLogic(container) {
+    var actionBoxTop = container.querySelector("#action-box-top-id");
+    if (!actionBoxTop) return;
+    var myScrollFunc = function () {
+      var box = container.querySelector("#action-box-top-id");
+      if (!box) return;
+      var y = window.scrollY;
+      if (y >= 100) {
+        box.className = "action-box-top action-box-top-show";
+      } else if (y <= 500) {
+        box.className = "action-box-top action-box-top-hide";
+      }
+    };
+    window.removeEventListener("scroll", myScrollFunc); // Remove any previous
+    window.addEventListener("scroll", myScrollFunc);
+    myScrollFunc();
+
+    // Adjust .action-box-container on scroll
+    var adjustActionBox = function () {
+      var actionBox = container;
+      if (!actionBox) return;
+      var scrollPosition = window.scrollY;
+      if (scrollPosition > 0) {
+        actionBox.style.top = "132.60px";
+        actionBox.style.padding = "14px 0 31px 24px";
+      } else {
+        actionBox.style.top = "0px";
+        actionBox.style.padding = "8px 0 31px 24px";
+      }
+    };
+    window.removeEventListener("scroll", adjustActionBox);
+    window.addEventListener("scroll", adjustActionBox);
+    adjustActionBox();
+  }
+  // Initial setup for default location
+  setupActionBoxScrollLogic(actionBoxContainer);
+});

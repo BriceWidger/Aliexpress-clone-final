@@ -2477,7 +2477,7 @@ h4 {
 #preview-img-two-after_auto,
 #preview-img-two-after_jbl,
 #preview-img-two-after_makeup,
-#preview-img-two-after_makeupTwo,
+#preview-img_two-after_makeupTwo,
 #preview-img_two-after_potatoHead,
 #preview-img-two-after_camera,
 #preview-img-two-after_pillow,
@@ -2865,4 +2865,95 @@ h4 {
 .product-page-body-wrap {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* --- Action Box Toggle Tab for <=1615px --- */
+@media (max-width: 1615px) {
+  .body-wrap-top-right {
+    display: none !important;
+  }
+  .action-box-toggle-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    bottom: 64px;
+    width: 54px;
+    height: 54px;
+    background: #ff4747;
+    color: #fff;
+    border-radius: 16px 0 0 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    z-index: 1002;
+    font-size: 2rem;
+    transition: background 0.2s;
+  }
+  .action-box-toggle-tab:hover {
+    background: #e63c3c;
+  }
+  .action-box-modal {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.32);
+    z-index: 1001;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .action-box-modal.open {
+    display: flex;
+  }
+  .action-box-modal-content {
+    background: #fff;
+    width: 100vw;
+    max-width: 420px;
+    height: 100vh;
+    box-shadow: -2px 0 16px rgba(0, 0, 0, 0.18);
+    overflow-y: auto;
+    position: relative;
+    right: 0;
+    top: 0;
+    padding: 0;
+    z-index: 1003;
+    animation: slideInRight 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  #actionBoxModalContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @keyframes slideInRight {
+    from {
+      right: -420px;
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+  .action-box-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 2rem;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1004;
+  }
+}
+@media (min-width: 1616px) {
+  .action-box-toggle-tab,
+  .action-box-modal {
+    display: none !important;
+  }
 }
