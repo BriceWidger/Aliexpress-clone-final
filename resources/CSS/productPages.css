@@ -2957,3 +2957,8 @@ h4 {
     display: none !important;
   }
 }
+
+/* Make the action-box-toggle-tab icon white using CSS filter */
+.action-box-toggle-tab img {
+  filter: brightness(0) invert(1);
+}

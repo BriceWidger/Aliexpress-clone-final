@@ -568,6 +568,8 @@ document.addEventListener("DOMContentLoaded", function () {
         modalContent.innerHTML = "";
         modalContent.appendChild(actionBoxContainer);
         modal.classList.add("open");
+        // Hide the tab when modal is open
+        tab.style.display = "none";
         // Re-apply scroll logic for modal
         setupActionBoxScrollLogic(actionBoxContainer);
       }
@@ -576,6 +578,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (closeBtn) {
     closeBtn.addEventListener("click", function () {
       if (modal) modal.classList.remove("open");
+      // Show the tab again when modal is closed (if still <=1615px)
+      if (window.innerWidth <= 1615 && tab) tab.style.display = "flex";
       var originalParent = document.querySelector(".body-wrap-top-right");
       if (originalParent && !originalParent.contains(actionBoxContainer)) {
         originalParent.appendChild(actionBoxContainer);
@@ -587,6 +591,8 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.addEventListener("click", function (e) {
       if (e.target === modal) {
         modal.classList.remove("open");
+        // Show the tab again when modal is closed (if still <=1615px)
+        if (window.innerWidth <= 1615 && tab) tab.style.display = "flex";
         var originalParent = document.querySelector(".body-wrap-top-right");
         if (originalParent && !originalParent.contains(actionBoxContainer)) {
           originalParent.appendChild(actionBoxContainer);
