@@ -601,7 +601,19 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-  window.addEventListener("resize", checkWidthAndToggleTab);
+  window.addEventListener("resize", function () {
+    // If modal is open, close it and restore the action box to its original parent
+    if (modal && modal.classList.contains("open")) {
+      modal.classList.remove("open");
+      if (window.innerWidth <= 1615 && tab) tab.style.display = "flex";
+      var originalParent = document.querySelector(".body-wrap-top-right");
+      if (originalParent && !originalParent.contains(actionBoxContainer)) {
+        originalParent.appendChild(actionBoxContainer);
+        setupActionBoxScrollLogic(actionBoxContainer);
+      }
+    }
+    checkWidthAndToggleTab();
+  });
   checkWidthAndToggleTab();
 
   // --- Helper: Setup scroll logic for action box in current parent ---
