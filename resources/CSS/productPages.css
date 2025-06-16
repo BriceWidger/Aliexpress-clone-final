@@ -633,6 +633,12 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0;
+  height: auto;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
 }
 
 #cart-number {
@@ -654,6 +660,7 @@ h4 {
   position: relative;
   top: -17.5px;
   font-size: smaller;
+  font-weight: 700;
 }
 
 .usa {
@@ -676,6 +683,11 @@ h4 {
   width: 32px;
   height: 32px;
   margin-right: 8px;
+}
+
+.cart-check-out-black {
+  width: 34px;
+  height: 34px;
 }
 
 /* 
@@ -2216,7 +2228,6 @@ h4 {
   z-index: -1;
 }
 
-#mag-overlay_jbl {
   background-image: url("/resources/images/JBLspeaker.jpg");
   position: relative;
   left: -1px;
@@ -2742,7 +2753,6 @@ h4 {
   text-align: left;
   color: #434649;
   font-size: 13px;
-
   line-height: inherit;
   margin: 0;
   width: 944px;
@@ -2961,4 +2971,38 @@ h4 {
 /* Make the action-box-toggle-tab icon white using CSS filter */
 .action-box-toggle-tab img {
   filter: brightness(0) invert(1);
+}
+
+.action-box-modal-content {
+  position: relative;
+}
+.modal-cart-icon-text-checkout {
+  position: absolute;
+  top: 0px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  gap: 8px;
+  z-index: 2;
+}
+
+.modal-cart-icon-text-checkout > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-cart-icon-text-checkout .cart-number-cart-text-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0;
+}
+
+#modal-cart-number {
+  background-color: #fff !important;
+  color: #000 !important;
 }
