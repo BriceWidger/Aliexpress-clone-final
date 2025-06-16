@@ -666,3 +666,30 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial setup for default location
   setupActionBoxScrollLogic(actionBoxContainer);
 });
+
+// --- Keep modal-cart-number in sync with cart-number ---
+document.addEventListener("DOMContentLoaded", function () {
+  var cartNumber = document.getElementById("cart-number");
+  var modalCartNumber = document.getElementById("modal-cart-number");
+  if (!cartNumber || !modalCartNumber) return;
+
+  // Set modal-cart-number color (in case CSS fails)
+  modalCartNumber.style.color = "#fd384f";
+
+  // Helper to sync value
+  function syncModalCartNumber() {
+    modalCartNumber.textContent = cartNumber.textContent;
+  }
+
+  // Initial sync
+  syncModalCartNumber();
+
+  // Observe changes to cart-number
+  var observer = new MutationObserver(syncModalCartNumber);
+  observer.observe(cartNumber, { childList: true, characterData: true, subtree: true });
+
+  // Also listen for manual events in case cart-number is updated via JS
+  ["input", "change"].forEach(function (evt) {
+    cartNumber.addEventListener(evt, syncModalCartNumber);
+  });
+});
