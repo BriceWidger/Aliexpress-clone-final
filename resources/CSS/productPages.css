@@ -2228,6 +2228,7 @@ h4 {
   z-index: -1;
 }
 
+#mag-overlay_jbl {
   background-image: url("/resources/images/JBLspeaker.jpg");
   position: relative;
   left: -1px;
@@ -2741,7 +2742,6 @@ h4 {
   height: auto;
   line-height: inherit;
 }
-
 .decription-section-imgs {
   width: 100%;
   max-width: 944px;
@@ -3003,6 +3003,14 @@ h4 {
 }
 
 #modal-cart-number {
-  background-color: #fff !important;
-  color: #000 !important;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 16px;
+  font-size: smaller;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 13px;
 }
