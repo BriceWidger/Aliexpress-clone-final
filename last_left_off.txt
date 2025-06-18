@@ -1,3 +1,3 @@
-6/13/25:
+6/17/25:
 
-there needs to be improvements on the rwd for the product pages becaues i need to be able to see or access the action box at all times. there is also an issue after 1800px width the content keeps changing and moving around
+1. You've tried everything to save the way the navgiation looks so you cna fix the RWD on the index page, but it's beena couple hours trying to figure it out. You're probably bette rjust to start from scratch with rwd for the index page

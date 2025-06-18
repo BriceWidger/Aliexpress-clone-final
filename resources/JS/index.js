@@ -1,45 +1,3 @@
-// Hamburger menu toggle for lower nav (mobile/tablet)
-document.addEventListener("DOMContentLoaded", function () {
-  var hamburgerBtn = document.querySelector(".hamburger-menu-btn");
-  var hamburgerContainer = document.querySelector(".hamburger-menu-container");
-  if (hamburgerBtn && hamburgerContainer) {
-    hamburgerBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      hamburgerContainer.classList.toggle("active");
-    });
-    document.addEventListener("click", function (e) {
-      if (!hamburgerContainer.contains(e.target)) {
-        hamburgerContainer.classList.remove("active");
-      }
-    });
-  }
-
-  // Account dropdown for mobile (between 360px and 489px inclusive)
-  function isMobileAccountDropdown() {
-    return window.innerWidth <= 489 && window.innerWidth >= 360;
-  }
-  document.querySelectorAll(".person-account-icon").forEach(function (icon) {
-    icon.addEventListener("click", function (e) {
-      if (!isMobileAccountDropdown()) return;
-      e.stopPropagation();
-      var accDropdown = icon.closest(".acc-dropdown");
-      if (accDropdown) {
-        accDropdown.classList.toggle("show-dropdown");
-      }
-    });
-  });
-  // Hide dropdown when clicking outside (only for 360px-489px)
-  document.addEventListener("click", function (e) {
-    if (!isMobileAccountDropdown()) return;
-    document
-      .querySelectorAll(".acc-dropdown.show-dropdown")
-      .forEach(function (drop) {
-        if (!drop.contains(e.target)) {
-          drop.classList.remove("show-dropdown");
-        }
-      });
-  });
-});
 // Search bar
 function search_items() {
   let input = document.getElementById("search-bar").value;
@@ -460,30 +418,16 @@ function decoyFunctionTwo_rowC() {
 }
 
 // Nav Scroll
-// Responsive nav hide on scroll down (mobile/tablet)
-let prevScrollpos = window.pageYOffset;
-window.addEventListener("scroll", function () {
-  const nav = document.getElementById("whole-nav");
-  const isMobile = window.innerWidth <= 900;
-  const currentScrollPos = window.pageYOffset;
-  if (isMobile) {
-    if (currentScrollPos === 0 || prevScrollpos > currentScrollPos) {
-      nav.classList.remove("hide-on-scroll");
-    } else {
-      nav.classList.add("hide-on-scroll");
-    }
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("whole-nav").style.top = "0";
   } else {
-    // Desktop: keep old behavior
-    if (currentScrollPos === 0) {
-      nav.style.top = "0";
-    } else if (prevScrollpos > currentScrollPos) {
-      nav.style.top = "0";
-    } else {
-      nav.style.top = "-200px";
-    }
+    document.getElementById("whole-nav").style.top = "-200px";
   }
   prevScrollpos = currentScrollPos;
-});
+};
 
 // toggle sign-out notifications
 function signOut() {
