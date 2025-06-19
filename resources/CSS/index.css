@@ -65,7 +65,7 @@ a {
 /* Center the main content and ensure it doesn't overflow */
 .page-container {
   /* Use margin-top instead of top for spacing below fixed nav */
-  margin-top: 151.45px;
+  margin-top: 112px;
   width: 100%;
   max-width: 1134px;
   margin-left: auto;
@@ -1040,11 +1040,9 @@ a {
   .header-items-container {
     margin-bottom: 12px !important;
   }
-
   img.cart-check-out-white {
     display: inline !important;
   }
-
   .person-account-icon {
     margin-right: 0 !important;
   }
@@ -1059,7 +1057,6 @@ a {
     top: 100%;
     z-index: 100;
   }
-
   .acc-dropbtn {
     padding-left: 0;
   }
@@ -1507,7 +1504,6 @@ h4 {
   color: #191919;
   border: none;
   cursor: pointer;
-
   .acc-up-menu-arrow-black {
     content: url("/resources/images/menu-arrow-white-up.png");
   }
@@ -1770,7 +1766,7 @@ h4 {
 .row-a-card-a-container {
   padding: 24px;
   border-radius: 24px;
-  background-color: #f5f5f5;
+  background-color: rgb(245, 245, 245);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2009,26 +2005,23 @@ h4 {
 /* ROW A, CARD C */
 .row-a-card-c {
   border-radius: 24px;
-  background-color: #f5f5f5;
+  background-color: rgb(245, 245, 245);
   padding: 20px 16px;
   display: flex;
   justify-content: space-between;
   max-width: 252px;
-  max-height: 236.75px;
+  height: 266.3px;
   flex-direction: column;
 }
 
 .row-a-card-c-ab-container {
-  background-color: #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
-  flex: 0 1 100%;
-}
-
-.row-a-card-c-titles-wrap {
-  flex: 1 0 35%;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .row-a-card-c-img-a {
@@ -2046,16 +2039,13 @@ h4 {
 /* ROW A, CARD D */
 .row-a-card-d {
   background-color: rgb(245, 245, 245);
-  width: fit-content;
-  min-width: 0;
+  width: 100%;
   border-radius: 24px;
   padding: 20px 16px;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  /* margin-left: 16px; */
-  height: fit-content;
-  box-sizing: border-box;
+  margin-left: 16px;
+  height: 266.3px;
 }
 
 .row-a-card-d-titles-wrap {
@@ -2962,11 +2952,9 @@ h4 {
   .header-items-container {
     margin-bottom: 12px !important;
   }
-
   img.cart-check-out-white {
     display: inline !important;
   }
-
   .person-account-icon {
     margin-right: 0 !important;
   }
@@ -2981,7 +2969,6 @@ h4 {
     top: 100%;
     z-index: 100;
   }
-
   .acc-dropbtn {
     padding-left: 0;
   }
