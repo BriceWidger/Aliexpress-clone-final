@@ -2841,7 +2841,6 @@ h4 {
 }
 .row-a-card-c,
 .row-a-card-d {
-  width: fit-content !important;
   max-width: 100%;
   min-width: 0;
   margin: 0;
@@ -3410,7 +3409,7 @@ h4 {
 }
 .row-a-card-c,
 .row-a-card-d {
-  width: fit-content !important;
+  width: 404px;
   max-width: 100%;
   min-width: 0;
   margin: 0;
