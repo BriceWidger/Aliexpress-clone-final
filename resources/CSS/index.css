@@ -3407,7 +3407,14 @@ h4 {
     display: block !important;
   }
 }
-.row-a-card-c,
+/* Do not edit */
+.row-a-card-c {
+  max-width: 284px;
+  min-width: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .row-a-card-d {
   width: 404px;
   max-width: 100%;
@@ -3455,6 +3462,14 @@ h4 {
     flex-direction: row;
     gap: 16px;
     align-items: flex-start;
+    box-sizing: border-box;
+  }
+  .row-a-card-c,
+  .row-a-card-d {
+    width: 404px;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
     box-sizing: border-box;
   }
 }
