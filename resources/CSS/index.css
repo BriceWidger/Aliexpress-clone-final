@@ -3474,6 +3474,30 @@ h4 {
   }
 }
 
+@media (max-width: 823px) {
+  /* Hide the first .img-price-wrap in .row-a-card-a */
+  .row-a-card-a > .img-price-wrap:first-child {
+    display: none !important;
+  }
+  /* Set width and height for .row-a-card-a-img-b and .row-a-card-a-img-c */
+  .row-a-card-a-img-b,
+  .row-a-card-a-img-c {
+    width: 151.567px !important;
+    height: 151.567px !important;
+  }
+
+  .row-a-card-a-bc-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .img-price-wrap {
+    height: 217.8px;
+  }
+}
+
 @media (max-width: 800px) {
   .row-a-card-a-container,
   .row-a-card-b {
