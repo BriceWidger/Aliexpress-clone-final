@@ -456,10 +456,6 @@ a {
     padding-left: 0;
     padding-right: 0;
   }
-  .row-container-a {
-    /* All previous 900px rules now apply at 1200px */
-    /* Add any additional rules as needed */
-  }
   .row-a-all-containers,
   .all-row-d-containers {
     max-width: 100vw;
@@ -931,6 +927,11 @@ a {
   }
   .img-price-wrap {
     margin: 8px 4px;
+  }
+
+  .row-a-card-c-ab-container {
+    display: flex;
+    justify-content: space-evenly !important;
   }
 }
 @media (max-width: 800px) {
@@ -3495,6 +3496,10 @@ h4 {
   .row-a-card-c-ab-container .img-price-wrap {
     height: auto !important;
   }
+  .row-a-card-c-ab-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 @media (max-width: 800px) {
@@ -3601,7 +3606,13 @@ h4 {
   /* Make .row-a-card-b-img-a and .row-a-card-b-img-b a bit smaller */
   .row-a-card-b-img-a,
   .row-a-card-b-img-b {
-    max-width: 170px;
-    max-height: 170px;
+    max-width: 160px;
+    max-height: 160px;
+  }
+
+  .row-a-card-b-abcd-container .img-price-wrap:has(.row-a-card-b-img-a),
+  .row-a-card-b-abcd-container .img-price-wrap:has(.row-a-card-b-img-b) {
+    display: flex !important;
+    justify-content: space-evenly;
   }
 }
