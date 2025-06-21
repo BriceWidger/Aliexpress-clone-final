@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="resources/CSS/index.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="resources/CSS/productPages.css" /> -->
+  <link rel="stylesheet" type="text/css" href="resources/CSS/index-media.css" />
   <title>Aliexpress Clone</title>
 </head>
-<!-- ^$\n -->
 
 <body>
   <!-- NAV -->
@@ -17,15 +16,14 @@
       <div class="upper-nav-items-container">
         <div class="name-logo-container">
           <a href="index.html" style="text-decoration:none">
-            <div class="name-logo" href="/Item_Pages/beatsbydre.html"></div>
+            <div class="name-logo"></div>
           </a>
         </div>
         <div id="search-bar-container">
-          <input id="search-bar" type="text" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
-            placeholder="Search items..">
+          <input id="search-bar" type="text" placeholder="Search items..">
           <div id="search-bar-filler"></div>
-          <div id="search-submit-container"><input id="search-submit" type="image"
-              src="resources/images/search-button.jpg" alt="Submit">
+          <div id="search-submit-container">
+            <input id="search-submit" type="image" src="resources/images/search-button.jpg" alt="Submit">
           </div>
         </div>
         <div class="header-items-container">
@@ -117,8 +115,6 @@
           <a class="lower-nav-list-four" href="/Deals_Pages/superDeals.html" target="_blank">
             <div>SuperDeals</div>
           </a>
-          <!-- <div class="lower-nav-list-five">Quality Picks</div>
-            <div class="lower-nav-list-six">Choice</div> -->
         </div>
       </div>
     </div>
@@ -132,18 +128,16 @@
         <div class="row-a-card-a-container">
           <h2 class="universal-card-title">First come, 50% off</h2>
           <div class="sub-icon-title-container">
-            <img class="sub-icon" src="resources\images\choice-logo-transparent.png" height="24px" />
+            <img class="sub-icon" src="resources/images/choice-logo-transparent.png" height="24px" />
             <h3 class="sub-title-info">Free returns</h3>
           </div>
           <div class="row-a-card-a">
             <div class="img-price-wrap">
               <a href="/Item_Pages/fiftyOff_items/beatsbydre_fiftyOff.html" target="_blank">
-                <img class="row-a-card-a-img-a" src="/resources/images/beatsbydre.jpg" onclick="beats_fiftyOff()"
-                  alt="alternative text"
+                <img class="row-a-card-a-img-a" src="/resources/images/beatsbydre.jpg" alt="alternative text"
                   title="Beats by Dr. Dre Beats Solo3 Wireless On-Ear Headphones ((PRODUCT)RED Citrus Red / Icon)" />
                 <div class="price-wrap-center">
                   <div class="dollar-sign">$</div>
-                  <!-- <div class="hundreds-digit"></div> -->
                   <div class="tens-digit">7</div>
                   <div class="ones-digit">4</div>
                   <div class="decimal-point">.</div>
@@ -161,7 +155,6 @@
                     title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll" />
                   <div class="price-wrap-center">
                     <div class="dollar-sign">$</div>
-                    <!-- <div class="tens-digit"></div> -->
                     <div class="ones-digit">8</div>
                     <div class="decimal-point">.</div>
                     <div class="tenths-digit">9</div>
@@ -193,7 +186,7 @@
           <div class="row-a-card-b-titles-wrap">
             <h2 class="universal-card-title">From $1.99</h2>
             <div class="sub-icon-title-container">
-              <img class="sub-icon" src="resources\images\choice-logo-transparent.png" height="24px" />
+              <img class="sub-icon" src="resources/images/choice-logo-transparent.png" height="24px" />
               <h3 class="sub-title-info">Free shipping · free returns</h3>
             </div>
           </div>
@@ -265,7 +258,7 @@
             <div class="row-a-card-c-titles-wrap">
               <h2 class="universal-card-title">Free shipping</h2>
               <div class="sub-icon-title-container">
-                <img class="sub-icon" src="resources\images\choice-logo-transparent.png" height="24px" />
+                <img class="sub-icon" src="resources/images/choice-logo-transparent.png" height="24px" />
                 <h3 class="sub-title-info">Selected items</h3>
               </div>
             </div>
@@ -1112,410 +1105,408 @@
                   </div>
                 </a>
               </div>
-          </section>
+        </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- ROW D -->
+  <div class="row-container-d">
+    <h2 class="row-d-title">More to love</h2>
+    <div class="all-row-d-containers">
+      <div class="row-d-card-container_camera">
+        <div class="row-c-card">
+          <a href="/Item_Pages/olympusCamera.html" target="_blank"><img id="localStorageImg-Camera"
+              class="row-d-card-img" src="resources/images/olympus-camera.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-camera-row-d" onclick="clickCounter('camera'); showAdded(this); updateImageCamera()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/olympusCamera.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text" title="Olympus OM-1 | 35mm Film Camera">Olympus
+                OM-1
+                | 35mm Film Camera</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">1 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>269.99</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_pillow">
+        <div class="row-c-card">
+          <a href="/Item_Pages/pillow.html" target="_blank"><img id="localStorageImg-Pillow" class="row-d-card-img"
+              src="resources/images/pillow.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-pillow-row-d" onclick="clickCounter('pillow'); showAdded(this); updateImagePillow()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/pillow.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+                Basics Down Alternative Bed Pillow, Medium Density for
+                Back and Side
+                Sleepers, Standard, 26 x 20 Inch - Pack of 2, White</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">5 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_car">
+        <div class="row-c-card">
+          <a href="/Item_Pages/rcRaceCar.html" target="_blank"><img id="localStorageImg-RCCar" class="row-d-card-img"
+              src="resources/images/rc-toy.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-rccar-row-d" onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">Adventure Force Radio Control 1:8
+                Trail Chaser
+                Buggy, Green</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">4 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>39.97</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <!-- <div class="free-shipping">Free shipping</div> -->
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_simon">
+        <div class="row-c-card">
+          <a href="/Item_Pages/simonRabbit.html" target="_blank"><img id="localStorageImg-SimonRabbit"
+              class="row-d-card-img" src="resources/images/simon-toy.png" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-simonrabbit-row-d"
+              onclick="clickCounter('simonrabbit'); showAdded(this); updateImageSimonRabbit()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/simonRabbit.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">Simon – Plush toy
+                Rabbit Simon Quality super soft
+                (11’41″/29cm, SUPER HERO)
+              </div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">2 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>24.99</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_truth">
+        <div class="row-c-card">
+          <a href="/Item_Pages/truthHoodie.html" target="_blank"><img id="localStorageImg-TruthHoodie"
+              class="row-d-card-img" src="resources/images/truthhoodie.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-truthhoodie-row-d"
+              onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/truthHoodie.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text" title="New York Times Truth Hoodie">New York Times
+                Truth Hoodie</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">3 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>49.95</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_makeupOne">
+        <div class="row-c-card">
+          <a href="/Item_Pages/makeup.html" target="_blank"><img id="localStorageImg-MakeupOne" class="row-d-card-img"
+              src="resources/images/makeup-img.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-makeupone-row-d"
+              onclick="clickCounter('makeupone'); showAdded(this); updateImageMakeupOne()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/makeup.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
+                All In One Makeup Kit 12 Colors Naked Eyeshadow
+                Palette, Makeup Brush, Buff
+                Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner
+                Stamp, Makeup Sets for Women Full Kit (Set B)</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">3 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.88</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_jbl">
+        <div class="row-c-card">
+          <a href="/Item_Pages/jblPartybox.html" target="_blank"><img id="localStorageImg-JBLspeaker"
+              class="row-d-card-img" src="resources/images/JBLspeaker.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-jblspeaker-row-d"
+              onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/jblPartybox.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
+                JBL 100% Original Partybox Encore Essential
+                Wireless Bluetooth Speaker
+                Portable 100W Sound Built-In Dynamic Light Show</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">1 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>382.93</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_potatoHead">
+        <div class="row-c-card">
+          <a href="/Item_Pages/mrPotatoHead.html" target="_blank"><img id="localStorageImg-PotatoHead"
+              class="row-d-card-img" src="resources/images/potatohead.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-potatohead-row-d"
+              onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
+                New Mr. Potato Head Playskool Egg Head Toy Fun
+                Assembled Gift Figure
+                Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">2 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.98</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_pillow">
+        <div class="row-c-card">
+          <a href="/Item_Pages/pillow.html" target="_blank"><img id="localStorageImg-Pillow" class="row-d-card-img"
+              src="resources/images/pillow.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-pillow-row-d" onclick="clickCounter('pillow'); showAdded(this); updateImagePillow()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/pillow.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
+                Basics Down Alternative Bed Pillow, Medium Density for
+                Back and Side
+                Sleepers, Standard, 26 x 20 Inch - Pack of 2, White</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">5 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <!-- <div class="free-shipping">Free shipping</div> -->
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_truth">
+        <div class="row-c-card">
+          <a href="/Item_Pages/truthHoodie.html" target="_blank"><img id="localStorageImg-TruthHoodie"
+              class="row-d-card-img" src="resources/images/truthhoodie.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-truthhoodie-row-d"
+              onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/truthHoodie.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text" title="New York Times Truth Hoodie">New York Times
+                Truth Hoodie</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">3 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>49.95</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row-d-card-container_jbl">
+        <div class="row-c-card">
+          <a href="/Item_Pages/jblPartybox.html" target="_blank"><img id="localStorageImg-JBLspeaker"
+              class="row-d-card-img" src="resources/images/JBLspeaker.jpg" /></a>
+          <div class="add-on-icon-wrapper">
+            <div class="add-on-icon-jblspeaker-row-d"
+              onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker()"
+              style="height: 28px; width: 28px">
+              <div class="notification-text"></div>
+            </div>
+          </div>
+          <a href="/Item_Pages/jblPartybox.html" target="_blank">
+            <div class="product-title-word-break">
+              <div class="row-b-item-title" alt="alternative text"
+                title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
+                JBL 100% Original Partybox Encore Essential
+                Wireless Bluetooth Speaker
+                Portable 100W Sound Built-In Dynamic Light Show</div>
+              <div class="sold-amount-wrap">
+                <div class="sold-amount">1 sold</div>
+              </div>
+              <div class="black-price-wrap">
+                <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>382.93</span>
+              </div>
+              <div class="free-shipping-wrap">
+                <div class="free-shipping">Free shipping</div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-    <!-- ROW D -->
-    <div class="row-container-d">
-      <h2 class="row-d-title">More to love</h2>
-      <div class="all-row-d-containers">
-        <div class="row-d-card-container_camera">
-          <div class="row-c-card">
-            <a href="/Item_Pages/olympusCamera.html" target="_blank"><img id="localStorageImg-Camera"
-                class="row-d-card-img" src="resources/images/olympus-camera.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-camera-row-d"
-                onclick="clickCounter('camera'); showAdded(this); updateImageCamera()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/olympusCamera.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text" title="Olympus OM-1 | 35mm Film Camera">Olympus
-                  OM-1
-                  | 35mm Film Camera</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">1 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>269.99</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
+  </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-top-text-wrap">
+        <div class="footer-text-box">
+          <h3 class="footer-text-title">Customer service</h3>
+          <div class="footer-text-list">
+            <div class="footer-sub-text">Help Center</div>
+            <div class="footer-sub-text">Transaction Services</div>
+            <div class="footer-sub-text">Agreement for non-EU/UK</div>
+            <div class="footer-sub-text">Consumers</div>
+            <div class="footer-sub-text">Terms and Conditions for EU/EEA/UK Consumers</div>
+            <div class="footer-sub-text">Take our feedback survey</div>
           </div>
         </div>
-        <div class="row-d-card-container_pillow">
-          <div class="row-c-card">
-            <a href="/Item_Pages/pillow.html" target="_blank"><img id="localStorageImg-Pillow" class="row-d-card-img"
-                src="resources/images/pillow.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-pillow-row-d"
-                onclick="clickCounter('pillow'); showAdded(this); updateImagePillow()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/pillow.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
-                  Basics Down Alternative Bed Pillow, Medium Density for
-                  Back and Side
-                  Sleepers, Standard, 26 x 20 Inch - Pack of 2, White</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">5 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
+        <div class="footer-text-box">
+          <h3 class="footer-text-title">Shopping with us</h3>
+          <div class="footer-text-list">
+            <div class="footer-sub-text">Making payments</div>
+            <div class="footer-sub-text">Delivery options</div>
+            <div class="footer-sub-text">Buyer Protection</div>
           </div>
         </div>
-        <div class="row-d-card-container_car">
-          <div class="row-c-card">
-            <a href="/Item_Pages/rcRaceCar.html" target="_blank"><img id="localStorageImg-RCCar" class="row-d-card-img"
-                src="resources/images/rc-toy.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-rccar-row-d" onclick="clickCounter('rccar'); showAdded(this); updateImageRCCar()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/rcRaceCar.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="Adventure Force Radio Control 1:8 Trail Chaser Buggy, Green">Adventure Force Radio Control 1:8
-                  Trail Chaser
-                  Buggy, Green</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">4 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>39.97</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <!-- <div class="free-shipping">Free shipping</div> -->
-                </div>
-              </div>
-            </a>
+        <div class="footer-text-box">
+          <h3 class="footer-text-title">Collaborate with us</h3>
+          <div class="footer-text-list">
+            <div class="footer-sub-text">Partnerships</div>
+            <div class="footer-sub-text">Affiliate program</div>
+            <div class="footer-sub-text">DS Center</div>
+            <div class="footer-sub-text">Seller Log In</div>
+            <div class="footer-sub-text">Non-Chinese Seller</div>
+            <div class="footer-sub-text">Registration</div>
           </div>
         </div>
-        <div class="row-d-card-container_simon">
-          <div class="row-c-card">
-            <a href="/Item_Pages/simonRabbit.html" target="_blank"><img id="localStorageImg-SimonRabbit"
-                class="row-d-card-img" src="resources/images/simon-toy.png" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-simonrabbit-row-d"
-                onclick="clickCounter('simonrabbit'); showAdded(this); updateImageSimonRabbit()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/simonRabbit.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="Simon – Plush toy Rabbit Simon Quality super soft (11’41″/29cm, SUPER HERO)">Simon – Plush toy
-                  Rabbit Simon Quality super soft
-                  (11’41″/29cm, SUPER HERO)
-                </div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">2 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>24.99</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
+        <div class="footer-text-box">
+          <h3 class="footer-text-title">Pay with</h3>
+          <div class="footer-text-list">
+            <img class="footer-text-list-imgs" src="/resources/images/visa-icon.jpg" />
+            <img class="footer-text-list-imgs" src="/resources/images/mastercard-icon.jpg" />
+            <img class="footer-text-list-imgs" src="/resources/images/americanexpress-icon.jpg" />
+            <img class="footer-text-list-imgs" src="/resources/images/discover-icon.jpg" />
+            <img class="footer-text-list-imgs" src="/resources/images/paypal-icon.jpg" />
+            <img class="footer-text-list-imgs" src="/resources/images/googlepay-icon.jpg" />
+            <img class="footer-text-list-imgs" src="/resources/images/applepay-icon.jpg" />
           </div>
         </div>
-        <div class="row-d-card-container_truth">
-          <div class="row-c-card">
-            <a href="/Item_Pages/truthHoodie.html" target="_blank"><img id="localStorageImg-TruthHoodie"
-                class="row-d-card-img" src="resources/images/truthhoodie.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-truthhoodie-row-d"
-                onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/truthHoodie.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text" title="New York Times Truth Hoodie">New York Times
-                  Truth Hoodie</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">3 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>49.95</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row-d-card-container_makeupOne">
-          <div class="row-c-card">
-            <a href="/Item_Pages/makeup.html" target="_blank"><img id="localStorageImg-MakeupOne" class="row-d-card-img"
-                src="resources/images/makeup-img.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-makeupone-row-d"
-                onclick="clickCounter('makeupone'); showAdded(this); updateImageMakeupOne()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/makeup.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="All In One Makeup Kit 12 Colors Naked Eyeshadow Palette, Makeup Brush, Buff Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner Stamp, Makeup Sets for Women Full Kit (Set B)">
-                  All In One Makeup Kit 12 Colors Naked Eyeshadow
-                  Palette, Makeup Brush, Buff
-                  Beige Foundation, Vibely Mascara, Liquid Lipstick, Makeup Sponge, Eyebrow Soap Kit, Winged Eyeliner
-                  Stamp, Makeup Sets for Women Full Kit (Set B)</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">3 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.88</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row-d-card-container_jbl">
-          <div class="row-c-card">
-            <a href="/Item_Pages/jblPartybox.html" target="_blank"><img id="localStorageImg-JBLspeaker"
-                class="row-d-card-img" src="resources/images/JBLspeaker.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-jblspeaker-row-d"
-                onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/jblPartybox.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
-                  JBL 100% Original Partybox Encore Essential
-                  Wireless Bluetooth Speaker
-                  Portable 100W Sound Built-In Dynamic Light Show</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">1 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>382.93</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row-d-card-container_potatoHead">
-          <div class="row-c-card">
-            <a href="/Item_Pages/mrPotatoHead.html" target="_blank"><img id="localStorageImg-PotatoHead"
-                class="row-d-card-img" src="resources/images/potatohead.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-potatohead-row-d"
-                onclick="clickCounter('potatohead'); showAdded(this); updateImagePotatoHead()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="New Mr. Potato Head Playskool Egg Head Toy Fun Assembled Gift Figure Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll">
-                  New Mr. Potato Head Playskool Egg Head Toy Fun
-                  Assembled Gift Figure
-                  Collection Hobby Mrs Potatoes The Joker Surprise Gifts Doll</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">2 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>17.98</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row-d-card-container_pillow">
-          <div class="row-c-card">
-            <a href="/Item_Pages/pillow.html" target="_blank"><img id="localStorageImg-Pillow" class="row-d-card-img"
-                src="resources/images/pillow.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-pillow-row-d"
-                onclick="clickCounter('pillow'); showAdded(this); updateImagePillow()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/pillow.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="Basics Down Alternative Bed Pillow, Medium Density for Back and Side Sleepers, Standard, 26 x 20 Inch - Pack of 2, White">
-                  Basics Down Alternative Bed Pillow, Medium Density for
-                  Back and Side
-                  Sleepers, Standard, 26 x 20 Inch - Pack of 2, White</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">5 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>23.50</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <!-- <div class="free-shipping">Free shipping</div> -->
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row-d-card-container_truth">
-          <div class="row-c-card">
-            <a href="/Item_Pages/truthHoodie.html" target="_blank"><img id="localStorageImg-TruthHoodie"
-                class="row-d-card-img" src="resources/images/truthhoodie.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-truthhoodie-row-d"
-                onclick="clickCounter('truthhoodie'); showAdded(this); updateImageTruthHoodie()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/truthHoodie.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text" title="New York Times Truth Hoodie">New York Times
-                  Truth Hoodie</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">3 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>49.95</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row-d-card-container_jbl">
-          <div class="row-c-card">
-            <a href="/Item_Pages/jblPartybox.html" target="_blank"><img id="localStorageImg-JBLspeaker"
-                class="row-d-card-img" src="resources/images/JBLspeaker.jpg" /></a>
-            <div class="add-on-icon-wrapper">
-              <div class="add-on-icon-jblspeaker-row-d"
-                onclick="clickCounter('jblspeaker'); showAdded(this); updateImageJBLspeaker()"
-                style="height: 28px; width: 28px">
-                <div class="notification-text"></div>
-              </div>
-            </div>
-            <a href="/Item_Pages/jblPartybox.html" target="_blank">
-              <div class="product-title-word-break">
-                <div class="row-b-item-title" alt="alternative text"
-                  title="JBL 100% Original Partybox Encore Essential Wireless Bluetooth Speaker Portable 100W Sound Built-In Dynamic Light Show">
-                  JBL 100% Original Partybox Encore Essential
-                  Wireless Bluetooth Speaker
-                  Portable 100W Sound Built-In Dynamic Light Show</div>
-                <div class="sold-amount-wrap">
-                  <div class="sold-amount">1 sold</div>
-                </div>
-                <div class="black-price-wrap">
-                  <span style="font-size: 24px;"><span style="font-size: 12px;">$</span>382.93</span>
-                </div>
-                <div class="free-shipping-wrap">
-                  <div class="free-shipping">Free shipping</div>
-                </div>
-              </div>
-            </a>
+        <div class="footer-text-box">
+          <h3 class="footer-text-title">Stay connected</h3>
+          <div class="footer-text-list">
+            <img class="social-media-icons" src="/resources/images/facebook-icon.png" />
+            <img class="social-media-icons" src="/resources/images/x-icon.png" />
+            <img class="social-media-icons" src="/resources/images/instagram-icon.png" />
+            <img class="social-media-icons" src="/resources/images/messenger-icon.png" />
+            <img class="social-media-icons" src="/resources/images/whatsapp-icon.png" />
           </div>
         </div>
       </div>
     </div>
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-top">
-        <div class="footer-top-text-wrap">
-          <div class="footer-text-box">
-            <h3 class="footer-text-title">Customer service</h3>
-            <div class="footer-text-list">
-              <div class="footer-sub-text">Help Center</div>
-              <div class="footer-sub-text">Transaction Services</div>
-              <div class="footer-sub-text">Agreement for non-EU/UK</div>
-              <div class="footer-sub-text">Consumers</div>
-              <div class="footer-sub-text">Terms and Conditions for EU/EEA/UK Consumers</div>
-              <div class="footer-sub-text">Take our feedback survey</div>
-            </div>
-          </div>
-          <div class="footer-text-box">
-            <h3 class="footer-text-title">Shopping with us</h3>
-            <div class="footer-text-list">
-              <div class="footer-sub-text">Making payments</div>
-              <div class="footer-sub-text">Delivery options</div>
-              <div class="footer-sub-text">Buyer Protection</div>
-            </div>
-          </div>
-          <div class="footer-text-box">
-            <h3 class="footer-text-title">Collaborate with us</h3>
-            <div class="footer-text-list">
-              <div class="footer-sub-text">Partnerships</div>
-              <div class="footer-sub-text">Affiliate program</div>
-              <div class="footer-sub-text">DS Center</div>
-              <div class="footer-sub-text">Seller Log In</div>
-              <div class="footer-sub-text">Non-Chinese Seller</div>
-              <div class="footer-sub-text">Registration</div>
-            </div>
-          </div>
-          <div class="footer-text-box">
-            <h3 class="footer-text-title">Pay with</h3>
-            <div class="footer-text-list">
-              <img class="footer-text-list-imgs" src="/resources/images/visa-icon.jpg" />
-              <img class="footer-text-list-imgs" src="/resources/images/mastercard-icon.jpg" />
-              <img class="footer-text-list-imgs" src="/resources/images/americanexpress-icon.jpg" />
-              <img class="footer-text-list-imgs" src="/resources/images/discover-icon.jpg" />
-              <img class="footer-text-list-imgs" src="/resources/images/paypal-icon.jpg" />
-              <img class="footer-text-list-imgs" src="/resources/images/googlepay-icon.jpg" />
-              <img class="footer-text-list-imgs" src="/resources/images/applepay-icon.jpg" />
-            </div>
-          </div>
-          <div class="footer-text-box">
-            <h3 class="footer-text-title">Stay connected</h3>
-            <div class="footer-text-list">
-              <img class="social-media-icons" src="/resources/images/facebook-icon.png" />
-              <img class="social-media-icons" src="/resources/images/x-icon.png" />
-              <img class="social-media-icons" src="/resources/images/instagram-icon.png" />
-              <img class="social-media-icons" src="/resources/images/messenger-icon.png" />
-              <img class="social-media-icons" src="/resources/images/whatsapp-icon.png" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
-      </div>
-    </footer>
+    <div class="footer-bottom">
+      <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
+    </div>
+  </footer>
   </div>
   <!-- Move search-list to end of body for global stacking context -->
   <div id="search-list">
