@@ -1868,6 +1868,7 @@
   .row-a-card-a-container {
     min-width: 320px;
     max-width: 600px;
+    height: 566.27px;
     margin: 0;
   }
   .row-a-card-b {
@@ -1948,6 +1949,7 @@
     margin: 0;
     align-self: flex-start;
     box-sizing: border-box;
+    height: 566.27px !important;
   }
 
   .row-a-card-b {
@@ -2002,7 +2004,6 @@
   .row-a-card-c {
     order: 1 !important;
     max-width: 100% !important;
-    margin-bottom: 16px !important;
   }
   .row-a-card-d {
     order: 2 !important;
@@ -2017,7 +2018,7 @@
     flex-direction: column;
     justify-content: center;
     width: 415.7px;
-    height: 598.783px;
+    height: 598.783px !important;
   }
   a[href="/Item_Pages/superDeals_items/pillow_superDeals.html"] {
     display: block !important;
