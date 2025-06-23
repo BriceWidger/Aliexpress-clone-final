@@ -106,8 +106,6 @@ a {
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 .row-container-c {
   background-image: url("/resources/images/row-container-c-image.jpg");
@@ -951,7 +949,6 @@ h4 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  overflow-x: auto;
 }
 .all-row-b-containers {
   margin: auto;
@@ -1680,8 +1677,6 @@ h4 {
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 /* Ensure .row-container-c background image stretches across viewport */
 .row-container-c {
