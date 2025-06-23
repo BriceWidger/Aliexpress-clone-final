@@ -282,6 +282,16 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .row-a-card-c-img-a {
+    width: 115px;
+    height: 115px;
+    border-radius: 16px;
+  }
+  .row-a-card-c-img-b {
+    width: 115px;
+    height: 115px;
+    border-radius: 16px;
+  }
   .row-a-all-containers,
   .all-row-d-containers {
     max-width: 100%;
