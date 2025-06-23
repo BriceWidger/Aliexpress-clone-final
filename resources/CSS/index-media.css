@@ -2070,3 +2070,9 @@
     display: none !important;
   }
 }
+
+@media (max-width: 823px) and (min-width: 801px) {
+  .row-a-card-c {
+    max-width: 368px;
+  }
+}
