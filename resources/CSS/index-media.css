@@ -1779,11 +1779,6 @@
     box-sizing: border-box;
   }
 }
-@media (max-width: 1200px) and (min-width: 568px) {
-  .row-a-card-b {
-    /* height: 598.783px; */
-  }
-}
 /* Only enable horizontal scroll if content actually overflows */
 @media (max-width: 1200px) {
   .row-container,
