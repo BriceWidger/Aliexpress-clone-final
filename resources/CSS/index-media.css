@@ -1717,6 +1717,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 @media (max-width: 1200px) {
   .row-a-all-containers {
     display: flex !important;
@@ -1997,6 +1998,7 @@
     height: 614.267px;
   }
 }
+
 @media (max-width: 568px) {
   .row-a-cd-container {
     flex-direction: column !important;
@@ -2010,6 +2012,7 @@
     width: 100% !important;
     max-width: 100% !important;
   }
+
   .row-a-card-a-container {
     padding: 24px;
     border-radius: 24px;
@@ -2058,5 +2061,12 @@
   .row-a-card-b-abcd-container .img-price-wrap:has(.row-a-card-b-img-b) {
     display: flex !important;
     justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 358px) {
+  .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-c),
+  .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-d) {
+    display: none !important;
   }
 }
