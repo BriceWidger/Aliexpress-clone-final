@@ -1770,7 +1770,7 @@
 }
 @media (max-width: 1200px) and (min-width: 568px) {
   .row-a-card-b {
-    height: 598.783px;
+    /* height: 598.783px; */
   }
 }
 /* Only enable horizontal scroll if content actually overflows */
@@ -1899,6 +1899,10 @@
     margin: 0;
     box-sizing: border-box;
   }
+
+  .row-a-card-b {
+    height: 609.9px;
+  }
 }
 @media (max-width: 823px) {
   .row-a-card-a > .img-price-wrap:first-child {
@@ -1928,6 +1932,10 @@
     display: flex;
     justify-content: space-evenly;
   }
+
+  .row-a-card-b {
+    height: 614.267px;
+  }
 }
 @media (max-width: 800px) {
   .row-a-card-a-container,
@@ -1937,6 +1945,10 @@
     margin: 0;
     align-self: flex-start;
     box-sizing: border-box;
+  }
+
+  .row-a-card-b {
+    height: 614.267px;
   }
 }
 @media (max-width: 754px) {
@@ -1949,6 +1961,10 @@
     justify-content: center;
     align-items: center;
     flex: 0 1 100%;
+  }
+
+  .row-a-card-b {
+    height: 614.267px;
   }
 }
 @media (max-width: 658px) {
@@ -1965,6 +1981,10 @@
   }
   .row-a-card-c {
     min-width: 300px;
+  }
+
+  .row-a-card-b {
+    height: 614.267px;
   }
 }
 @media (max-width: 568px) {
