@@ -1891,7 +1891,13 @@
     align-items: flex-start;
     box-sizing: border-box;
   }
-  .row-a-card-c,
+  .row-a-card-c {
+    width: 388px;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
   .row-a-card-d {
     width: 404px;
     max-width: 100%;
@@ -1923,7 +1929,7 @@
     height: 217.8px;
   }
   .row-a-card-c {
-    width: 368px;
+    width: 268.083px;
   }
   .row-a-card-c-ab-container .img-price-wrap {
     height: auto !important;
@@ -1935,6 +1941,10 @@
 
   .row-a-card-b {
     height: 614.267px;
+  }
+
+  .row-a-card-c {
+    width: 368px;
   }
 }
 @media (max-width: 800px) {
@@ -1949,6 +1959,11 @@
 
   .row-a-card-b {
     height: 614.267px;
+  }
+  .row-a-card-c-img-a,
+  .row-a-card-c-img-b {
+    width: 110px;
+    height: 110px;
   }
 }
 @media (max-width: 754px) {
