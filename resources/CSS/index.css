@@ -1577,6 +1577,7 @@ h4 {
   margin: auto;
   padding: 0;
   width: 1134px;
+  overflow-x: scroll;
 }
 .slide {
   position: relative;
@@ -1955,6 +1956,7 @@ h4 {
   margin: auto;
   padding: 0;
   width: 1134px;
+  overflow-x: scroll;
 }
 .slide {
   position: relative;
