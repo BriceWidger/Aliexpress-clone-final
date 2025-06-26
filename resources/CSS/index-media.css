@@ -473,7 +473,7 @@
 
   /* Content layout adjustments */
   .slides-container {
-    overflow: visible !important;
+    overflow-x: scroll !important;
   }
 
   .row-a-bcd-container {
