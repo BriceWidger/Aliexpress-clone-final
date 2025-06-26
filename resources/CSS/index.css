@@ -100,7 +100,7 @@ a {
   -webkit-overflow-scrolling: touch;
   overflow: visible;
   box-sizing: border-box;
-    background-color: rgb(25, 25, 25);
+  background-color: rgb(25, 25, 25);
 }
 .hamburger-menu-container {
   display: none !important;

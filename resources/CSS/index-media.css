@@ -2131,3 +2131,19 @@
     overflow-x: scroll;
   }
 }
+
+@media (max-width: 489px) {
+  .name-logo-container,
+  .name-logo,
+  .name-logo-container > a {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+}
