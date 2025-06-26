@@ -2147,3 +2147,50 @@
     margin: 0 auto !important;
   }
 }
+
+@media (max-width: 1200px) {
+  .all-row-b-containers {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  .row-b-card-container_degreaser,
+  .row-b-card-container_beats,
+  .row-b-card-container_jbl,
+  .row-b-card-container_makeupOne,
+  .row-b-card-container_makeupTwo,
+  .row-b-card-container_potatoHead,
+  .row-b-card-container_camera,
+  .row-b-card-container_pillow,
+  .row-b-card-container_car,
+  .row-b-card-container_simon,
+  .row-b-card-container_truth {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 8px 0 !important;
+  }
+}
+@media (max-width: 700px) {
+  .all-row-b-containers {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  .row-b-card-container_degreaser,
+  .row-b-card-container_beats,
+  .row-b-card-container_jbl,
+  .row-b-card-container_makeupOne,
+  .row-b-card-container_makeupTwo,
+  .row-b-card-container_potatoHead,
+  .row-b-card-container_camera,
+  .row-b-card-container_pillow,
+  .row-b-card-container_car,
+  .row-b-card-container_simon,
+  .row-b-card-container_truth {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 8px 0 !important;
+  }
+}
