@@ -2126,12 +2126,6 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .slides-container {
-    overflow-x: scroll;
-  }
-}
-
 @media (max-width: 489px) {
   .name-logo-container,
   .name-logo,
@@ -2192,5 +2186,10 @@
     max-width: 100% !important;
     min-width: 0 !important;
     margin: 8px 0 !important;
+  }
+}
+@media (max-width: 1200px) {
+  .slides-container {
+    overflow-x: scroll !important;
   }
 }
