@@ -1858,6 +1858,9 @@
   .acc-dropdown.show-dropdown .acc-dropdown-content {
     display: block !important;
   }
+  .name-logo {
+    background-position: center center !important;
+  }
 }
 @media (max-width: 1200px) {
   .row-a-all-containers {
