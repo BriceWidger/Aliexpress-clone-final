@@ -1561,7 +1561,8 @@ h4 {
   margin: auto;
   padding: 0;
   width: 1134px;
-  overflow-x: scroll;
+  /* Remove overflow-x: scroll by default */
+  /* overflow-x: scroll; */
 }
 .slide {
   position: relative;

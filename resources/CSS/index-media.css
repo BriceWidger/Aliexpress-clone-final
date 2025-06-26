@@ -2122,3 +2122,9 @@
     flex-direction: column !important;
   }
 }
+
+@media (max-width: 1200px) {
+  .slides-container {
+    overflow-x: scroll;
+  }
+}
