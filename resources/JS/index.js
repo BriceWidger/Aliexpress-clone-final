@@ -403,6 +403,52 @@ function decoyFunctionTwo_rowC() {
   document.getElementById("slide-arrow-prevB").style.zIndex = "2";
 }
 
+// ===================================
+// CAROUSEL SCROLL INDICATORS
+// ===================================
+
+// Function to hide scroll indicator when user scrolls
+function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
+  let scrollTimeout;
+  
+  scrollContainer.addEventListener('scroll', function() {
+    // Add scrolled class to hide indicator
+    sliderWrapper.classList.add('scrolled');
+    
+    // Clear previous timeout
+    clearTimeout(scrollTimeout);
+    
+    // Set timeout to remove indicator permanently after user stops scrolling
+    scrollTimeout = setTimeout(() => {
+      sliderWrapper.classList.add('scrolled');
+    }, 1000);
+  });
+}
+
+// Initialize scroll indicators for both carousels
+document.addEventListener('DOMContentLoaded', function() {
+  // Find slider wrappers and their corresponding scroll containers
+  const sliderWrappers = document.querySelectorAll('.slider-wrapper');
+  
+  sliderWrappers.forEach(wrapper => {
+    const scrollContainer = wrapper.querySelector('.slides-container') || 
+                           wrapper.querySelector('#slides-container') || 
+                           wrapper.querySelector('#slides-containerB');
+    
+    if (scrollContainer) {
+      hideScrollIndicatorOnScroll(wrapper, scrollContainer);
+    }
+  });
+  
+  // Also handle manual scroll indicator hiding on touch/mouse interaction
+  if (slidesContainer) {
+    hideScrollIndicatorOnScroll(slidesContainer.closest('.slider-wrapper'), slidesContainer);
+  }
+  if (slidesContainerB) {
+    hideScrollIndicatorOnScroll(slidesContainerB.closest('.slider-wrapper'), slidesContainerB);
+  }
+});
+
 // Nav Scroll
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
@@ -520,3 +566,48 @@ function signIn() {
   // Also reset on initial load
   document.addEventListener("DOMContentLoaded", resetCarouselsToStart);
 })();
+
+// ===================================
+// CAROUSEL SCROLL INDICATORS (CSS-based)
+// ===================================
+document.addEventListener("DOMContentLoaded", function() {
+  // Function to manage CSS-based scroll indicators
+  function initScrollIndicators() {
+    const carousels = [
+      { container: document.getElementById("slides-container"), wrapper: document.querySelector('.slider-wrapper') },
+      { container: document.getElementById("slides-containerB"), wrapper: document.querySelectorAll('.slider-wrapper')[1] }
+    ];
+
+    carousels.forEach(({ container, wrapper }) => {
+      if (container && wrapper) {
+        // Hide CSS indicator when user scrolls
+        let scrollTimeout;
+        container.addEventListener('scroll', function() {
+          // Mark as scrolled (hides CSS ::after indicator)
+          wrapper.classList.add('scrolled');
+          
+          // Clear existing timeout
+          clearTimeout(scrollTimeout);
+          
+          // Hide indicator after scrolling stops for 2 seconds
+          scrollTimeout = setTimeout(() => {
+            if (container.scrollLeft > 0) {
+              wrapper.classList.add('hide-indicator');
+            }
+          }, 2000);
+        });
+
+        // Show indicator again if user scrolls back to start
+        container.addEventListener('scroll', function() {
+          if (container.scrollLeft === 0) {
+            wrapper.classList.remove('scrolled');
+            wrapper.classList.remove('hide-indicator');
+          }
+        });
+      }
+    });
+  }
+
+  // Initialize scroll indicators
+  initScrollIndicators();
+});

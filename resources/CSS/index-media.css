@@ -38,6 +38,65 @@
 }
 
 /* ===================================
+   CAROUSEL SCROLL INDICATORS
+   =================================== */
+
+/* Remove duplicate content - using slider-wrapper approach instead */
+
+/* Enhanced pulse animation for scroll indicator */
+@keyframes scroll-hint-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.85;
+    transform: translateY(-50%) scale(1);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.08);
+  }
+}
+
+/* Subtle bounce animation for extra attention */
+@keyframes scroll-hint-bounce {
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(3px);
+  }
+}
+
+/* Hide wrapper-based indicator when scrolled */
+.slider-wrapper.scrolled::after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Add smooth transition for all scroll indicators */
+.slider-wrapper::after {
+  transition: all 0.3s ease, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hover state to temporarily show indicator again (for debugging/accessibility) */
+.slider-wrapper:hover::after:not(.scrolled::after) {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Position indicators relative to slider wrapper */
+.slider-wrapper {
+  position: relative;
+}
+
+/* Hide scroll indicator when explicitly hidden by JavaScript */
+.slider-wrapper.hide-indicator::after {
+  opacity: 0 !important;
+}
+
+/* ===================================
    HAMBURGER MENU ANIMATIONS
    =================================== */
 
@@ -219,8 +278,42 @@
     scroll-behavior: smooth !important;
   }
 
-  .slide {
-    /* Scroll snapping removed to allow free scrolling */
+  /* ===================================
+     SCROLL INDICATORS FOR CAROUSELS AT 1200PX
+     =================================== */
+
+  /* Show scroll indicators for carousels at 1200px and below */
+  .slider-wrapper::after {
+    content: "→ Scroll";
+    display: block;
+    position: fixed;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      135deg,
+      rgba(253, 56, 79, 0.9),
+      rgba(253, 56, 79, 0.7)
+    );
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 1000;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    animation: scroll-hint-pulse 3s infinite;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hide scroll indicator after user scrolls horizontally */
+  .slider-wrapper.scrolled::after {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
   }
 }
 
@@ -512,6 +605,7 @@
 
   .slide {
     /* Scroll snapping removed to allow free scrolling */
+    min-width: max-content;
   }
 
   .row-a-bcd-container {
@@ -566,6 +660,44 @@
     min-height: 448.667px !important;
     padding-bottom: 46px !important;
   }
+
+  /* ===================================
+     SCROLL INDICATORS FOR CAROUSELS
+     =================================== */
+
+  /* Show scroll indicators for carousels at 900px and below */
+  .slider-wrapper::after {
+    content: "→ Scroll";
+    display: block;
+    position: fixed;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      135deg,
+      rgba(253, 56, 79, 0.9),
+      rgba(253, 56, 79, 0.7)
+    );
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 1000;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    animation: scroll-hint-pulse 3s infinite;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hide scroll indicator after user scrolls horizontally */
+  .slider-wrapper.scrolled::after {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
 }
 
 /* ===================================
@@ -612,10 +744,6 @@
   #slides-container,
   #slides-containerB {
     scroll-behavior: smooth !important;
-  }
-
-  .slide {
-    /* Scroll snapping removed to allow free scrolling */
   }
 }
 
@@ -851,18 +979,22 @@
     scroll-behavior: smooth !important;
   }
 
-  /* Row C title adjustments for mobile */
-  .row-c-title {
-    font-size: 20px !important;
-    line-height: 1.3 !important;
-  }
+  /* ===================================
+     ULTRA MINIMAL SCROLL INDICATOR FOR VERY SMALL SCREENS
+     =================================== */
 
-  .row-c-title-container-all {
-    padding: 0 4px !important;
-  }
-
-  .title-imgs-container-c {
-    padding: 32px 4px 0 4px !important;
+  /* Override with ultra-minimal scroll indicator for very small screens */
+  .slider-wrapper::after {
+    content: "→";
+    padding: 4px 6px;
+    font-size: 14px;
+    border-radius: 12px;
+    right: 4px;
+    position: fixed;
+    z-index: 1000;
+    background: rgba(253, 56, 79, 0.9) !important;
+    animation: scroll-hint-bounce 2.5s infinite;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -934,6 +1066,24 @@
   #slides-container,
   #slides-containerB {
     scroll-behavior: smooth !important;
+  }
+
+  /* ===================================
+     ULTRA MINIMAL SCROLL INDICATOR FOR VERY SMALL SCREENS
+     =================================== */
+
+  /* Override with ultra-minimal scroll indicator for very small screens */
+  .slider-wrapper::after {
+    content: "→";
+    padding: 4px 6px;
+    font-size: 14px;
+    border-radius: 12px;
+    right: 4px;
+    position: fixed;
+    z-index: 1000;
+    background: rgba(253, 56, 79, 0.9) !important;
+    animation: scroll-hint-bounce 2.5s infinite;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -1008,6 +1158,24 @@
   #slides-containerB {
     scroll-behavior: smooth !important;
   }
+
+  /* ===================================
+     ULTRA MINIMAL SCROLL INDICATOR FOR VERY SMALL SCREENS
+     =================================== */
+
+  /* Override with ultra-minimal scroll indicator for very small screens */
+  .slider-wrapper::after {
+    content: "→";
+    padding: 4px 6px;
+    font-size: 14px;
+    border-radius: 12px;
+    right: 4px;
+    position: fixed;
+    z-index: 1000;
+    background: rgba(253, 56, 79, 0.9) !important;
+    animation: scroll-hint-bounce 2.5s infinite;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* ===================================
@@ -1078,6 +1246,24 @@
   #slides-container,
   #slides-containerB {
     scroll-behavior: smooth !important;
+  }
+
+  /* ===================================
+     ULTRA MINIMAL SCROLL INDICATOR FOR VERY SMALL SCREENS
+     =================================== */
+
+  /* Override with ultra-minimal scroll indicator for very small screens */
+  .slider-wrapper::after {
+    content: "→";
+    padding: 4px 6px;
+    font-size: 14px;
+    border-radius: 12px;
+    right: 4px;
+    position: fixed;
+    z-index: 1000;
+    background: rgba(253, 56, 79, 0.9) !important;
+    animation: scroll-hint-bounce 2.5s infinite;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
