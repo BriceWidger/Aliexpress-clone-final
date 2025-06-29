@@ -30,6 +30,13 @@
   display: none !important;
 }
 
+/* Simple carousel container setup */
+.slides-container,
+#slides-container,
+#slides-containerB {
+  scroll-behavior: smooth;
+}
+
 /* ===================================
    HAMBURGER MENU ANIMATIONS
    =================================== */
@@ -50,6 +57,15 @@
    =================================== */
 
 @media (max-width: 1200px) {
+  /* Hide slide arrows on carousel */
+  .slide-arrow,
+  #slide-arrow-prev,
+  #slide-arrow-next,
+  #slide-arrow-prevB,
+  #slide-arrow-nextB {
+    display: none !important;
+  }
+
   /* Container adjustments */
   .page-container,
   .row-container,
@@ -194,6 +210,17 @@
   /* Slides container */
   .slides-container {
     overflow-x: scroll !important;
+  }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
+  }
+
+  .slide {
+    /* Scroll snapping removed to allow free scrolling */
   }
 }
 
@@ -476,6 +503,17 @@
     overflow-x: scroll !important;
   }
 
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
+  }
+
+  .slide {
+    /* Scroll snapping removed to allow free scrolling */
+  }
+
   .row-a-bcd-container {
     display: none !important;
   }
@@ -590,6 +628,17 @@
   .row-a-card-b {
     height: 614.267px;
   }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
+  }
+
+  .slide {
+    /* Scroll snapping removed to allow free scrolling */
+  }
 }
 
 @media (max-width: 823px) and (min-width: 801px) {
@@ -622,6 +671,13 @@
     width: 110px;
     height: 110px;
   }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
+  }
 }
 
 /* ===================================
@@ -643,6 +699,13 @@
 
   .row-a-card-b {
     height: 614.267px;
+  }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
   }
 }
 
@@ -802,6 +865,13 @@
     top: -100vh !important;
     transition: top 0.4s;
   }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
+  }
 }
 
 /* ===================================
@@ -865,6 +935,13 @@
 
   .row-a-card-c-ab-container {
     justify-content: space-evenly;
+  }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
   }
 }
 
@@ -932,6 +1009,13 @@
   .acc-dropdown.show-dropdown .acc-dropdown-content {
     display: block !important;
   }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
+  }
 }
 
 /* ===================================
@@ -980,6 +1064,13 @@
   .row-a-card-a-bc-container {
     display: flex;
     flex-direction: column !important;
+  }
+
+  /* Reset carousel scroll position to show first card */
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    scroll-behavior: smooth !important;
   }
 }
 

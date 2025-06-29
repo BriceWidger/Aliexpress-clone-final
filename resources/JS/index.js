@@ -39,20 +39,6 @@ function search_items() {
   let input = document.getElementById("search-bar").value;
   input = input.toLowerCase();
   let x = document.getElementsByClassName("search-item-names");
-  for (i = 0; i < x.length; i++) {
-    if (!x[i].innerHTML.toLowerCase().includes(input)) {
-      x[i].style.display = "none";
-    } else {
-      x[i].style.display = "list-item";
-    }
-  }
-}
-
-// Bold letters (search bar)
-function search_items() {
-  let input = document.getElementById("search-bar").value;
-  input = input.toLowerCase();
-  let x = document.getElementsByClassName("search-item-names");
   const regex = new RegExp(input, "gi");
 
   for (let i = 0; i < x.length; i++) {
@@ -182,7 +168,7 @@ function openLink() {
     link == "jbl partybo" ||
     link == "jbl partybox" ||
     link == "jbl partybox " ||
-    link == "jblpartybox" ||
+    link === "jblpartybox" ||
     link == "pa" ||
     link == "par" ||
     link == "part" ||
@@ -260,7 +246,7 @@ function openLink() {
     link == "olympus camer" ||
     link == "olympus camera" ||
     link == "olympus camera " ||
-    link == "olympuscamera" ||
+    link === "olympuscamera" ||
     link == "cam" ||
     link == "came" ||
     link == "camer" ||
@@ -293,7 +279,7 @@ function openLink() {
     link == "rc race ca" ||
     link == "rc race car" ||
     link == "rc race car " ||
-    link == "rcracecar" ||
+    link === "rcracecar" ||
     link == "rac" ||
     link == "race" ||
     link == "race " ||
@@ -316,7 +302,7 @@ function openLink() {
     link == "simon rabbi" ||
     link == "simon rabbit" ||
     link == "simon rabbit " ||
-    link == "simonrabbit" ||
+    link === "simonrabbit" ||
     link == "rab" ||
     link == "rabb" ||
     link == "rabbi" ||
@@ -336,7 +322,7 @@ function openLink() {
     link == "truth hoodi" ||
     link == "truth hoodie" ||
     link == "truth hoodie " ||
-    link == "truthhoodie" ||
+    link === "truthhoodie" ||
     link == "h" ||
     link == "ho" ||
     link == "hoo" ||
@@ -475,3 +461,62 @@ function signIn() {
 // document.getElementById('sign-out').addEventListener('click', () => {
 //   window.location.href = 'signIn.html';
 // });
+
+// Carousel Reset on Breakpoint Changes
+(function () {
+  let currentBreakpoint = getCurrentBreakpoint();
+
+  function getCurrentBreakpoint() {
+    const width = window.innerWidth;
+    if (width <= 358) return "358px";
+    if (width <= 359) return "359px";
+    if (width <= 428) return "428px";
+    if (width <= 489) return "489px";
+    if (width <= 568) return "568px";
+    if (width <= 600) return "600px";
+    if (width <= 658) return "658px";
+    if (width <= 700) return "700px";
+    if (width <= 754) return "754px";
+    if (width <= 800) return "800px";
+    if (width <= 823) return "823px";
+    if (width <= 900) return "900px";
+    if (width <= 1200) return "1200px";
+    return "desktop";
+  }
+
+  function resetCarouselsToStart() {
+    const carousels = [
+      document.getElementById("slides-container"),
+      document.getElementById("slides-containerB"),
+    ];
+
+    carousels.forEach((carousel) => {
+      if (carousel) {
+        // Temporarily disable smooth scrolling for instant reset
+        const originalBehavior = carousel.style.scrollBehavior;
+        carousel.style.scrollBehavior = "auto";
+        carousel.scrollLeft = 0;
+
+        // Restore smooth scrolling after a brief delay
+        setTimeout(() => {
+          carousel.style.scrollBehavior = originalBehavior || "smooth";
+        }, 50);
+      }
+    });
+  }
+
+  function handleBreakpointChange() {
+    const newBreakpoint = getCurrentBreakpoint();
+    if (newBreakpoint !== currentBreakpoint) {
+      currentBreakpoint = newBreakpoint;
+      // Reset carousels to show first card when breakpoint changes
+      resetCarouselsToStart();
+    }
+  }
+
+  // Listen for window resize events
+  window.addEventListener("resize", handleBreakpointChange);
+
+  // Also reset on initial load
+  document.addEventListener("DOMContentLoaded", resetCarouselsToStart);
+})();
