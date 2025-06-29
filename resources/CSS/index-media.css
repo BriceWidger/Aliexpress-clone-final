@@ -533,60 +533,38 @@
   .title-imgs-container-c {
     width: 100% !important;
     max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 2;
-    display: block;
+    padding: 46px 8px 0 8px !important;
+    box-sizing: border-box !important;
   }
 
-  .row-c-imgs-container {
-    flex-direction: row !important;
-    align-items: stretch !important;
-    width: max-content !important;
-    min-width: 100% !important;
-    max-width: none !important;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: auto;
+  /* Row C title responsive adjustments */
+  .row-c-title-container-right {
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    flex: 1 !important;
   }
 
-  /* Common container styling */
-  .footer-top-text-wrap,
-  .all-row-b-containers,
-  .title-imgs-container-d {
-    max-width: 100%;
-    width: 100%;
-    flex-wrap: wrap;
-    padding-left: 8px;
-    padding-right: 8px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+  .row-c-title {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.4 !important;
+    padding: 0 0 0 8px !important;
   }
 
-  /* Row A layout override */
-  .row-a-all-containers {
-    display: flex !important;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    flex-wrap: wrap;
+  .row-c-title-container-all {
+    margin-bottom: 24px !important;
+    min-height: auto !important;
+    padding: 0 8px !important;
+    box-sizing: border-box !important;
   }
 
-  .row-a-card-a-container {
-    margin-bottom: 12px;
+  .row-container-c {
+    height: auto !important;
+    min-height: 448.667px !important;
+    padding-bottom: 46px !important;
   }
 }
 
@@ -872,6 +850,20 @@
   #slides-containerB {
     scroll-behavior: smooth !important;
   }
+
+  /* Row C title adjustments for mobile */
+  .row-c-title {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+
+  .row-c-title-container-all {
+    padding: 0 4px !important;
+  }
+
+  .title-imgs-container-c {
+    padding: 32px 4px 0 4px !important;
+  }
 }
 
 /* ===================================
@@ -1064,6 +1056,21 @@
   .row-a-card-a-bc-container {
     display: flex;
     flex-direction: column !important;
+  }
+
+  /* Row C title adjustments for very small screens */
+  .row-c-title {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    padding: 0 0 0 8px !important;
+  }
+
+  .row-c-title-container-all {
+    padding: 0 2px !important;
+  }
+
+  .title-imgs-container-c {
+    padding: 24px 2px 0 2px !important;
   }
 
   /* Reset carousel scroll position to show first card */
