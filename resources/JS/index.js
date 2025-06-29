@@ -567,47 +567,4 @@ function signIn() {
   document.addEventListener("DOMContentLoaded", resetCarouselsToStart);
 })();
 
-// ===================================
-// CAROUSEL SCROLL INDICATORS (CSS-based)
-// ===================================
-document.addEventListener("DOMContentLoaded", function() {
-  // Function to manage CSS-based scroll indicators
-  function initScrollIndicators() {
-    const carousels = [
-      { container: document.getElementById("slides-container"), wrapper: document.querySelector('.slider-wrapper') },
-      { container: document.getElementById("slides-containerB"), wrapper: document.querySelectorAll('.slider-wrapper')[1] }
-    ];
 
-    carousels.forEach(({ container, wrapper }) => {
-      if (container && wrapper) {
-        // Hide CSS indicator when user scrolls
-        let scrollTimeout;
-        container.addEventListener('scroll', function() {
-          // Mark as scrolled (hides CSS ::after indicator)
-          wrapper.classList.add('scrolled');
-          
-          // Clear existing timeout
-          clearTimeout(scrollTimeout);
-          
-          // Hide indicator after scrolling stops for 2 seconds
-          scrollTimeout = setTimeout(() => {
-            if (container.scrollLeft > 0) {
-              wrapper.classList.add('hide-indicator');
-            }
-          }, 2000);
-        });
-
-        // Show indicator again if user scrolls back to start
-        container.addEventListener('scroll', function() {
-          if (container.scrollLeft === 0) {
-            wrapper.classList.remove('scrolled');
-            wrapper.classList.remove('hide-indicator');
-          }
-        });
-      }
-    });
-  }
-
-  // Initialize scroll indicators
-  initScrollIndicators();
-});

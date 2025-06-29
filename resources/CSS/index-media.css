@@ -96,6 +96,34 @@
   opacity: 0 !important;
 }
 
+/* Hide wrapper-based indicator when scrolled */
+.slider-wrapper.scrolled::after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Add smooth transition for all scroll indicators */
+.slider-wrapper::after {
+  transition: all 0.3s ease, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hover state to temporarily show indicator again (for debugging/accessibility) */
+.slider-wrapper:hover::after:not(.scrolled::after) {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Position indicators relative to slider wrapper */
+.slider-wrapper {
+  position: relative;
+}
+
+/* Hide scroll indicator when explicitly hidden by JavaScript */
+.slider-wrapper.hide-indicator::after {
+  opacity: 0 !important;
+}
+
 /* ===================================
    HAMBURGER MENU ANIMATIONS
    =================================== */
