@@ -55,11 +55,29 @@
   60%,
   100% {
     opacity: 0.85;
-    transform: translateY(-50%) scale(1);
+    transform: translate3d(0, -50%, 0) scale(1);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1);
   }
   30% {
     opacity: 1;
-    transform: translateY(-50%) scale(1.08);
+    transform: translate3d(0, -50%, 0) scale(1.08);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
+  }
+}
+
+/* WebKit-specific animation for iOS Safari */
+@-webkit-keyframes scroll-hint-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.85;
+    transform: translate3d(0, -50%, 0) scale(1);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1);
+  }
+  30% {
+    opacity: 1;
+    transform: translate3d(0, -50%, 0) scale(1.08);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
   }
 }
 
@@ -320,11 +338,12 @@
     pointer-events: none;
     transition: all 0.3s ease;
     animation: scroll-hint-pulse 3s infinite;
+    -webkit-animation: scroll-hint-pulse 3s infinite;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: 0;
-    will-change: opacity, visibility; /* Optimize for frequent changes */
+    will-change: opacity, visibility, transform; /* Optimize for frequent changes and animations */
     -webkit-backface-visibility: hidden; /* Prevent flickering on iOS */
     backface-visibility: hidden;
   }
@@ -991,10 +1010,13 @@
   .slider-wrapper::after {
     -webkit-transform: translate3d(
       0,
-      0,
+      -50%,
       0
     ); /* Better GPU acceleration on iOS */
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, -50%, 0);
+    -webkit-animation: scroll-hint-pulse 3s infinite !important;
+    animation: scroll-hint-pulse 3s infinite !important;
+    will-change: opacity, visibility, transform;
   }
 }
 
@@ -1008,6 +1030,30 @@
   #slides-container,
   #slides-containerB {
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure animations work properly on iOS */
+  .slider-wrapper::after {
+    -webkit-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;
+    -webkit-animation-play-state: running !important;
+    animation-play-state: running !important;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  }
+
+  /* Force hardware acceleration for animations on iOS */
+  @-webkit-keyframes scroll-hint-pulse {
+    0%,
+    60%,
+    100% {
+      opacity: 0.85;
+      -webkit-transform: translate3d(0, -50%, 0) scale(1);
+    }
+    30% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
+    }
   }
 }
 
@@ -1317,6 +1363,9 @@
 }
 
 .mobile-device .slider-wrapper::after {
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, -50%, 0) !important;
+  -webkit-transform: translate3d(0, -50%, 0) !important;
+  animation: scroll-hint-pulse 3s infinite !important;
+  -webkit-animation: scroll-hint-pulse 3s infinite !important;
+  will-change: opacity, visibility, transform !important;
 }
