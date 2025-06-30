@@ -120,14 +120,27 @@
   visibility: visible;
 }
 
-/* Position indicators relative to slider wrapper */
+/* Enhanced scroll indicator positioning with CSS custom property support */
 .slider-wrapper {
   position: relative;
+  --scroll-indicator-opacity: 1;
+}
+
+.slider-wrapper::after {
+  opacity: var(--scroll-indicator-opacity, 1);
+  transition: all 0.3s ease, opacity 0.1s ease;
 }
 
 /* Hide scroll indicator when explicitly hidden by JavaScript */
 .slider-wrapper.hide-indicator::after {
   opacity: 0 !important;
+}
+
+/* Fully hidden state for extended scrolling */
+.slider-wrapper.fully-scrolled::after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 /* ===================================
