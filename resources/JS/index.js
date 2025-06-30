@@ -410,42 +410,49 @@ function decoyFunctionTwo_rowC() {
 // Function to hide scroll indicator when user scrolls
 function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
   let scrollTimeout;
-  
-  scrollContainer.addEventListener('scroll', function() {
+
+  scrollContainer.addEventListener("scroll", function () {
     // Add scrolled class to hide indicator
-    sliderWrapper.classList.add('scrolled');
-    
+    sliderWrapper.classList.add("scrolled");
+
     // Clear previous timeout
     clearTimeout(scrollTimeout);
-    
+
     // Set timeout to remove indicator permanently after user stops scrolling
     scrollTimeout = setTimeout(() => {
-      sliderWrapper.classList.add('scrolled');
+      sliderWrapper.classList.add("scrolled");
     }, 1000);
   });
 }
 
 // Initialize scroll indicators for both carousels
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Find slider wrappers and their corresponding scroll containers
-  const sliderWrappers = document.querySelectorAll('.slider-wrapper');
-  
-  sliderWrappers.forEach(wrapper => {
-    const scrollContainer = wrapper.querySelector('.slides-container') || 
-                           wrapper.querySelector('#slides-container') || 
-                           wrapper.querySelector('#slides-containerB');
-    
+  const sliderWrappers = document.querySelectorAll(".slider-wrapper");
+
+  sliderWrappers.forEach((wrapper) => {
+    const scrollContainer =
+      wrapper.querySelector(".slides-container") ||
+      wrapper.querySelector("#slides-container") ||
+      wrapper.querySelector("#slides-containerB");
+
     if (scrollContainer) {
       hideScrollIndicatorOnScroll(wrapper, scrollContainer);
     }
   });
-  
+
   // Also handle manual scroll indicator hiding on touch/mouse interaction
   if (slidesContainer) {
-    hideScrollIndicatorOnScroll(slidesContainer.closest('.slider-wrapper'), slidesContainer);
+    hideScrollIndicatorOnScroll(
+      slidesContainer.closest(".slider-wrapper"),
+      slidesContainer
+    );
   }
   if (slidesContainerB) {
-    hideScrollIndicatorOnScroll(slidesContainerB.closest('.slider-wrapper'), slidesContainerB);
+    hideScrollIndicatorOnScroll(
+      slidesContainerB.closest(".slider-wrapper"),
+      slidesContainerB
+    );
   }
 });
 
@@ -566,5 +573,3 @@ function signIn() {
   // Also reset on initial load
   document.addEventListener("DOMContentLoaded", resetCarouselsToStart);
 })();
-
-

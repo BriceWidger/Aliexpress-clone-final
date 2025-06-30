@@ -314,10 +314,10 @@
   .slider-wrapper::after {
     content: "→ Scroll";
     display: block;
-    position: fixed;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute;
+    left: 8px;
+    top: 0;
+    transform: none;
     background: linear-gradient(
       135deg,
       rgba(253, 56, 79, 0.9),
@@ -328,13 +328,14 @@
     border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
-    z-index: 1000;
+    z-index: 1;
     pointer-events: none;
     transition: all 0.3s ease;
     animation: scroll-hint-pulse 3s infinite;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 0;
   }
 
   /* Hide scroll indicator after user scrolls horizontally */
