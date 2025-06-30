@@ -987,9 +987,13 @@
   .slider-wrapper.scrolled::after {
     display: none !important; /* Use display:none for instant hiding on iOS */
   }
-  
+
   .slider-wrapper::after {
-    -webkit-transform: translate3d(0, 0, 0); /* Better GPU acceleration on iOS */
+    -webkit-transform: translate3d(
+      0,
+      0,
+      0
+    ); /* Better GPU acceleration on iOS */
     transform: translate3d(0, 0, 0);
   }
 }
@@ -999,7 +1003,7 @@
   .slider-wrapper {
     -webkit-overflow-scrolling: touch; /* Enable momentum scrolling */
   }
-  
+
   .slides-container,
   #slides-container,
   #slides-containerB {
