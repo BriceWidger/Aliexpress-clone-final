@@ -407,38 +407,16 @@ function decoyFunctionTwo_rowC() {
 // CAROUSEL SCROLL INDICATORS
 // ===================================
 
-// Function to gradually fade scroll indicator based on scroll position
+// Function to instantly hide scroll indicator when user scrolls
 function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
-  let scrollTimeout;
-
   scrollContainer.addEventListener("scroll", function () {
     const scrollLeft = scrollContainer.scrollLeft;
-    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-    // Calculate fade amount based on scroll position (0 = fully visible, 1 = fully hidden)
-    const fadeRatio = Math.min(scrollLeft / Math.max(maxScroll * 0.3, 50), 1);
-
-    // Apply gradual opacity based on scroll position
-    const opacity = Math.max(0, 1 - fadeRatio);
-    sliderWrapper.style.setProperty("--scroll-indicator-opacity", opacity);
-
-    // Add scrolled class for additional styling if needed
-    if (scrollLeft > 10) {
+    // Instantly hide scroll indicator when user scrolls
+    if (scrollLeft > 0) {
       sliderWrapper.classList.add("scrolled");
     } else {
       sliderWrapper.classList.remove("scrolled");
-    }
-
-    // Clear previous timeout
-    clearTimeout(scrollTimeout);
-
-    // Optional: Completely hide after extended scrolling/inactivity
-    if (fadeRatio >= 0.8) {
-      scrollTimeout = setTimeout(() => {
-        sliderWrapper.classList.add("fully-scrolled");
-      }, 2000);
-    } else {
-      sliderWrapper.classList.remove("fully-scrolled");
     }
   });
 }
