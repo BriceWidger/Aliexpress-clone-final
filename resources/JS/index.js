@@ -409,16 +409,55 @@ function decoyFunctionTwo_rowC() {
 
 // Function to instantly hide scroll indicator when user scrolls
 function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
-  scrollContainer.addEventListener("scroll", function () {
-    const scrollLeft = scrollContainer.scrollLeft;
+  let isScrolling = false;
 
-    // Instantly hide scroll indicator when user scrolls
-    if (scrollLeft > 0) {
+  // Function to hide indicator immediately
+  function hideIndicator() {
+    if (scrollContainer.scrollLeft > 0) {
       sliderWrapper.classList.add("scrolled");
+      // Force immediate DOM update for mobile browsers
+      sliderWrapper.style.transform = 'translateZ(0)';
     } else {
       sliderWrapper.classList.remove("scrolled");
     }
-  });
+  }
+
+  // Handle all scroll events (including touch on mobile)
+  scrollContainer.addEventListener("scroll", hideIndicator, { passive: true });
+  
+  // Additional mobile-specific events for better responsiveness
+  scrollContainer.addEventListener("touchstart", function() {
+    isScrolling = true;
+  }, { passive: true });
+  
+  scrollContainer.addEventListener("touchmove", function() {
+    if (isScrolling) {
+      hideIndicator();
+    }
+  }, { passive: true });
+  
+  scrollContainer.addEventListener("touchend", function() {
+    isScrolling = false;
+    // Ensure final state is correct after touch ends
+    setTimeout(hideIndicator, 16); // Next frame
+  }, { passive: true });
+}
+
+// Mobile-specific scroll indicator optimization
+function optimizeForMobile() {
+  // Detect if we're on a mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // Add mobile-specific class for CSS targeting
+    document.body.classList.add('mobile-device');
+    
+    // Force immediate DOM updates on mobile
+    const sliderWrappers = document.querySelectorAll('.slider-wrapper');
+    sliderWrappers.forEach(wrapper => {
+      wrapper.style.transform = 'translate3d(0, 0, 0)';
+    });
+  }
 }
 
 // Initialize scroll indicators for both carousels
@@ -450,6 +489,9 @@ document.addEventListener("DOMContentLoaded", function () {
       slidesContainerB
     );
   }
+
+  // Initialize mobile optimizations
+  optimizeForMobile();
 });
 
 // Nav Scroll

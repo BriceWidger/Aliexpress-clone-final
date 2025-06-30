@@ -78,11 +78,20 @@
 .slider-wrapper.scrolled::after {
   opacity: 0 !important;
   visibility: hidden !important;
+  transition: none !important; /* Remove all transitions for instant hiding */
+  transform: translateZ(0); /* Force GPU acceleration */
+  -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
+  -webkit-transition: none !important; /* Disable all webkit transitions */
 }
 
 /* Add smooth transition for all scroll indicators (except hiding which is instant) */
 .slider-wrapper::after {
   transition: all 0.3s ease;
+  transform: translateZ(0); /* Force GPU acceleration */
+  -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
+  will-change: opacity, visibility; /* Optimize for frequent changes */
+  -webkit-backface-visibility: hidden; /* Prevent flickering on iOS */
+  backface-visibility: hidden;
 }
 
 /* Hover state to temporarily show indicator again (for debugging/accessibility) */
@@ -295,7 +304,8 @@
     position: absolute;
     left: 8px;
     top: 0;
-    transform: none;
+    transform: translateZ(0); /* Force GPU acceleration */
+    -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
     background: linear-gradient(
       135deg,
       rgba(253, 56, 79, 0.9),
@@ -314,13 +324,18 @@
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: 0;
+    will-change: opacity, visibility; /* Optimize for frequent changes */
+    -webkit-backface-visibility: hidden; /* Prevent flickering on iOS */
+    backface-visibility: hidden;
   }
 
   /* Hide scroll indicator after user scrolls horizontally */
   .slider-wrapper.scrolled::after {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important; /* Instant hiding for mobile performance */
+    transform: translateZ(0); /* Force GPU acceleration */
+    -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
   }
 }
 
@@ -964,6 +979,35 @@
 }
 
 /* ===================================
+   MOBILE SAFARI / WEBKIT OPTIMIZATIONS
+   =================================== */
+
+/* Target mobile Safari specifically for better scroll indicator performance */
+@supports (-webkit-touch-callout: none) {
+  .slider-wrapper.scrolled::after {
+    display: none !important; /* Use display:none for instant hiding on iOS */
+  }
+  
+  .slider-wrapper::after {
+    -webkit-transform: translate3d(0, 0, 0); /* Better GPU acceleration on iOS */
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Additional iOS-specific optimizations */
+@media screen and (-webkit-min-device-pixel-ratio: 1) {
+  .slider-wrapper {
+    -webkit-overflow-scrolling: touch; /* Enable momentum scrolling */
+  }
+  
+  .slides-container,
+  #slides-container,
+  #slides-containerB {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===================================
    MOBILE SCREENS (568px and below)
    =================================== */
 
@@ -1260,3 +1304,15 @@
 /* ===================================
    END OF REFACTORED RESPONSIVE STYLES
    =================================== */
+
+/* Mobile device specific optimizations */
+.mobile-device .slider-wrapper.scrolled::after {
+  display: none !important; /* Force immediate hiding on mobile */
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+.mobile-device .slider-wrapper::after {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+}
