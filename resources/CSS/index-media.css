@@ -1218,47 +1218,81 @@
    =================================== */
 
 @media (max-width: 428px) {
+  /* Make row-a-card-a-container same width as row-a-card-b */
   .row-a-card-a-container {
-    width: fit-content !important;
+    width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    height: auto !important;
-    box-sizing: border-box;
-    padding: 12px !important;
-    border-radius: 16px !important;
-    background: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    flex: 1 1 50% !important;
+    overflow: hidden !important;
   }
 
+  /* Hide the large main image in card A at 428px and below only */
+  .row-a-card-a .img-price-wrap:has(.row-a-card-a-img-a) {
+    display: none !important;
+  }
+
+  /* Restructure card A layout to match card B's 2x2 grid at 428px and below only */
   .row-a-card-a {
-    width: fit-content !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
+    width: 100% !important;
     height: auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
-  .row-a-card-a-img-a,
+  /* Show and style the top row container at 428px and below only */
+  .row-a-card-a-top-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Make the bottom container display as side-by-side at 428px and below only */
+  .row-a-card-a-bc-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Style individual image containers in both rows to match card B at 428px and below only */
+  .row-a-card-a-top-row .img-price-wrap,
+  .row-a-card-a-bc-container .img-price-wrap {
+    flex: 0 1 calc(50% - 4px) !important;
+    margin: 0 !important;
+    max-width: calc(50% - 4px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Make all card A images same size as card B images at 428px and below only */
+  .row-a-card-a-img-a-2,
+  .row-a-card-a-img-a-3,
   .row-a-card-a-img-b,
   .row-a-card-a-img-c {
-    width: 100%;
-    max-width: 120px;
+    width: 100% !important;
     height: auto !important;
-    min-width: 0;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .row-a-card-a-bc-container {
-    display: flex;
-    flex-direction: column !important;
+    aspect-ratio: 1 !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
   }
 
   /* Row C title adjustments for very small screens */
@@ -1337,18 +1371,21 @@
   .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-d) {
     display: none !important;
   }
+
+  /* Also hide the 2nd items in the top row and bottom row for card A at very small screens */
+  .row-a-card-a-top-row .img-price-wrap:has(.row-a-card-a-img-a-3),
+  .row-a-card-a-bc-container .img-price-wrap:has(.row-a-card-a-img-c) {
+    display: none !important;
+  }
 }
 
 /* ===================================
-   UTILITY STYLES
+   HIDE TOP ROW CONTAINER ABOVE 428PX
    =================================== */
 
-/* Card positioning utilities */
-.row-a-card-c,
-.row-a-card-d {
-  min-width: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Hide the top row container above 428px - it should only be visible at 428px and below */
+.row-a-card-a-top-row {
+  display: none;
 }
 
 /* ===================================

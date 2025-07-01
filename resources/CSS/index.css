@@ -803,6 +803,16 @@ h4 {
   max-height: 146px;
   cursor: pointer;
 }
+.row-a-card-a-img-a-2 {
+  max-width: 146px;
+  max-height: 146px;
+  cursor: pointer;
+}
+.row-a-card-a-img-a-3 {
+  max-width: 146px;
+  max-height: 146px;
+  cursor: pointer;
+}
 /* ROW A, CARD B */
 .row-a-card-b {
   padding: 24px 16px;
@@ -1673,4 +1683,8 @@ h4 {
   min-width: 0;
   margin: 0;
   box-sizing: border-box;
+}
+/* ROW A, CARD A - Hide top row by default, show only at 428px and below */
+.row-a-card-a-top-row {
+  display: none;
 }
