@@ -1377,6 +1377,25 @@
   .row-a-card-a-bc-container .img-price-wrap:has(.row-a-card-a-img-c) {
     display: none !important;
   }
+
+  /* Center the remaining content in both rows at very small screens */
+  .row-a-card-a-top-row,
+  .row-a-card-a-bc-container {
+    justify-content: center !important;
+  }
+
+  /* Make card A container and its parent fit content exactly with no extra vertical space */
+  .row-a-card-a,
+  .row-a-card-a-container {
+    height: fit-content !important;
+    min-height: auto !important;
+  }
+
+  /* Reduce gap and padding for tighter fit */
+  .row-a-card-a {
+    gap: 4px !important;
+    padding: 0 !important;
+  }
 }
 
 /* ===================================
