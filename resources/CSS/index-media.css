@@ -1384,6 +1384,15 @@
     justify-content: center !important;
   }
 
+  /* Add spacing to top and bottom rows */
+  .row-a-card-a-top-row {
+    margin-top: 18px !important;
+  }
+
+  .row-a-card-a-bc-container {
+    margin-bottom: 18px !important;
+  }
+
   /* Make card A container and its parent fit content exactly with no extra vertical space */
   .row-a-card-a,
   .row-a-card-a-container {
