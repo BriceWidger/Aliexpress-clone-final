@@ -1295,6 +1295,22 @@
     border-radius: 8px !important;
   }
 
+  /* Make row-a-card-d-abc-container structure similar to row-a-card-c-ab-container at 428px and below */
+  .row-a-card-d-abc-container {
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    background-color: #f5f5f5 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hide the third image (pillow) in card D to match card C's two-image layout at 428px and below */
+  .row-a-card-d-abc-container a:has(.row-a-card-d-img-c) {
+    display: none !important;
+  }
+
   /* Row C title adjustments for very small screens */
   .row-c-title {
     font-size: 18px !important;
