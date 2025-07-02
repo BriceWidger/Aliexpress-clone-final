@@ -1,4 +1,71 @@
 /* ===================================
+   ACCOUNT DROPDOWN GENERAL IMPROVEMENTS
+   =================================== */
+
+/* Ensure dropdown content is always properly visible when displayed */
+.acc-dropdown-content {
+  box-sizing: border-box !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Ensure all child elements are properly displayed */
+.acc-dropdown-content * {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+/* Ensure flex containers work properly */
+.acc-img-title-container {
+  box-sizing: border-box !important;
+}
+
+.acc-title-sign-wrap {
+  box-sizing: border-box !important;
+}
+
+/* Ensure all text elements are visible when they should be */
+#signed-in-text-notification,
+#signed-out-text-notification,
+#sign-out,
+#sign-in {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Note: #sign-in and #signed-out-text-notification keep their default display: none 
+   from main CSS - only shown when signOut() JavaScript function is called */
+
+/* Initial state for sign-in/out elements */
+.user-state-initial #signed-in-text-notification,
+.user-state-initial #sign-out {
+  display: block !important;
+}
+
+.user-state-initial #signed-out-text-notification,
+.user-state-initial #sign-in {
+  display: none !important;
+}
+
+/* State after signing out */
+.user-state-signed-out #signed-in-text-notification,
+.user-state-signed-out #sign-out {
+  display: none !important;
+}
+
+.user-state-signed-out #signed-out-text-notification,
+.user-state-signed-out #sign-in {
+  display: block !important;
+}
+
+/* Ensure buttons are clickable */
+#sign-out,
+#sign-in {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* ===================================
    RESPONSIVE STYLES - REFACTORED
    =================================== */
 
@@ -788,6 +855,15 @@
     height: 110px;
   }
 
+  /* Remove forced display for sign-in/out elements so JS can control them */
+  #signed-in-text-notification,
+  #signed-out-text-notification,
+  #sign-out,
+  #sign-in {
+    height: auto !important;
+    margin-top: 4px !important;
+  }
+
   /* Reset carousel scroll position to show first card */
   .slides-container,
   #slides-container,
@@ -1362,11 +1438,70 @@
   }
 
   .acc-dropdown-content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    z-index: 100;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 100% !important;
+    z-index: 1001 !important;
+    margin: 0 4px !important;
+    max-width: calc(100vw - 8px) !important;
+    min-width: 170px !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    padding: 8px !important;
+  }
+
+  .acc-img-title-container {
+    width: 100% !important;
+    min-width: 150px !important;
+    height: auto !important;
+    padding: 2px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .account-img {
+    width: 30px !important;
+    height: 30px !important;
+    background-size: 30px 30px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .acc-title-sign-wrap {
+    width: calc(100% - 38px) !important;
+    min-height: 45px !important;
+    padding-left: 6px !important;
+    gap: 3px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
+  #signed-in-text-notification {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+  }
+
+  #sign-out {
+    font-size: 10px !important;
+    line-height: 13px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  #sign-in {
+    max-width: 90px !important;
+    height: 22px !important;
+    font-size: 11px !important;
+    border-radius: 12px !important;
+    padding: 0 4px !important;
+    /* Keep default display: none - only show when signOut() is called */
+    margin-top: 2px !important;
   }
 
   .acc-dropbtn {
@@ -1450,3 +1585,395 @@
   -webkit-animation: scroll-hint-pulse 3s infinite !important;
   will-change: opacity, visibility, transform !important;
 }
+
+/* ===================================
+   ACCOUNT DROPDOWN RESPONSIVE FIXES
+   =================================== */
+
+/* Tablet breakpoint - adjust dropdown width and positioning */
+@media (max-width: 1200px) {
+  .acc-dropdown-content {
+    min-width: 280px !important;
+    max-width: 320px !important;
+    width: auto !important;
+    right: 0 !important;
+    left: auto !important;
+    padding: 12px 16px !important;
+    z-index: 1001 !important; /* Ensure it's above other elements */
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  .acc-img-title-container {
+    width: 100% !important;
+    min-width: 250px !important;
+    height: auto !important;
+    min-height: 85px !important;
+    padding: 8px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .acc-title-sign-wrap {
+    width: calc(100% - 60px) !important;
+    height: auto !important;
+    min-height: 70px !important;
+    padding-left: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+
+  #signed-in-text-notification,
+  #signed-out-text-notification {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    /* Keep default display states - don't override JavaScript control */
+  }
+
+  #sign-out {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    /* Keep default display states - don't override JavaScript control */
+  }
+
+  #sign-in {
+    width: 100% !important;
+    max-width: 140px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+    margin-top: 4px !important;
+    /* Keep default display: none - only show when signOut() is called */
+  }
+}
+
+/* Medium tablet breakpoint */
+@media (max-width: 900px) {
+  .acc-dropdown-content {
+    min-width: 260px !important;
+    max-width: 300px !important;
+    right: 0 !important;
+    left: auto !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    z-index: 1001 !important;
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 4px !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  .acc-img-title-container {
+    min-width: 230px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 6px 0 !important;
+  }
+
+  .acc-title-sign-wrap {
+    width: calc(100% - 55px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    overflow: visible !important;
+    min-height: 65px !important;
+  }
+
+  #signed-in-text-notification,
+  #signed-out-text-notification {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: 13px !important;
+    /* Keep default display states - don't override JavaScript control */
+  }
+
+  #sign-out {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: 13px !important;
+    /* Keep default display states - don't override JavaScript control */
+  }
+
+  #sign-in {
+    margin-top: 4px !important;
+    /* Keep default display: none - only show when signOut() is called */
+  }
+}
+
+/* Small tablet / large mobile breakpoint */
+@media (max-width: 800px) {
+  .acc-dropdown-content {
+    min-width: 240px !important;
+    max-width: 280px !important;
+    right: 0 !important;
+    left: auto !important;
+    transform: translateX(0) !important;
+    z-index: 1001 !important;
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 4px !important;
+    overflow: visible !important;
+    padding: 10px 12px !important;
+  }
+
+  .acc-img-title-container {
+    min-width: 210px !important;
+    flex-wrap: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 6px 0 !important;
+  }
+
+  .acc-title-sign-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    overflow: visible !important;
+    min-height: 60px !important;
+    width: calc(100% - 50px) !important;
+  }
+
+  #signed-in-text-notification {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  #sign-out {
+    font-size: 13px !important;
+    line-height: 16px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  #sign-in {
+    font-size: 15px !important;
+    height: 30px !important;
+    margin-top: 4px !important;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 658px) {
+  .acc-dropdown-content {
+    position: fixed !important;
+    top: 65px !important; /* Adjusted for header height */
+    right: 8px !important;
+    left: auto !important;
+    min-width: 220px !important;
+    max-width: calc(100vw - 16px) !important;
+    width: auto !important;
+    z-index: 1000 !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.3) !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  .acc-img-title-container {
+    width: 100% !important;
+    min-width: 200px !important;
+    height: auto !important;
+    padding: 4px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .account-img {
+    width: 40px !important;
+    height: 40px !important;
+    background-size: 40px 40px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .acc-title-sign-wrap {
+    width: calc(100% - 50px) !important;
+    height: auto !important;
+    min-height: 60px !important;
+    padding-left: 10px !important;
+    gap: 6px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
+  #signed-in-text-notification {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+
+  #sign-out {
+    font-size: 12px !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  #sign-in {
+    width: 100% !important;
+    max-width: 120px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+    border-radius: 16px !important;
+    padding: 0 8px !important;
+    /* Keep default display: none - only show when signOut() is called */
+    margin-top: 4px !important;
+  }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 489px) {
+  .acc-dropdown-content {
+    top: 60px !important; /* Adjusted for smaller header */
+    right: 6px !important;
+    min-width: 200px !important;
+    max-width: calc(100vw - 12px) !important;
+    padding: 10px !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    z-index: 1001 !important;
+  }
+
+  .acc-img-title-container {
+    min-width: 180px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 4px 0 !important;
+  }
+
+  .account-img {
+    width: 36px !important;
+    height: 36px !important;
+    background-size: 36px 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .acc-title-sign-wrap {
+    width: calc(100% - 46px) !important;
+    min-height: 55px !important;
+    padding-left: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    overflow: visible !important;
+  }
+
+  #signed-in-text-notification {
+    white-space: normal !important;
+    overflow: visible !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  #sign-out {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: 11px !important;
+  }
+
+  #sign-in {
+    max-width: 110px !important;
+    height: 26px !important;
+    font-size: 13px !important;
+    /* Keep default display: none - only show when signOut() is called */
+    margin-top: 4px !important;
+  }
+}
+
+/* Very small mobile breakpoint */
+@media (max-width: 428px) {
+  .acc-dropdown-content {
+    top: 58px !important; /* Adjusted for very small screens */
+    right: 4px !important;
+    min-width: 180px !important;
+    max-width: calc(100vw - 8px) !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    z-index: 1001 !important;
+    position: fixed !important;
+  }
+
+  .acc-img-title-container {
+    min-width: 160px !important;
+    height: auto !important;
+    padding: 2px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+  }
+
+  .account-img {
+    width: 32px !important;
+    height: 32px !important;
+    background-size: 32px 32px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .acc-title-sign-wrap {
+    width: calc(100% - 40px) !important;
+    min-height: 50px !important;
+    padding-left: 6px !important;
+    gap: 4px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
+  #signed-in-text-notification {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+  }
+
+  #sign-out {
+    font-size: 11px !important;
+    line-height: 14px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  #sign-in {
+    max-width: 100px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+    border-radius: 14px !important;
+    padding: 0 6px !important;
+    /* Keep default display: none - only show when signOut() is called */
+    margin-top: 3px !important;
+  }
+}
+
+/* ===================================
+   END OF ACCOUNT DROPDOWN RESPONSIVE FIXES
+   =================================== */

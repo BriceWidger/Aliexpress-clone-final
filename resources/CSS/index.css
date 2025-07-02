@@ -1688,3 +1688,26 @@ h4 {
 .row-a-card-a-top-row {
   display: none;
 }
+#account-dropdown-container.user-state-initial #signed-in-text-notification,
+#account-dropdown-container.user-state-initial #sign-out {
+  display: block;
+}
+
+#account-dropdown-container.user-state-initial #signed-out-text-notification,
+#account-dropdown-container.user-state-initial #sign-in {
+  display: none;
+}
+
+#account-dropdown-container.user-state-signed-out #signed-in-text-notification,
+#account-dropdown-container.user-state-signed-out #sign-out {
+  display: none;
+}
+
+#account-dropdown-container.user-state-signed-out #signed-out-text-notification,
+#account-dropdown-container.user-state-signed-out #sign-in {
+  display: block;
+}
+
+#account-dropdown-list button {
+  cursor: pointer;
+}
