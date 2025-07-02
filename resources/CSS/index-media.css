@@ -4,24 +4,24 @@
 
 /* Ensure dropdown content is always properly visible when displayed */
 .acc-dropdown-content {
-  box-sizing: border-box !important;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Ensure all child elements are properly displayed */
 .acc-dropdown-content * {
-  box-sizing: border-box !important;
-  max-width: 100% !important;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 /* Ensure flex containers work properly */
 .acc-img-title-container {
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 .acc-title-sign-wrap {
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 /* Ensure all text elements are visible when they should be */
@@ -29,8 +29,8 @@
 #signed-out-text-notification,
 #sign-out,
 #sign-in {
-  visibility: visible !important;
-  opacity: 1 !important;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Note: #sign-in and #signed-out-text-notification keep their default display: none 
@@ -39,45 +39,38 @@
 /* Initial state for sign-in/out elements */
 .user-state-initial #signed-in-text-notification,
 .user-state-initial #sign-out {
-  display: block !important;
+  display: block;
 }
 
 .user-state-initial #signed-out-text-notification,
 .user-state-initial #sign-in {
-  display: none !important;
+  display: none;
 }
 
 /* State after signing out */
 .user-state-signed-out #signed-in-text-notification,
 .user-state-signed-out #sign-out {
-  display: none !important;
+  display: none;
 }
 
 .user-state-signed-out #signed-out-text-notification,
 .user-state-signed-out #sign-in {
-  display: block !important;
+  display: block;
 }
 
 /* Ensure buttons are clickable */
 #sign-out,
 #sign-in {
-  pointer-events: auto !important;
-  cursor: pointer !important;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-/* ===================================
-   RESPONSIVE STYLES - REFACTORED
-   =================================== */
-
-/* ===================================
-   SHARED/UTILITY STYLES
-   =================================== */
+/* ========== SHARED/UTILITY STYLES ========== */
 
 /* Common container styles */
 .responsive-container {
   max-width: 100%;
   width: 100%;
-  box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
 }
@@ -210,9 +203,7 @@
   }
 }
 
-/* ===================================
-   LARGE SCREENS (1200px and below)
-   =================================== */
+/* ========== RESPONSIVE BREAKPOINTS ========== */
 
 @media (max-width: 1200px) {
   /* Hide slide arrows on carousel */
@@ -424,10 +415,6 @@
     -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
   }
 }
-
-/* ===================================
-   MEDIUM SCREENS (900px and below)
-   =================================== */
 
 @media (max-width: 900px) {
   /* Header adjustments */
@@ -776,10 +763,6 @@
   /* Scroll indicators remain the same from 1200px down to 601px */
   /* No need to redefine - they inherit from the 1200px breakpoint */
 }
-
-/* ===================================
-   TABLET SCREENS (823px and below)
-   =================================== */
 
 @media (max-width: 823px) {
   .row-a-card-a > .img-price-wrap:first-child {
@@ -1518,6 +1501,23 @@
 }
 
 @media (max-width: 358px) {
+  .acc-dropdown-content {
+    position: fixed !important;
+    left: unset !important;
+    right: 0 !important;
+    top: 100% !important;
+    width: 90vw !important;
+    min-width: 140px !important;
+    max-width: 320px !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    z-index: 1001 !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+    background: #fff !important;
+    white-space: normal !important;
+  }
   .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-c),
   .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-d) {
     display: none !important;
@@ -1655,16 +1655,17 @@
 /* Medium tablet breakpoint */
 @media (max-width: 900px) {
   .acc-dropdown-content {
-    min-width: 260px !important;
-    max-width: 300px !important;
+    min-width: 220px !important;
+    max-width: 96vw !important;
     right: 0 !important;
     left: auto !important;
-    padding: 10px 14px !important;
-    border-radius: 12px !important;
+    padding: 10px 10px !important;
+    border-radius: 10px !important;
     z-index: 1001 !important;
     position: absolute !important;
     top: 100% !important;
-    margin-top: 4px !important;
+    margin-top: 0px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
     overflow: visible !important;
     white-space: normal !important;
   }
@@ -1721,7 +1722,7 @@
     z-index: 1001 !important;
     position: absolute !important;
     top: 100% !important;
-    margin-top: 4px !important;
+    margin-top: 0px !important;
     overflow: visible !important;
     padding: 10px 12px !important;
   }
@@ -1770,8 +1771,9 @@
 /* Mobile breakpoint */
 @media (max-width: 658px) {
   .acc-dropdown-content {
-    position: fixed !important;
-    top: 65px !important; /* Adjusted for header height */
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 0px !important;
     right: 8px !important;
     left: auto !important;
     min-width: 220px !important;
@@ -1853,6 +1855,9 @@
     overflow: visible !important;
     white-space: normal !important;
     z-index: 1001 !important;
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 0px !important;
   }
 
   .acc-img-title-container {
@@ -1908,7 +1913,6 @@
 /* Very small mobile breakpoint */
 @media (max-width: 428px) {
   .acc-dropdown-content {
-    top: 58px !important; /* Adjusted for very small screens */
     right: 4px !important;
     min-width: 180px !important;
     max-width: calc(100vw - 8px) !important;
@@ -1918,6 +1922,9 @@
     white-space: normal !important;
     z-index: 1001 !important;
     position: fixed !important;
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 0px !important;
   }
 
   .acc-img-title-container {
