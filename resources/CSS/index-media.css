@@ -1,5 +1,115 @@
 /* ===================================
-   ACCOUNT DROPDOWN GENERAL IMPROVEMENTS
+   ALIEXPRESS CLONE - RESPONSIVE STYLES
+   =================================== */
+
+/* ===================================
+   TABLE OF CONTENTS
+   =================================== */
+/*
+1. UTILITY CLASSES & SHARED STYLES
+2. ANIMATIONS & KEYFRAMES
+3. ACCOUNT DROPDOWN IMPROVEMENTS
+4. CAROUSEL & SCROLL INDICATORS
+5. RESPONSIVE BREAKPOINTS (1200px - 284px)
+6. FOOTER RESPONSIVE STYLES
+7. ACCESSIBILITY & PERFORMANCE ENHANCEMENTS
+*/
+
+/* ===================================
+   1. UTILITY CLASSES & SHARED STYLES
+   =================================== */
+
+/* Common container styles */
+.responsive-container {
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* Hide navigation lists on mobile */
+.nav-list-hidden {
+  display: none !important;
+}
+
+/* Simple carousel container setup */
+.slides-container,
+#slides-container,
+#slides-containerB {
+  scroll-behavior: smooth;
+}
+
+/* ===================================
+   2. ANIMATIONS & KEYFRAMES
+   =================================== */
+
+/* Enhanced pulse animation for scroll indicator */
+@keyframes scroll-hint-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.85;
+    transform: translate3d(0, -50%, 0) scale(1);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1);
+  }
+  30% {
+    opacity: 1;
+    transform: translate3d(0, -50%, 0) scale(1.08);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
+  }
+}
+
+/* WebKit-specific animation for iOS Safari */
+@-webkit-keyframes scroll-hint-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.85;
+    transform: translate3d(0, -50%, 0) scale(1);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1);
+  }
+  30% {
+    opacity: 1;
+    transform: translate3d(0, -50%, 0) scale(1.08);
+    -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
+  }
+}
+
+/* Subtle bounce animation for extra attention */
+@keyframes scroll-hint-bounce {
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(3px);
+  }
+}
+
+/* Hamburger menu animations */
+@keyframes hamburger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   3. ACCOUNT DROPDOWN IMPROVEMENTS
    =================================== */
 
 /* Ensure dropdown content is always properly visible when displayed */
@@ -65,91 +175,23 @@
   cursor: pointer;
 }
 
-/* ========== SHARED/UTILITY STYLES ========== */
-
-/* Common container styles */
-.responsive-container {
-  max-width: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-/* Hide navigation lists on mobile */
-.nav-list-hidden {
-  display: none !important;
-}
-
-/* Simple carousel container setup */
-.slides-container,
-#slides-container,
-#slides-containerB {
-  scroll-behavior: smooth;
-}
-
 /* ===================================
-   SCROLL INDICATOR BREAKPOINT SUMMARY:
-   - 1200px and below: Consistent indicators (padding: 8px 12px, font-size: 13px, content: "→ Scroll")
-   - All screen sizes maintain same styling for consistency across devices
+   4. CAROUSEL & SCROLL INDICATORS
    =================================== */
 
-/* ===================================
-   CAROUSEL SCROLL INDICATORS
-   =================================== */
-
-/* Remove duplicate content - using slider-wrapper approach instead */
-
-/* Enhanced pulse animation for scroll indicator */
-@keyframes scroll-hint-pulse {
-  0%,
-  60%,
-  100% {
-    opacity: 0.85;
-    transform: translate3d(0, -50%, 0) scale(1);
-    -webkit-transform: translate3d(0, -50%, 0) scale(1);
-  }
-  30% {
-    opacity: 1;
-    transform: translate3d(0, -50%, 0) scale(1.08);
-    -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
-  }
+/* Position indicators relative to slider wrapper */
+.slider-wrapper {
+  position: relative;
 }
 
-/* WebKit-specific animation for iOS Safari */
-@-webkit-keyframes scroll-hint-pulse {
-  0%,
-  60%,
-  100% {
-    opacity: 0.85;
-    transform: translate3d(0, -50%, 0) scale(1);
-    -webkit-transform: translate3d(0, -50%, 0) scale(1);
-  }
-  30% {
-    opacity: 1;
-    transform: translate3d(0, -50%, 0) scale(1.08);
-    -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
-  }
-}
-
-/* Subtle bounce animation for extra attention */
-@keyframes scroll-hint-bounce {
-  0%,
-  100% {
-    transform: translateY(-50%) translateX(0);
-  }
-  50% {
-    transform: translateY(-50%) translateX(3px);
-  }
+/* Base scroll indicator styles */
+.slider-wrapper::after {
+  transition: all 0.3s ease;
+  transform: translateZ(0); /* Force GPU acceleration */
+  -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
+  will-change: opacity, visibility; /* Optimize for frequent changes */
+  -webkit-backface-visibility: hidden; /* Prevent flickering on iOS */
+  backface-visibility: hidden;
 }
 
 /* Hide wrapper-based indicator when scrolled */
@@ -162,14 +204,9 @@
   -webkit-transition: none !important; /* Disable all webkit transitions */
 }
 
-/* Add smooth transition for all scroll indicators (except hiding which is instant) */
-.slider-wrapper::after {
-  transition: all 0.3s ease;
-  transform: translateZ(0); /* Force GPU acceleration */
-  -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
-  will-change: opacity, visibility; /* Optimize for frequent changes */
-  -webkit-backface-visibility: hidden; /* Prevent flickering on iOS */
-  backface-visibility: hidden;
+/* Hide scroll indicator when explicitly hidden by JavaScript */
+.slider-wrapper.hide-indicator::after {
+  opacity: 0 !important;
 }
 
 /* Hover state to temporarily show indicator again (for debugging/accessibility) */
@@ -178,34 +215,39 @@
   visibility: visible;
 }
 
-/* Position indicators relative to slider wrapper */
-.slider-wrapper {
-  position: relative;
+/* Mobile device specific optimizations */
+.mobile-device .slider-wrapper.scrolled::after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: none !important;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
-/* Hide scroll indicator when explicitly hidden by JavaScript */
-.slider-wrapper.hide-indicator::after {
-  opacity: 0 !important;
+.mobile-device .slider-wrapper::after {
+  will-change: opacity, visibility, transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* ===================================
-   HAMBURGER MENU ANIMATIONS
+   5. RESPONSIVE BREAKPOINTS
    =================================== */
 
-@keyframes hamburger-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Hide the top row container above 428px - it should only be visible at 428px and below */
+.row-a-card-a-top-row {
+  display: none;
 }
 
-/* ========== RESPONSIVE BREAKPOINTS ========== */
+/* ===================================
+   TABLET BREAKPOINT: 1200px
+   =================================== */
 
 @media (max-width: 1200px) {
+  /* ===================================
+     CAROUSEL CONTROLS
+     =================================== */
+
   /* Hide slide arrows on carousel */
   .slide-arrow,
   #slide-arrow-prev,
@@ -215,8 +257,11 @@
     display: none !important;
   }
 
-  /* Container adjustments */
+  /* ===================================
+     LAYOUT CONTAINERS
+     =================================== */
 
+  /* Container adjustments */
   .page-container {
     max-width: 100%;
     width: 100%;
@@ -239,6 +284,10 @@
     padding-left: 0;
     padding-right: 0;
   }
+
+  /* ===================================
+     CARD COMPONENTS
+     =================================== */
 
   /* Card image sizing */
   .row-a-card-c-img-a,
@@ -274,6 +323,10 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* ===================================
+     ROW A SPECIFIC ADJUSTMENTS
+     =================================== */
 
   /* Row A specific adjustments */
   .row-a-all-containers {
@@ -344,6 +397,10 @@
     margin: 8px 4px;
   }
 
+  /* ===================================
+     ROW B CONTAINERS
+     =================================== */
+
   /* Row B containers */
   .all-row-b-containers {
     flex-direction: column !important;
@@ -368,6 +425,10 @@
     margin: 8px 0 !important;
   }
 
+  /* ===================================
+     CAROUSEL SETTINGS
+     =================================== */
+
   /* Slides container */
   .slides-container {
     overflow-x: scroll !important;
@@ -381,7 +442,7 @@
   }
 
   /* ===================================
-     SCROLL INDICATORS FOR CAROUSELS AT 1200PX AND BELOW
+     SCROLL INDICATORS FOR CAROUSELS
      =================================== */
 
   /* Show scroll indicators for carousels at 1200px and below
@@ -427,6 +488,10 @@
     -webkit-transform: translateZ(0); /* iOS Safari GPU acceleration */
   }
 }
+
+/* ===================================
+   TABLET BREAKPOINT: 900px
+   =================================== */
 
 @media (max-width: 900px) {
   /* Header adjustments */
@@ -2013,7 +2078,35 @@
    FOOTER RESPONSIVE STYLES
    =================================== */
 
-/* Desktop and large screens - default styles are already set in index.css */
+/* ===================================
+   6. FOOTER RESPONSIVE STYLES
+   =================================== */
+
+/* Footer Base Styles */
+.footer-top,
+.footer-bottom {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-top-text-wrap,
+.footer-text-box,
+.footer-text-list {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.footer-text-list-imgs,
+.social-media-icons {
+  flex-shrink: 0;
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer Desktop and Large Screens (1200px) */
 @media (max-width: 1200px) {
   .footer-top-text-wrap {
     max-width: 100%;
@@ -2048,6 +2141,7 @@
   }
 }
 
+/* Footer Tablet (900px) */
 @media (max-width: 900px) {
   .footer-top {
     padding: 30px 16px;
@@ -2107,7 +2201,8 @@
   }
 }
 
-@media (max-width: 700px) {
+/* Footer Small Tablet (800px) */
+@media (max-width: 800px) {
   .footer-top {
     padding: 24px 12px;
   }
@@ -2149,6 +2244,7 @@
   }
 }
 
+/* Footer Mobile (600px) */
 @media (max-width: 600px) {
   .footer-top {
     padding: 20px 10px;
@@ -2205,6 +2301,7 @@
   }
 }
 
+/* Footer Small Mobile (480px) */
 @media (max-width: 480px) {
   .footer-top {
     padding: 16px 8px;
@@ -2251,6 +2348,7 @@
   }
 }
 
+/* Footer Ultra Small Mobile (428px) */
 @media (max-width: 428px) {
   .footer-top {
     padding: 12px 6px;
@@ -2289,6 +2387,7 @@
   }
 }
 
+/* Footer Micro Mobile (359px) */
 @media (max-width: 359px) {
   .footer-top {
     padding: 10px 4px;
@@ -2335,32 +2434,11 @@
   }
 }
 
-/* Ensure footer content never overflows */
-.footer-top,
-.footer-bottom {
-  overflow-x: hidden;
-  width: 100%;
-  box-sizing: border-box;
-}
+/* ===================================
+   7. ACCESSIBILITY & PERFORMANCE ENHANCEMENTS
+   =================================== */
 
-.footer-top-text-wrap,
-.footer-text-box,
-.footer-text-list {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-/* Ensure images don't break layout */
-.footer-text-list-imgs,
-.social-media-icons {
-  flex-shrink: 0;
-  object-fit: contain;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Add focus states for accessibility */
+/* Focus states for accessibility */
 .footer-text-list-imgs:focus,
 .social-media-icons:focus {
   outline: 2px solid #fd384f;
@@ -2391,6 +2469,7 @@
   contain: layout;
 }
 
+/* Ultra Small Layout (284px) */
 @media (max-width: 284px) {
   .page-container {
     max-width: 100%;
