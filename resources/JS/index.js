@@ -667,5 +667,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     });
+
+    // Reset hamburger menu when screen size changes
+    window.addEventListener("resize", function () {
+      // Reset all hamburger menu states
+      hamburgerContainer.classList.remove("active");
+      hamburgerBtn.classList.remove("active");
+      navItems.forEach((item) => {
+        item.classList.remove("mobile-visible");
+      });
+    });
   }
 });

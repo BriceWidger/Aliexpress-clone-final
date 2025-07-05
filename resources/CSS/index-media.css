@@ -50,6 +50,37 @@
 }
 
 /* ===================================
+   HAMBURGER MENU GLOBAL RULES
+   =================================== */
+
+/* Always hide the hamburger dropdown menu - we use individual nav list items instead */
+.hamburger-dropdown-menu {
+  display: none !important;
+}
+
+/* ===================================
+   MOBILE NAVIGATION VISIBILITY RULES
+   =================================== */
+
+/* Ensure mobile-visible navigation items are always within viewport */
+.lower-nav-list-one.mobile-visible,
+.lower-nav-list-two.mobile-visible,
+.lower-nav-list-three.mobile-visible,
+.lower-nav-list-four.mobile-visible {
+  /* Base responsive behavior for all screen sizes */
+  position: relative;
+  max-width: 100vw;
+  box-sizing: border-box;
+  /* Prevent content from being cut off */
+  overflow: visible;
+  /* Ensure proper stacking */
+  z-index: 999;
+  /* Always keep within safe area */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================
    2. ANIMATIONS & KEYFRAMES
    =================================== */
 
@@ -598,7 +629,7 @@
   }
 
   .hamburger-dropdown-menu {
-    display: none;
+    display: none !important; /* Always hide the dropdown menu - use individual nav items instead */
     position: static;
     width: 100vw;
     background: #181818;
@@ -616,7 +647,7 @@
 
   .hamburger-menu-container.active + .hamburger-dropdown-menu,
   .hamburger-menu-container.active .hamburger-dropdown-menu {
-    display: flex;
+    display: none !important; /* Always hide - use individual nav list items instead */
     position: static;
   }
 
@@ -673,6 +704,36 @@
   .lower-nav-list-three,
   .lower-nav-list-four {
     display: none !important;
+  }
+
+  /* Show navigation lists when they have mobile-visible class */
+  .lower-nav-list-one.mobile-visible,
+  .lower-nav-list-two.mobile-visible,
+  .lower-nav-list-three.mobile-visible,
+  .lower-nav-list-four.mobile-visible {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100vw;
+    background: #181818;
+    border-radius: 8px;
+    margin: 4px 0;
+    padding: 8px 0;
+    animation: hamburger-fade-in 0.18s ease;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Ensure menu stays within viewport */
+    left: 0;
+    right: 0;
+    min-height: 44px;
+    /* Prevent text overflow and ensure readability */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    /* Ensure content is always accessible */
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
   }
 
   /* Page layout adjustments */
@@ -1067,7 +1128,7 @@
   }
 
   .hamburger-dropdown-menu {
-    display: none;
+    display: none !important; /* Always hide the dropdown menu - use individual nav items instead */
     position: absolute;
     top: 40px;
     left: 0;
@@ -1094,7 +1155,7 @@
   }
 
   .hamburger-menu-container.active .hamburger-dropdown-menu {
-    display: flex;
+    display: none !important; /* Always hide - use individual nav list items instead */
   }
 
   .lower-nav-items-container {
@@ -1111,6 +1172,41 @@
   .lower-nav-list-three,
   .lower-nav-list-four {
     display: none !important;
+  }
+
+  /* Enhanced mobile-visible styles for smaller screens */
+  .lower-nav-list-one.mobile-visible,
+  .lower-nav-list-two.mobile-visible,
+  .lower-nav-list-three.mobile-visible,
+  .lower-nav-list-four.mobile-visible {
+    display: flex !important;
+    flex-direction: column;
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+    background: #181818;
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 12px 8px;
+    animation: hamburger-fade-in 0.18s ease;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Enhanced viewport constraints for smaller screens */
+    left: 0;
+    right: 0;
+    min-height: 48px;
+    /* Better text handling on small screens */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    font-size: 14px;
+    line-height: 1.4;
+    /* Ensure content is always accessible with proper scrolling */
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    /* Better touch targets */
+    min-height: 44px;
   }
 
   #whole-nav.hide-on-scroll {
@@ -1350,310 +1446,49 @@
 }
 
 /* ===================================
-   VERY SMALL MOBILE SCREENS (428px and below)
+   GLOBAL VIEWPORT-SAFE MOBILE NAVIGATION
    =================================== */
 
-@media (max-width: 428px) {
-  /* Make row-a-card-a-container same width as row-a-card-b */
-  .row-a-card-a-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-    flex: 1 1 50% !important;
-    overflow: hidden !important;
-  }
-
-  /* Hide the large main image in card A at 428px and below only */
-  .row-a-card-a .img-price-wrap:has(.row-a-card-a-img-a) {
-    display: none !important;
-  }
-
-  /* Restructure card A layout to match card B's 2x2 grid at 428px and below only */
-  .row-a-card-a {
-    width: 100% !important;
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 8px !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* Show and style the top row container at 428px and below only */
-  .row-a-card-a-top-row {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* Make the bottom container display as side-by-side at 428px and below only */
-  .row-a-card-a-bc-container {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* Style individual image containers in both rows to match card B at 428px and below only */
-  .row-a-card-a-top-row .img-price-wrap,
-  .row-a-card-a-bc-container .img-price-wrap {
-    flex: 0 1 calc(50% - 4px) !important;
-    margin: 0 !important;
-    max-width: calc(50% - 4px) !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Make all card A images same size as card B images at 428px and below only */
-  .row-a-card-a-img-a-2,
-  .row-a-card-a-img-a-3,
-  .row-a-card-a-img-b,
-  .row-a-card-a-img-c {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 1 !important;
-    object-fit: cover !important;
-    border-radius: 8px !important;
-  }
-
-  /* Make row-a-card-d-abc-container structure similar to row-a-card-c-ab-container at 428px and below */
-  .row-a-card-d-abc-container {
-    display: flex !important;
-    justify-content: space-evenly !important;
-    align-items: center !important;
-    background-color: #f5f5f5 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Hide the third image (pillow) in card D to match card C's two-image layout at 428px and below */
-  .row-a-card-d-abc-container a:has(.row-a-card-d-img-c) {
-    display: none !important;
-  }
-
-  /* Row C title adjustments for very small screens */
-  .row-c-title {
-    font-size: 18px !important;
-    line-height: 1.3 !important;
-    padding: 0 0 0 8px !important;
-  }
-
-  .row-c-title-container-all {
-    padding: 0 2px !important;
-  }
-
-  .title-imgs-container-c {
-    padding: 24px 2px 0 2px !important;
-  }
-
-  /* Reset carousel scroll position to show first card */
-  .slides-container,
-  #slides-container,
-  #slides-containerB {
-    scroll-behavior: smooth !important;
-  }
-
-  /* ===================================
-     SCROLL INDICATORS INHERIT FROM 1200PX BREAKPOINT
-     =================================== */
-
-  /* No scroll indicator changes - maintaining consistent size and styling */
-}
-
-/* ===================================
-   ULTRA SMALL MOBILE SCREENS (359px and below)
-   =================================== */
-
-@media (max-width: 359px) {
-  .header-items-container {
-    margin-bottom: 12px !important;
-  }
-
-  img.cart-check-out-white {
-    display: inline !important;
-  }
-
-  .person-account-icon {
-    margin-right: 0 !important;
-  }
-
-  .acc-category-dropdown-title {
-    display: flex !important;
-  }
-
-  .acc-dropdown-content {
-    position: fixed !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: 100% !important;
-    z-index: 1001 !important;
-    margin: 0 4px !important;
-    max-width: calc(100vw - 8px) !important;
-    min-width: 170px !important;
-    overflow: visible !important;
-    white-space: normal !important;
-    padding: 8px !important;
-  }
-
-  .acc-img-title-container {
-    width: 100% !important;
-    min-width: 150px !important;
-    height: auto !important;
-    padding: 2px 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    flex-wrap: nowrap !important;
-  }
-
-  .account-img {
-    width: 30px !important;
-    height: 30px !important;
-    background-size: 30px 30px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .acc-title-sign-wrap {
-    width: calc(100% - 38px) !important;
-    min-height: 45px !important;
-    padding-left: 6px !important;
-    gap: 3px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    overflow: visible !important;
-  }
-
-  #signed-in-text-notification {
-    font-size: 10px !important;
-    line-height: 1.2 !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    word-wrap: break-word !important;
-  }
-
-  #sign-out {
-    font-size: 10px !important;
-    line-height: 13px !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-  }
-
-  #sign-in {
-    max-width: 90px !important;
-    height: 22px !important;
-    font-size: 11px !important;
-    border-radius: 12px !important;
-    padding: 0 4px !important;
-    /* Keep default display: none - only show when signOut() is called */
-    margin-top: 2px !important;
-  }
-
-  .acc-dropbtn {
-    padding-left: 0;
-  }
-
-  .acc-dropdown.show-dropdown .acc-dropdown-content {
-    display: block !important;
-  }
-
-  .name-logo {
-    background-position: center center !important;
+/* Ensure hamburger menu content is always within safe viewport bounds */
+@supports (height: 100dvh) {
+  /* Use dynamic viewport height on browsers that support it */
+  .lower-nav-list-one.mobile-visible,
+  .lower-nav-list-two.mobile-visible,
+  .lower-nav-list-three.mobile-visible,
+  .lower-nav-list-four.mobile-visible {
+    max-height: calc(100dvh - 200px);
   }
 }
 
-@media (max-width: 358px) {
-  .acc-dropdown-content {
-    position: fixed !important;
-    left: unset !important;
-    right: 0 !important;
-    top: 100% !important;
-    width: 90vw !important;
-    min-width: 140px !important;
-    max-width: 320px !important;
-    box-sizing: border-box !important;
-    overflow-x: auto !important;
-    overflow-y: auto !important;
-    z-index: 1001 !important;
-    padding: 8px !important;
-    border-radius: 6px !important;
-    background: #fff !important;
-    white-space: normal !important;
-  }
-  .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-c),
-  .row-a-card-b .img-price-wrap:has(.row-a-card-b-img-d) {
-    display: none !important;
-  }
-
-  /* Also hide the 2nd items in the top row and bottom row for card A at very small screens */
-  .row-a-card-a-top-row .img-price-wrap:has(.row-a-card-a-img-a-3),
-  .row-a-card-a-bc-container .img-price-wrap:has(.row-a-card-a-img-c) {
-    display: none !important;
-  }
-
-  /* Center the remaining content in both rows at very small screens */
-  .row-a-card-a-top-row,
-  .row-a-card-a-bc-container {
-    justify-content: center !important;
-  }
-
-  /* Add spacing to top and bottom rows */
-  .row-a-card-a-top-row {
-    margin-top: 18px !important;
-  }
-
-  .row-a-card-a-bc-container {
-    margin-bottom: 18px !important;
-  }
-
-  /* Make card A container and its parent fit content exactly with no extra vertical space */
-  .row-a-card-a,
-  .row-a-card-a-container {
-    height: fit-content !important;
-    min-height: auto !important;
-  }
-
-  /* Reduce gap and padding for tighter fit */
-  .row-a-card-a {
-    gap: 4px !important;
-    padding: 0 !important;
-  }
-
-  .page-container {
-    max-width: 100%;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 211.333px !important;
-  }
-
-  .row-a-all-containers {
-    padding: 24px 0px 0px !important;
+/* Fallback for browsers without dynamic viewport support */
+@supports not (height: 100dvh) {
+  .lower-nav-list-one.mobile-visible,
+  .lower-nav-list-two.mobile-visible,
+  .lower-nav-list-three.mobile-visible,
+  .lower-nav-list-four.mobile-visible {
+    max-height: calc(100vh - 200px);
   }
 }
 
-/* ===================================
-   HIDE TOP ROW CONTAINER ABOVE 428PX
-   =================================== */
+/* Additional safety for very small screens */
+@media (max-height: 500px) {
+  .lower-nav-list-one.mobile-visible,
+  .lower-nav-list-two.mobile-visible,
+  .lower-nav-list-three.mobile-visible,
+  .lower-nav-list-four.mobile-visible {
+    max-height: calc(100vh - 120px);
+    font-size: 12px;
+    padding: 6px 4px;
+  }
+}
 
-/* Hide the top row container above 428px - it should only be visible at 428px and below */
-.row-a-card-a-top-row {
-  display: none;
+/* Ensure proper touch scrolling on iOS */
+.lower-nav-list-one.mobile-visible,
+.lower-nav-list-two.mobile-visible,
+.lower-nav-list-three.mobile-visible,
+.lower-nav-list-four.mobile-visible {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 /* ===================================
