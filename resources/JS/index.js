@@ -626,3 +626,42 @@ function signIn() {
   // Also reset on initial load
   document.addEventListener("DOMContentLoaded", resetCarouselsToStart);
 })();
+
+/**
+ * HAMBURGER MENU FUNCTIONALITY
+ */
+
+// Hamburger menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
+  const hamburgerContainer = document.querySelector('.hamburger-menu-container');
+  const navItems = document.querySelectorAll('.lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four');
+  
+  if (hamburgerBtn && hamburgerContainer) {
+    hamburgerBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      // Toggle the active class on the hamburger container
+      hamburgerContainer.classList.toggle('active');
+      
+      // Toggle the nav items visibility by adding/removing mobile-visible class
+      navItems.forEach(item => {
+        item.classList.toggle('mobile-visible');
+      });
+      
+      // Toggle hamburger icon animation
+      hamburgerBtn.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!hamburgerContainer.contains(event.target)) {
+        hamburgerContainer.classList.remove('active');
+        hamburgerBtn.classList.remove('active');
+        navItems.forEach(item => {
+          item.classList.remove('mobile-visible');
+        });
+      }
+    });
+  }
+});
