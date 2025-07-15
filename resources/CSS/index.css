@@ -645,6 +645,9 @@ h4 {
   flex-direction: column;
   justify-content: center;
   /* width: 415.7px; */
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .universal-card-title {
   color: rgb(253, 56, 79);

@@ -374,8 +374,11 @@
   .row-a-card-a-container {
     min-width: 320px;
     max-width: 600px;
-    height: 566.27px;
+    height: auto;
+    min-height: 566.27px;
     margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   .row-a-card-b {
@@ -781,11 +784,6 @@
     padding-bottom: 0;
   }
 
-  #whole-nav.hide-on-scroll {
-    top: -100vh !important;
-    transition: top 0.4s;
-  }
-
   .lower-nav {
     margin-top: 12px !important;
     padding-top: 0 !important;
@@ -969,7 +967,8 @@
     margin: 0;
     align-self: flex-start;
     box-sizing: border-box;
-    height: 566.27px !important;
+    height: auto;
+    min-height: 566.27px;
   }
 
   .row-a-card-b {
@@ -1212,11 +1211,6 @@
     min-height: 44px;
   }
 
-  #whole-nav.hide-on-scroll {
-    top: -100vh !important;
-    transition: top 0.4s;
-  }
-
   /* Reset carousel scroll position to show first card */
   .slides-container,
   #slides-container,
@@ -1320,7 +1314,8 @@
     flex-direction: column;
     justify-content: center;
     width: 415.7px;
-    min-height: 598.783px !important;
+    height: auto;
+    min-height: 598.783px;
   }
 
   a[href="/Item_Pages/superDeals_items/pillow_superDeals.html"] {
