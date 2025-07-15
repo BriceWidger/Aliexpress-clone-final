@@ -542,6 +542,7 @@
     position: relative;
     height: 48px;
     z-index: 2;
+    margin-right: 14px !important;
   }
 
   /* Navigation adjustments */
@@ -601,6 +602,7 @@
     gap: 0.5rem;
     flex-shrink: 0;
     margin-left: 12px;
+    margin-right: 14px !important;
   }
 
   .hamburger-menu-btn {
@@ -1102,6 +1104,7 @@
     display: flex;
     align-items: center;
     z-index: 20;
+    margin-right: 14px !important;
   }
 
   .hamburger-menu-btn {
@@ -1900,7 +1903,7 @@
     border-radius: 14px !important;
     padding: 0 6px !important;
     /* Keep default display: none - only show when signOut() is called */
-    margin-top: 3px !important;
+    margin-top: 4px !important;
   }
 }
 
