@@ -2374,6 +2374,19 @@
     max-width: 50%;
   }
 
+  /* Scale main card A image and price components */
+  .row-a-card-a > .img-price-wrap:first-child {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .row-a-card-a-img-a {
+    max-width: calc(224px * 0.9);
+    max-height: calc(224px * 0.9);
+    width: auto;
+    height: auto;
+  }
+
   .row-a-card-a-img-b,
   .row-a-card-a-img-c {
     max-width: calc(146px * 0.9);
