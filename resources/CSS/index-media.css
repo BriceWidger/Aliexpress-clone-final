@@ -938,7 +938,7 @@
   }
 
   .row-a-card-b {
-    height: 614.267px;
+    height: 566.267px;
   }
 
   /* Reset carousel scroll position to show first card */
@@ -951,7 +951,7 @@
 
 @media (max-width: 823px) and (min-width: 801px) {
   .row-a-card-c {
-    max-width: 368px;
+    max-width: 320px;
   }
 }
 
@@ -969,10 +969,6 @@
     box-sizing: border-box;
     height: auto;
     min-height: 566.27px;
-  }
-
-  .row-a-card-b {
-    height: 614.267px;
   }
 
   .row-a-card-c-img-a,
@@ -1013,10 +1009,6 @@
     justify-content: center;
     align-items: center;
     flex: 0 1 100%;
-  }
-
-  .row-a-card-b {
-    height: 614.267px;
   }
 
   /* Reset carousel scroll position to show first card */
@@ -1072,10 +1064,6 @@
 
   .row-a-card-c {
     min-width: 268.083px;
-  }
-
-  .row-a-card-b {
-    height: 614.267px;
   }
 }
 
@@ -2318,6 +2306,45 @@
     padding-left: 0;
     padding-right: 0;
     margin-top: 243.333px !important;
+  }
+}
+
+/* ===================================
+   ROW A CARD B OVERFLOW FIXES
+   =================================== */
+
+/* Fix vertical overflow of row-a-card-b-abcd-container */
+@media (max-width: 489px) {
+  .row-a-card-b {
+    height: auto !important;
+    min-height: 300px;
+    overflow: visible;
+  }
+
+  .row-a-card-b-abcd-container {
+    overflow: visible;
+    height: auto;
+  }
+}
+
+@media (max-width: 428px) {
+  .row-a-card-b {
+    height: auto !important;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 400px) {
+  .row-a-card-b {
+    height: auto !important;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 320px) {
+  .row-a-card-b {
+    height: auto !important;
+    min-height: 200px;
   }
 }
 
