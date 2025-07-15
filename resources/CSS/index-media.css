@@ -2349,5 +2349,129 @@
 }
 
 /* ===================================
+   ROW A CARD A BC CONTAINER RESPONSIVE SCALING
+   =================================== */
+
+/* Scale row-a-card-a-bc-container and contents only when forced by screen width */
+@media (max-width: 350px) {
+  .row-a-card-a {
+    overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .row-a-card-a-bc-container {
+    width: 100%;
+    max-width: 100%;
+    transform-origin: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .row-a-card-a-bc-container .img-price-wrap {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 50%;
+  }
+
+  .row-a-card-a-img-b,
+  .row-a-card-a-img-c {
+    max-width: calc(146px * 0.9);
+    max-height: calc(146px * 0.9);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 320px) {
+  .row-a-card-a {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container .img-price-wrap {
+    max-width: 48%;
+  }
+
+  .row-a-card-a-img-b,
+  .row-a-card-a-img-c {
+    max-width: calc(146px * 0.8);
+    max-height: calc(146px * 0.8);
+  }
+}
+
+@media (max-width: 300px) {
+  .row-a-card-a {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container .img-price-wrap {
+    max-width: 47%;
+  }
+
+  .row-a-card-a-img-b,
+  .row-a-card-a-img-c {
+    max-width: calc(146px * 0.7);
+    max-height: calc(146px * 0.7);
+  }
+}
+
+@media (max-width: 280px) {
+  .row-a-card-a {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container .img-price-wrap {
+    max-width: 46%;
+  }
+
+  .row-a-card-a-img-b,
+  .row-a-card-a-img-c {
+    max-width: calc(146px * 0.6);
+    max-height: calc(146px * 0.6);
+  }
+}
+
+@media (max-width: 260px) {
+  .row-a-card-a {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .row-a-card-a-bc-container .img-price-wrap {
+    max-width: 45%;
+  }
+
+  .row-a-card-a-img-b,
+  .row-a-card-a-img-c {
+    max-width: calc(146px * 0.5);
+    max-height: calc(146px * 0.5);
+  }
+}
+
+/* ===================================
    END OF FOOTER RESPONSIVE STYLES
    =================================== */
