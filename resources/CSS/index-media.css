@@ -2301,18 +2301,23 @@
   contain: layout;
 }
 
-/* Ultra Small Layout (284px) */
-@media (max-width: 284px) {
+@media (max-width: 298px) {
   .page-container {
     max-width: 100%;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-    margin-top: 255.333px !important;
+    margin-top: 195.333px !important;
   }
+}
 
-  .row-a-all-containers {
-    padding: 24px 0px 0px !important;
+@media (max-width: 216px) {
+  .page-container {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 243.333px !important;
   }
 }
 
