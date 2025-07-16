@@ -3027,3 +3027,394 @@ h4 {
   left: 55%;
   transform: translateX(-50%);
 }
+
+/* ===================================
+   FOOTER RESPONSIVE STYLES
+   =================================== */
+
+/* Footer Base Styles */
+.footer-top,
+.footer-bottom {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-top-text-wrap,
+.footer-text-box,
+.footer-text-list {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.footer-text-list-imgs,
+.social-media-icons {
+  flex-shrink: 0;
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer Desktop and Large Screens (1200px) */
+@media (max-width: 1200px) {
+  .footer-top-text-wrap {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-text-box {
+    width: calc(50% - 10px);
+    min-width: 280px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-text-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .footer-sub-text {
+    margin: 2px 0;
+    line-height: 1.4;
+  }
+}
+
+/* Footer Tablet (900px) */
+@media (max-width: 900px) {
+  .footer-top {
+    padding: 30px 16px;
+  }
+
+  .footer-top-text-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .footer-text-box {
+    width: 100%;
+    max-width: 600px;
+    margin-right: 0;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .footer-text-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .footer-text-list-imgs {
+    width: 44px;
+    height: 30px;
+    transition: transform 0.2s ease;
+  }
+
+  .footer-text-list-imgs:hover {
+    transform: scale(1.1);
+  }
+
+  .social-media-icons {
+    width: 28px;
+    height: 28px;
+    margin: 0 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .social-media-icons:hover {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  .footer-sub-text {
+    font-size: 13px;
+    margin: 4px 0;
+    line-height: 1.5;
+  }
+}
+
+/* Footer Small Tablet (800px) */
+@media (max-width: 800px) {
+  .footer-top {
+    padding: 24px 12px;
+  }
+
+  .footer-top-text-wrap {
+    gap: 20px;
+  }
+
+  .footer-text-box {
+    margin-bottom: 20px;
+  }
+
+  .footer-text-title {
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .footer-text-list {
+    gap: 6px;
+    min-height: 36px;
+  }
+
+  .footer-text-list-imgs {
+    width: 40px;
+    height: 28px;
+  }
+
+  .social-media-icons {
+    width: 26px;
+    height: 26px;
+  }
+
+  .footer-sub-text {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #666;
+  }
+}
+
+/* Footer Mobile (600px) */
+@media (max-width: 600px) {
+  .footer-top {
+    padding: 20px 10px;
+  }
+
+  .footer-top-text-wrap {
+    gap: 16px;
+  }
+
+  .footer-text-box {
+    margin-bottom: 16px;
+  }
+
+  .footer-text-title {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .footer-text-list {
+    gap: 4px;
+    min-height: 32px;
+  }
+
+  .footer-text-list-imgs {
+    width: 36px;
+    height: 26px;
+    border-radius: 4px;
+  }
+
+  .social-media-icons {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  .footer-sub-text {
+    font-size: 11px;
+    line-height: 1.3;
+    margin: 2px 0;
+    color: #666;
+  }
+
+  /* Footer bottom responsive styles */
+  .footer-bottom {
+    height: auto;
+    padding: 12px 8px;
+  }
+
+  .footer-bottom-text {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+/* Footer Small Mobile (480px) */
+@media (max-width: 480px) {
+  .footer-top {
+    padding: 16px 8px;
+  }
+
+  .footer-top-text-wrap {
+    gap: 12px;
+  }
+
+  .footer-text-box {
+    margin-bottom: 12px;
+  }
+
+  .footer-text-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .footer-text-list {
+    gap: 3px;
+  }
+
+  .footer-text-list-imgs {
+    width: 32px;
+    height: 24px;
+  }
+
+  .social-media-icons {
+    width: 22px;
+    height: 22px;
+  }
+
+  .footer-sub-text {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .footer-bottom {
+    padding: 10px 6px;
+  }
+
+  .footer-bottom-text {
+    font-size: 11px;
+  }
+}
+
+/* Footer Ultra Small Mobile (428px) */
+@media (max-width: 428px) {
+  .footer-top {
+    padding: 12px 6px;
+  }
+
+  .footer-top-text-wrap {
+    gap: 10px;
+  }
+
+  .footer-text-box {
+    margin-bottom: 10px;
+  }
+
+  .footer-text-title {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .footer-text-list {
+    gap: 2px;
+  }
+
+  .footer-text-list-imgs {
+    width: 28px;
+    height: 22px;
+  }
+
+  .social-media-icons {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-sub-text {
+    font-size: 9px;
+    line-height: 1.1;
+  }
+}
+
+/* Footer Micro Mobile (359px) */
+@media (max-width: 359px) {
+  .footer-top {
+    padding: 10px 4px;
+  }
+
+  .footer-top-text-wrap {
+    gap: 8px;
+  }
+
+  .footer-text-box {
+    margin-bottom: 8px;
+  }
+
+  .footer-text-title {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .footer-text-list {
+    gap: 1px;
+  }
+
+  .footer-text-list-imgs {
+    width: 24px;
+    height: 20px;
+  }
+
+  .social-media-icons {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-sub-text {
+    font-size: 8px;
+    line-height: 1;
+  }
+
+  .footer-bottom {
+    padding: 8px 4px;
+  }
+
+  .footer-bottom-text {
+    font-size: 10px;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY & PERFORMANCE ENHANCEMENTS
+   =================================== */
+
+/* Focus states for accessibility */
+.footer-text-list-imgs:focus,
+.social-media-icons:focus {
+  outline: 2px solid #fd384f;
+  outline-offset: 2px;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  .footer-text-list-imgs,
+  .social-media-icons {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+}
+
+/* Enhanced accessibility and performance */
+.footer-text-list-imgs,
+.social-media-icons {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Prevent layout shift during hover animations */
+.footer-text-box {
+  contain: layout;
+}
