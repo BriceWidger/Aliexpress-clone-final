@@ -1,3 +1,15 @@
+/* Override index.css body constraints for product pages */
+body {
+  height: auto !important;
+  max-height: none !important;
+  min-height: 100vh !important;
+}
+
+/* Ensure footer stays at bottom */
+footer {
+  margin-top: auto !important;
+}
+
 /* --- Final RWD polish for .body-wrap-top-left and its children --- */
 .body-wrap-top-left {
   width: 100%;
