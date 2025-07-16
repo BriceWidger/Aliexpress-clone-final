@@ -15,8 +15,39 @@ function search_items() {
 // List toggle (search bar)
 const searchBar = document.querySelector("#search-bar");
 const searchList = document.querySelector("#search-list");
+
+// Function to position search list relative to search bar container
+function positionSearchList() {
+  const searchBarContainer = document.querySelector("#search-bar-container");
+  if (searchBarContainer && searchList) {
+    const rect = searchBarContainer.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Position search list to match search bar container exactly
+    searchList.style.position = "absolute";
+    searchList.style.left = rect.left + "px";
+    searchList.style.width = rect.width + "px";
+    searchList.style.top = (rect.bottom + scrollTop + 6) + "px";
+  }
+}
+
 searchBar.addEventListener("click", () => {
+  positionSearchList();
   searchList.style.display = "block";
+});
+
+// Update position on window resize
+window.addEventListener("resize", () => {
+  if (searchList.style.display === "block") {
+    positionSearchList();
+  }
+});
+
+// Update position on scroll
+window.addEventListener("scroll", () => {
+  if (searchList.style.display === "block") {
+    positionSearchList();
+  }
 });
 const updateListState = (e) => {
   const targetId = e.target.id;
@@ -81,6 +112,7 @@ function reloadNewHTML(url) {
 // Event listener for input event on search bar element
 document.getElementById("search-bar").addEventListener("input", function () {
   const searchList = document.querySelector("#search-list");
+  positionSearchList(); // Position search list correctly
   searchList.style.display = "block"; // Ensure the search list is visible
   search_items(); // Call the search_items function to update the list
 });

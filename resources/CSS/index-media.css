@@ -828,6 +828,14 @@
     z-index: 1;
   }
 
+  /* Search list adjustments to match search bar container */
+  #search-list {
+    /* JavaScript handles positioning and width */
+    margin: 6px 0;
+    /* Ensure search list box-sizing matches search bar container */
+    box-sizing: border-box;
+  }
+
   /* Content layout adjustments */
   .slides-container {
     overflow-x: scroll !important;
