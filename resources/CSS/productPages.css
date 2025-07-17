@@ -565,22 +565,26 @@ body {
 }
 
 #search-list {
-  position: absolute;
-  top: 58px;
-  width: 888px;
+  position: absolute !important;
+  top: 44px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
   border-radius: 22px;
   background-color: #fff;
   color: #191919;
   text-indent: 12px;
   -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-  z-index: 990;
+  z-index: 1000 !important;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   margin: 6px 0;
   display: none;
   overflow: hidden;
+  /* Ensure search list matches search bar container width */
+  box-sizing: border-box !important;
 }
 
 #search-item-names {
