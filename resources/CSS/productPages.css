@@ -3532,3 +3532,125 @@ h4 {
   padding: unset !important;
   margin: unset !important;
 }
+
+/* Mobile click functionality for circle menu */
+@media (hover: none) and (pointer: coarse) {
+  /* This targets touch devices without hover capability */
+  .circle-menu-background_pp.mobile-active .circle-menu-hover-box {
+    display: block;
+  }
+
+  .circle-menu-background_pp.mobile-active::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 18px solid #f5f5f5;
+    top: 34px;
+    left: calc(50% - 25px);
+    z-index: 1000;
+  }
+
+  /* Add cursor pointer for mobile tap indication */
+  .circle-menu-background_pp {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure links in dropdown are clickable on mobile */
+  .circle-menu-hover-box-links {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+}
+
+/* CSS-only solution using checkbox trick for mobile */
+@media (hover: none) and (pointer: coarse) {
+  /* Hide the checkbox but keep it functional */
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  /* Style the label to look like the original circle menu */
+  .mobile-menu-label {
+    cursor: pointer;
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Show menu when checkbox is checked */
+  .mobile-menu-toggle:checked ~ .circle-menu-hover-box {
+    display: block;
+  }
+
+  /* Show triangle when checkbox is checked */
+  .mobile-menu-toggle:checked ~ .mobile-menu-label::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 18px solid #f5f5f5;
+    top: 34px;
+    left: calc(50% - 25px);
+    z-index: 1000;
+  }
+}
+
+/* Use :active state for immediate visual feedback on mobile */
+.circle-menu-background_pp:active .circle-menu-hover-box {
+  display: block;
+}
+
+.circle-menu-background_pp:active::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 18px solid #f5f5f5;
+  top: 34px;
+  left: calc(50% - 25px);
+  z-index: 1000;
+}
+
+/* Universal mobile-active styles for touch devices - works on all screen sizes */
+.circle-menu-background_pp.mobile-active .circle-menu-hover-box {
+  display: block !important;
+}
+
+.circle-menu-background_pp.mobile-active::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 18px solid #f5f5f5;
+  top: 34px;
+  left: calc(50% - 25px);
+  z-index: 1000;
+}
+
+/* Ensure circle menu is touch-friendly on all screen sizes */
+@media (hover: none) and (pointer: coarse) {
+  .circle-menu-background_pp {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .circle-menu-hover-box-links {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+}
