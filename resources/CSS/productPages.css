@@ -3512,3 +3512,16 @@ h4 {
     -webkit-transform: translate3d(0, -50%, 0) scale(1.08);
   }
 }
+
+/* Override forced styles and restore defaults for .name-logo and .name-logo-container on product pages */
+
+.name-logo-container {
+  min-width: unset !important;
+  box-sizing: content-box !important;
+  overflow: visible !important;
+  display: unset !important;
+  align-items: unset !important;
+  justify-content: unset !important;
+  padding: unset !important;
+  margin: unset !important;
+}
