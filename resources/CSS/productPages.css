@@ -3,6 +3,7 @@ body {
   height: auto !important;
   max-height: none !important;
   min-height: 100vh !important;
+  overflow-x: visible !important; /* Override overflow-x: hidden from index.css */
 }
 
 /* Ensure footer stays at bottom */
