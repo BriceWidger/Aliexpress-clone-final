@@ -576,3 +576,280 @@ function syncLocalStorageWithProductCounts() {
 }
 
 window.addEventListener("load", syncLocalStorageWithProductCounts);
+
+// --- Action Box Toggle Tab/Modal Logic for <=1615px ---
+document.addEventListener("DOMContentLoaded", function () {
+  var tab = document.getElementById("actionBoxToggleTab");
+  var modal = document.getElementById("actionBoxModal");
+  var modalContent = document.getElementById("actionBoxModalContent");
+  var closeBtn = document.getElementById("actionBoxModalClose");
+  var actionBoxContainer = document.querySelector(".action-box-container");
+
+  function checkWidthAndToggleTab() {
+    if (window.innerWidth <= 1615) {
+      if (tab) tab.style.display = "flex";
+      if (actionBoxContainer && actionBoxContainer.parentElement)
+        actionBoxContainer.parentElement.style.display = "none";
+    } else {
+      if (tab) tab.style.display = "none";
+      if (modal) modal.classList.remove("open");
+      if (actionBoxContainer && actionBoxContainer.parentElement)
+        actionBoxContainer.parentElement.style.display = "";
+    }
+  }
+
+  // --- Modal open/close logic ---
+  if (tab) {
+    tab.addEventListener("click", function () {
+      if (modal && actionBoxContainer) {
+        modalContent.innerHTML = "";
+        modalContent.appendChild(actionBoxContainer);
+        modal.classList.add("open");
+        // Hide the tab when modal is open
+        tab.style.display = "none";
+        // Re-apply scroll logic for modal
+        setupActionBoxScrollLogic(actionBoxContainer);
+      }
+    });
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      if (modal) modal.classList.remove("open");
+      // Show the tab again when modal is closed (if still <=1615px)
+      if (window.innerWidth <= 1615 && tab) tab.style.display = "flex";
+      var originalParent = document.querySelector(".body-wrap-top-right");
+      if (originalParent && !originalParent.contains(actionBoxContainer)) {
+        originalParent.appendChild(actionBoxContainer);
+        setupActionBoxScrollLogic(actionBoxContainer);
+      }
+    });
+  }
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.classList.remove("open");
+        // Show the tab again when modal is closed (if still <=1615px)
+        if (window.innerWidth <= 1615 && tab) tab.style.display = "flex";
+        var originalParent = document.querySelector(".body-wrap-top-right");
+        if (originalParent && !originalParent.contains(actionBoxContainer)) {
+          originalParent.appendChild(actionBoxContainer);
+          setupActionBoxScrollLogic(actionBoxContainer);
+        }
+      }
+    });
+  }
+  window.addEventListener("resize", function () {
+    // If modal is open, close it and restore the action box to its original parent
+    if (modal && modal.classList.contains("open")) {
+      modal.classList.remove("open");
+      if (window.innerWidth <= 1615 && tab) tab.style.display = "flex";
+      var originalParent = document.querySelector(".body-wrap-top-right");
+      if (originalParent && !originalParent.contains(actionBoxContainer)) {
+        originalParent.appendChild(actionBoxContainer);
+        setupActionBoxScrollLogic(actionBoxContainer);
+      }
+    }
+    checkWidthAndToggleTab();
+  });
+  checkWidthAndToggleTab();
+
+  // --- Helper: Setup scroll logic for action box in current parent ---
+  function setupActionBoxScrollLogic(container) {
+    var actionBoxTop = container.querySelector("#action-box-top-id");
+    if (!actionBoxTop) return;
+    var myScrollFunc = function () {
+      var box = container.querySelector("#action-box-top-id");
+      if (!box) return;
+      // If inside modal, always show and remove any scroll-triggered effects
+      if (box.closest(".action-box-modal-content")) {
+        box.className = "action-box-top action-box-top-show";
+        box.style.transition = "none"; // Remove any transition effects if present
+        return;
+      }
+      var y = window.scrollY;
+      if (y >= 100) {
+        box.className = "action-box-top action-box-top-show";
+      } else if (y <= 500) {
+        box.className = "action-box-top action-box-top-hide";
+      }
+    };
+    window.removeEventListener("scroll", myScrollFunc); // Remove any previous
+    window.addEventListener("scroll", myScrollFunc);
+    myScrollFunc();
+
+    // Adjust .action-box-container on scroll
+    var adjustActionBox = function () {
+      var actionBox = container;
+      if (!actionBox) return;
+      // If the action box is inside the modal, always set fixed position and padding
+      if (actionBox.closest(".action-box-modal-content")) {
+        actionBox.style.top = "132.60px";
+        actionBox.style.padding = "14px 0 31px 24px";
+        return;
+      }
+      var scrollPosition = window.scrollY;
+      if (scrollPosition > 0) {
+        actionBox.style.top = "132.60px";
+        actionBox.style.padding = "14px 0 31px 24px";
+      } else {
+        actionBox.style.top = "0px";
+        actionBox.style.padding = "8px 0 31px 24px";
+      }
+    };
+    window.removeEventListener("scroll", adjustActionBox);
+    window.addEventListener("scroll", adjustActionBox);
+    adjustActionBox();
+  }
+  // Initial setup for default location
+  setupActionBoxScrollLogic(actionBoxContainer);
+});
+
+// --- Keep modal-cart-number in sync with cart-number ---
+document.addEventListener("DOMContentLoaded", function () {
+  var cartNumber = document.getElementById("cart-number");
+  var modalCartNumber = document.getElementById("modal-cart-number");
+  if (!cartNumber || !modalCartNumber) return;
+
+  // Set modal-cart-number color (in case CSS fails)
+  modalCartNumber.style.color = "#fd384f";
+
+  // Helper to sync value
+  function syncModalCartNumber() {
+    modalCartNumber.textContent = cartNumber.textContent;
+  }
+
+  // Initial sync
+  syncModalCartNumber();
+
+  // Observe changes to cart-number
+  var observer = new MutationObserver(syncModalCartNumber);
+  observer.observe(cartNumber, {
+    childList: true,
+    characterData: true,
+    subtree: true,
+  });
+
+  // Also listen for manual events in case cart-number is updated via JS
+  ["input", "change"].forEach(function (evt) {
+    cartNumber.addEventListener(evt, syncModalCartNumber);
+  });
+});
+
+// ===================================
+// RECOMMENDED SECTION SCROLL INDICATORS
+// ===================================
+
+// Function to instantly hide scroll indicator when user scrolls
+function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
+  let isScrolling = false;
+
+  // Function to hide indicator immediately
+  function hideIndicator() {
+    if (scrollContainer.scrollLeft > 0) {
+      sliderWrapper.classList.add("scrolled");
+      // Force immediate DOM update for mobile browsers
+      sliderWrapper.style.transform = "translateZ(0)";
+    } else {
+      sliderWrapper.classList.remove("scrolled");
+    }
+  }
+
+  // Handle all scroll events (including touch on mobile)
+  scrollContainer.addEventListener("scroll", hideIndicator, { passive: true });
+
+  // Additional mobile-specific events for better responsiveness
+  scrollContainer.addEventListener(
+    "touchstart",
+    function () {
+      isScrolling = true;
+    },
+    { passive: true }
+  );
+
+  scrollContainer.addEventListener(
+    "touchmove",
+    function () {
+      if (isScrolling) {
+        hideIndicator();
+      }
+    },
+    { passive: true }
+  );
+
+  scrollContainer.addEventListener(
+    "touchend",
+    function () {
+      isScrolling = false;
+      // Ensure final state is correct after touch ends
+      setTimeout(hideIndicator, 16); // Next frame
+    },
+    { passive: true }
+  );
+}
+
+// Initialize scroll indicators for recommended sections
+document.addEventListener("DOMContentLoaded", function () {
+  // Find slider wrappers and their corresponding scroll containers
+  const sliderWrappers = document.querySelectorAll(".slider-wrapper");
+
+  sliderWrappers.forEach((wrapper) => {
+    const scrollContainer = wrapper.querySelector(".recommended-imgs-row-wrap");
+
+    if (scrollContainer) {
+      hideScrollIndicatorOnScroll(wrapper, scrollContainer);
+    }
+  });
+});
+
+// Mobile menu functionality for circle-menu-background_pp
+document.addEventListener("DOMContentLoaded", function () {
+  const circleMenu = document.querySelector(".circle-menu-background_pp");
+
+  if (circleMenu) {
+    let isMenuOpen = false;
+
+    // Only add mobile behavior if screen is mobile
+    if (window.innerWidth <= 768) {
+      circleMenu.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (isMenuOpen) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        } else {
+          circleMenu.classList.add("mobile-active");
+          isMenuOpen = true;
+        }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", function (e) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        }
+      });
+
+      // Close menu when touching outside
+      document.addEventListener("touchstart", function (e) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        }
+      });
+
+      // Ensure menu box links are clickable
+      const menuBox = document.querySelector(".circle-menu-hover-box");
+      if (menuBox) {
+        menuBox.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+
+        menuBox.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+        });
+      }
+    }
+  }
+});
