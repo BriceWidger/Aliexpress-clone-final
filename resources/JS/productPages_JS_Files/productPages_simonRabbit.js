@@ -728,3 +728,69 @@ document.addEventListener("DOMContentLoaded", function () {
     cartNumber.addEventListener(evt, syncModalCartNumber);
   });
 });
+
+// ===================================
+// RECOMMENDED SECTION SCROLL INDICATORS
+// ===================================
+
+// Function to instantly hide scroll indicator when user scrolls
+function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
+  let isScrolling = false;
+
+  // Function to hide indicator immediately
+  function hideIndicator() {
+    if (scrollContainer.scrollLeft > 0) {
+      sliderWrapper.classList.add("scrolled");
+      // Force immediate DOM update for mobile browsers
+      sliderWrapper.style.transform = "translateZ(0)";
+    } else {
+      sliderWrapper.classList.remove("scrolled");
+    }
+  }
+
+  // Handle all scroll events (including touch on mobile)
+  scrollContainer.addEventListener("scroll", hideIndicator, { passive: true });
+
+  // Additional mobile-specific events for better responsiveness
+  scrollContainer.addEventListener(
+    "touchstart",
+    function () {
+      isScrolling = true;
+    },
+    { passive: true }
+  );
+
+  scrollContainer.addEventListener(
+    "touchmove",
+    function () {
+      if (isScrolling) {
+        hideIndicator();
+      }
+    },
+    { passive: true }
+  );
+
+  scrollContainer.addEventListener(
+    "touchend",
+    function () {
+      isScrolling = false;
+      // Ensure final state is correct after touch ends
+      setTimeout(hideIndicator, 16); // Next frame
+    },
+    { passive: true }
+  );
+}
+
+// Initialize scroll indicators for recommended sections
+document.addEventListener("DOMContentLoaded", function () {
+  // Find slider wrappers and their corresponding scroll containers
+  const sliderWrappers = document.querySelectorAll(".slider-wrapper");
+
+  sliderWrappers.forEach((wrapper) => {
+    const scrollContainer = wrapper.querySelector(".recommended-imgs-row-wrap");
+
+    if (scrollContainer) {
+      hideScrollIndicatorOnScroll(wrapper, scrollContainer);
+    }
+  });
+});
