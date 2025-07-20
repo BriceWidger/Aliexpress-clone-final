@@ -541,6 +541,20 @@ h4 {
 .dropbtn:hover ~ .up-menu-arrow-black {
   content: url("/resources/images/menu-arrow-black.png");
 }
+
+/* Mobile dropdown active state - matches hover styling */
+.dropdown.mobile-active .dropbtn {
+  color: #191919;
+  background-color: #f5f5f5;
+  border: none;
+}
+.dropdown.mobile-active .dropdown-menu {
+  content: url("/resources/images/dropdown-menu-black.png");
+}
+.dropdown.mobile-active .up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-black.png");
+}
+
 .dropdown-menu {
   position: relative;
   top: -0.4px;

@@ -22,12 +22,12 @@ function positionSearchList() {
   if (searchBarContainer && searchList) {
     const rect = searchBarContainer.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     // Position search list to match search bar container exactly
     searchList.style.position = "absolute";
     searchList.style.left = rect.left + "px";
     searchList.style.width = rect.width + "px";
-    searchList.style.top = (rect.bottom + scrollTop + 6) + "px";
+    searchList.style.top = rect.bottom + scrollTop + 6 + "px";
   }
 }
 
@@ -709,5 +709,120 @@ document.addEventListener("DOMContentLoaded", function () {
         item.classList.remove("mobile-visible");
       });
     });
+  }
+});
+
+/**
+ * MOBILE DROPDOWN FUNCTIONALITY
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdown = document.querySelector(".dropdown");
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  if (dropdown && dropbtn && dropdownContent) {
+    let isDropdownOpen = false;
+
+    // Function to check if device is touch-enabled (mobile/tablet) or using touch simulation
+    function isTouchDevice() {
+      return (
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0 ||
+        // Check for touch simulation in dev tools
+        window.TouchEvent !== undefined ||
+        // Check for mobile screen size as fallback
+        window.innerWidth <= 900
+      );
+    }
+
+    // Function to check if we're on mobile screen size
+    function isMobileScreen() {
+      return window.innerWidth <= 900;
+    }
+
+    // Add mobile functionality for touch devices OR mobile screen sizes
+    if (isTouchDevice() || isMobileScreen()) {
+      // Add click event to toggle dropdown
+      dropbtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (isDropdownOpen) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
+        } else {
+          dropdownContent.style.display = "block";
+          dropdown.classList.add("mobile-active");
+          isDropdownOpen = true;
+        }
+      });
+
+      // Add touchstart event for better mobile responsiveness
+      dropbtn.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (isDropdownOpen) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
+        } else {
+          dropdownContent.style.display = "block";
+          dropdown.classList.add("mobile-active");
+          isDropdownOpen = true;
+        }
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (isDropdownOpen && !dropdown.contains(e.target)) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
+        }
+      });
+
+      // Close dropdown when touching outside
+      document.addEventListener("touchstart", function (e) {
+        if (isDropdownOpen && !dropdown.contains(e.target)) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
+        }
+      });
+
+      // Close dropdown when a link is clicked
+      const dropdownLinks = dropdownContent.querySelectorAll("a");
+      dropdownLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.stopPropagation();
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
+        });
+
+        link.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+        });
+      });
+
+      // Prevent dropdown content from closing when clicking inside it
+      dropdownContent.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+
+      dropdownContent.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
+      });
+
+      // Reset dropdown when screen size changes
+      window.addEventListener("resize", function () {
+        dropdownContent.style.display = "none";
+        dropdown.classList.remove("mobile-active");
+        isDropdownOpen = false;
+      });
+    }
   }
 });
