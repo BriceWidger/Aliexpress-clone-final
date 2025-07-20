@@ -43,10 +43,10 @@ window.addEventListener("resize", () => {
   }
 });
 
-// Update position on scroll
+// Hide search dropdown on scroll (standard dropdown behavior)
 window.addEventListener("scroll", () => {
   if (searchList.style.display === "block") {
-    positionSearchList();
+    searchList.style.display = "none";
   }
 });
 const updateListState = (e) => {
