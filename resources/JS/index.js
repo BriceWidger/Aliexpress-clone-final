@@ -673,9 +673,33 @@ document.addEventListener("DOMContentLoaded", function () {
     ".lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four"
   );
 
+  // Function to close hamburger menu
+  function closeHamburgerMenu() {
+    if (hamburgerContainer) {
+      hamburgerContainer.classList.remove("active");
+    }
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove("active");
+    }
+    navItems.forEach((item) => {
+      item.classList.remove("mobile-visible");
+    });
+  }
+
+  // Function to check if menu is open
+  function isMenuOpen() {
+    return (
+      hamburgerContainer && hamburgerContainer.classList.contains("active")
+    );
+  }
+
+  // Make closeHamburgerMenu function globally accessible for other components
+  window.closeHamburgerMenu = closeHamburgerMenu;
+
   if (hamburgerBtn && hamburgerContainer) {
     hamburgerBtn.addEventListener("click", function (event) {
       event.preventDefault();
+      event.stopPropagation(); // Prevent event bubbling
 
       // Toggle the active class on the hamburger container
       hamburgerContainer.classList.toggle("active");
@@ -689,24 +713,73 @@ document.addEventListener("DOMContentLoaded", function () {
       hamburgerBtn.classList.toggle("active");
     });
 
-    // Close menu when clicking outside
+    // Close menu when clicking anywhere on the page (except the hamburger button itself)
     document.addEventListener("click", function (event) {
-      if (!hamburgerContainer.contains(event.target)) {
-        hamburgerContainer.classList.remove("active");
-        hamburgerBtn.classList.remove("active");
-        navItems.forEach((item) => {
-          item.classList.remove("mobile-visible");
-        });
+      // Check if menu is open and click is not on hamburger button or container
+      if (isMenuOpen() && !hamburgerContainer.contains(event.target)) {
+        closeHamburgerMenu();
+      }
+    });
+
+    // Close menu when pressing any key (Escape, Space, Enter, etc.)
+    document.addEventListener("keydown", function (event) {
+      if (isMenuOpen()) {
+        closeHamburgerMenu();
+      }
+    });
+
+    // Close menu on touch events (for mobile devices)
+    document.addEventListener(
+      "touchstart",
+      function (event) {
+        if (isMenuOpen() && !hamburgerContainer.contains(event.target)) {
+          closeHamburgerMenu();
+        }
+      },
+      { passive: true }
+    );
+
+    // Close menu on scroll
+    document.addEventListener(
+      "scroll",
+      function () {
+        if (isMenuOpen()) {
+          closeHamburgerMenu();
+        }
+      },
+      { passive: true }
+    );
+
+    // Close menu on mouseover of other interactive elements
+    document.addEventListener("mouseover", function (event) {
+      if (isMenuOpen()) {
+        // Close hamburger menu when hovering over dropdowns, search elements, or other interactive components
+        const target = event.target;
+        const isInteractiveElement =
+          target.closest(".dropdown") ||
+          target.closest("#search-bar-container") ||
+          target.closest("#search-list") ||
+          target.closest(".slide") ||
+          target.closest("button") ||
+          target.closest("a") ||
+          target.closest("input") ||
+          target.closest(".slider-wrapper");
+
+        if (isInteractiveElement && !hamburgerContainer.contains(target)) {
+          closeHamburgerMenu();
+        }
       }
     });
 
     // Reset hamburger menu when screen size changes
     window.addEventListener("resize", function () {
-      // Reset all hamburger menu states
-      hamburgerContainer.classList.remove("active");
-      hamburgerBtn.classList.remove("active");
-      navItems.forEach((item) => {
-        item.classList.remove("mobile-visible");
+      closeHamburgerMenu();
+    });
+
+    // Close menu when clicking on any of the navigation links
+    navItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        closeHamburgerMenu();
       });
     });
   }
@@ -748,6 +821,11 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         e.stopPropagation();
 
+        // Close hamburger menu if it's open
+        if (window.closeHamburgerMenu) {
+          window.closeHamburgerMenu();
+        }
+
         if (isDropdownOpen) {
           dropdownContent.style.display = "none";
           dropdown.classList.remove("mobile-active");
@@ -763,6 +841,11 @@ document.addEventListener("DOMContentLoaded", function () {
       dropbtn.addEventListener("touchstart", function (e) {
         e.preventDefault();
         e.stopPropagation();
+
+        // Close hamburger menu if it's open
+        if (window.closeHamburgerMenu) {
+          window.closeHamburgerMenu();
+        }
 
         if (isDropdownOpen) {
           dropdownContent.style.display = "none";
