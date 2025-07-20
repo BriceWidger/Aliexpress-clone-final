@@ -257,14 +257,14 @@ function prevImgDecoyFunctionFive_auto() { // prevImgDecoyFunctionFive_auto
  * 
  */
 
-// Nav Scroll (product-page)
+// Nav Scroll (product-page) - Navigation stays visible on scroll
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("whole-nav-product-page").style.top = "0";
-  } else {
-    document.getElementById("whole-nav-product-page").style.top = "-200px";
+  // Keep navigation visible at all times
+  var navElement = document.getElementById("whole-nav-product-page");
+  if (navElement) {
+    navElement.style.top = "0";
   }
   prevScrollpos = currentScrollPos;
 }

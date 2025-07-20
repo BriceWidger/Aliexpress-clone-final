@@ -160,17 +160,14 @@ function prevImgDecoyFunctionFive_truth() {
 
 // Robust scroll-based UI logic for product page
 document.addEventListener("DOMContentLoaded", function () {
-  // Nav Scroll (product-page)
+  // Nav Scroll (product-page) - Navigation stays visible on scroll
   var prevScrollpos = window.pageYOffset;
   var navProductPage = document.getElementById("whole-nav-product-page");
   window.addEventListener("scroll", function () {
     var currentScrollPos = window.pageYOffset;
     if (navProductPage) {
-      if (prevScrollpos > currentScrollPos) {
-        navProductPage.style.top = "0";
-      } else {
-        navProductPage.style.top = "-200px";
-      }
+      // Keep navigation visible at all times
+      navProductPage.style.top = "0";
     }
     prevScrollpos = currentScrollPos;
   });
