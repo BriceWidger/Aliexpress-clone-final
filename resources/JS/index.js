@@ -31,9 +31,149 @@ function positionSearchList() {
   }
 }
 
+// Function to check if device is touch-enabled (mobile/tablet) or using touch simulation
+function isTouchDevice() {
+  return (
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0 ||
+    // Check for touch simulation in dev tools
+    window.TouchEvent !== undefined ||
+    // Check for mobile screen size as fallback
+    window.innerWidth <= 900
+  );
+}
+
+// Function to check if we're on mobile screen size
+function isMobileScreen() {
+  return window.innerWidth <= 900;
+}
+
+// Add mobile toggle functionality for search bar container
+const searchBarContainer = document.querySelector("#search-bar-container");
+if (searchBarContainer) {
+  searchBarContainer.addEventListener("click", function (event) {
+    // Only apply toggle behavior on mobile devices or when testing mobile on desktop
+    if (isTouchDevice() || isMobileScreen()) {
+      // If the click is anywhere within the search bar container
+      if (
+        event.target.closest("#search-bar-container") &&
+        !event.target.closest("#search-submit-container")
+      ) {
+        // Toggle the search list visibility
+        if (searchList.style.display === "block") {
+          searchList.style.display = "none";
+        } else {
+          positionSearchList();
+          searchList.style.display = "block";
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }
+  });
+
+  // Also add touch event for better mobile responsiveness
+  searchBarContainer.addEventListener(
+    "touchstart",
+    function (event) {
+      if (isTouchDevice() || isMobileScreen()) {
+        if (
+          event.target.closest("#search-bar-container") &&
+          !event.target.closest("#search-submit-container")
+        ) {
+          if (searchList.style.display === "block") {
+            searchList.style.display = "none";
+          } else {
+            positionSearchList();
+            searchList.style.display = "block";
+          }
+
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }
+    },
+    { passive: false }
+  );
+}
+
+// For desktop devices, keep the original search bar click behavior
 searchBar.addEventListener("click", () => {
-  positionSearchList();
-  searchList.style.display = "block";
+  // Only show search list on desktop (non-mobile) devices
+  if (!isTouchDevice() && !isMobileScreen()) {
+    positionSearchList();
+    searchList.style.display = "block";
+  }
+});
+
+// Add click outside functionality for mobile devices
+document.addEventListener("click", function (event) {
+  // Only apply this behavior on mobile devices or when testing mobile on desktop
+  if (isTouchDevice() || isMobileScreen()) {
+    // Check if the search list is currently visible
+    if (searchList.style.display === "block") {
+      // Check if the click was outside the search bar container and not on a search list link
+      if (
+        !event.target.closest("#search-bar-container") &&
+        !event.target.closest("#search-list")
+      ) {
+        searchList.style.display = "none";
+      }
+    }
+  }
+});
+
+// Add touch outside functionality for mobile devices
+document.addEventListener(
+  "touchstart",
+  function (event) {
+    // Only apply this behavior on mobile devices or when testing mobile on desktop
+    if (isTouchDevice() || isMobileScreen()) {
+      // Check if the search list is currently visible
+      if (searchList.style.display === "block") {
+        // Check if the touch was outside the search bar container and not on a search list link
+        if (
+          !event.target.closest("#search-bar-container") &&
+          !event.target.closest("#search-list")
+        ) {
+          searchList.style.display = "none";
+        }
+      }
+    }
+  },
+  { passive: true }
+);
+
+// Add mobile-specific handling for search list links
+document.addEventListener("DOMContentLoaded", function () {
+  const searchListElement = document.querySelector("#search-list");
+  if (searchListElement && (isTouchDevice() || isMobileScreen())) {
+    // Get all links within the search list
+    const searchLinks = searchListElement.querySelectorAll("a");
+
+    searchLinks.forEach(function (link) {
+      // Add touch and click events for mobile compatibility
+      link.addEventListener(
+        "touchstart",
+        function (event) {
+          // Prevent the search list from closing when touching a link
+          event.stopPropagation();
+        },
+        { passive: true }
+      );
+
+      link.addEventListener("click", function (event) {
+        // Ensure navigation works and close search list
+        event.stopPropagation();
+        if (searchList.style.display === "block") {
+          searchList.style.display = "none";
+        }
+        // Allow default link navigation behavior
+      });
+    });
+  }
 });
 
 // Update position on window resize
@@ -44,23 +184,54 @@ window.addEventListener("resize", () => {
 });
 
 // Hide search dropdown on scroll (standard dropdown behavior)
-window.addEventListener("scroll", () => {
-  if (searchList.style.display === "block") {
+window.addEventListener(
+  "scroll",
+  () => {
+    if (searchList.style.display === "block") {
+      searchList.style.display = "none";
+    }
+  },
+  { passive: true }
+);
+
+// Hide search dropdown on mobile scroll/touch move events
+window.addEventListener(
+  "touchmove",
+  () => {
+    if (
+      (isTouchDevice() || isMobileScreen()) &&
+      searchList.style.display === "block"
+    ) {
+      searchList.style.display = "none";
+    }
+  },
+  { passive: true }
+);
+
+// Hide search dropdown on mobile orientation change
+window.addEventListener("orientationchange", () => {
+  if (
+    (isTouchDevice() || isMobileScreen()) &&
+    searchList.style.display === "block"
+  ) {
     searchList.style.display = "none";
   }
 });
 const updateListState = (e) => {
-  const targetId = e.target.id;
-  if (
-    targetId !== "search-bar" &&
-    targetId !== "search-list" &&
-    targetId !== "search-bar-filler" &&
-    targetId !== "search-bar-container" &&
-    targetId !== "search-item-names" &&
-    targetId !== "search-submit" &&
-    targetId !== "search-submit-container"
-  ) {
-    searchList.style.display = "none";
+  // Only apply mousemove hide behavior on desktop (non-mobile) devices
+  if (!isTouchDevice() && !isMobileScreen()) {
+    const targetId = e.target.id;
+    if (
+      targetId !== "search-bar" &&
+      targetId !== "search-list" &&
+      targetId !== "search-bar-filler" &&
+      targetId !== "search-bar-container" &&
+      targetId !== "search-item-names" &&
+      targetId !== "search-submit" &&
+      targetId !== "search-submit-container"
+    ) {
+      searchList.style.display = "none";
+    }
   }
 };
 document.addEventListener("mousemove", updateListState);
@@ -819,24 +990,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (dropdown && dropbtn && dropdownContent) {
     let isDropdownOpen = false;
-
-    // Function to check if device is touch-enabled (mobile/tablet) or using touch simulation
-    function isTouchDevice() {
-      return (
-        "ontouchstart" in window ||
-        navigator.maxTouchPoints > 0 ||
-        navigator.msMaxTouchPoints > 0 ||
-        // Check for touch simulation in dev tools
-        window.TouchEvent !== undefined ||
-        // Check for mobile screen size as fallback
-        window.innerWidth <= 900
-      );
-    }
-
-    // Function to check if we're on mobile screen size
-    function isMobileScreen() {
-      return window.innerWidth <= 900;
-    }
 
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
