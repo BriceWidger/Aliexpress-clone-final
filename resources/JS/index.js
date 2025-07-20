@@ -750,24 +750,29 @@ document.addEventListener("DOMContentLoaded", function () {
       { passive: true }
     );
 
-    // Close menu on mouseover of other interactive elements
-    document.addEventListener("mouseover", function (event) {
+    // Close menu when interacting with specific dropdowns or components that should take priority
+    document.addEventListener("click", function (event) {
       if (isMenuOpen()) {
-        // Close hamburger menu when hovering over dropdowns, search elements, or other interactive components
         const target = event.target;
-        const isInteractiveElement =
-          target.closest(".dropdown") ||
+        const isDropdownClick = target.closest(".dropdown");
+        const isSearchClick =
           target.closest("#search-bar-container") ||
-          target.closest("#search-list") ||
-          target.closest(".slide") ||
-          target.closest("button") ||
-          target.closest("a") ||
-          target.closest("input") ||
-          target.closest(".slider-wrapper");
+          target.closest("#search-list");
 
-        if (isInteractiveElement && !hamburgerContainer.contains(target)) {
+        // Close hamburger menu when clicking on dropdown or search elements
+        if (
+          (isDropdownClick || isSearchClick) &&
+          !hamburgerContainer.contains(target)
+        ) {
           closeHamburgerMenu();
         }
+      }
+    });
+
+    // Close menu when search dropdown is opened
+    document.addEventListener("click", function (event) {
+      if (isMenuOpen() && event.target.closest("#search-bar")) {
+        closeHamburgerMenu();
       }
     });
 
@@ -782,6 +787,25 @@ document.addEventListener("DOMContentLoaded", function () {
         closeHamburgerMenu();
       });
     });
+
+    // Close hamburger menu when dropdown is hovered (desktop behavior)
+    const dropdown = document.querySelector(".dropdown");
+    const dropbtn = document.querySelector(".dropbtn");
+    if (dropdown && dropbtn) {
+      // Close hamburger menu when hovering over dropdown button (which shows dropdown-content via CSS)
+      dropbtn.addEventListener("mouseenter", function () {
+        if (isMenuOpen()) {
+          closeHamburgerMenu();
+        }
+      });
+
+      // Also close when hovering over the dropdown container itself
+      dropdown.addEventListener("mouseenter", function () {
+        if (isMenuOpen()) {
+          closeHamburgerMenu();
+        }
+      });
+    }
   }
 });
 
