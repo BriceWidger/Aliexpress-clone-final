@@ -12,6 +12,58 @@ function search_items() {
   }
 }
 
+// Global dropdown management - ensures only one dropdown is visible at a time
+let currentActiveDropdown = null;
+
+function hideAllDropdowns() {
+  // Hide search list
+  const searchList = document.querySelector("#search-list");
+  if (searchList) {
+    searchList.style.display = "none";
+  }
+
+  // Hide dropdown content
+  const dropdownContent = document.querySelector(".dropdown-content");
+  const dropdown = document.querySelector(".dropdown");
+  if (dropdownContent && dropdown) {
+    dropdownContent.style.display = "none";
+    dropdown.classList.remove("mobile-active");
+  }
+
+  currentActiveDropdown = null;
+}
+
+function showSearchList() {
+  hideAllDropdowns();
+  const searchList = document.querySelector("#search-list");
+  if (searchList) {
+    positionSearchList();
+    searchList.style.display = "block";
+    currentActiveDropdown = "search-list";
+  }
+}
+
+function showDropdownContent() {
+  hideAllDropdowns();
+  const dropdownContent = document.querySelector(".dropdown-content");
+  const dropdown = document.querySelector(".dropdown");
+  if (dropdownContent && dropdown) {
+    dropdownContent.style.display = "block";
+    dropdown.classList.add("mobile-active");
+    currentActiveDropdown = "dropdown-content";
+  }
+}
+
+function isSearchListVisible() {
+  const searchList = document.querySelector("#search-list");
+  return searchList && searchList.style.display === "block";
+}
+
+function isDropdownContentVisible() {
+  const dropdownContent = document.querySelector(".dropdown-content");
+  return dropdownContent && dropdownContent.style.display === "block";
+}
+
 // List toggle (search bar)
 const searchBar = document.querySelector("#search-bar");
 const searchList = document.querySelector("#search-list");
@@ -62,11 +114,10 @@ if (searchBarContainer) {
         event.target.id !== "search-bar-filler"
       ) {
         // Toggle the search list visibility
-        if (searchList.style.display === "block") {
-          searchList.style.display = "none";
+        if (isSearchListVisible()) {
+          hideAllDropdowns();
         } else {
-          positionSearchList();
-          searchList.style.display = "block";
+          showSearchList();
         }
 
         event.preventDefault();
@@ -85,11 +136,10 @@ if (searchBarContainer) {
           !event.target.closest("#search-submit-container") &&
           event.target.id !== "search-bar-filler"
         ) {
-          if (searchList.style.display === "block") {
-            searchList.style.display = "none";
+          if (isSearchListVisible()) {
+            hideAllDropdowns();
           } else {
-            positionSearchList();
-            searchList.style.display = "block";
+            showSearchList();
           }
 
           event.preventDefault();
@@ -105,8 +155,7 @@ if (searchBarContainer) {
 searchBar.addEventListener("click", () => {
   // Only show search list on desktop (non-mobile) devices
   if (!isTouchDevice() && !isMobileScreen()) {
-    positionSearchList();
-    searchList.style.display = "block";
+    showSearchList();
   }
 });
 
@@ -114,14 +163,16 @@ searchBar.addEventListener("click", () => {
 document.addEventListener("click", function (event) {
   // Only apply this behavior on mobile devices or when testing mobile on desktop
   if (isTouchDevice() || isMobileScreen()) {
-    // Check if the search list is currently visible
-    if (searchList.style.display === "block") {
-      // Check if the click was outside the search bar container and not on a search list link
+    // Check if any dropdown is currently visible
+    if (currentActiveDropdown) {
+      // Check if the click was outside both search bar container and dropdown elements
       if (
         !event.target.closest("#search-bar-container") &&
-        !event.target.closest("#search-list")
+        !event.target.closest("#search-list") &&
+        !event.target.closest(".dropdown") &&
+        !event.target.closest(".dropdown-content")
       ) {
-        searchList.style.display = "none";
+        hideAllDropdowns();
       }
     }
   }
@@ -133,14 +184,16 @@ document.addEventListener(
   function (event) {
     // Only apply this behavior on mobile devices or when testing mobile on desktop
     if (isTouchDevice() || isMobileScreen()) {
-      // Check if the search list is currently visible
-      if (searchList.style.display === "block") {
-        // Check if the touch was outside the search bar container and not on a search list link
+      // Check if any dropdown is currently visible
+      if (currentActiveDropdown) {
+        // Check if the touch was outside both search bar container and dropdown elements
         if (
           !event.target.closest("#search-bar-container") &&
-          !event.target.closest("#search-list")
+          !event.target.closest("#search-list") &&
+          !event.target.closest(".dropdown") &&
+          !event.target.closest(".dropdown-content")
         ) {
-          searchList.style.display = "none";
+          hideAllDropdowns();
         }
       }
     }
@@ -167,11 +220,9 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       link.addEventListener("click", function (event) {
-        // Ensure navigation works and close search list
+        // Ensure navigation works and close all dropdowns
         event.stopPropagation();
-        if (searchList.style.display === "block") {
-          searchList.style.display = "none";
-        }
+        hideAllDropdowns();
         // Allow default link navigation behavior
       });
     });
@@ -180,43 +231,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Update position on window resize
 window.addEventListener("resize", () => {
-  if (searchList.style.display === "block") {
+  if (currentActiveDropdown === "search-list") {
     positionSearchList();
+  } else {
+    hideAllDropdowns();
   }
 });
 
-// Hide search dropdown on scroll (standard dropdown behavior)
+// Hide dropdowns on scroll (standard dropdown behavior)
 window.addEventListener(
   "scroll",
   () => {
-    if (searchList.style.display === "block") {
-      searchList.style.display = "none";
+    if (currentActiveDropdown) {
+      hideAllDropdowns();
     }
   },
   { passive: true }
 );
 
-// Hide search dropdown on mobile scroll/touch move events
+// Hide dropdowns on mobile scroll/touch move events
 window.addEventListener(
   "touchmove",
   () => {
-    if (
-      (isTouchDevice() || isMobileScreen()) &&
-      searchList.style.display === "block"
-    ) {
-      searchList.style.display = "none";
+    if (currentActiveDropdown) {
+      hideAllDropdowns();
     }
   },
   { passive: true }
 );
 
-// Hide search dropdown on mobile orientation change
+// Hide dropdowns on mobile orientation change
 window.addEventListener("orientationchange", () => {
-  if (
-    (isTouchDevice() || isMobileScreen()) &&
-    searchList.style.display === "block"
-  ) {
-    searchList.style.display = "none";
+  if (currentActiveDropdown) {
+    hideAllDropdowns();
   }
 });
 const updateListState = (e) => {
@@ -991,8 +1038,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownContent = document.querySelector(".dropdown-content");
 
   if (dropdown && dropbtn && dropdownContent) {
-    let isDropdownOpen = false;
-
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
       // Add click event to toggle dropdown
@@ -1005,14 +1050,10 @@ document.addEventListener("DOMContentLoaded", function () {
           window.closeHamburgerMenu();
         }
 
-        if (isDropdownOpen) {
-          dropdownContent.style.display = "none";
-          dropdown.classList.remove("mobile-active");
-          isDropdownOpen = false;
+        if (isDropdownContentVisible()) {
+          hideAllDropdowns();
         } else {
-          dropdownContent.style.display = "block";
-          dropdown.classList.add("mobile-active");
-          isDropdownOpen = true;
+          showDropdownContent();
         }
       });
 
@@ -1026,32 +1067,10 @@ document.addEventListener("DOMContentLoaded", function () {
           window.closeHamburgerMenu();
         }
 
-        if (isDropdownOpen) {
-          dropdownContent.style.display = "none";
-          dropdown.classList.remove("mobile-active");
-          isDropdownOpen = false;
+        if (isDropdownContentVisible()) {
+          hideAllDropdowns();
         } else {
-          dropdownContent.style.display = "block";
-          dropdown.classList.add("mobile-active");
-          isDropdownOpen = true;
-        }
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener("click", function (e) {
-        if (isDropdownOpen && !dropdown.contains(e.target)) {
-          dropdownContent.style.display = "none";
-          dropdown.classList.remove("mobile-active");
-          isDropdownOpen = false;
-        }
-      });
-
-      // Close dropdown when touching outside
-      document.addEventListener("touchstart", function (e) {
-        if (isDropdownOpen && !dropdown.contains(e.target)) {
-          dropdownContent.style.display = "none";
-          dropdown.classList.remove("mobile-active");
-          isDropdownOpen = false;
+          showDropdownContent();
         }
       });
 
@@ -1060,9 +1079,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownLinks.forEach(function (link) {
         link.addEventListener("click", function (e) {
           e.stopPropagation();
-          dropdownContent.style.display = "none";
-          dropdown.classList.remove("mobile-active");
-          isDropdownOpen = false;
+          hideAllDropdowns();
         });
 
         link.addEventListener("touchstart", function (e) {
@@ -1077,13 +1094,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       dropdownContent.addEventListener("touchstart", function (e) {
         e.stopPropagation();
-      });
-
-      // Reset dropdown when screen size changes
-      window.addEventListener("resize", function () {
-        dropdownContent.style.display = "none";
-        dropdown.classList.remove("mobile-active");
-        isDropdownOpen = false;
       });
     }
   }
