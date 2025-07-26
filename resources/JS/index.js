@@ -12,82 +12,6 @@ function search_items() {
   }
 }
 
-// Global dropdown management - ensures only one dropdown is visible at a time
-let currentActiveDropdown = null;
-
-function hideAllDropdowns() {
-  // Hide search list
-  const searchList = document.querySelector("#search-list");
-  if (searchList) {
-    searchList.style.display = "none";
-  }
-
-  // Hide dropdown content
-  const dropdownContent = document.querySelector(".dropdown-content");
-  const dropdown = document.querySelector(".dropdown");
-  if (dropdownContent && dropdown) {
-    dropdownContent.style.display = "none";
-    dropdown.classList.remove("mobile-active");
-  }
-
-  // Hide account dropdown content
-  const accDropdownContent = document.querySelector(".acc-dropdown-content");
-  const accDropdown = document.querySelector(".acc-dropdown");
-  if (accDropdownContent && accDropdown) {
-    accDropdownContent.style.display = "none";
-    accDropdown.classList.remove("mobile-active");
-  }
-
-  currentActiveDropdown = null;
-}
-
-function showSearchList() {
-  hideAllDropdowns();
-  const searchList = document.querySelector("#search-list");
-  if (searchList) {
-    positionSearchList();
-    searchList.style.display = "block";
-    currentActiveDropdown = "search-list";
-  }
-}
-
-function showDropdownContent() {
-  hideAllDropdowns();
-  const dropdownContent = document.querySelector(".dropdown-content");
-  const dropdown = document.querySelector(".dropdown");
-  if (dropdownContent && dropdown) {
-    dropdownContent.style.display = "block";
-    dropdown.classList.add("mobile-active");
-    currentActiveDropdown = "dropdown-content";
-  }
-}
-
-function isSearchListVisible() {
-  const searchList = document.querySelector("#search-list");
-  return searchList && searchList.style.display === "block";
-}
-
-function isDropdownContentVisible() {
-  const dropdownContent = document.querySelector(".dropdown-content");
-  return dropdownContent && dropdownContent.style.display === "block";
-}
-
-function showAccDropdownContent() {
-  hideAllDropdowns();
-  const accDropdownContent = document.querySelector(".acc-dropdown-content");
-  const accDropdown = document.querySelector(".acc-dropdown");
-  if (accDropdownContent && accDropdown) {
-    accDropdownContent.style.display = "block";
-    accDropdown.classList.add("mobile-active");
-    currentActiveDropdown = "acc-dropdown-content";
-  }
-}
-
-function isAccDropdownContentVisible() {
-  const accDropdownContent = document.querySelector(".acc-dropdown-content");
-  return accDropdownContent && accDropdownContent.style.display === "block";
-}
-
 // List toggle (search bar)
 const searchBar = document.querySelector("#search-bar");
 const searchList = document.querySelector("#search-list");
@@ -131,17 +55,17 @@ if (searchBarContainer) {
   searchBarContainer.addEventListener("click", function (event) {
     // Only apply toggle behavior on mobile devices or when testing mobile on desktop
     if (isTouchDevice() || isMobileScreen()) {
-      // If the click is anywhere within the search bar container, but exclude search-bar-filler
+      // If the click is anywhere within the search bar container
       if (
         event.target.closest("#search-bar-container") &&
-        !event.target.closest("#search-submit-container") &&
-        event.target.id !== "search-bar-filler"
+        !event.target.closest("#search-submit-container")
       ) {
         // Toggle the search list visibility
-        if (isSearchListVisible()) {
-          hideAllDropdowns();
+        if (searchList.style.display === "block") {
+          searchList.style.display = "none";
         } else {
-          showSearchList();
+          positionSearchList();
+          searchList.style.display = "block";
         }
 
         event.preventDefault();
@@ -157,13 +81,13 @@ if (searchBarContainer) {
       if (isTouchDevice() || isMobileScreen()) {
         if (
           event.target.closest("#search-bar-container") &&
-          !event.target.closest("#search-submit-container") &&
-          event.target.id !== "search-bar-filler"
+          !event.target.closest("#search-submit-container")
         ) {
-          if (isSearchListVisible()) {
-            hideAllDropdowns();
+          if (searchList.style.display === "block") {
+            searchList.style.display = "none";
           } else {
-            showSearchList();
+            positionSearchList();
+            searchList.style.display = "block";
           }
 
           event.preventDefault();
@@ -179,7 +103,8 @@ if (searchBarContainer) {
 searchBar.addEventListener("click", () => {
   // Only show search list on desktop (non-mobile) devices
   if (!isTouchDevice() && !isMobileScreen()) {
-    showSearchList();
+    positionSearchList();
+    searchList.style.display = "block";
   }
 });
 
@@ -187,18 +112,14 @@ searchBar.addEventListener("click", () => {
 document.addEventListener("click", function (event) {
   // Only apply this behavior on mobile devices or when testing mobile on desktop
   if (isTouchDevice() || isMobileScreen()) {
-    // Check if any dropdown is currently visible
-    if (currentActiveDropdown) {
-      // Check if the click was outside both search bar container and dropdown elements
+    // Check if the search list is currently visible
+    if (searchList.style.display === "block") {
+      // Check if the click was outside the search bar container and not on a search list link
       if (
         !event.target.closest("#search-bar-container") &&
-        !event.target.closest("#search-list") &&
-        !event.target.closest(".dropdown") &&
-        !event.target.closest(".dropdown-content") &&
-        !event.target.closest(".acc-dropdown") &&
-        !event.target.closest(".acc-dropdown-content")
+        !event.target.closest("#search-list")
       ) {
-        hideAllDropdowns();
+        searchList.style.display = "none";
       }
     }
   }
@@ -210,18 +131,14 @@ document.addEventListener(
   function (event) {
     // Only apply this behavior on mobile devices or when testing mobile on desktop
     if (isTouchDevice() || isMobileScreen()) {
-      // Check if any dropdown is currently visible
-      if (currentActiveDropdown) {
-        // Check if the touch was outside both search bar container and dropdown elements
+      // Check if the search list is currently visible
+      if (searchList.style.display === "block") {
+        // Check if the touch was outside the search bar container and not on a search list link
         if (
           !event.target.closest("#search-bar-container") &&
-          !event.target.closest("#search-list") &&
-          !event.target.closest(".dropdown") &&
-          !event.target.closest(".dropdown-content") &&
-          !event.target.closest(".acc-dropdown") &&
-          !event.target.closest(".acc-dropdown-content")
+          !event.target.closest("#search-list")
         ) {
-          hideAllDropdowns();
+          searchList.style.display = "none";
         }
       }
     }
@@ -248,9 +165,11 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       link.addEventListener("click", function (event) {
-        // Ensure navigation works and close all dropdowns
+        // Ensure navigation works and close search list
         event.stopPropagation();
-        hideAllDropdowns();
+        if (searchList.style.display === "block") {
+          searchList.style.display = "none";
+        }
         // Allow default link navigation behavior
       });
     });
@@ -259,39 +178,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Update position on window resize
 window.addEventListener("resize", () => {
-  if (currentActiveDropdown === "search-list") {
+  if (searchList.style.display === "block") {
     positionSearchList();
-  } else {
-    hideAllDropdowns();
   }
 });
 
-// Hide dropdowns on scroll (standard dropdown behavior)
+// Hide search dropdown on scroll (standard dropdown behavior)
 window.addEventListener(
   "scroll",
   () => {
-    if (currentActiveDropdown) {
-      hideAllDropdowns();
+    if (searchList.style.display === "block") {
+      searchList.style.display = "none";
     }
   },
   { passive: true }
 );
 
-// Hide dropdowns on mobile scroll/touch move events
+// Hide search dropdown on mobile scroll/touch move events
 window.addEventListener(
   "touchmove",
   () => {
-    if (currentActiveDropdown) {
-      hideAllDropdowns();
+    if (
+      (isTouchDevice() || isMobileScreen()) &&
+      searchList.style.display === "block"
+    ) {
+      searchList.style.display = "none";
     }
   },
   { passive: true }
 );
 
-// Hide dropdowns on mobile orientation change
+// Hide search dropdown on mobile orientation change
 window.addEventListener("orientationchange", () => {
-  if (currentActiveDropdown) {
-    hideAllDropdowns();
+  if (
+    (isTouchDevice() || isMobileScreen()) &&
+    searchList.style.display === "block"
+  ) {
+    searchList.style.display = "none";
   }
 });
 const updateListState = (e) => {
@@ -1006,11 +929,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const isSearchClick =
           target.closest("#search-bar-container") ||
           target.closest("#search-list");
-        const isAccDropdownClick = target.closest(".acc-dropdown");
 
         // Close hamburger menu when clicking on dropdown or search elements
         if (
-          (isDropdownClick || isSearchClick || isAccDropdownClick) &&
+          (isDropdownClick || isSearchClick) &&
           !hamburgerContainer.contains(target)
         ) {
           closeHamburgerMenu();
@@ -1055,25 +977,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-
-    // Close hamburger menu when account dropdown is hovered (desktop behavior)
-    const accDropdown = document.querySelector(".acc-dropdown");
-    const accDropbtn = document.querySelector(".acc-dropbtn");
-    if (accDropdown && accDropbtn) {
-      // Close hamburger menu when hovering over account dropdown button
-      accDropbtn.addEventListener("mouseenter", function () {
-        if (isMenuOpen()) {
-          closeHamburgerMenu();
-        }
-      });
-
-      // Also close when hovering over the account dropdown container itself
-      accDropdown.addEventListener("mouseenter", function () {
-        if (isMenuOpen()) {
-          closeHamburgerMenu();
-        }
-      });
-    }
   }
 });
 
@@ -1086,6 +989,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownContent = document.querySelector(".dropdown-content");
 
   if (dropdown && dropbtn && dropdownContent) {
+    let isDropdownOpen = false;
+
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
       // Add click event to toggle dropdown
@@ -1098,10 +1003,14 @@ document.addEventListener("DOMContentLoaded", function () {
           window.closeHamburgerMenu();
         }
 
-        if (isDropdownContentVisible()) {
-          hideAllDropdowns();
+        if (isDropdownOpen) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
         } else {
-          showDropdownContent();
+          dropdownContent.style.display = "block";
+          dropdown.classList.add("mobile-active");
+          isDropdownOpen = true;
         }
       });
 
@@ -1115,10 +1024,32 @@ document.addEventListener("DOMContentLoaded", function () {
           window.closeHamburgerMenu();
         }
 
-        if (isDropdownContentVisible()) {
-          hideAllDropdowns();
+        if (isDropdownOpen) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
         } else {
-          showDropdownContent();
+          dropdownContent.style.display = "block";
+          dropdown.classList.add("mobile-active");
+          isDropdownOpen = true;
+        }
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (isDropdownOpen && !dropdown.contains(e.target)) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
+        }
+      });
+
+      // Close dropdown when touching outside
+      document.addEventListener("touchstart", function (e) {
+        if (isDropdownOpen && !dropdown.contains(e.target)) {
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
         }
       });
 
@@ -1127,7 +1058,9 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownLinks.forEach(function (link) {
         link.addEventListener("click", function (e) {
           e.stopPropagation();
-          hideAllDropdowns();
+          dropdownContent.style.display = "none";
+          dropdown.classList.remove("mobile-active");
+          isDropdownOpen = false;
         });
 
         link.addEventListener("touchstart", function (e) {
@@ -1143,81 +1076,12 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownContent.addEventListener("touchstart", function (e) {
         e.stopPropagation();
       });
-    }
-  }
-});
 
-/**
- * MOBILE ACCOUNT DROPDOWN FUNCTIONALITY
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const accDropdown = document.querySelector(".acc-dropdown");
-  const accDropbtn = document.querySelector(".acc-dropbtn");
-  const accCategoryDropdownTitle = document.querySelector(
-    ".acc-category-dropdown-title"
-  );
-  const accDropdownContent = document.querySelector(".acc-dropdown-content");
-
-  // Use either acc-dropbtn or acc-category-dropdown-title as the trigger element
-  const triggerElement = accCategoryDropdownTitle || accDropbtn;
-
-  if (accDropdown && triggerElement && accDropdownContent) {
-    // Add mobile functionality for touch devices OR mobile screen sizes
-    if (isTouchDevice() || isMobileScreen()) {
-      // Add click event to toggle account dropdown
-      triggerElement.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Close hamburger menu if it's open
-        if (window.closeHamburgerMenu) {
-          window.closeHamburgerMenu();
-        }
-
-        if (isAccDropdownContentVisible()) {
-          hideAllDropdowns();
-        } else {
-          showAccDropdownContent();
-        }
-      });
-
-      // Add touchstart event for better mobile responsiveness
-      triggerElement.addEventListener("touchstart", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Close hamburger menu if it's open
-        if (window.closeHamburgerMenu) {
-          window.closeHamburgerMenu();
-        }
-
-        if (isAccDropdownContentVisible()) {
-          hideAllDropdowns();
-        } else {
-          showAccDropdownContent();
-        }
-      });
-
-      // Close account dropdown when a link is clicked
-      const accDropdownLinks = accDropdownContent.querySelectorAll("a");
-      accDropdownLinks.forEach(function (link) {
-        link.addEventListener("click", function (e) {
-          e.stopPropagation();
-          hideAllDropdowns();
-        });
-
-        link.addEventListener("touchstart", function (e) {
-          e.stopPropagation();
-        });
-      });
-
-      // Prevent account dropdown content from closing when clicking inside it
-      accDropdownContent.addEventListener("click", function (e) {
-        e.stopPropagation();
-      });
-
-      accDropdownContent.addEventListener("touchstart", function (e) {
-        e.stopPropagation();
+      // Reset dropdown when screen size changes
+      window.addEventListener("resize", function () {
+        dropdownContent.style.display = "none";
+        dropdown.classList.remove("mobile-active");
+        isDropdownOpen = false;
       });
     }
   }
