@@ -30,6 +30,14 @@ function hideAllDropdowns() {
     dropdown.classList.remove("mobile-active");
   }
 
+  // Hide account dropdown content
+  const accDropdownContent = document.querySelector(".acc-dropdown-content");
+  const accDropdown = document.querySelector(".acc-dropdown");
+  if (accDropdownContent && accDropdown) {
+    accDropdownContent.style.display = "none";
+    accDropdown.classList.remove("mobile-active");
+  }
+
   currentActiveDropdown = null;
 }
 
@@ -62,6 +70,22 @@ function isSearchListVisible() {
 function isDropdownContentVisible() {
   const dropdownContent = document.querySelector(".dropdown-content");
   return dropdownContent && dropdownContent.style.display === "block";
+}
+
+function showAccDropdownContent() {
+  hideAllDropdowns();
+  const accDropdownContent = document.querySelector(".acc-dropdown-content");
+  const accDropdown = document.querySelector(".acc-dropdown");
+  if (accDropdownContent && accDropdown) {
+    accDropdownContent.style.display = "block";
+    accDropdown.classList.add("mobile-active");
+    currentActiveDropdown = "acc-dropdown-content";
+  }
+}
+
+function isAccDropdownContentVisible() {
+  const accDropdownContent = document.querySelector(".acc-dropdown-content");
+  return accDropdownContent && accDropdownContent.style.display === "block";
 }
 
 // List toggle (search bar)
@@ -170,7 +194,9 @@ document.addEventListener("click", function (event) {
         !event.target.closest("#search-bar-container") &&
         !event.target.closest("#search-list") &&
         !event.target.closest(".dropdown") &&
-        !event.target.closest(".dropdown-content")
+        !event.target.closest(".dropdown-content") &&
+        !event.target.closest(".acc-dropdown") &&
+        !event.target.closest(".acc-dropdown-content")
       ) {
         hideAllDropdowns();
       }
@@ -191,7 +217,9 @@ document.addEventListener(
           !event.target.closest("#search-bar-container") &&
           !event.target.closest("#search-list") &&
           !event.target.closest(".dropdown") &&
-          !event.target.closest(".dropdown-content")
+          !event.target.closest(".dropdown-content") &&
+          !event.target.closest(".acc-dropdown") &&
+          !event.target.closest(".acc-dropdown-content")
         ) {
           hideAllDropdowns();
         }
@@ -978,10 +1006,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const isSearchClick =
           target.closest("#search-bar-container") ||
           target.closest("#search-list");
+        const isAccDropdownClick = target.closest(".acc-dropdown");
 
         // Close hamburger menu when clicking on dropdown or search elements
         if (
-          (isDropdownClick || isSearchClick) &&
+          (isDropdownClick || isSearchClick || isAccDropdownClick) &&
           !hamburgerContainer.contains(target)
         ) {
           closeHamburgerMenu();
@@ -1021,6 +1050,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Also close when hovering over the dropdown container itself
       dropdown.addEventListener("mouseenter", function () {
+        if (isMenuOpen()) {
+          closeHamburgerMenu();
+        }
+      });
+    }
+
+    // Close hamburger menu when account dropdown is hovered (desktop behavior)
+    const accDropdown = document.querySelector(".acc-dropdown");
+    const accDropbtn = document.querySelector(".acc-dropbtn");
+    if (accDropdown && accDropbtn) {
+      // Close hamburger menu when hovering over account dropdown button
+      accDropbtn.addEventListener("mouseenter", function () {
+        if (isMenuOpen()) {
+          closeHamburgerMenu();
+        }
+      });
+
+      // Also close when hovering over the account dropdown container itself
+      accDropdown.addEventListener("mouseenter", function () {
         if (isMenuOpen()) {
           closeHamburgerMenu();
         }
@@ -1093,6 +1141,82 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       dropdownContent.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
+      });
+    }
+  }
+});
+
+/**
+ * MOBILE ACCOUNT DROPDOWN FUNCTIONALITY
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const accDropdown = document.querySelector(".acc-dropdown");
+  const accDropbtn = document.querySelector(".acc-dropbtn");
+  const accCategoryDropdownTitle = document.querySelector(
+    ".acc-category-dropdown-title"
+  );
+  const accDropdownContent = document.querySelector(".acc-dropdown-content");
+
+  // Use either acc-dropbtn or acc-category-dropdown-title as the trigger element
+  const triggerElement = accCategoryDropdownTitle || accDropbtn;
+
+  if (accDropdown && triggerElement && accDropdownContent) {
+    // Add mobile functionality for touch devices OR mobile screen sizes
+    if (isTouchDevice() || isMobileScreen()) {
+      // Add click event to toggle account dropdown
+      triggerElement.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Close hamburger menu if it's open
+        if (window.closeHamburgerMenu) {
+          window.closeHamburgerMenu();
+        }
+
+        if (isAccDropdownContentVisible()) {
+          hideAllDropdowns();
+        } else {
+          showAccDropdownContent();
+        }
+      });
+
+      // Add touchstart event for better mobile responsiveness
+      triggerElement.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Close hamburger menu if it's open
+        if (window.closeHamburgerMenu) {
+          window.closeHamburgerMenu();
+        }
+
+        if (isAccDropdownContentVisible()) {
+          hideAllDropdowns();
+        } else {
+          showAccDropdownContent();
+        }
+      });
+
+      // Close account dropdown when a link is clicked
+      const accDropdownLinks = accDropdownContent.querySelectorAll("a");
+      accDropdownLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.stopPropagation();
+          hideAllDropdowns();
+        });
+
+        link.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+        });
+      });
+
+      // Prevent account dropdown content from closing when clicking inside it
+      accDropdownContent.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+
+      accDropdownContent.addEventListener("touchstart", function (e) {
         e.stopPropagation();
       });
     }

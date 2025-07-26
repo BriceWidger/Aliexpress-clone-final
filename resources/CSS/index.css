@@ -452,6 +452,17 @@ h4 {
     content: url("/resources/images/menu-arrow-white-up.png");
   }
 }
+
+/* Mobile account dropdown active state - matches hover styling */
+.acc-dropdown.mobile-active .acc-dropbtn,
+.acc-dropdown.mobile-active .acc-category-dropdown-title {
+  color: #191919;
+  border: none;
+  cursor: pointer;
+}
+.acc-dropdown.mobile-active .acc-up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-white-up.png");
+}
 .acc-dropdown-menu {
   position: relative;
   top: -0.4px;
