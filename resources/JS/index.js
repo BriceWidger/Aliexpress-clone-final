@@ -55,10 +55,11 @@ if (searchBarContainer) {
   searchBarContainer.addEventListener("click", function (event) {
     // Only apply toggle behavior on mobile devices or when testing mobile on desktop
     if (isTouchDevice() || isMobileScreen()) {
-      // If the click is anywhere within the search bar container
+      // If the click is anywhere within the search bar container, but exclude search-bar-filler
       if (
         event.target.closest("#search-bar-container") &&
-        !event.target.closest("#search-submit-container")
+        !event.target.closest("#search-submit-container") &&
+        event.target.id !== "search-bar-filler"
       ) {
         // Toggle the search list visibility
         if (searchList.style.display === "block") {
@@ -81,7 +82,8 @@ if (searchBarContainer) {
       if (isTouchDevice() || isMobileScreen()) {
         if (
           event.target.closest("#search-bar-container") &&
-          !event.target.closest("#search-submit-container")
+          !event.target.closest("#search-submit-container") &&
+          event.target.id !== "search-bar-filler"
         ) {
           if (searchList.style.display === "block") {
             searchList.style.display = "none";
