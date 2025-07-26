@@ -1194,59 +1194,43 @@ document.addEventListener("DOMContentLoaded", function () {
         hideAccDropdown();
       });
     } else {
-      // Desktop functionality - CSS handles hover, JavaScript handles click
-      // Add a class to indicate we're using JavaScript control
-      accDropdown.classList.add("js-click-controlled");
+      // Desktop functionality - both hover AND click behavior
 
       // Click functionality for desktop
       triggerElement.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-        // Toggle the JavaScript-controlled state
         if (isAccDropdownOpen) {
           hideAccDropdown();
-          accDropdown.classList.remove("js-active");
         } else {
           showAccDropdown();
-          accDropdown.classList.add("js-active");
         }
+      });
+
+      // Hover functionality for desktop
+      accDropdown.addEventListener("mouseenter", function () {
+        showAccDropdown();
+      });
+
+      accDropdown.addEventListener("mouseleave", function () {
+        hideAccDropdown();
+      });
+
+      // Also handle hover on the dropdown content itself to keep it visible
+      accDropdownContent.addEventListener("mouseenter", function () {
+        showAccDropdown();
+      });
+
+      accDropdownContent.addEventListener("mouseleave", function () {
+        hideAccDropdown();
       });
 
       // Close dropdown when clicking outside (desktop)
       document.addEventListener("click", function (e) {
         if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
           hideAccDropdown();
-          accDropdown.classList.remove("js-active");
         }
-      });
-
-      // When CSS hover shows the dropdown, sync our JavaScript state
-      const observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-          if (
-            mutation.type === "attributes" &&
-            mutation.attributeName === "style"
-          ) {
-            // Check if dropdown was shown by CSS hover
-            const computedStyle = window.getComputedStyle(accDropdownContent);
-            if (computedStyle.display === "block" && !isAccDropdownOpen) {
-              isAccDropdownOpen = true;
-            } else if (
-              computedStyle.display === "none" &&
-              isAccDropdownOpen &&
-              !accDropdown.classList.contains("js-active")
-            ) {
-              isAccDropdownOpen = false;
-            }
-          }
-        });
-      });
-
-      // Observe changes to the dropdown content's style attribute
-      observer.observe(accDropdownContent, {
-        attributes: true,
-        attributeFilter: ["style"],
       });
     }
   }
