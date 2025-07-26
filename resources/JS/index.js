@@ -1086,3 +1086,168 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+/**
+ * ACCOUNT DROPDOWN FUNCTIONALITY
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const accDropdown = document.querySelector(".acc-dropdown");
+  const accDropbtn = document.querySelector(".acc-dropbtn");
+  const accCategoryDropdownTitle = document.querySelector(
+    ".acc-category-dropdown-title"
+  );
+  const accDropdownContent = document.querySelector(".acc-dropdown-content");
+  const accUpMenuArrow = document.querySelector(".acc-up-menu-arrow-black");
+
+  // Use either acc-dropbtn or acc-category-dropdown-title as the trigger element
+  const triggerElement = accCategoryDropdownTitle || accDropbtn;
+
+  if (accDropdown && triggerElement && accDropdownContent) {
+    let isAccDropdownOpen = false;
+
+    // Function to show dropdown (both mobile and desktop)
+    function showAccDropdown() {
+      accDropdownContent.style.display = "block";
+      isAccDropdownOpen = true;
+    }
+
+    // Function to hide dropdown (both mobile and desktop)
+    function hideAccDropdown() {
+      accDropdownContent.style.display = "none";
+      isAccDropdownOpen = false;
+    }
+
+    // Add mobile functionality for touch devices OR mobile screen sizes
+    if (isTouchDevice() || isMobileScreen()) {
+      // Add click event to toggle account dropdown on mobile
+      triggerElement.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Close hamburger menu if it's open
+        if (window.closeHamburgerMenu) {
+          window.closeHamburgerMenu();
+        }
+
+        if (isAccDropdownOpen) {
+          hideAccDropdown();
+        } else {
+          showAccDropdown();
+        }
+      });
+
+      // Add touchstart event for better mobile responsiveness
+      triggerElement.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Close hamburger menu if it's open
+        if (window.closeHamburgerMenu) {
+          window.closeHamburgerMenu();
+        }
+
+        if (isAccDropdownOpen) {
+          hideAccDropdown();
+        } else {
+          showAccDropdown();
+        }
+      });
+
+      // Close account dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
+          hideAccDropdown();
+        }
+      });
+
+      // Close account dropdown when touching outside
+      document.addEventListener("touchstart", function (e) {
+        if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
+          hideAccDropdown();
+        }
+      });
+
+      // Close account dropdown when a link is clicked
+      const accDropdownLinks = accDropdownContent.querySelectorAll("a");
+      accDropdownLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.stopPropagation();
+          hideAccDropdown();
+        });
+
+        link.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+        });
+      });
+
+      // Prevent account dropdown content from closing when clicking inside it
+      accDropdownContent.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+
+      accDropdownContent.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
+      });
+
+      // Reset account dropdown when screen size changes
+      window.addEventListener("resize", function () {
+        hideAccDropdown();
+      });
+    } else {
+      // Desktop functionality - CSS handles hover, JavaScript handles click
+      // Add a class to indicate we're using JavaScript control
+      accDropdown.classList.add("js-click-controlled");
+
+      // Click functionality for desktop
+      triggerElement.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Toggle the JavaScript-controlled state
+        if (isAccDropdownOpen) {
+          hideAccDropdown();
+          accDropdown.classList.remove("js-active");
+        } else {
+          showAccDropdown();
+          accDropdown.classList.add("js-active");
+        }
+      });
+
+      // Close dropdown when clicking outside (desktop)
+      document.addEventListener("click", function (e) {
+        if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
+          hideAccDropdown();
+          accDropdown.classList.remove("js-active");
+        }
+      });
+
+      // When CSS hover shows the dropdown, sync our JavaScript state
+      const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          if (
+            mutation.type === "attributes" &&
+            mutation.attributeName === "style"
+          ) {
+            // Check if dropdown was shown by CSS hover
+            const computedStyle = window.getComputedStyle(accDropdownContent);
+            if (computedStyle.display === "block" && !isAccDropdownOpen) {
+              isAccDropdownOpen = true;
+            } else if (
+              computedStyle.display === "none" &&
+              isAccDropdownOpen &&
+              !accDropdown.classList.contains("js-active")
+            ) {
+              isAccDropdownOpen = false;
+            }
+          }
+        });
+      });
+
+      // Observe changes to the dropdown content's style attribute
+      observer.observe(accDropdownContent, {
+        attributes: true,
+        attributeFilter: ["style"],
+      });
+    }
+  }
+});

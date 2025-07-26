@@ -438,19 +438,20 @@ h4 {
 .acc-dropdown-content a:hover {
   color: #fd384f;
 }
-/* Show the dropdown menu on hover */
+/* Show the dropdown menu on hover (desktop only - disabled on touch devices) */
 .acc-dropdown:hover .acc-dropdown-content {
   display: block;
 }
+
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .acc-dropdown:hover .acc-dropbtn,
 .acc-category-dropdown-title:hover {
   color: #191919;
   border: none;
   cursor: pointer;
-  .acc-up-menu-arrow-black {
-    content: url("/resources/images/menu-arrow-white-up.png");
-  }
+}
+.acc-dropdown:hover .acc-up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-white-up.png");
 }
 
 /* Mobile account dropdown active state - matches hover styling */
@@ -462,6 +463,47 @@ h4 {
 }
 .acc-dropdown.mobile-active .acc-up-menu-arrow-black {
   content: url("/resources/images/menu-arrow-white-up.png");
+}
+
+/* Desktop JavaScript click active state - matches hover styling */
+.acc-dropdown.js-active .acc-dropbtn,
+.acc-dropdown.js-active .acc-category-dropdown-title {
+  color: #191919;
+  border: none;
+  cursor: pointer;
+}
+.acc-dropdown.js-active .acc-up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-white-up.png");
+}
+
+/* When dropdown content is visible (for any behavior) */
+.acc-dropdown:has(.acc-dropdown-content[style*="display: block"]) .acc-dropbtn,
+.acc-dropdown:has(.acc-dropdown-content[style*="display: block"])
+  .acc-category-dropdown-title {
+  color: #191919;
+  border: none;
+  cursor: pointer;
+}
+.acc-dropdown:has(.acc-dropdown-content[style*="display: block"])
+  .acc-up-menu-arrow-black {
+  content: url("/resources/images/menu-arrow-white-up.png");
+}
+
+/* Disable hover behavior on touch devices to prevent conflicts */
+@media (hover: none) and (pointer: coarse) {
+  .acc-dropdown:hover .acc-dropdown-content {
+    display: none !important;
+  }
+
+  .acc-dropdown:hover .acc-dropbtn,
+  .acc-category-dropdown-title:hover {
+    color: #fff;
+    background-color: #191919;
+  }
+
+  .acc-dropdown:hover .acc-up-menu-arrow-black {
+    content: url("/resources/images/menu-arrow-black-down.png");
+  }
 }
 .acc-dropdown-menu {
   position: relative;
