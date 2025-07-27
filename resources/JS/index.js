@@ -1099,8 +1099,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const accDropdownContent = document.querySelector(".acc-dropdown-content");
   const accUpMenuArrow = document.querySelector(".acc-up-menu-arrow-black");
 
-  // Use either acc-dropbtn or acc-category-dropdown-title as the trigger element
-  const triggerElement = accCategoryDropdownTitle || accDropbtn;
+  // Use acc-dropbtn as the trigger element for clicks (to capture clicks on icon and title)
+  const triggerElement = accDropbtn;
 
   if (accDropdown && triggerElement && accDropdownContent) {
     let isAccDropdownOpen = false;
