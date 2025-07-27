@@ -2596,6 +2596,12 @@ a {
   }
 }
 
+@media (max-width: 900px) {
+  .main-content-wrap-SCE {
+    margin-top: 80px !important;
+  }
+}
+
 @media (max-width: 600px) {
   .main-content-wrap-SC {
     padding: 0 2vw;
