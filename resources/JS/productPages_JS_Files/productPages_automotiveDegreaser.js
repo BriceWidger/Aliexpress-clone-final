@@ -805,12 +805,43 @@ document.addEventListener("DOMContentLoaded", function () {
   if (circleMenu) {
     let isMenuOpen = false;
 
-    // Only add mobile behavior if screen is mobile
-    if (window.innerWidth <= 768) {
+    // Function to check if device is touch-enabled (mobile/tablet)
+    function isTouchDevice() {
+      return (
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0
+      );
+    }
+
+    // Function to check if device has hover capability
+    function hasHoverCapability() {
+      return window.matchMedia("(hover: hover)").matches;
+    }
+
+    // Add click functionality for ALL touch devices, regardless of screen size
+    // This ensures mobile functionality works on tablets, phones, and any touch-enabled device
+    if (isTouchDevice()) {
+      // Add touchstart and click events for comprehensive mobile support
+      circleMenu.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Toggle the mobile menu active class
+        if (isMenuOpen) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        } else {
+          circleMenu.classList.add("mobile-active");
+          isMenuOpen = true;
+        }
+      });
+
       circleMenu.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
 
+        // Toggle the mobile menu active class
         if (isMenuOpen) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;

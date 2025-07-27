@@ -937,3 +937,87 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+// Mobile menu functionality for circle-menu-background_pp
+document.addEventListener("DOMContentLoaded", function () {
+  const circleMenu = document.querySelector(".circle-menu-background_pp");
+
+  if (circleMenu) {
+    let isMenuOpen = false;
+
+    // Function to check if device is touch-enabled (mobile/tablet)
+    function isTouchDevice() {
+      return (
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0
+      );
+    }
+
+    // Function to check if device has hover capability
+    function hasHoverCapability() {
+      return window.matchMedia("(hover: hover)").matches;
+    }
+
+    // Add click functionality for ALL touch devices, regardless of screen size
+    // This ensures mobile functionality works on tablets, phones, and any touch-enabled device
+    if (isTouchDevice()) {
+      // Add touchstart and click events for comprehensive mobile support
+      circleMenu.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Toggle the mobile menu active class
+        if (isMenuOpen) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        } else {
+          circleMenu.classList.add("mobile-active");
+          isMenuOpen = true;
+        }
+      });
+
+      circleMenu.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Toggle the mobile menu active class
+        if (isMenuOpen) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        } else {
+          circleMenu.classList.add("mobile-active");
+          isMenuOpen = true;
+        }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", function (e) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        }
+      });
+
+      // Close menu when touching outside
+      document.addEventListener("touchstart", function (e) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
+          circleMenu.classList.remove("mobile-active");
+          isMenuOpen = false;
+        }
+      });
+
+      // Ensure menu box links are clickable
+      const menuBox = document.querySelector(".circle-menu-hover-box");
+      if (menuBox) {
+        menuBox.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+
+        menuBox.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+        });
+      }
+    }
+  }
+});
