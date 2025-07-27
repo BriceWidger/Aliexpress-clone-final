@@ -5,16 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/index-media.css" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/dealsPages.css" />
   <title>Under Two</title>
 </head>
 
-<body style="display: flex; flex-direction: column; min-height: 100vh">
+<body>
   <!-- HEADER -->
   <header>
     <!-- NAV -->
-    <div class="upper-nav-container" style="position: relative; z-index: 1">
+    <div class="upper-nav-container">
       <div class="upper-nav">
         <div class="upper-nav-items-container">
           <div class="name-logo-container">
@@ -48,7 +49,7 @@
           </div>
           <div id="search-bar-container">
             <input id="search-bar" type="text" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
-              placeholder="Search items.." />
+              placeholder="Search items..">
             <div id="search-bar-filler"></div>
             <div id="search-list">
               <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
@@ -102,8 +103,8 @@
                 </div>
               </a>
             </div>
-            <div id="search-submit-container">
-              <input id="search-submit" type="image" src="/resources/images/search-button.jpg" alt="Submit" />
+            <div id="search-submit-container"><input id="search-submit" type="image"
+                src="/resources/images/search-button.jpg" alt="Submit">
             </div>
           </div>
           <div class="header-items-container">
