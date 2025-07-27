@@ -1101,6 +1101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Use acc-dropbtn as the trigger element for clicks (to capture clicks on icon and title)
   const triggerElement = accDropbtn;
+  const personAccountIcon = document.querySelector(".person-account-icon");
 
   if (accDropdown && triggerElement && accDropdownContent) {
     let isAccDropdownOpen = false;
@@ -1119,8 +1120,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
-      // Add click event to toggle account dropdown on mobile
-      triggerElement.addEventListener("click", function (e) {
+      // Function to handle toggle for mobile
+      function handleMobileToggle(e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -1134,7 +1135,15 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           showAccDropdown();
         }
-      });
+      }
+
+      // Add click event to toggle account dropdown on mobile
+      triggerElement.addEventListener("click", handleMobileToggle);
+
+      // Also add click event to the person account icon specifically
+      if (personAccountIcon) {
+        personAccountIcon.addEventListener("click", handleMobileToggle);
+      }
 
       // Add touchstart event for better mobile responsiveness
       triggerElement.addEventListener("touchstart", function (e) {
@@ -1152,6 +1161,25 @@ document.addEventListener("DOMContentLoaded", function () {
           showAccDropdown();
         }
       });
+
+      // Also add touchstart event to the person account icon specifically
+      if (personAccountIcon) {
+        personAccountIcon.addEventListener("touchstart", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Close hamburger menu if it's open
+          if (window.closeHamburgerMenu) {
+            window.closeHamburgerMenu();
+          }
+
+          if (isAccDropdownOpen) {
+            hideAccDropdown();
+          } else {
+            showAccDropdown();
+          }
+        });
+      }
 
       // Close account dropdown when clicking outside
       document.addEventListener("click", function (e) {
