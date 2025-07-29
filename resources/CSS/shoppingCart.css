@@ -2538,7 +2538,7 @@ a {
   max-width: 100vw;
   box-sizing: border-box;
   padding: 0 16px;
-  margin: 96px 0 12px 0; /* 72px fixed navigation + 24px default spacing */
+  margin: 96px 0 24px 0; /* 72px fixed navigation + 24px default spacing */
   transition: padding 0.2s, min-height 0.2s;
   min-width: 0;
   max-width: 100%;
