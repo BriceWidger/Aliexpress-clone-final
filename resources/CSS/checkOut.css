@@ -2544,9 +2544,10 @@ h4 {
   margin-left: auto;
 }
 
-.footer-copywrite-sc {
+.footer-bottom {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #000;
   color: #fff;
   font-size: 14px;
@@ -2554,6 +2555,7 @@ h4 {
   padding: 8px 0;
   margin-top: auto;
   height: 43.8px;
+  box-sizing: border-box;
 }
 
 .footer-bottom-text {
@@ -3152,6 +3154,39 @@ h4 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+}
+
+/* Footer responsive styles for checkout pages */
+@media (max-width: 600px) {
+  .footer-bottom {
+    height: auto;
+    padding: 12px 8px;
+  }
+
+  .footer-bottom-text {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom {
+    padding: 10px 6px;
+  }
+
+  .footer-bottom-text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 359px) {
+  .footer-bottom {
+    padding: 8px 4px;
+  }
+
+  .footer-bottom-text {
+    font-size: 10px;
   }
 }
 

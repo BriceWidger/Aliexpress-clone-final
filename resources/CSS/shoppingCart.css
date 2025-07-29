@@ -2457,6 +2457,31 @@ a {
   margin-left: auto;
 }
 
+/* More specific selector to override conflicting styles from productPages.css */
+body .footer-bottom {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  padding: 8px 0 !important;
+  margin-top: auto !important;
+  height: 43.8px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  overflow-x: visible !important;
+}
+
+body .footer-bottom-text {
+  color: #fff !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  line-height: 43.8px !important;
+  margin: 0 !important;
+}
+
 .footer-copywrite-sc {
   display: flex;
   justify-content: center;
@@ -2743,4 +2768,37 @@ a {
 .cart-right-side,
 .cart-right-side-tabbed {
   max-width: 380px !important;
+}
+
+/* Footer responsive styles for shopping cart pages */
+@media (max-width: 600px) {
+  .footer-bottom {
+    height: auto;
+    padding: 12px 8px;
+  }
+
+  .footer-bottom-text {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom {
+    padding: 10px 6px;
+  }
+
+  .footer-bottom-text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 359px) {
+  .footer-bottom {
+    padding: 8px 4px;
+  }
+
+  .footer-bottom-text {
+    font-size: 10px;
+  }
 }
