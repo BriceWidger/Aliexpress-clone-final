@@ -184,10 +184,10 @@ a {
 .cart-right-side {
   position: -webkit-sticky;
   position: sticky;
-  top: 32px;
+  top: 24px;
   align-self: flex-start;
   margin-left: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   width: 380px;
   max-width: 100vw;
   height: fit-content;
