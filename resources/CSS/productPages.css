@@ -2567,15 +2567,24 @@ h4 {
   width: 450.217px;
   height: 450.217px;
   overflow: hidden;
+  touch-action: none; /* Allow pinch zoom to handle touch events */
+  position: relative; /* Ensure proper positioning for transform */
 }
 
 #main-img {
   width: 450.217px;
   height: 450.217px;
+  touch-action: none; /* Allow pinch zoom to handle touch events */
+  user-select: none; /* Prevent text selection during touch */
+  -webkit-user-select: none;
+  -webkit-touch-callout: none; /* Disable iOS callout */
 }
 
-#main-img:hover {
-  opacity: 0;
+/* Only apply hover effect on devices that support hover */
+@media (hover: hover) {
+  #main-img:hover {
+    opacity: 0;
+  }
 }
 
 .product-info-right-wrap {
