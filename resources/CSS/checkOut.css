@@ -3164,9 +3164,9 @@ h4 {
     padding: 12px 8px;
   }
 
-  .footer-bottom-text {
-    font-size: 12px;
-    line-height: 1.4;
+  body .footer-bottom-text {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
   }
 }
 
@@ -3175,8 +3175,18 @@ h4 {
     padding: 10px 6px;
   }
 
-  .footer-bottom-text {
-    font-size: 11px;
+  body .footer-bottom-text {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 428px) {
+  .footer-bottom {
+    padding: 10px 6px;
+  }
+
+  body .footer-bottom-text {
+    font-size: 11px !important;
   }
 }
 
@@ -3185,8 +3195,8 @@ h4 {
     padding: 8px 4px;
   }
 
-  .footer-bottom-text {
-    font-size: 10px;
+  body .footer-bottom-text {
+    font-size: 10px !important;
   }
 }
 

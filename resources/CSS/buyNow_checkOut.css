@@ -220,3 +220,46 @@
     }
   }
 }
+
+/* Footer responsive styles for buyNow checkout pages */
+@media (max-width: 600px) {
+  .footer-bottom {
+    height: auto;
+    padding: 12px 8px;
+  }
+
+  body .footer-bottom-text {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom {
+    padding: 10px 6px;
+  }
+
+  body .footer-bottom-text {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 428px) {
+  .footer-bottom {
+    padding: 10px 6px;
+  }
+
+  body .footer-bottom-text {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 359px) {
+  .footer-bottom {
+    padding: 8px 4px;
+  }
+
+  body .footer-bottom-text {
+    font-size: 10px !important;
+  }
+}
