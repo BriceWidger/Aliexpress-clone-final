@@ -15,81 +15,60 @@ class PinchZoom {
     this.lastTap = 0;
     this.startDistance = 0;
     this.startScale = 1;
-
-    console.log("PinchZoom constructor called for element:", element);
+    
+    console.log('PinchZoom constructor called for element:', element);
     this.init();
   }
 
   init() {
-    console.log("Initializing pinch zoom on element:", this.element);
-
-    // Only modify styles on actual touch devices to avoid interfering with desktop
-    const isTouchDevice =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-    if (isTouchDevice) {
-      // Prevent default touch behaviors that might interfere with pinch zoom
-      // But allow normal scrolling - use 'pan-y' to allow vertical scrolling
-      this.element.style.touchAction = "pan-y";
-      this.element.style.userSelect = "none";
-      this.element.style.webkitUserSelect = "none";
-      this.element.style.webkitTouchCallout = "none";
-      this.element.style.webkitUserDrag = "none";
-
-      // Set initial transform origin to center
-      this.element.style.transformOrigin = "center center";
-      this.element.style.transition = "transform 0.2s ease-out";
-    }
-
-    // Add touch event listeners with proper options (only on touch devices)
-    if (isTouchDevice) {
-      this.element.addEventListener(
-        "touchstart",
-        this.handleTouchStart.bind(this),
-        {
-          passive: false,
-          capture: true,
-        }
-      );
-      this.element.addEventListener(
-        "touchmove",
-        this.handleTouchMove.bind(this),
-        {
-          passive: false,
-          capture: true,
-        }
-      );
-      this.element.addEventListener(
-        "touchend",
-        this.handleTouchEnd.bind(this),
-        {
-          passive: false,
-          capture: true,
-        }
-      );
-
-      // Prevent context menu on long press
-      this.element.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        return false;
-      });
-
-      // Add visual indicator
-      this.addZoomIndicator();
-    }
-
-    console.log("Pinch zoom initialized successfully");
+    console.log('Initializing pinch zoom on element:', this.element);
+    
+    // Prevent default touch behaviors that might interfere
+    this.element.style.touchAction = 'none';
+    this.element.style.userSelect = 'none';
+    this.element.style.webkitUserSelect = 'none';
+    this.element.style.webkitTouchCallout = 'none';
+    this.element.style.webkitUserDrag = 'none';
+    
+    // Set initial transform origin to center
+    this.element.style.transformOrigin = 'center center';
+    this.element.style.transition = 'transform 0.2s ease-out';
+    
+    // Add touch event listeners with proper options
+    this.element.addEventListener('touchstart', this.handleTouchStart.bind(this), { 
+      passive: false, 
+      capture: true 
+    });
+    this.element.addEventListener('touchmove', this.handleTouchMove.bind(this), { 
+      passive: false, 
+      capture: true 
+    });
+    this.element.addEventListener('touchend', this.handleTouchEnd.bind(this), { 
+      passive: false, 
+      capture: true 
+    });
+    
+    // Prevent context menu on long press
+    this.element.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      return false;
+    });
+    
+    // Add visual indicator
+    this.addZoomIndicator();
+    
+    console.log('Pinch zoom initialized successfully');
   }
 
   getDistance(touches) {
     if (touches.length < 2) return 0;
-
+    
     const touch1 = touches[0];
     const touch2 = touches[1];
-
+    
     const dx = touch1.clientX - touch2.clientX;
     const dy = touch1.clientY - touch2.clientY;
-
+    
     return Math.sqrt(dx * dx + dy * dy);
   }
 
@@ -97,135 +76,115 @@ class PinchZoom {
     if (touches.length === 1) {
       return {
         x: touches[0].clientX,
-        y: touches[0].clientY,
+        y: touches[0].clientY
       };
     } else if (touches.length >= 2) {
       return {
         x: (touches[0].clientX + touches[1].clientX) / 2,
-        y: (touches[0].clientY + touches[1].clientY) / 2,
+        y: (touches[0].clientY + touches[1].clientY) / 2
       };
     }
     return { x: 0, y: 0 };
   }
 
   handleTouchStart(e) {
-    console.log("Touch start event:", e.touches.length, "touches");
-
+    console.log('Touch start event:', e.touches.length, 'touches');
+    
+    // Always prevent default to avoid conflicts
+    e.preventDefault();
+    e.stopPropagation();
+    
     const touches = e.touches;
     const currentTime = Date.now();
-
+    
     if (touches.length === 1) {
       // Single touch - prepare for potential pan or double tap
       const touch = touches[0];
       this.startX = touch.clientX;
       this.startY = touch.clientY;
-
+      
       // Check for double tap
       if (currentTime - this.lastTap < 300) {
-        console.log("Double tap detected");
+        console.log('Double tap detected');
         this.handleDoubleTap();
-        e.preventDefault();
-        e.stopPropagation();
         return;
       }
       this.lastTap = currentTime;
-
-      // Don't prevent default for single touch - allow page scrolling
-      // Only prevent if we're already zoomed in and might need to pan
-      if (this.scale > 1.1) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    } else if (touches.length === 2) {
-      // Two fingers - start pinch zoom, prevent default
-      console.log("Two finger pinch detected");
-      e.preventDefault();
-      e.stopPropagation();
       
+    } else if (touches.length === 2) {
+      // Two fingers - start pinch zoom
+      console.log('Two finger pinch detected');
       this.isZooming = true;
       this.startDistance = this.getDistance(touches);
       this.startScale = this.scale;
-
+      
       // Remove transition during active pinch for smoother interaction
-      this.element.style.transition = "none";
+      this.element.style.transition = 'none';
     }
   }
 
   handleTouchMove(e) {
+    // Always prevent default and stop propagation
+    e.preventDefault();
+    e.stopPropagation();
+    
     const touches = e.touches;
-
+    
     if (touches.length === 2 && this.isZooming) {
-      // Handle pinch zoom - prevent default for multi-touch
-      console.log("Pinch zoom in progress");
-      e.preventDefault();
-      e.stopPropagation();
-
+      // Handle pinch zoom
+      console.log('Pinch zoom in progress');
+      
       const currentDistance = this.getDistance(touches);
-
+      
       if (this.startDistance > 0 && currentDistance > 0) {
         const scaleChange = currentDistance / this.startDistance;
         const newScale = this.startScale * scaleChange;
-
+        
         // Apply scale limits
         this.scale = Math.max(this.minScale, Math.min(this.maxScale, newScale));
-
-        console.log("Current scale:", this.scale.toFixed(2));
+        
+        console.log('Current scale:', this.scale.toFixed(2));
         this.updateTransform();
       }
+      
     } else if (touches.length === 1 && this.scale > 1.1) {
-      // Handle panning when zoomed in - prevent default only when panning
+      // Handle panning when zoomed in
       const touch = touches[0];
       const deltaX = touch.clientX - this.startX;
       const deltaY = touch.clientY - this.startY;
-
-      // Only prevent default if there's significant horizontal movement or we're actively panning
-      const isHorizontalMovement = Math.abs(deltaX) > Math.abs(deltaY);
-      const isSignificantMovement = Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10;
-
-      if (isHorizontalMovement || isSignificantMovement) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Calculate maximum translation bounds
-        const rect = this.element.getBoundingClientRect();
-        const maxTranslateX = (rect.width * (this.scale - 1)) / 2;
-        const maxTranslateY = (rect.height * (this.scale - 1)) / 2;
-
-        // Apply bounds to prevent over-panning
-        this.translateX = Math.max(
-          -maxTranslateX,
-          Math.min(maxTranslateX, deltaX)
-        );
-        this.translateY = Math.max(
-          -maxTranslateY,
-          Math.min(maxTranslateY, deltaY)
-        );
-
-        this.updateTransform();
-      }
+      
+      // Calculate maximum translation bounds
+      const rect = this.element.getBoundingClientRect();
+      const maxTranslateX = (rect.width * (this.scale - 1)) / 2;
+      const maxTranslateY = (rect.height * (this.scale - 1)) / 2;
+      
+      // Apply bounds to prevent over-panning
+      this.translateX = Math.max(-maxTranslateX, Math.min(maxTranslateX, deltaX));
+      this.translateY = Math.max(-maxTranslateY, Math.min(maxTranslateY, deltaY));
+      
+      this.updateTransform();
     }
-    // For single touch when not zoomed in, don't prevent default - allow page scrolling
   }
 
   handleTouchEnd(e) {
-    console.log("Touch end event");
-
+    console.log('Touch end event');
+    
+    // Always prevent default and stop propagation
+    e.preventDefault();
+    e.stopPropagation();
+    
     if (this.isZooming) {
-      // Only prevent default when we were actually zooming
-      e.preventDefault();
-      e.stopPropagation();
-      
       this.isZooming = false;
-
+      
       // Restore transition for smooth animations
-      this.element.style.transition = "transform 0.3s ease-out";
-
+      this.element.style.transition = 'transform 0.3s ease-out';
+      
       // Snap to minimum scale if very close
       if (this.scale < this.minScale + 0.1) {
         this.reset();
       }
     }
-
+    
     // Reset pan tracking when no touches remain
     if (e.touches.length === 0) {
       this.startX = 0;
@@ -234,8 +193,8 @@ class PinchZoom {
   }
 
   handleDoubleTap() {
-    console.log("Handling double tap");
-
+    console.log('Handling double tap');
+    
     if (this.scale <= this.minScale + 0.1) {
       // Zoom in to 2x
       this.scale = 2;
@@ -246,8 +205,8 @@ class PinchZoom {
       this.reset();
       return;
     }
-
-    this.element.style.transition = "transform 0.3s ease-out";
+    
+    this.element.style.transition = 'transform 0.3s ease-out';
     this.updateTransform();
   }
 
@@ -258,22 +217,22 @@ class PinchZoom {
 
   // Public method to reset zoom
   reset() {
-    console.log("Resetting zoom");
+    console.log('Resetting zoom');
     this.scale = this.minScale;
     this.translateX = 0;
     this.translateY = 0;
-    this.element.style.transition = "transform 0.3s ease-out";
+    this.element.style.transition = 'transform 0.3s ease-out';
     this.updateTransform();
   }
 
   // Add visual indicator for pinch zoom
   addZoomIndicator() {
     // Only show indicator on touch devices
-    if (!("ontouchstart" in window)) return;
-
-    const indicator = document.createElement("div");
-    indicator.id = "pinch-zoom-indicator";
-    indicator.innerHTML = "� Pinch to zoom • Double tap to toggle";
+    if (!('ontouchstart' in window)) return;
+    
+    const indicator = document.createElement('div');
+    indicator.id = 'pinch-zoom-indicator';
+    indicator.innerHTML = '� Pinch to zoom • Double tap to toggle';
     indicator.style.cssText = `
       position: absolute;
       bottom: 10px;
@@ -290,18 +249,18 @@ class PinchZoom {
       white-space: nowrap;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     `;
-
+    
     // Add to the parent container
     const container = this.element.parentElement;
     if (container) {
-      container.style.position = "relative";
+      container.style.position = 'relative';
       container.appendChild(indicator);
-
+      
       // Hide after 4 seconds
       setTimeout(() => {
         if (indicator && indicator.parentElement) {
-          indicator.style.opacity = "0";
-          indicator.style.transition = "opacity 0.5s ease-out";
+          indicator.style.opacity = '0';
+          indicator.style.transition = 'opacity 0.5s ease-out';
           setTimeout(() => {
             if (indicator && indicator.parentElement) {
               indicator.parentElement.removeChild(indicator);
@@ -314,102 +273,88 @@ class PinchZoom {
 }
 
 // Improved initialization with better mobile detection
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM loaded, initializing pinch zoom...");
-
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, initializing pinch zoom...');
+  
   // Enhanced mobile/touch detection
   function isMobileDevice() {
-    const touchSupport =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    const userAgent =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
-
-    // Only enable on actual mobile devices, not desktop browsers
-    // Removed screenSize check to prevent activation on desktop
-    return touchSupport && userAgent;
+    const touchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const userAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const screenSize = window.innerWidth <= 1024; // Include tablets
+    
+    // Force enable for testing in developer tools
+    const isDevTools = window.navigator.userAgent.includes('Chrome') && window.outerHeight - window.innerHeight > 100;
+    
+    return touchSupport || userAgent || screenSize || isDevTools;
   }
 
   function initializePinchZoom() {
-    const mainImg = document.getElementById("main-img");
-
+    const mainImg = document.getElementById('main-img');
+    
     if (!mainImg) {
-      console.log("Main image not found");
+      console.log('Main image not found');
       return false;
     }
-
+    
     if (!isMobileDevice()) {
-      console.log("Not a mobile device, skipping pinch zoom");
+      console.log('Not a mobile device, skipping pinch zoom');
       return false;
     }
-
-    console.log(
-      "Mobile device detected, initializing pinch zoom for main image"
-    );
-
+    
+    console.log('Mobile device detected, initializing pinch zoom for main image');
+    
     // Function to create pinch zoom instance
     function createPinchZoom() {
       try {
         new PinchZoom(mainImg);
-        console.log("Pinch zoom created successfully");
+        console.log('Pinch zoom created successfully');
         return true;
       } catch (error) {
-        console.error("Error creating pinch zoom:", error);
+        console.error('Error creating pinch zoom:', error);
         return false;
       }
     }
-
+    
     // Initialize immediately if image is already loaded
     if (mainImg.complete && mainImg.naturalHeight !== 0) {
-      console.log("Image already loaded, creating pinch zoom");
+      console.log('Image already loaded, creating pinch zoom');
       return createPinchZoom();
     } else {
       // Wait for image to load
-      console.log("Waiting for image to load...");
-      mainImg.addEventListener("load", function () {
-        console.log("Image loaded, creating pinch zoom");
+      console.log('Waiting for image to load...');
+      mainImg.addEventListener('load', function() {
+        console.log('Image loaded, creating pinch zoom');
         createPinchZoom();
       });
-
+      
       // Fallback in case load event doesn't fire
       setTimeout(() => {
         if (mainImg.complete) {
-          console.log("Image loaded (fallback), creating pinch zoom");
+          console.log('Image loaded (fallback), creating pinch zoom');
           createPinchZoom();
         }
       }, 1000);
-
+      
       return true;
     }
   }
-
+  
   // Try to initialize immediately
   if (!initializePinchZoom()) {
     // Retry after a delay in case elements are added dynamically
-    console.log("Retrying pinch zoom initialization...");
+    console.log('Retrying pinch zoom initialization...');
     setTimeout(initializePinchZoom, 500);
   }
 });
 
 // Also initialize when page becomes visible (for PWA/cached pages)
-document.addEventListener("visibilitychange", function () {
+document.addEventListener('visibilitychange', function() {
   if (!document.hidden) {
     setTimeout(() => {
-      const mainImg = document.getElementById("main-img");
+      const mainImg = document.getElementById('main-img');
       if (mainImg && !mainImg.pinchZoomInitialized) {
-        console.log(
-          "Page became visible, checking if mobile device for pinch zoom"
-        );
-        const isTouchDevice =
-          "ontouchstart" in window || navigator.maxTouchPoints > 0;
-        const isMobileUserAgent =
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent
-          );
-
-        if (isTouchDevice && isMobileUserAgent) {
-          console.log("Mobile device confirmed, reinitializing pinch zoom");
+        console.log('Page became visible, reinitializing pinch zoom');
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
           new PinchZoom(mainImg);
           mainImg.pinchZoomInitialized = true;
         }
@@ -419,73 +364,52 @@ document.addEventListener("visibilitychange", function () {
 });
 
 // Disable mouse events on touch devices to prevent conflicts
-document.addEventListener("DOMContentLoaded", function () {
-  // Only disable mouse events on actual mobile devices, not desktop browsers
-  const isTouchDevice =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  const isMobileUserAgent =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-  const isActualMobileDevice = isTouchDevice && isMobileUserAgent;
-
-  if (isActualMobileDevice) {
-    console.log(
-      "Actual mobile device detected, disabling mouse hover events for main image"
-    );
-
-    const mainImg = document.getElementById("main-img");
+document.addEventListener('DOMContentLoaded', function() {
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  
+  if (isTouchDevice) {
+    console.log('Touch device detected, disabling mouse hover events for main image');
+    
+    const mainImg = document.getElementById('main-img');
     if (mainImg) {
       // Remove the onmousemove attribute on touch devices
-      mainImg.removeAttribute("onmousemove");
-
+      mainImg.removeAttribute('onmousemove');
+      
       // Also disable the magnifying glass overlays on touch devices
       const magOverlay = document.querySelector('[id^="mag-overlay"]');
       const magOverlayTwo = document.querySelector('[id^="mag-overlay-two"]');
-
+      
       if (magOverlay) {
-        magOverlay.style.display = "none !important";
+        magOverlay.style.display = 'none !important';
       }
       if (magOverlayTwo) {
-        magOverlayTwo.style.display = "none !important";
+        magOverlayTwo.style.display = 'none !important';
       }
-
-      console.log("Mouse hover effects disabled for mobile device");
+      
+      console.log('Mouse hover effects disabled for touch device');
     }
-  } else {
-    console.log(
-      "Desktop device detected, preserving mouse hover functionality"
-    );
   }
 });
 
 // Global function for testing pinch zoom functionality
-window.testPinchZoom = function () {
-  console.log("Testing pinch zoom functionality...");
-  const mainImg = document.getElementById("main-img");
+window.testPinchZoom = function() {
+  console.log('Testing pinch zoom functionality...');
+  const mainImg = document.getElementById('main-img');
   if (mainImg) {
-    console.log(
-      "Main image found, forcing pinch zoom initialization for testing"
-    );
+    console.log('Main image found, forcing pinch zoom initialization');
     try {
-      // Only create if not already exists to avoid conflicts
-      if (!mainImg.pinchZoomInitialized) {
-        new PinchZoom(mainImg);
-        mainImg.pinchZoomInitialized = true;
-        console.log("Pinch zoom test initialization complete");
-        return "Pinch zoom initialized for testing";
-      } else {
-        return "Pinch zoom already initialized";
-      }
+      new PinchZoom(mainImg);
+      console.log('Pinch zoom test initialization complete');
+      return 'Pinch zoom initialized for testing';
     } catch (error) {
-      console.error("Error initializing pinch zoom:", error);
-      return "Error: " + error.message;
+      console.error('Error initializing pinch zoom:', error);
+      return 'Error: ' + error.message;
     }
   } else {
-    console.log("Main image not found");
-    return "Error: Main image not found";
+    console.log('Main image not found');
+    return 'Error: Main image not found';
   }
 };
 
 // Log initialization status
-console.log("Pinch zoom script loaded successfully");
+console.log('Pinch zoom script loaded successfully');
