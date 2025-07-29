@@ -2574,8 +2574,11 @@ h4 {
   height: 450.217px;
 }
 
-#main-img:hover {
-  opacity: 0;
+/* Disable hover effects on mobile devices - only enable on devices with hover capability */
+@media (hover: hover) and (pointer: fine) {
+  #main-img:hover {
+    opacity: 0;
+  }
 }
 
 .product-info-right-wrap {

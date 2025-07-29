@@ -45,4 +45,41 @@ function loadImages() {
   document.getElementById('cart-product-img-ten').src = imgDataTen || imgDataTenTemp;
   document.getElementById('cart-product-img-eleven').src = imgDataEleven || imgDataElevenTemp;
   document.getElementById('cart-product-img-rccar').src = imgDataRCCar || 'default-image.jpg';
+
+  // Disable hover zoom effects on mobile devices
+  disableHoverOnMobile();
+}
+
+// Mobile device detection and hover disable functionality
+function disableHoverOnMobile() {
+  // Mobile device detection
+  function isMobileDevice() {
+    const touchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const userAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const screenSize = window.innerWidth <= 768;
+    
+    // Device is considered mobile if it has touch support AND (mobile user agent OR small screen)
+    return touchSupport && (userAgent || screenSize);
+  }
+
+  // Only run on mobile devices
+  if (isMobileDevice()) {
+    console.log('Mobile device detected - disabling hover zoom effects');
+    
+    const mainImg = document.getElementById('main-img');
+    if (mainImg) {
+      // Remove the onmousemove attribute on mobile devices
+      mainImg.removeAttribute('onmousemove');
+      
+      // Also hide magnifying glass overlays on mobile devices
+      const magOverlays = document.querySelectorAll('[id*="mag-overlay"]');
+      magOverlays.forEach(overlay => {
+        overlay.style.display = 'none !important';
+      });
+      
+      console.log('Hover zoom effects disabled for mobile device');
+    }
+  } else {
+    console.log('Desktop device detected - preserving hover zoom functionality');
+  }
 }
