@@ -28,8 +28,9 @@ class PinchZoom {
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     if (isTouchDevice) {
-      // Prevent default touch behaviors that might interfere
-      this.element.style.touchAction = "none";
+      // Prevent default touch behaviors that might interfere with pinch zoom
+      // But allow normal scrolling - use 'pan-y' to allow vertical scrolling
+      this.element.style.touchAction = "pan-y";
       this.element.style.userSelect = "none";
       this.element.style.webkitUserSelect = "none";
       this.element.style.webkitTouchCallout = "none";
@@ -110,10 +111,6 @@ class PinchZoom {
   handleTouchStart(e) {
     console.log("Touch start event:", e.touches.length, "touches");
 
-    // Always prevent default to avoid conflicts
-    e.preventDefault();
-    e.stopPropagation();
-
     const touches = e.touches;
     const currentTime = Date.now();
 
@@ -127,12 +124,24 @@ class PinchZoom {
       if (currentTime - this.lastTap < 300) {
         console.log("Double tap detected");
         this.handleDoubleTap();
+        e.preventDefault();
+        e.stopPropagation();
         return;
       }
       this.lastTap = currentTime;
+
+      // Don't prevent default for single touch - allow page scrolling
+      // Only prevent if we're already zoomed in and might need to pan
+      if (this.scale > 1.1) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     } else if (touches.length === 2) {
-      // Two fingers - start pinch zoom
+      // Two fingers - start pinch zoom, prevent default
       console.log("Two finger pinch detected");
+      e.preventDefault();
+      e.stopPropagation();
+      
       this.isZooming = true;
       this.startDistance = this.getDistance(touches);
       this.startScale = this.scale;
@@ -143,15 +152,13 @@ class PinchZoom {
   }
 
   handleTouchMove(e) {
-    // Always prevent default and stop propagation
-    e.preventDefault();
-    e.stopPropagation();
-
     const touches = e.touches;
 
     if (touches.length === 2 && this.isZooming) {
-      // Handle pinch zoom
+      // Handle pinch zoom - prevent default for multi-touch
       console.log("Pinch zoom in progress");
+      e.preventDefault();
+      e.stopPropagation();
 
       const currentDistance = this.getDistance(touches);
 
@@ -166,38 +173,48 @@ class PinchZoom {
         this.updateTransform();
       }
     } else if (touches.length === 1 && this.scale > 1.1) {
-      // Handle panning when zoomed in
+      // Handle panning when zoomed in - prevent default only when panning
       const touch = touches[0];
       const deltaX = touch.clientX - this.startX;
       const deltaY = touch.clientY - this.startY;
 
-      // Calculate maximum translation bounds
-      const rect = this.element.getBoundingClientRect();
-      const maxTranslateX = (rect.width * (this.scale - 1)) / 2;
-      const maxTranslateY = (rect.height * (this.scale - 1)) / 2;
+      // Only prevent default if there's significant horizontal movement or we're actively panning
+      const isHorizontalMovement = Math.abs(deltaX) > Math.abs(deltaY);
+      const isSignificantMovement = Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10;
 
-      // Apply bounds to prevent over-panning
-      this.translateX = Math.max(
-        -maxTranslateX,
-        Math.min(maxTranslateX, deltaX)
-      );
-      this.translateY = Math.max(
-        -maxTranslateY,
-        Math.min(maxTranslateY, deltaY)
-      );
+      if (isHorizontalMovement || isSignificantMovement) {
+        e.preventDefault();
+        e.stopPropagation();
 
-      this.updateTransform();
+        // Calculate maximum translation bounds
+        const rect = this.element.getBoundingClientRect();
+        const maxTranslateX = (rect.width * (this.scale - 1)) / 2;
+        const maxTranslateY = (rect.height * (this.scale - 1)) / 2;
+
+        // Apply bounds to prevent over-panning
+        this.translateX = Math.max(
+          -maxTranslateX,
+          Math.min(maxTranslateX, deltaX)
+        );
+        this.translateY = Math.max(
+          -maxTranslateY,
+          Math.min(maxTranslateY, deltaY)
+        );
+
+        this.updateTransform();
+      }
     }
+    // For single touch when not zoomed in, don't prevent default - allow page scrolling
   }
 
   handleTouchEnd(e) {
     console.log("Touch end event");
 
-    // Always prevent default and stop propagation
-    e.preventDefault();
-    e.stopPropagation();
-
     if (this.isZooming) {
+      // Only prevent default when we were actually zooming
+      e.preventDefault();
+      e.stopPropagation();
+      
       this.isZooming = false;
 
       // Restore transition for smooth animations
