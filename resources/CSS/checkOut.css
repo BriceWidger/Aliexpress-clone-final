@@ -1761,6 +1761,7 @@ a {
   font-size: medium;
   margin-left: 20px;
   overflow: hidden;
+  background-color: #ffffff;
   /* Mobile optimization */
   -webkit-user-select: text;
   -moz-user-select: text;
@@ -2058,6 +2059,7 @@ h4 {
   font-size: medium;
   margin-left: 20px;
   overflow: hidden;
+  background-color: #ffffff;
   /* Mobile optimization */
   -webkit-user-select: text;
   -moz-user-select: text;
@@ -3230,4 +3232,24 @@ h4 {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1001;
+}
+
+/* ===== MOBILE SEARCH BAR FIXES ===== */
+/* Additional mobile-specific fixes for iOS and other mobile browsers */
+@media (max-width: 900px) {
+  #search-bar {
+    background-color: #ffffff !important;
+    border: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    /* iOS-specific overrides */
+    -webkit-background-clip: padding-box !important;
+    background-clip: padding-box !important;
+    /* Prevent any gradient or texture overlays */
+    background-image: none !important;
+    box-shadow: none !important;
+    /* Force white background on all mobile browsers */
+    background: #ffffff !important;
+  }
 }

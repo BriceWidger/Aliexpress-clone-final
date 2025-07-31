@@ -828,6 +828,21 @@
     z-index: 1;
   }
 
+  /* Ensure search bar input has white background on mobile */
+  #search-bar {
+    background-color: #ffffff !important;
+    border: none !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* iOS-specific overrides */
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    /* Prevent any gradient or texture overlays */
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
   /* Search list adjustments to match search bar container */
   #search-list {
     /* JavaScript handles positioning and width */
