@@ -515,6 +515,25 @@ h4 {
   .acc-dropdown:hover .acc-up-menu-arrow-black {
     content: url("/resources/images/menu-arrow-black-down.png");
   }
+
+  /* iOS Safari specific fixes */
+  .acc-dropbtn,
+  .acc-category-dropdown-title,
+  .person-account-icon {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  /* Ensure dropdown content is properly displayed on iOS */
+  .acc-dropdown-content {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
 .acc-dropdown-menu {
   position: relative;
