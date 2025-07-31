@@ -44,6 +44,9 @@ html {
   max-height: 100vh;
   touch-action: manipulation;
   overflow-x: hidden;
+  /* Mobile browser navigation stability */
+  height: 100vh;
+  height: 100svh; /* Small viewport height for mobile stability */
 }
 body {
   background-color: #fff;
@@ -101,6 +104,14 @@ a {
   overflow: visible;
   box-sizing: border-box;
   background-color: rgb(25, 25, 25);
+  /* Mobile browser chrome stability */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Prevent repositioning during mobile browser chrome changes */
+  top: env(safe-area-inset-top, 0);
+  top: 0; /* Fallback for browsers without safe-area support */
 }
 .hamburger-menu-container {
   display: none !important;
@@ -388,7 +399,7 @@ h4 {
   text-indent: 3px;
   border-radius: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 99;
+  z-index: 10000;
   overflow: hidden;
 }
 .acc-img-title-container {
