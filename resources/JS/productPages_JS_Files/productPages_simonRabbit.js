@@ -857,9 +857,18 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add click event to toggle account dropdown on mobile
       accDropbtn.addEventListener("click", handleMobileToggle);
 
-      // Also add click event to the person account icon specifically
+      // Also add click event to the person account icon specifically for mobile
       if (personAccountIcon) {
-        personAccountIcon.addEventListener("click", handleMobileToggle);
+        personAccountIcon.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (isAccDropdownOpen) {
+            hideAccDropdown();
+          } else {
+            showAccDropdown();
+          }
+        });
       }
 
       // Add touchstart event for better mobile responsiveness
@@ -874,7 +883,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Also add touchstart event to the person account icon specifically
+      // Also add touchstart event to the person account icon specifically for mobile
       if (personAccountIcon) {
         personAccountIcon.addEventListener("touchstart", function (e) {
           e.preventDefault();

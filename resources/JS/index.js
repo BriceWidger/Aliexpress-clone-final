@@ -1191,12 +1191,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to show dropdown (both mobile and desktop)
     function showAccDropdown() {
       accDropdownContent.style.display = "block";
+      accDropdown.classList.add("mobile-active");
       isAccDropdownOpen = true;
     }
 
     // Function to hide dropdown (both mobile and desktop)
     function hideAccDropdown() {
       accDropdownContent.style.display = "none";
+      accDropdown.classList.remove("mobile-active");
       isAccDropdownOpen = false;
     }
 
@@ -1222,9 +1224,23 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add click event to toggle account dropdown on mobile
       triggerElement.addEventListener("click", handleMobileToggle);
 
-      // Also add click event to the person account icon specifically
+      // Also add click event to the person account icon specifically for mobile
       if (personAccountIcon) {
-        personAccountIcon.addEventListener("click", handleMobileToggle);
+        personAccountIcon.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Close hamburger menu if it's open
+          if (window.closeHamburgerMenu) {
+            window.closeHamburgerMenu();
+          }
+
+          if (isAccDropdownOpen) {
+            hideAccDropdown();
+          } else {
+            showAccDropdown();
+          }
+        });
       }
 
       // Add touchstart event for better mobile responsiveness
@@ -1244,7 +1260,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Also add touchstart event to the person account icon specifically
+      // Also add touchstart event to the person account icon specifically for mobile
       if (personAccountIcon) {
         personAccountIcon.addEventListener("touchstart", function (e) {
           e.preventDefault();
