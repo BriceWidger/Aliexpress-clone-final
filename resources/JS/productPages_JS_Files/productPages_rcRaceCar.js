@@ -981,7 +981,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Close menu when clicking outside
       document.addEventListener("click", function (e) {
-        if (isMenuOpen && !circleMenu.contains(e.target)) {
+        // Don't close circle menu if clicking on account dropdown elements
+        const accDropdown = document.querySelector(".acc-dropdown");
+        const isAccountDropdownClick = accDropdown && accDropdown.contains(e.target);
+        
+        if (isMenuOpen && !circleMenu.contains(e.target) && !isAccountDropdownClick) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;
         }
@@ -989,7 +993,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Close menu when touching outside
       document.addEventListener("touchstart", function (e) {
-        if (isMenuOpen && !circleMenu.contains(e.target)) {
+        // Don't close circle menu if touching account dropdown elements
+        const accDropdown = document.querySelector(".acc-dropdown");
+        const isAccountDropdownTouch = accDropdown && accDropdown.contains(e.target);
+        
+        if (isMenuOpen && !circleMenu.contains(e.target) && !isAccountDropdownTouch) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;
         }
