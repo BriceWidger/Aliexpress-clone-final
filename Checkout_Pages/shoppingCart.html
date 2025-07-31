@@ -57,8 +57,9 @@
             </div>
           </div>
           <div id="search-bar-container">
-            <input id="search-bar" type="text" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
-              placeholder="Search items..">
+            <input id="search-bar" type="search" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
+              placeholder="Search items.." autocomplete="off" autocapitalize="none" spellcheck="false"
+              inputmode="search" enterkeyhint="search" role="searchbox" aria-label="Search items">
             <div id="search-bar-filler"></div>
             <div id="search-list">
               <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">

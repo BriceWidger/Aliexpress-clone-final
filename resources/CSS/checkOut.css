@@ -1761,6 +1761,16 @@ a {
   font-size: medium;
   margin-left: 20px;
   overflow: hidden;
+  /* Mobile optimization */
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  /* Ensure input can be focused on mobile */
+  pointer-events: auto;
+  cursor: text;
 }
 
 #search-bar-filler {
@@ -2048,6 +2058,16 @@ h4 {
   font-size: medium;
   margin-left: 20px;
   overflow: hidden;
+  /* Mobile optimization */
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  /* Ensure input can be focused on mobile */
+  pointer-events: auto;
+  cursor: text;
 }
 
 #search-bar-filler {

@@ -12,6 +12,11 @@ function search_items() {
   }
 }
 
+// Function to remove leading and trailing spaces from search input
+function removeSpaces(str) {
+  return str.trim();
+}
+
 // List toggle (search bar)
 const searchBar = document.querySelector("#search-bar");
 const searchList = document.querySelector("#search-list");
@@ -52,13 +57,23 @@ function isMobileScreen() {
 // Add mobile toggle functionality for search bar container
 const searchBarContainer = document.querySelector("#search-bar-container");
 if (searchBarContainer) {
+  // Handle mobile search bar functionality without blocking input focus
   searchBarContainer.addEventListener("click", function (event) {
     // Only apply toggle behavior on mobile devices or when testing mobile on desktop
     if (isTouchDevice() || isMobileScreen()) {
-      // If the click is anywhere within the search bar container
+      // If the click is on the search bar input itself, allow default behavior (focus and keyboard)
+      if (event.target.id === "search-bar") {
+        // Show the search list when input is focused
+        positionSearchList();
+        searchList.style.display = "block";
+        return; // Don't prevent default, allow input focus
+      }
+      
+      // If the click is on other parts of the search bar container (not the input or submit button)
       if (
         event.target.closest("#search-bar-container") &&
-        !event.target.closest("#search-submit-container")
+        !event.target.closest("#search-submit-container") &&
+        event.target.id !== "search-bar"
       ) {
         // Toggle the search list visibility
         if (searchList.style.display === "block") {
@@ -74,14 +89,23 @@ if (searchBarContainer) {
     }
   });
 
-  // Also add touch event for better mobile responsiveness
+  // Handle touch events for mobile - similar logic but don't block input touch
   searchBarContainer.addEventListener(
     "touchstart",
     function (event) {
       if (isTouchDevice() || isMobileScreen()) {
+        // If the touch is on the search bar input itself, allow default behavior
+        if (event.target.id === "search-bar") {
+          positionSearchList();
+          searchList.style.display = "block";
+          return; // Don't prevent default, allow input focus
+        }
+        
+        // Handle touches on other parts of the container
         if (
           event.target.closest("#search-bar-container") &&
-          !event.target.closest("#search-submit-container")
+          !event.target.closest("#search-submit-container") &&
+          event.target.id !== "search-bar"
         ) {
           if (searchList.style.display === "block") {
             searchList.style.display = "none";
@@ -107,6 +131,64 @@ searchBar.addEventListener("click", () => {
     searchList.style.display = "block";
   }
 });
+
+// Add mobile-specific input handling
+if (searchBar) {
+  // Handle input focus on mobile devices
+  searchBar.addEventListener("focus", function() {
+    if (isTouchDevice() || isMobileScreen()) {
+      positionSearchList();
+      searchList.style.display = "block";
+    }
+  });
+
+  // Handle input events for real-time search on mobile
+  searchBar.addEventListener("input", function() {
+    if (isTouchDevice() || isMobileScreen()) {
+      search_items(); // Call the search function
+      if (searchList.style.display !== "block") {
+        positionSearchList();
+        searchList.style.display = "block";
+      }
+    }
+  });
+
+  // Enhanced mobile touch handling to ensure keyboard appears
+  searchBar.addEventListener("touchstart", function(event) {
+    if (isTouchDevice() || isMobileScreen()) {
+      // Ensure the input can receive focus
+      event.stopPropagation();
+    }
+  }, { passive: false });
+
+  // Ensure virtual keyboard doesn't hide search results on mobile
+  searchBar.addEventListener("touchend", function(event) {
+    if (isTouchDevice() || isMobileScreen()) {
+      // Prevent event from bubbling and focus the input
+      event.preventDefault();
+      event.stopPropagation();
+      
+      // Focus the input to trigger mobile keyboard
+      searchBar.focus();
+      
+      // Small delay to ensure the virtual keyboard appears
+      setTimeout(function() {
+        if (searchList.style.display === "block") {
+          positionSearchList();
+        }
+      }, 300);
+    }
+  }, { passive: false });
+
+  // Handle viewport changes when virtual keyboard appears/disappears
+  window.addEventListener("resize", function() {
+    if (isTouchDevice() || isMobileScreen() && searchList.style.display === "block") {
+      setTimeout(function() {
+        positionSearchList();
+      }, 100);
+    }
+  });
+}
 
 // Add click outside functionality for mobile devices
 document.addEventListener("click", function (event) {
