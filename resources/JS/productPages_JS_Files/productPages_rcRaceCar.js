@@ -809,14 +809,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return window.innerWidth <= 900;
   }
 
-  // Function to check if device is iOS Safari
-  function isIOSSafari() {
-    const ua = navigator.userAgent;
-    const isIOS = /iPad|iPhone|iPod/.test(ua);
-    const isSafari = /Safari/.test(ua) && !/Chrome|CriOS|OPiOS|FxiOS/.test(ua);
-    return isIOS && (isSafari || !window.chrome);
-  }
-
   const accDropdown = document.querySelector(".acc-dropdown");
   const accDropbtn = document.querySelector(".acc-dropbtn");
   const accCategoryDropdownTitle = document.querySelector(
@@ -844,30 +836,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
-      let lastTouchTime = 0;
-      
-      // Function to handle toggle for mobile with iOS Safari optimization
+      // Function to handle toggle for mobile
       function handleMobileToggle(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (isAccDropdownOpen) {
-          hideAccDropdown();
-        } else {
-          showAccDropdown();
-        }
-      }
-
-      // Function to handle touch events with iOS Safari optimization
-      function handleTouchToggle(e) {
-        const currentTime = Date.now();
-        
-        // Prevent rapid fire events (debouncing)
-        if (currentTime - lastTouchTime < 300) {
-          return;
-        }
-        lastTouchTime = currentTime;
-
         e.preventDefault();
         e.stopPropagation();
 
@@ -886,21 +856,30 @@ document.addEventListener("DOMContentLoaded", function () {
         personAccountIcon.addEventListener("click", handleMobileToggle);
       }
 
-      // For iOS Safari, use touchend instead of touchstart for better compatibility
-      const touchEvent = isIOSSafari() ? "touchend" : "touchstart";
-      
-      // Add touch event for better mobile responsiveness
-      accDropbtn.addEventListener(touchEvent, handleTouchToggle, { passive: false });
+      // Add touchstart event for better mobile responsiveness
+      accDropbtn.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-      // Also add touch event to the person account icon specifically
+        if (isAccDropdownOpen) {
+          hideAccDropdown();
+        } else {
+          showAccDropdown();
+        }
+      });
+
+      // Also add touchstart event to the person account icon specifically
       if (personAccountIcon) {
-        personAccountIcon.addEventListener(touchEvent, handleTouchToggle, { passive: false });
-      }
+        personAccountIcon.addEventListener("touchstart", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
 
-      // Add click event to acc-category-dropdown-title for mobile
-      if (accCategoryDropdownTitle) {
-        accCategoryDropdownTitle.addEventListener("click", handleMobileToggle);
-        accCategoryDropdownTitle.addEventListener(touchEvent, handleTouchToggle, { passive: false });
+          if (isAccDropdownOpen) {
+            hideAccDropdown();
+          } else {
+            showAccDropdown();
+          }
+        });
       }
 
       // Close account dropdown when clicking outside
@@ -910,12 +889,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Close account dropdown when touching outside - optimized for iOS Safari
-      document.addEventListener(touchEvent, function (e) {
+      // Close account dropdown when touching outside
+      document.addEventListener("touchstart", function (e) {
         if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
           hideAccDropdown();
         }
-      }, { passive: true });
+      });
 
       // Close account dropdown when a link is clicked
       const accDropdownLinks = accDropdownContent.querySelectorAll("a");
@@ -925,9 +904,9 @@ document.addEventListener("DOMContentLoaded", function () {
           hideAccDropdown();
         });
 
-        link.addEventListener(touchEvent, function (e) {
+        link.addEventListener("touchstart", function (e) {
           e.stopPropagation();
-        }, { passive: true });
+        });
       });
 
       // Prevent account dropdown content from closing when clicking inside it
@@ -935,9 +914,9 @@ document.addEventListener("DOMContentLoaded", function () {
         e.stopPropagation();
       });
 
-      accDropdownContent.addEventListener(touchEvent, function (e) {
+      accDropdownContent.addEventListener("touchstart", function (e) {
         e.stopPropagation();
-      }, { passive: true });
+      });
 
       // Reset account dropdown when screen size changes
       window.addEventListener("resize", function () {
@@ -1002,11 +981,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Close menu when clicking outside
       document.addEventListener("click", function (e) {
-        // Don't close circle menu if clicking on account dropdown elements
-        const accDropdown = document.querySelector(".acc-dropdown");
-        const isAccountDropdownClick = accDropdown && accDropdown.contains(e.target);
-        
-        if (isMenuOpen && !circleMenu.contains(e.target) && !isAccountDropdownClick) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;
         }
@@ -1014,11 +989,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Close menu when touching outside
       document.addEventListener("touchstart", function (e) {
-        // Don't close circle menu if touching account dropdown elements
-        const accDropdown = document.querySelector(".acc-dropdown");
-        const isAccountDropdownTouch = accDropdown && accDropdown.contains(e.target);
-        
-        if (isMenuOpen && !circleMenu.contains(e.target) && !isAccountDropdownTouch) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;
         }

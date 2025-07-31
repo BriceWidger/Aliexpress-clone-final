@@ -816,11 +816,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Close menu when clicking outside
       document.addEventListener("click", function (e) {
-        // Don't close circle menu if clicking on account dropdown elements
-        const accDropdown = document.querySelector(".acc-dropdown");
-        const isAccountDropdownClick = accDropdown && accDropdown.contains(e.target);
-        
-        if (isMenuOpen && !circleMenu.contains(e.target) && !isAccountDropdownClick) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;
         }
@@ -828,11 +824,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Close menu when touching outside
       document.addEventListener("touchstart", function (e) {
-        // Don't close circle menu if touching account dropdown elements
-        const accDropdown = document.querySelector(".acc-dropdown");
-        const isAccountDropdownTouch = accDropdown && accDropdown.contains(e.target);
-        
-        if (isMenuOpen && !circleMenu.contains(e.target) && !isAccountDropdownTouch) {
+        if (isMenuOpen && !circleMenu.contains(e.target)) {
           circleMenu.classList.remove("mobile-active");
           isMenuOpen = false;
         }
@@ -874,14 +866,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to check if we're on mobile screen size
   function isMobileScreen() {
     return window.innerWidth <= 900;
-  }
-
-  // Function to check if device is iOS Safari
-  function isIOSSafari() {
-    const ua = navigator.userAgent;
-    const isIOS = /iPad|iPhone|iPod/.test(ua);
-    const isSafari = /Safari/.test(ua) && !/Chrome|CriOS|OPiOS|FxiOS/.test(ua);
-    return isIOS && (isSafari || !window.chrome);
   }
 
   const accDropdown = document.querySelector(".acc-dropdown");
