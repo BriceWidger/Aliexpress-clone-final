@@ -5,9 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/index-media.css" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
-  <link rel="stylesheet" type="text/css" href="/resources/CSS/shoppingCart.css" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/dealsPages.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/CSS/shoppingCart.css" />
   <link rel="stylesheet" type="text/css" href="resources/CSS/noMatch.css" />
   <title>noMatch</title>
 </head>
@@ -15,11 +16,11 @@
 <body>
   <!-- HEADER -->
   <header>
-    <div class="upper-nav-container" style="position: relative; z-index: 1">
+    <div class="upper-nav-container">
       <div class="upper-nav">
         <div class="upper-nav-items-container">
           <div class="name-logo-container">
-            <a href="/index.html" style="text-decoration: none">
+            <a href="/index.html" style="text-decoration:none">
               <div class="name-logo-container-link-director_pp"></div>
             </a>
             <div class="name-logo" href="/Item_Pages/beatsbydre.html">
@@ -34,15 +35,22 @@
                   </div>
                   <a class="circle-menu-hover-box-links" href="/Item_Pages/automotiveDegreaser.html">Automotive
                     Degreaser</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by Dre</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL Partybox</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by
+                    Dre</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL
+                    Partybox</a>
                   <a class="circle-menu-hover-box-links" href="/Item_Pages/makeup.html">Makeup</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr Potato Head</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus Camera</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr
+                    Potato Head</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus
+                    Camera</a>
                   <a class="circle-menu-hover-box-links" href="/Item_Pages/pillow.html">Pillow</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race Car</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon Rabbit</a>
-                  <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth Hoodie</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race
+                    Car</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon
+                    Rabbit</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth
+                    Hoodie</a>
                 </div>
               </div>
             </div>
@@ -50,7 +58,7 @@
           <div id="search-bar-container">
             <input id="search-bar" type="search" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);"
               placeholder="Search items.." autocomplete="off" autocapitalize="none" spellcheck="false"
-              inputmode="search" enterkeyhint="search" role="searchbox" aria-label="Search items" />
+              inputmode="search" enterkeyhint="search" role="searchbox" aria-label="Search items">
             <div id="search-bar-filler"></div>
             <div id="search-list">
               <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
@@ -104,8 +112,8 @@
                 </div>
               </a>
             </div>
-            <div id="search-submit-container">
-              <input id="search-submit" type="image" src="/resources/images/search-button.jpg" alt="Submit" />
+            <div id="search-submit-container"><input id="search-submit" type="image"
+                src="/resources/images/search-button.jpg" alt="Submit">
             </div>
           </div>
           <div class="header-items-container">
@@ -215,7 +223,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copywrite-sc">
+  <div class="footer-bottom">
     <p class="footer-bottom-text">Aliexpress-clone by Brice Widger</p>
   </div>
   <div class="footer-copywrite-all-text-wrap-sc">
@@ -242,9 +250,15 @@
         > -->
   </div>
   <!-- JS SCRIPT -->
-  <script src="resources/JS/index.js"></script>
-  <script src="resources/JS/noMatch.js"></script>
+  <script src="/resources/JS/index.js"></script>
+  <script src="/resources/JS/shoppingCartEmpty.js"></script>
+  <script src="/resources/JS/displayLocalStorageImg.js"></script>
   <script src="/resources/JS/shoppingCart_JS_Files/shoppingCart.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/customDisplayPromptManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/productCountSubtotalManager.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/productCheckmarkManager.js"></script>
+  <script src="/resources/JS/noMatch.js"></script>
+  <script src="/resources/JS/shoppingCart_JS_Files/modalScrollLock.js"></script>
 </body>
 
 </html>
