@@ -1,27 +1,38 @@
 body {
   align-items: stretch !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: #ffffff !important; /* Force white background to override any inherited styles */
 }
 
 .row-container-a {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center; /* Center text content */
   background-color: #ffffff;
   font-size: 14px;
-  text-align: center; /* Ensure text alignment is centered */
-  width: 100vw;
-  max-width: 100vw;
-  min-height: 320px;
-  padding: 24px 8px 48px 8px;
+  width: 100%;
+  max-width: 100%;
+  min-height: calc(
+    100vh - 200px
+  ); /* Account for navigation height and footer */
+  margin: 144px auto 56px auto; /* Center container and add space for navigation/footer */
+  padding: 24px 16px 48px 16px;
   box-sizing: border-box;
+  position: relative; /* Ensure proper stacking context */
+  z-index: 1; /* Below navigation but above background */
 }
 
 .row-container-a img {
-  margin-bottom: 16px;
-  max-width: 90vw;
+  display: block; /* Ensure proper block display */
+  margin: 0 auto 16px auto; /* Center image horizontally with bottom margin */
+  max-width: min(160px, 40vw); /* Responsive image size */
   height: auto;
+  flex-shrink: 0; /* Prevent image from shrinking too much */
 }
 
 .sorry-txt {
@@ -30,20 +41,107 @@ body {
   color: #000;
   line-height: 20px;
   word-break: break-word;
-  max-width: 90vw;
+  text-align: center; /* Explicitly center text */
+  max-width: min(600px, 90vw); /* Responsive text width */
+  margin: 0 auto; /* Center the text container */
+  padding: 0; /* Remove any padding that might affect centering */
+  flex-shrink: 0; /* Prevent text from shrinking too much */
+}
+
+@media (max-width: 1200px) {
+  .row-container-a {
+    margin: 112px auto 56px auto; /* Center with adjusted top margin for smaller header */
+    min-height: calc(100vh - 168px); /* Account for header and footer */
+    padding: 32px 24px 64px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .row-container-a {
+    margin: 100px auto 48px auto; /* Center with mobile header spacing */
+    min-height: calc(100vh - 156px); /* Account for header and footer */
+    padding: 24px 16px 48px 16px;
+    font-size: 13px;
+  }
+
+  .row-container-a img {
+    max-width: min(140px, 35vw);
+    margin: 0 auto 20px auto; /* Ensure centering on mobile */
+  }
+
+  .sorry-txt {
+    font-size: 15px;
+    line-height: 22px;
+    max-width: min(500px, 85vw);
+    text-align: center; /* Ensure text stays centered */
+    margin: 0 auto; /* Center text container */
+    padding: 0 8px;
+  }
 }
 
 @media (max-width: 600px) {
   .row-container-a {
-    padding: 16px 2vw 32px 2vw;
+    margin: 90px auto 40px auto; /* Center with smaller margin for very small screens */
+    min-height: calc(100vh - 146px); /* Account for header and footer */
+    padding: 16px 12px 32px 12px;
     font-size: 13px;
-    min-height: 180px;
   }
+
   .row-container-a img {
-    max-width: 70vw;
+    max-width: min(120px, 30vw);
+    margin: 0 auto 16px auto; /* Ensure centering */
   }
+
   .sorry-txt {
     font-size: 14px;
-    padding: 0 2vw;
+    line-height: 20px;
+    max-width: min(400px, 90vw);
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .row-container-a {
+    margin: 80px auto 32px auto; /* Center with even smaller margin for tiny screens */
+    min-height: calc(100vh - 136px); /* Account for header and footer */
+    padding: 12px 8px 24px 8px;
+  }
+
+  .row-container-a img {
+    max-width: min(100px, 25vw);
+    margin: 0 auto 12px auto; /* Ensure centering */
+  }
+
+  .sorry-txt {
+    font-size: 13px;
+    line-height: 18px;
+    max-width: min(350px, 95vw);
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  .row-container-a {
+    margin: 70px auto 24px auto; /* Center with minimal margin for very tiny screens */
+    min-height: calc(100vh - 126px); /* Account for header and footer */
+    padding: 8px 4px 16px 4px;
+  }
+
+  .row-container-a img {
+    max-width: min(80px, 22vw);
+    margin: 0 auto 8px auto; /* Ensure centering */
+  }
+
+  .sorry-txt {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: min(300px, 98vw);
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 2px;
   }
 }

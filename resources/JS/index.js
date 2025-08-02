@@ -68,7 +68,7 @@ if (searchBarContainer) {
         searchList.style.display = "block";
         return; // Don't prevent default, allow input focus
       }
-      
+
       // If the click is on other parts of the search bar container (not the input or submit button)
       if (
         event.target.closest("#search-bar-container") &&
@@ -100,7 +100,7 @@ if (searchBarContainer) {
           searchList.style.display = "block";
           return; // Don't prevent default, allow input focus
         }
-        
+
         // Handle touches on other parts of the container
         if (
           event.target.closest("#search-bar-container") &&
@@ -135,7 +135,7 @@ searchBar.addEventListener("click", () => {
 // Add mobile-specific input handling
 if (searchBar) {
   // Handle input focus on mobile devices
-  searchBar.addEventListener("focus", function() {
+  searchBar.addEventListener("focus", function () {
     if (isTouchDevice() || isMobileScreen()) {
       positionSearchList();
       searchList.style.display = "block";
@@ -143,7 +143,7 @@ if (searchBar) {
   });
 
   // Handle input events for real-time search on mobile
-  searchBar.addEventListener("input", function() {
+  searchBar.addEventListener("input", function () {
     if (isTouchDevice() || isMobileScreen()) {
       search_items(); // Call the search function
       if (searchList.style.display !== "block") {
@@ -154,36 +154,47 @@ if (searchBar) {
   });
 
   // Enhanced mobile touch handling to ensure keyboard appears
-  searchBar.addEventListener("touchstart", function(event) {
-    if (isTouchDevice() || isMobileScreen()) {
-      // Ensure the input can receive focus
-      event.stopPropagation();
-    }
-  }, { passive: false });
+  searchBar.addEventListener(
+    "touchstart",
+    function (event) {
+      if (isTouchDevice() || isMobileScreen()) {
+        // Ensure the input can receive focus
+        event.stopPropagation();
+      }
+    },
+    { passive: false }
+  );
 
   // Ensure virtual keyboard doesn't hide search results on mobile
-  searchBar.addEventListener("touchend", function(event) {
-    if (isTouchDevice() || isMobileScreen()) {
-      // Prevent event from bubbling and focus the input
-      event.preventDefault();
-      event.stopPropagation();
-      
-      // Focus the input to trigger mobile keyboard
-      searchBar.focus();
-      
-      // Small delay to ensure the virtual keyboard appears
-      setTimeout(function() {
-        if (searchList.style.display === "block") {
-          positionSearchList();
-        }
-      }, 300);
-    }
-  }, { passive: false });
+  searchBar.addEventListener(
+    "touchend",
+    function (event) {
+      if (isTouchDevice() || isMobileScreen()) {
+        // Prevent event from bubbling and focus the input
+        event.preventDefault();
+        event.stopPropagation();
+
+        // Focus the input to trigger mobile keyboard
+        searchBar.focus();
+
+        // Small delay to ensure the virtual keyboard appears
+        setTimeout(function () {
+          if (searchList.style.display === "block") {
+            positionSearchList();
+          }
+        }, 300);
+      }
+    },
+    { passive: false }
+  );
 
   // Handle viewport changes when virtual keyboard appears/disappears
-  window.addEventListener("resize", function() {
-    if (isTouchDevice() || isMobileScreen() && searchList.style.display === "block") {
-      setTimeout(function() {
+  window.addEventListener("resize", function () {
+    if (
+      isTouchDevice() ||
+      (isMobileScreen() && searchList.style.display === "block")
+    ) {
+      setTimeout(function () {
         positionSearchList();
       }, 100);
     }
@@ -970,8 +981,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (event) {
       // Check if menu is open and click is not on hamburger button or container
       // Also exclude navigation links from closing the menu - let them navigate first
-      const isNavLink = event.target.closest('.lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four');
-      if (isMenuOpen() && !hamburgerContainer.contains(event.target) && !isNavLink) {
+      const isNavLink = event.target.closest(
+        ".lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four"
+      );
+      if (
+        isMenuOpen() &&
+        !hamburgerContainer.contains(event.target) &&
+        !isNavLink
+      ) {
         closeHamburgerMenu();
       }
     });
@@ -988,8 +1005,14 @@ document.addEventListener("DOMContentLoaded", function () {
       "touchstart",
       function (event) {
         // Also exclude navigation links from closing the menu on touch
-        const isNavLink = event.target.closest('.lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four');
-        if (isMenuOpen() && !hamburgerContainer.contains(event.target) && !isNavLink) {
+        const isNavLink = event.target.closest(
+          ".lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four"
+        );
+        if (
+          isMenuOpen() &&
+          !hamburgerContainer.contains(event.target) &&
+          !isNavLink
+        ) {
           closeHamburgerMenu();
         }
       },
@@ -997,26 +1020,30 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     // Add specific event handlers for navigation links to ensure they work on mobile
-    navItems.forEach(function(navItem) {
+    navItems.forEach(function (navItem) {
       // Handle click events on navigation links
-      navItem.addEventListener("click", function(event) {
+      navItem.addEventListener("click", function (event) {
         // Allow the navigation to proceed and then close the menu
         // We use setTimeout to ensure navigation happens first
-        setTimeout(function() {
+        setTimeout(function () {
           closeHamburgerMenu();
         }, 100);
       });
 
       // Handle touch events for better mobile support
-      navItem.addEventListener("touchend", function(event) {
-        // Prevent the document touchstart handler from interfering
-        event.stopPropagation();
-        
-        // Allow the navigation to proceed and then close the menu
-        setTimeout(function() {
-          closeHamburgerMenu();
-        }, 100);
-      }, { passive: false });
+      navItem.addEventListener(
+        "touchend",
+        function (event) {
+          // Prevent the document touchstart handler from interfering
+          event.stopPropagation();
+
+          // Allow the navigation to proceed and then close the menu
+          setTimeout(function () {
+            closeHamburgerMenu();
+          }, 100);
+        },
+        { passive: false }
+      );
     });
 
     // Close menu on scroll
@@ -1253,10 +1280,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Also add click event to the person account icon specifically for mobile
       if (personAccountIcon) {
-        personAccountIcon.addEventListener("click", function(e) {
+        personAccountIcon.addEventListener("click", function (e) {
           e.preventDefault();
           e.stopPropagation();
-          
+
           // Close hamburger menu if it's open
           if (window.closeHamburgerMenu) {
             window.closeHamburgerMenu();
