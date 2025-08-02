@@ -969,7 +969,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close menu when clicking anywhere on the page (except the hamburger button itself)
     document.addEventListener("click", function (event) {
       // Check if menu is open and click is not on hamburger button or container
-      if (isMenuOpen() && !hamburgerContainer.contains(event.target)) {
+      // Also exclude navigation links from closing the menu - let them navigate first
+      const isNavLink = event.target.closest('.lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four');
+      if (isMenuOpen() && !hamburgerContainer.contains(event.target) && !isNavLink) {
         closeHamburgerMenu();
       }
     });
@@ -985,12 +987,37 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener(
       "touchstart",
       function (event) {
-        if (isMenuOpen() && !hamburgerContainer.contains(event.target)) {
+        // Also exclude navigation links from closing the menu on touch
+        const isNavLink = event.target.closest('.lower-nav-list-one, .lower-nav-list-two, .lower-nav-list-three, .lower-nav-list-four');
+        if (isMenuOpen() && !hamburgerContainer.contains(event.target) && !isNavLink) {
           closeHamburgerMenu();
         }
       },
       { passive: true }
     );
+
+    // Add specific event handlers for navigation links to ensure they work on mobile
+    navItems.forEach(function(navItem) {
+      // Handle click events on navigation links
+      navItem.addEventListener("click", function(event) {
+        // Allow the navigation to proceed and then close the menu
+        // We use setTimeout to ensure navigation happens first
+        setTimeout(function() {
+          closeHamburgerMenu();
+        }, 100);
+      });
+
+      // Handle touch events for better mobile support
+      navItem.addEventListener("touchend", function(event) {
+        // Prevent the document touchstart handler from interfering
+        event.stopPropagation();
+        
+        // Allow the navigation to proceed and then close the menu
+        setTimeout(function() {
+          closeHamburgerMenu();
+        }, 100);
+      }, { passive: false });
+    });
 
     // Close menu on scroll
     document.addEventListener(
