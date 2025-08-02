@@ -730,8 +730,28 @@ document.addEventListener("DOMContentLoaded", function () {
 // RECOMMENDED SECTION SCROLL INDICATORS
 // ===================================
 
-// Function to instantly hide scroll indicator when user scrolls
-function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
+// Function to optimize performance on mobile devices
+function optimizeForMobileProduct() {
+  // Detect if we're on a mobile device
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+
+  if (isMobile) {
+    // Add mobile-specific class for CSS targeting
+    document.body.classList.add("mobile-device");
+
+    // Force immediate DOM updates on mobile
+    const sliderWrappers = document.querySelectorAll(".slider-wrapper");
+    sliderWrappers.forEach((wrapper) => {
+      wrapper.style.transform = "translate3d(0, 0, 0)";
+    });
+  }
+}
+
+// Function to instantly hide scroll indicator when user scrolls (renamed to avoid conflicts)
+function hideScrollIndicatorOnScrollProduct(sliderWrapper, scrollContainer) {
   let isScrolling = false;
   let scrollTimeout = null;
   let initialScrollLeft = 0;
@@ -816,9 +836,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = wrapper.querySelector(".recommended-imgs-row-wrap");
 
     if (scrollContainer) {
-      hideScrollIndicatorOnScroll(wrapper, scrollContainer);
+      hideScrollIndicatorOnScrollProduct(wrapper, scrollContainer);
     }
   });
+
+  // Initialize mobile optimizations
+  optimizeForMobileProduct();
 });
 
 /**
