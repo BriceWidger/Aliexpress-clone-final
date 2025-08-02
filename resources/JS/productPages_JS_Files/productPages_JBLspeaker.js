@@ -736,35 +736,58 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to instantly hide scroll indicator when user scrolls
 function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
   let isScrolling = false;
+  let scrollTimeout = null;
+  let initialScrollLeft = 0;
+  let hasScrolled = false;
 
-  // Function to hide indicator immediately
+  // Function to hide indicator with optimized performance
   function hideIndicator() {
-    if (scrollContainer.scrollLeft > 0) {
-      sliderWrapper.classList.add("scrolled");
-      // Force immediate DOM update for mobile browsers
-      sliderWrapper.style.transform = "translateZ(0)";
-    } else {
-      sliderWrapper.classList.remove("scrolled");
-    }
+    // Use requestAnimationFrame for smooth DOM updates
+    requestAnimationFrame(() => {
+      if (scrollContainer.scrollLeft > 0) {
+        if (!sliderWrapper.classList.contains("scrolled")) {
+          sliderWrapper.classList.add("scrolled");
+        }
+      } else {
+        if (sliderWrapper.classList.contains("scrolled")) {
+          sliderWrapper.classList.remove("scrolled");
+        }
+      }
+    });
   }
 
-  // Handle all scroll events (including touch on mobile)
-  scrollContainer.addEventListener("scroll", hideIndicator, { passive: true });
+  // Throttled version for scroll events to prevent excessive calls
+  function throttledHideIndicator() {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(hideIndicator, 8); // Reduced timeout for responsiveness
+  }
 
-  // Additional mobile-specific events for better responsiveness
+  // Handle scroll events with throttling
+  scrollContainer.addEventListener("scroll", throttledHideIndicator, { passive: true });
+
+  // Mobile touch events - improved to prevent scroll blocking
   scrollContainer.addEventListener(
     "touchstart",
-    function () {
+    function (e) {
       isScrolling = true;
+      initialScrollLeft = scrollContainer.scrollLeft;
+      hasScrolled = false;
+      // Allow natural touch scrolling behavior
     },
     { passive: true }
   );
 
   scrollContainer.addEventListener(
     "touchmove",
-    function () {
+    function (e) {
       if (isScrolling) {
-        hideIndicator();
+        // Check if we've actually scrolled beyond initial position
+        if (Math.abs(scrollContainer.scrollLeft - initialScrollLeft) > 5) {
+          hasScrolled = true;
+          throttledHideIndicator();
+        }
       }
     },
     { passive: true }
@@ -775,7 +798,13 @@ function hideScrollIndicatorOnScroll(sliderWrapper, scrollContainer) {
     function () {
       isScrolling = false;
       // Ensure final state is correct after touch ends
-      setTimeout(hideIndicator, 16); // Next frame
+      setTimeout(() => {
+        hideIndicator();
+        // Reset scroll behavior if user returns to start
+        if (scrollContainer.scrollLeft === 0) {
+          hasScrolled = false;
+        }
+      }, 100); // Longer delay to allow momentum scrolling to settle
     },
     { passive: true }
   );
