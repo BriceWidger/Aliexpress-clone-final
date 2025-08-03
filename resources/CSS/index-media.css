@@ -1420,6 +1420,8 @@
 
   .person-account-icon {
     margin-right: 16px !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
   }
 
   .acc-category-dropdown-title {

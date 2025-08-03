@@ -708,6 +708,8 @@ h4 {
   width: 31px;
   height: 31px;
   margin-right: 8px;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .cart-check-out-white {

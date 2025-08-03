@@ -1891,6 +1891,8 @@ h4 {
   width: 31px;
   height: 31px;
   margin-right: 8px;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .cart-check-out-white {
@@ -2188,6 +2190,8 @@ h4 {
 .person-account-icon {
   width: 31px;
   height: 31px;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .cart-check-out-white {

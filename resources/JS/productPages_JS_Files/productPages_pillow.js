@@ -922,7 +922,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Also add touchstart event to the person account icon specifically
       if (personAccountIcon) {
-        personAccountIcon.addEventListener("touchstart", function (e) {
+        // Add touchend for better iOS compatibility instead of touchstart
+        personAccountIcon.addEventListener("touchend", function (e) {
           e.preventDefault();
           e.stopPropagation();
 
@@ -931,6 +932,12 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             showAccDropdown();
           }
+        });
+        
+        // Keep touchstart for immediate feedback but don't prevent default
+        personAccountIcon.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+          // Don't preventDefault here to allow iOS to process touch properly
         });
       }
 
