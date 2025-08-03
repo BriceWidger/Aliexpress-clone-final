@@ -1287,6 +1287,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
+      let touchTimeout;
+      let hasTouched = false;
+
       // Function to handle toggle for mobile
       function handleMobileToggle(e) {
         e.preventDefault();
@@ -1304,69 +1307,123 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // Add click event to toggle account dropdown on mobile
-      triggerElement.addEventListener("click", handleMobileToggle);
-
-      // Also add click event to the person account icon specifically for mobile
-      if (personAccountIcon) {
-        personAccountIcon.addEventListener("click", function (e) {
-          e.preventDefault();
+      // Simplified event handling for mobile devices
+      // Use touchend as the primary trigger for touch devices
+      if (isTouchDevice()) {
+        // Handle touchstart for immediate visual feedback
+        triggerElement.addEventListener("touchstart", function (e) {
           e.stopPropagation();
+          hasTouched = true;
+          // Don't preventDefault to allow iOS to handle touch properly
+        });
 
-          // Close hamburger menu if it's open
-          if (window.closeHamburgerMenu) {
-            window.closeHamburgerMenu();
-          }
+        // Handle touchend for actual toggle
+        triggerElement.addEventListener("touchend", function (e) {
+          if (hasTouched) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Clear any existing timeout
+            if (touchTimeout) {
+              clearTimeout(touchTimeout);
+            }
+            
+            // Use a small delay to prevent conflicts with click events
+            touchTimeout = setTimeout(() => {
+              // Close hamburger menu if it's open
+              if (window.closeHamburgerMenu) {
+                window.closeHamburgerMenu();
+              }
 
-          if (isAccDropdownOpen) {
-            hideAccDropdown();
-          } else {
-            showAccDropdown();
+              if (isAccDropdownOpen) {
+                hideAccDropdown();
+              } else {
+                showAccDropdown();
+              }
+              hasTouched = false;
+            }, 50);
           }
         });
-      }
 
-      // Add touchstart event for better mobile responsiveness
-      triggerElement.addEventListener("touchstart", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+        // Handle person account icon specifically for touch devices
+        if (personAccountIcon) {
+          personAccountIcon.addEventListener("touchstart", function (e) {
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            hasTouched = true;
+          });
 
-        // Close hamburger menu if it's open
-        if (window.closeHamburgerMenu) {
-          window.closeHamburgerMenu();
+          personAccountIcon.addEventListener("touchend", function (e) {
+            if (hasTouched) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              
+              // Clear any existing timeout
+              if (touchTimeout) {
+                clearTimeout(touchTimeout);
+              }
+              
+              touchTimeout = setTimeout(() => {
+                // Close hamburger menu if it's open
+                if (window.closeHamburgerMenu) {
+                  window.closeHamburgerMenu();
+                }
+
+                if (isAccDropdownOpen) {
+                  hideAccDropdown();
+                } else {
+                  showAccDropdown();
+                }
+                hasTouched = false;
+              }, 50);
+            }
+          });
+
+          // Prevent click events on touch devices to avoid double triggering
+          personAccountIcon.addEventListener("click", function (e) {
+            if (hasTouched) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return;
+            }
+            // Allow click for non-touch interactions (e.g., mouse on mobile browser)
+            handleMobileToggle(e);
+          });
         }
 
-        if (isAccDropdownOpen) {
-          hideAccDropdown();
-        } else {
-          showAccDropdown();
-        }
-      });
-
-      // Also add touchstart event to the person account icon specifically for mobile
-      if (personAccountIcon) {
-        // Add touchend for better iOS compatibility instead of touchstart
-        personAccountIcon.addEventListener("touchend", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          // Close hamburger menu if it's open
-          if (window.closeHamburgerMenu) {
-            window.closeHamburgerMenu();
+        // Prevent click events on triggerElement for touch devices
+        triggerElement.addEventListener("click", function (e) {
+          if (hasTouched) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
           }
-
-          if (isAccDropdownOpen) {
-            hideAccDropdown();
-          } else {
-            showAccDropdown();
-          }
+          // Allow click for non-touch interactions
+          handleMobileToggle(e);
         });
+      } else {
+        // For non-touch mobile devices (rare), use click events
+        triggerElement.addEventListener("click", handleMobileToggle);
         
-        // Keep touchstart for immediate feedback but don't prevent default
-        personAccountIcon.addEventListener("touchstart", function (e) {
-          e.stopPropagation();
-          // Don't preventDefault here to allow iOS to process touch properly
-        });
+        if (personAccountIcon) {
+          personAccountIcon.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Close hamburger menu if it's open
+            if (window.closeHamburgerMenu) {
+              window.closeHamburgerMenu();
+            }
+
+            if (isAccDropdownOpen) {
+              hideAccDropdown();
+            } else {
+              showAccDropdown();
+            }
+          });
+        }
       }
 
       // Close account dropdown when clicking outside
