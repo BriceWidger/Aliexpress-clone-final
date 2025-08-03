@@ -1032,6 +1032,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isTouchDevice()) {
       // Add touchstart and click events for comprehensive mobile support
       circleMenu.addEventListener("touchstart", function (e) {
+        // Don't prevent default if the touch is near the account area
+        if (e.target.closest('.person-account-icon') || e.target.closest('.acc-dropdown') || e.target.closest('.header-items-container')) {
+          return; // Allow the touch to pass through to the account dropdown
+        }
+        
         e.preventDefault();
         e.stopPropagation();
 
@@ -1046,6 +1051,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       circleMenu.addEventListener("click", function (e) {
+        // Don't prevent default if the click is near the account area
+        if (e.target.closest('.person-account-icon') || e.target.closest('.acc-dropdown') || e.target.closest('.header-items-container')) {
+          return; // Allow the click to pass through to the account dropdown
+        }
+        
         e.preventDefault();
         e.stopPropagation();
 
