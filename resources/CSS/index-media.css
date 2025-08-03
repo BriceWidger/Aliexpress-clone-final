@@ -1430,12 +1430,11 @@
 
   .acc-dropdown-content {
     position: absolute;
+    left: 0;
     right: 0;
     top: 100%;
     z-index: 100;
     display: none;
-    min-width: 250px;
-    width: auto;
   }
 
   .acc-dropdown.show-dropdown .acc-dropdown-content {

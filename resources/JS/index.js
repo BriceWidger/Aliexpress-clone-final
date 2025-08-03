@@ -1276,24 +1276,11 @@ document.addEventListener("DOMContentLoaded", function () {
       accDropdownContent.style.display = "block";
       accDropdown.classList.add("show-dropdown");
       isAccDropdownOpen = true;
-      
-      // Force reflow for iOS Safari to ensure visibility
-      accDropdownContent.offsetHeight;
-      
-      // Additional iOS fix: force style recalculation
-      if (isTouchDevice()) {
-        setTimeout(() => {
-          accDropdownContent.style.visibility = "visible";
-          accDropdownContent.style.opacity = "1";
-        }, 0);
-      }
     }
 
     // Function to hide dropdown (both mobile and desktop)
     function hideAccDropdown() {
       accDropdownContent.style.display = "none";
-      accDropdownContent.style.visibility = "";
-      accDropdownContent.style.opacity = "";
       accDropdown.classList.remove("show-dropdown");
       isAccDropdownOpen = false;
     }
@@ -1339,8 +1326,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
 
-      // Add touchend event for better mobile responsiveness (iOS compatibility)
-      triggerElement.addEventListener("touchend", function (e) {
+      // Add touchstart event for better mobile responsiveness
+      triggerElement.addEventListener("touchstart", function (e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -1354,12 +1341,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           showAccDropdown();
         }
-      });
-
-      // Keep touchstart for immediate feedback but don't prevent default
-      triggerElement.addEventListener("touchstart", function (e) {
-        e.stopPropagation();
-        // Don't preventDefault here to allow iOS to process touch properly
       });
 
       // Also add touchstart event to the person account icon specifically for mobile
