@@ -918,8 +918,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * ACCOUNT DROPDOWN FUNCTIONALITY FOR BEATSBYDRE.HTML
- * Mobile account dropdown functionality specifically for the beatsbydre.html page
+ * ACCOUNT DROPDOWN FUNCTIONALITY
+ * Mobile account dropdown functionality specifically for this product page
  */
 document.addEventListener("DOMContentLoaded", function () {
   // Function to check if device is touch-enabled (mobile/tablet) or using touch simulation
@@ -1093,6 +1093,45 @@ document.addEventListener("DOMContentLoaded", function () {
       // Reset account dropdown when screen size changes
       window.addEventListener("resize", function () {
         hideAccDropdown();
+      });
+    } else {
+      // Desktop functionality - both hover AND click behavior
+
+      // Click functionality for desktop
+      accDropbtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (isAccDropdownOpen) {
+          hideAccDropdown();
+        } else {
+          showAccDropdown();
+        }
+      });
+
+      // Hover functionality for desktop
+      accDropdown.addEventListener("mouseenter", function () {
+        showAccDropdown();
+      });
+
+      accDropdown.addEventListener("mouseleave", function () {
+        hideAccDropdown();
+      });
+
+      // Also handle hover on the dropdown content itself to keep it visible
+      accDropdownContent.addEventListener("mouseenter", function () {
+        showAccDropdown();
+      });
+
+      accDropdownContent.addEventListener("mouseleave", function () {
+        hideAccDropdown();
+      });
+
+      // Close dropdown when clicking outside (desktop)
+      document.addEventListener("click", function (e) {
+        if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
+          hideAccDropdown();
+        }
       });
     }
   }
