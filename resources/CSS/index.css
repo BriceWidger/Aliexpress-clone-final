@@ -466,13 +466,13 @@ h4 {
 }
 
 /* Mobile account dropdown active state - matches hover styling */
-.acc-dropdown.mobile-active .acc-dropbtn,
-.acc-dropdown.mobile-active .acc-category-dropdown-title {
+.acc-dropdown.show-dropdown .acc-dropbtn,
+.acc-dropdown.show-dropdown .acc-category-dropdown-title {
   color: #191919;
   border: none;
   cursor: pointer;
 }
-.acc-dropdown.mobile-active .acc-up-menu-arrow-black {
+.acc-dropdown.show-dropdown .acc-up-menu-arrow-black {
   content: url("/resources/images/menu-arrow-white-up.png");
 }
 

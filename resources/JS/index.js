@@ -1274,14 +1274,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to show dropdown (both mobile and desktop)
     function showAccDropdown() {
       accDropdownContent.style.display = "block";
-      accDropdown.classList.add("mobile-active");
+      accDropdown.classList.add("show-dropdown");
       isAccDropdownOpen = true;
     }
 
     // Function to hide dropdown (both mobile and desktop)
     function hideAccDropdown() {
       accDropdownContent.style.display = "none";
-      accDropdown.classList.remove("mobile-active");
+      accDropdown.classList.remove("show-dropdown");
       isAccDropdownOpen = false;
     }
 
