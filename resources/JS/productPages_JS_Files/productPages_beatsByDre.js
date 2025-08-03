@@ -968,7 +968,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Add touchstart event for better mobile responsiveness
-      accDropbtn.addEventListener("touchstart", function (e) {
+      accDropbtn.addEventListener("touchend", function (e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -977,6 +977,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           showAccDropdown();
         }
+      });
+
+      // Keep touchstart for immediate feedback but don't prevent default
+      accDropbtn.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
+        // Don't preventDefault here to allow iOS to process touch properly
       });
 
       // Also add touchstart event to the person account icon specifically
