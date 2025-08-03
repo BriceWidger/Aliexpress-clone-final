@@ -956,11 +956,24 @@ document.addEventListener("DOMContentLoaded", function () {
       accDropdownContent.style.display = "block";
       accDropdown.classList.add("mobile-active");
       isAccDropdownOpen = true;
+      
+      // Force reflow for iOS Safari to ensure visibility
+      accDropdownContent.offsetHeight;
+      
+      // Additional iOS fix: force style recalculation
+      if (isTouchDevice()) {
+        setTimeout(() => {
+          accDropdownContent.style.visibility = "visible";
+          accDropdownContent.style.opacity = "1";
+        }, 0);
+      }
     }
 
     // Function to hide dropdown (both mobile and desktop)
     function hideAccDropdown() {
       accDropdownContent.style.display = "none";
+      accDropdownContent.style.visibility = "";
+      accDropdownContent.style.opacity = "";
       accDropdown.classList.remove("mobile-active");
       isAccDropdownOpen = false;
     }
