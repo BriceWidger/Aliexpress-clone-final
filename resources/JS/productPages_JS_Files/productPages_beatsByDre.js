@@ -834,9 +834,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return window.matchMedia("(hover: hover)").matches;
     }
 
-    // Add click functionality for ALL touch devices, regardless of screen size
-    // This ensures mobile functionality works on tablets, phones, and any touch-enabled device
-    if (isTouchDevice()) {
+    // Add click functionality ONLY for larger screens/tablets to avoid conflicts with account dropdown
+    // This ensures mobile functionality works on tablets and larger touch devices without conflicts
+    if (isTouchDevice() && window.innerWidth > 900) {
       // Add touchstart and click events for comprehensive mobile support
       circleMenu.addEventListener("touchstart", function (e) {
         // Don't prevent default if the touch is near the account area

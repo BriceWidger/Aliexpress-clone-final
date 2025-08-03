@@ -251,16 +251,18 @@ footer {
 }
 @media (max-width: 1615px) {
   @media (max-width: 900px) {
-    .product-page-body-wrap {
-      margin-top: 148.08px !important;
-    }
-    .upper-nav-container {
-      height: 124px !important; /* 72px original + 52px extra */
-    }
-    .circle-menu-background_pp {
-      left: 190px !important; /* 36px original + 24px */
-    }
+  /* Hide circle menu on mobile to prevent conflicts with account dropdown */
+  .circle-menu-background_pp {
+    display: none !important;
   }
+  
+  .product-page-body-wrap {
+    margin-top: 148.08px !important;
+  }
+  .upper-nav-container {
+    height: 124px !important; /* 72px original + 52px extra */
+  }
+}
   .body-wrap-top-right {
     display: none !important;
   }
