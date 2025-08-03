@@ -941,6 +941,7 @@ document.addEventListener("DOMContentLoaded", function () {
         personAccountIcon.addEventListener("touchend", function (e) {
           e.preventDefault();
           e.stopPropagation();
+          e.stopImmediatePropagation(); // Prevent other event handlers from executing
 
           if (isAccDropdownOpen) {
             hideAccDropdown();
@@ -952,7 +953,21 @@ document.addEventListener("DOMContentLoaded", function () {
         // Keep touchstart for immediate feedback but don't prevent default
         personAccountIcon.addEventListener("touchstart", function (e) {
           e.stopPropagation();
+          e.stopImmediatePropagation(); // Prevent circle menu from interfering
           // Don't preventDefault here to allow iOS to process touch properly
+        });
+
+        // Also add click handler with high priority
+        personAccountIcon.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation(); // Prevent other event handlers from executing
+
+          if (isAccDropdownOpen) {
+            hideAccDropdown();
+          } else {
+            showAccDropdown();
+          }
         });
       }
 
