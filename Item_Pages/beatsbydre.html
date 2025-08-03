@@ -6,123 +6,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/resources/CSS/index.css" />
   <link rel="stylesheet" type="text/css" href="/resources/CSS/index-media.css" />
-  <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="/resources/CSS/productPages.css" /> -->
   <title>Beats by Dre</title>
 </head>
 <!-- ^$\n -->
 
 <body>
   <!-- HEADER -->
-  <nav id="whole-nav">
-    <div class="upper-nav">
-      <div class="upper-nav-items-container">
-        <div class="name-logo-container">
-          <a href="index.html" style="text-decoration:none">
-            <div class="name-logo"></div>
-          </a>
-        </div>
-        <div id="search-bar-container">
-          <input id="search-bar" type="search" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);" 
-                 placeholder="Search items.." autocomplete="off" autocapitalize="none" spellcheck="false"
-                 inputmode="search" enterkeyhint="search" role="searchbox" aria-label="Search items">
-          <div id="search-bar-filler"></div>
-          <div id="search-submit-container">
-            <input id="search-submit" type="image" src="resources/images/search-button.jpg" alt="Submit">
-          </div>
-        </div>
-        <div class="header-items-container">
-          <div class="acc-dropdown">
-            <div class="acc-dropbtn">
-              <img class="person-account-icon" src="resources/images/person-account-icon.png" />
-              <div class="acc-category-dropdown-title">
-                <h4>Account</h4>
-                <img class="acc-up-menu-arrow-black" src="resources/images/menu-arrow-white.png" width="20"
-                  height="20" />
-              </div>
-            </div>
-            <div class="acc-dropdown-content">
-              <div class="acc-img-title-container">
-                <div class="account-img"></div>
-                <div class="acc-title-sign-wrap">
-                  <div id="signed-in-text-notification">Welcome back, User!</div>
-                  <div id="signed-out-text-notification">You're signed out</div>
-                  <div id="sign-out" onclick="signOut()">Sign out</div>
-                  <a href="signIn.html">
-                    <button id="sign-in" onclick="signIn()">Sign in</button>
-                  </a>
+  <header>
+    <!-- NAV -->
+    <div class="upper-nav-container">
+      <div class="upper-nav">
+        <div class="upper-nav-items-container">
+          <div class="name-logo-container">
+            <a href="/index.html" style="text-decoration:none">
+              <div class="name-logo-container-link-director_pp"></div>
+            </a>
+            <div class="name-logo" href="/Item_Pages/beatsbydre.html">
+              <div class="circle-menu-background_pp">
+                <img class="circle-menu-img_pp"
+                  src="https://ae01.alicdn.com/kf/S6f0463893f4341e49c75f0dc3bb85ffbo/36x36.png" />
+                <div class="circle-menu-hover-keeper"></div>
+                <div class="circle-menu-hover-box">
+                  <div class="inside-menu-title-container">
+                    <div class="inside-menu-drop-box"></div>
+                    <div class="category-dropdown-title_pp">
+                      All Items
+                    </div>
+                  </div>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/automotiveDegreaser.html">Automotive
+                    Degreaser</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/beatsbydre.html">Beats by Dre</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/jblPartybox.html">JBL Partybox</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/makeup.html">Makeup</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/mrPotatoHead.html">Mr Potato Head</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/olympusCamera.html">Olympus Camera</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/pillow.html">Pillow</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/rcRaceCar.html">RC Race Car</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/simonRabbit.html">Simon Rabbit</a>
+                  <a class="circle-menu-hover-box-links" href="/Item_Pages/truthHoodie.html">Truth Hoodie</a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="cart-icon-text-checkout">
-            <a href="Checkout_Pages/shoppingCart.html"><img class="cart-check-out-white"
-                src="resources/images/check-out-cart-white.png" /></a>
-            <div class="cart-number-cart-text-wrap">
-              <a href="Checkout_Pages/shoppingCart.html">
-                <h4 id="cart-number"></h4>
+          <div id="search-bar-container">
+            <input id="search-bar" type="search" onkeyup="search_items()" onblur="this.value=removeSpaces(this.value);" placeholder="Search items.." autocomplete="off" autocapitalize="none" spellcheck="false" inputmode="search" enterkeyhint="search" role="searchbox" aria-label="Search items">
+            <div id="search-bar-filler"></div>
+            <div id='search-list'>
+              <a href="/Item_Pages/automotiveDegreaser.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Automotive Degreaser</div>
               </a>
-              <a href="Checkout_Pages/shoppingCart.html">
-                <h4 class="cart-text">Cart</h4>
+              <a href="/Item_Pages/beatsbydre.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Beats by Dre</div>
+              </a>
+              <a href="/Item_Pages/jblPartybox.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">JBL Partybox</div>
+              </a>
+              <a href="/Item_Pages/makeup.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Makeup</div>
+              </a>
+              <a href="/Item_Pages/mrPotatoHead.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Mr Potato Head</div>
+              </a>
+              <a href="/Item_Pages/olympusCamera.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Olympus Camera</div>
+              </a>
+              <a href="/Item_Pages/pillow.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Pillow</div>
+              </a>
+              <a href="/Item_Pages/rcRaceCar.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">RC Race Car</div>
+              </a>
+              <a href="/Item_Pages/simonRabbit.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Simon Rabbit</div>
+              </a>
+              <a href="/Item_Pages/truthHoodie.html" target="_blank">
+                <div id="search-item-names" class="search-item-names">Truth Hoodie</div>
               </a>
             </div>
+            <div id="search-submit-container"><input id="search-submit" type="image"
+                src="/resources/images/search-button.jpg" alt="Submit">
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="lower-nav">
-      <div class="lower-nav-row-container">
-        <div class="lower-nav-items-container">
-          <!-- Hamburger menu for mobile: only visible at <=900px -->
-          <div class="dropdown">
-            <div class="dropbtn">
-              <img class="dropdown-menu" src="resources/images/dropdown-menu-white.png" width="20" height="20" />
-              <div class="category-dropdown-title">
-                All Items
-                <img class="up-menu-arrow-black" src="resources/images/menu-arrow-white.png" width="20" height="20" />
+          <div class="header-items-container">
+            <div class="acc-dropdown">
+              <div class="acc-dropbtn">
+                <img class="person-account-icon" src="/resources/images/person-account-icon.png" />
+                <div class="acc-category-dropdown-title">
+                  <h4>Account</h4>
+                  <img class="acc-up-menu-arrow-black" src="/resources/images/menu-arrow-white.png" width="20"
+                    height="20" />
+                </div>
+              </div>
+              <div class="acc-dropdown-content">
+                <div class="acc-img-title-container">
+                  <div class="account-img"></div>
+                  <div class="acc-title-sign-wrap">
+                    <div id="signed-in-text-notification">Welcome back, User!</div>
+                    <div id="signed-out-text-notification">You're signed out</div>
+                    <div id="sign-out" onclick="signOut()">Sign out</div>
+                    <a href="/signIn.html">
+                      <button id="sign-in" onclick="signIn()">Sign in</button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="dropdown-content">
-              <a class="degreaser-link_dropdown" href="/Item_Pages/automotiveDegreaser.html">Automotive Degreaser</a>
-              <a class="beats-link_dropdown" href="/Item_Pages/beatsbydre.html">Beats by Dre</a>
-              <a class="jbl-link_dropdown" href="/Item_Pages/jblPartybox.html">JBL Partybox</a>
-              <a class="makeupOne-link_dropdown" href="/Item_Pages/makeup.html">Makeup</a>
-              <a class="potatoHead-link_dropdown" href="/Item_Pages/mrPotatoHead.html">Mr Potato Head</a>
-              <a class="camera-link_dropdown" href="/Item_Pages/olympusCamera.html">Olympus Camera</a>
-              <a class="pillow-link_dropdown" href="/Item_Pages/pillow.html">Pillow</a>
-              <a class="car-link_dropdown" href="/Item_Pages/rcRaceCar.html">RC Race Car</a>
-              <a class="simon-link_dropdown" href="/Item_Pages/simonRabbit.html">Simon Rabbit</a>
-              <a class="truth-link_dropdown" href="/Item_Pages/truthHoodie.html">Truth Hoodie</a>
+            <div class="cart-icon-text-checkout">
+              <a href="/Checkout_Pages/shoppingCart.html"><img class="cart-check-out-white"
+                  src="/resources/images/check-out-cart-white.png" /></a>
+              <div class="cart-number-cart-text-wrap">
+                <a href="/Checkout_Pages/shoppingCart.html">
+                  <h4 id="cart-number"></h4>
+                </a>
+                <a href="/Checkout_Pages/shoppingCart.html">
+                  <h4 class="cart-text">Cart</h4>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="hamburger-menu-container">
-            <button class="hamburger-menu-btn" aria-label="Open menu">
-              <span class="hamburger-bar"></span>
-              <span class="hamburger-bar"></span>
-              <span class="hamburger-bar"></span>
-            </button>
-            <div class="hamburger-dropdown-menu">
-              <a href="/Deals_Pages/fiftyOff.html" target="_blank">First come, 50% off</a>
-              <a href="/Deals_Pages/underTwo.html" target="_blank">From $1.99</a>
-              <a href="/Deals_Pages/freeShipping.html" target="_blank">Free shipping</a>
-              <a href="/Deals_Pages/superDeals.html" target="_blank">SuperDeals</a>
-            </div>
-          </div>
-          <a class="lower-nav-list-one" href="/Deals_Pages/fiftyOff.html" target="_blank">
-            <div>First come, 50% off</div>
-          </a>
-          <a class="lower-nav-list-two" href="/Deals_Pages/underTwo.html" target="_blank">
-            <div>From $1.99 </div>
-          </a>
-          <a class="lower-nav-list-three" href="/Deals_Pages/freeShipping.html" target="_blank">
-            <div>Free shipping</div>
-          </a>
-          <a class="lower-nav-list-four" href="/Deals_Pages/superDeals.html" target="_blank">
-            <div>SuperDeals</div>
-          </a>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
   <!-- BODY WRAP (TOP LEFT) -->
   <div class="product-page-body-wrap">
     <div class="body-wrap-top-left">
