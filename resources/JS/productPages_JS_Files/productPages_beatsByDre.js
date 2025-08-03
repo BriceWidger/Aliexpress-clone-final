@@ -953,6 +953,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to show dropdown (both mobile and desktop)
     function showAccDropdown() {
+      console.log('showAccDropdown called');
       accDropdownContent.style.display = "block";
       accDropdown.classList.add("mobile-active");
       isAccDropdownOpen = true;
@@ -971,6 +972,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to hide dropdown (both mobile and desktop)
     function hideAccDropdown() {
+      console.log('hideAccDropdown called');
       accDropdownContent.style.display = "none";
       accDropdownContent.style.visibility = "";
       accDropdownContent.style.opacity = "";
@@ -980,6 +982,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add mobile functionality for touch devices OR mobile screen sizes
     if (isTouchDevice() || isMobileScreen()) {
+      let touchTimeout;
+      let hasTouched = false;
+
       // Function to handle toggle for mobile
       function handleMobileToggle(e) {
         e.preventDefault();
@@ -992,66 +997,102 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // Add click event to toggle account dropdown on mobile
-      accDropbtn.addEventListener("click", handleMobileToggle);
+      // Simplified event handling for mobile devices
+      // Use touchend as the primary trigger for touch devices
+      if (isTouchDevice()) {
+        // Handle touchstart for immediate visual feedback
+        accDropbtn.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+          hasTouched = true;
+          // Don't preventDefault to allow iOS to handle touch properly
+        });
 
-      // Also add click event to the person account icon specifically
-      if (personAccountIcon) {
-        personAccountIcon.addEventListener("click", handleMobileToggle);
-      }
+        // Handle touchend for actual toggle
+        accDropbtn.addEventListener("touchend", function (e) {
+          if (hasTouched) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Clear any existing timeout
+            if (touchTimeout) {
+              clearTimeout(touchTimeout);
+            }
+            
+            // Use a small delay to prevent conflicts with click events
+            touchTimeout = setTimeout(() => {
+              if (isAccDropdownOpen) {
+                hideAccDropdown();
+              } else {
+                showAccDropdown();
+              }
+              hasTouched = false;
+            }, 50);
+          }
+        });
 
-      // Add touchstart event for better mobile responsiveness
-      accDropbtn.addEventListener("touchend", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+        // Handle person account icon specifically for touch devices
+        if (personAccountIcon) {
+          personAccountIcon.addEventListener("touchstart", function (e) {
+            console.log('Person account icon touchstart');
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            hasTouched = true;
+          });
 
-        if (isAccDropdownOpen) {
-          hideAccDropdown();
-        } else {
-          showAccDropdown();
+          personAccountIcon.addEventListener("touchend", function (e) {
+            console.log('Person account icon touchend, hasTouched:', hasTouched);
+            if (hasTouched) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              
+              // Clear any existing timeout
+              if (touchTimeout) {
+                clearTimeout(touchTimeout);
+              }
+              
+              touchTimeout = setTimeout(() => {
+                console.log('Person account icon timeout executed, isAccDropdownOpen:', isAccDropdownOpen);
+                if (isAccDropdownOpen) {
+                  hideAccDropdown();
+                } else {
+                  showAccDropdown();
+                }
+                hasTouched = false;
+              }, 50);
+            }
+          });
+
+          // Prevent click events on touch devices to avoid double triggering
+          personAccountIcon.addEventListener("click", function (e) {
+            if (hasTouched) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return;
+            }
+            // Allow click for non-touch interactions (e.g., mouse on mobile browser)
+            handleMobileToggle(e);
+          });
         }
-      });
 
-      // Keep touchstart for immediate feedback but don't prevent default
-      accDropbtn.addEventListener("touchstart", function (e) {
-        e.stopPropagation();
-        // Don't preventDefault here to allow iOS to process touch properly
-      });
-
-      // Also add touchstart event to the person account icon specifically
-      if (personAccountIcon) {
-        // Add touchend for better iOS compatibility instead of touchstart
-        personAccountIcon.addEventListener("touchend", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation(); // Prevent other event handlers from executing
-
-          if (isAccDropdownOpen) {
-            hideAccDropdown();
-          } else {
-            showAccDropdown();
+        // Prevent click events on accDropbtn for touch devices
+        accDropbtn.addEventListener("click", function (e) {
+          if (hasTouched) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
           }
+          // Allow click for non-touch interactions
+          handleMobileToggle(e);
         });
+      } else {
+        // For non-touch mobile devices (rare), use click events
+        accDropbtn.addEventListener("click", handleMobileToggle);
         
-        // Keep touchstart for immediate feedback but don't prevent default
-        personAccountIcon.addEventListener("touchstart", function (e) {
-          e.stopPropagation();
-          e.stopImmediatePropagation(); // Prevent circle menu from interfering
-          // Don't preventDefault here to allow iOS to process touch properly
-        });
-
-        // Also add click handler with high priority
-        personAccountIcon.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation(); // Prevent other event handlers from executing
-
-          if (isAccDropdownOpen) {
-            hideAccDropdown();
-          } else {
-            showAccDropdown();
-          }
-        });
+        if (personAccountIcon) {
+          personAccountIcon.addEventListener("click", handleMobileToggle);
+        }
       }
 
       // Close account dropdown when clicking outside

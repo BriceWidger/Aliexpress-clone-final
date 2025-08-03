@@ -1441,6 +1441,13 @@
     display: block !important;
   }
 
+  /* Mobile active state for account dropdown */
+  .acc-dropdown.mobile-active .acc-dropdown-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
   /* Reset carousel scroll position to show first card */
   .slides-container,
   #slides-container,
