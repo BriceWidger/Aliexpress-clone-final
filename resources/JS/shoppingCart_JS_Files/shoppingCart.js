@@ -114,7 +114,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // --- Begin Responsive Summary Tab Logic (migrated from shoppingCartTab.js) ---
 document.addEventListener("DOMContentLoaded", function () {
-
   const cartRightSide = document.querySelector(".cart-right-side");
   if (!cartRightSide) return;
 
@@ -718,3 +717,211 @@ const shippingObserver = new MutationObserver(updateTotalPrice);
 shippingObserver.observe(document.querySelector(".summary-shipping-price"), {
   childList: true,
 });
+
+// Mobile Dropdown Fix for Shopping Cart Pages
+document.addEventListener("DOMContentLoaded", function () {
+  // Wait a bit for all other scripts to load and initialize
+  setTimeout(function () {
+    initializeMobileDropdownFix_ShoppingCart();
+  }, 200);
+});
+
+function initializeMobileDropdownFix_ShoppingCart() {
+  const accDropdown = document.querySelector(".acc-dropdown");
+  const accDropbtn = document.querySelector(".acc-dropbtn");
+  const accDropdownContent = document.querySelector(".acc-dropdown-content");
+  const personAccountIcon = document.querySelector(".person-account-icon");
+
+  if (!accDropdown || !accDropbtn || !accDropdownContent) {
+    return; // Elements not found, skip initialization
+  }
+
+  // Check if we're on a mobile device or mobile screen size
+  function isTouchDevice() {
+    return (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0 ||
+      window.TouchEvent !== undefined ||
+      window.innerWidth <= 900
+    );
+  }
+
+  function isMobileScreen() {
+    return window.innerWidth <= 900;
+  }
+
+  // Only apply mobile fix if we're on mobile
+  if (!isTouchDevice() && !isMobileScreen()) {
+    return;
+  }
+
+  let isAccDropdownOpen = false;
+  let touchStarted = false;
+
+  // Function to show dropdown
+  function showAccDropdown() {
+    accDropdownContent.style.display = "block";
+    accDropdown.classList.add("show-dropdown");
+    isAccDropdownOpen = true;
+  }
+
+  // Function to hide dropdown
+  function hideAccDropdown() {
+    accDropdownContent.style.display = "none";
+    accDropdown.classList.remove("show-dropdown");
+    isAccDropdownOpen = false;
+  }
+
+  // Function to toggle dropdown
+  function toggleDropdown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Close hamburger menu if it exists and is open
+    if (window.closeHamburgerMenu) {
+      window.closeHamburgerMenu();
+    }
+
+    if (isAccDropdownOpen) {
+      hideAccDropdown();
+    } else {
+      showAccDropdown();
+    }
+  }
+
+  // Remove any existing event listeners that might conflict
+  const newAccDropbtn = accDropbtn.cloneNode(true);
+  accDropbtn.parentNode.replaceChild(newAccDropbtn, accDropbtn);
+
+  if (personAccountIcon) {
+    const newPersonAccountIcon = personAccountIcon.cloneNode(true);
+    personAccountIcon.parentNode.replaceChild(
+      newPersonAccountIcon,
+      personAccountIcon
+    );
+  }
+
+  // Get references to the new elements
+  const freshAccDropbtn = document.querySelector(".acc-dropbtn");
+  const freshPersonAccountIcon = document.querySelector(".person-account-icon");
+
+  // Add touch event listeners for mobile
+  if (isTouchDevice()) {
+    // Handle touchstart
+    freshAccDropbtn.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStarted = true;
+        e.stopPropagation();
+      },
+      { passive: false }
+    );
+
+    // Handle touchend for actual toggle
+    freshAccDropbtn.addEventListener(
+      "touchend",
+      function (e) {
+        if (touchStarted) {
+          toggleDropdown(e);
+          touchStarted = false;
+        }
+      },
+      { passive: false }
+    );
+
+    // Also handle the person account icon specifically
+    if (freshPersonAccountIcon) {
+      freshPersonAccountIcon.addEventListener(
+        "touchstart",
+        function (e) {
+          touchStarted = true;
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        },
+        { passive: false }
+      );
+
+      freshPersonAccountIcon.addEventListener(
+        "touchend",
+        function (e) {
+          if (touchStarted) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            toggleDropdown(e);
+            touchStarted = false;
+          }
+        },
+        { passive: false }
+      );
+
+      // Prevent click events to avoid double triggering
+      freshPersonAccountIcon.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+      });
+    }
+
+    // Prevent click events on the main button to avoid conflicts
+    freshAccDropbtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  } else {
+    // Fallback for non-touch mobile devices
+    freshAccDropbtn.addEventListener("click", toggleDropdown);
+
+    if (freshPersonAccountIcon) {
+      freshPersonAccountIcon.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        toggleDropdown(e);
+      });
+    }
+  }
+
+  // Close dropdown when clicking/touching outside
+  document.addEventListener("click", function (e) {
+    if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
+      hideAccDropdown();
+    }
+  });
+
+  document.addEventListener("touchstart", function (e) {
+    if (isAccDropdownOpen && !accDropdown.contains(e.target)) {
+      hideAccDropdown();
+    }
+  });
+
+  // Prevent dropdown content from closing when interacting with it
+  accDropdownContent.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+  accDropdownContent.addEventListener("touchstart", function (e) {
+    e.stopPropagation();
+  });
+
+  // Close dropdown when links inside are clicked
+  const dropdownLinks = accDropdownContent.querySelectorAll("a");
+  dropdownLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.stopPropagation();
+      hideAccDropdown();
+    });
+
+    link.addEventListener("touchstart", function (e) {
+      e.stopPropagation();
+    });
+  });
+
+  // Reset dropdown on window resize
+  window.addEventListener("resize", function () {
+    hideAccDropdown();
+  });
+
+  console.log("Mobile dropdown fix initialized for shopping cart page");
+}
