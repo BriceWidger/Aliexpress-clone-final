@@ -148,7 +148,7 @@ a {
   margin-top: 24px;
   padding: 16px 24px;
   background-color: #fff;
-  overflow-x: visible;
+  overflow-x: hidden;
   overflow-y: visible;
 }
 
