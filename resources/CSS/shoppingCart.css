@@ -130,6 +130,8 @@
 /* ^$\n */
 html {
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -143,6 +145,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 a {
@@ -180,11 +183,13 @@ a {
 }
 
 .row-container-b-SC {
-  margin-top: 24px;
-  padding: 16px 24px;
+  margin-top: 0;
+  padding: 16px 0;
   background-color: #fff;
   overflow-x: hidden;
   overflow-y: visible;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cp-buyer-protection-checkmark-sub-wrap {
@@ -2251,6 +2256,12 @@ a {
   padding: 0 16px;
   background-color: #f5f5f5;
   text-align: center;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .cart-body-SCE {
@@ -2259,7 +2270,9 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 1180px;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  box-sizing: border-box;
 }
 
 .cart-main-SCE {
@@ -2699,15 +2712,50 @@ body .footer-bottom-text {
 .main-content-wrap-SCE {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  min-height: 60vh;
+  min-height: calc(100vh - 72px);
+  height: auto;
   max-width: 100vw;
   box-sizing: border-box;
-  padding: 0 16px;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   transition: padding 0.2s, min-height 0.2s;
+}
+
+/* Specific fix for shopping cart empty page body overflow */
+.shopping-cart-empty-page {
+  height: auto !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Comprehensive fix for shopping cart empty page layout */
+
+/* Override global constraints for this specific page */
+html.shopping-cart-empty-html,
+body.shopping-cart-empty-page {
+  height: auto !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure the main content wrapper can expand */
+.shopping-cart-empty-page .main-content-wrap-SCE {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Make sure all containers can expand */
+.shopping-cart-empty-page .cart-body-SCE,
+.shopping-cart-empty-page .cart-main-SCE {
+  height: auto !important;
+  min-height: auto !important;
 }
 
 .cart-body-SCE {
@@ -2741,8 +2789,7 @@ body .footer-bottom-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 24px 40px;
-  /* max-width: 400px; */
+  padding: 40px 24px;
   width: 100%;
   box-sizing: border-box;
 }
