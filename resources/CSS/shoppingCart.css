@@ -128,6 +128,10 @@
   position: relative;
 }
 /* ^$\n */
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #f5f5f5;
   font-family: Arial, Helvetica, sans-serif;
@@ -138,10 +142,41 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+}
+
+/* Fix for search bar filler overflow on shopping cart empty page */
+#search-bar-filler {
+  position: absolute;
+  top: 40px;
+  background-color: transparent;
+  width: 100%;
+  max-width: 632.35px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for search bar filler */
+@media (max-width: 768px) {
+  #search-bar-filler {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    left: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #search-bar-filler {
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+    left: 8px;
+    right: 8px;
+  }
 }
 
 .row-container-b-SC {
