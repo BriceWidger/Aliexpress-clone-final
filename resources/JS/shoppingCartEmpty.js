@@ -170,10 +170,51 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    // For shopping cart empty page - setup proper slider functionality
+    setupShoppingCartEmptySlider();
+
     // Initialize mobile optimizations
     optimizeForMobileSCE();
   }, 100); // Small delay to ensure DOM is ready
 });
+
+// Setup proper slider functionality for shopping cart empty page
+function setupShoppingCartEmptySlider() {
+  const slidesContainer = document.getElementById("slides-container");
+  const slide = document.querySelector(".slide");
+  const prevButton = document.getElementById("slide-arrow-prev");
+  const nextButton = document.getElementById("slide-arrow-next");
+
+  if (slidesContainer && slide && prevButton && nextButton) {
+    // Remove existing onclick handlers by cloning elements
+    const newPrevButton = prevButton.cloneNode(true);
+    const newNextButton = nextButton.cloneNode(true);
+    
+    prevButton.parentNode.replaceChild(newPrevButton, prevButton);
+    nextButton.parentNode.replaceChild(newNextButton, nextButton);
+
+    // Add proper scroll functionality
+    newPrevButton.addEventListener("click", () => {
+      const slideWidth = slide.clientWidth + 10;
+      slidesContainer.scrollLeft -= slideWidth;
+      
+      // Keep the z-index functionality for visual feedback
+      newPrevButton.style.zIndex = "1";
+      document.getElementById("decoy-one").style.zIndex = "2";
+      newNextButton.style.zIndex = "2";
+    });
+
+    newNextButton.addEventListener("click", () => {
+      const slideWidth = slide.clientWidth + 10;
+      slidesContainer.scrollLeft += slideWidth;
+      
+      // Keep the z-index functionality for visual feedback
+      newNextButton.style.zIndex = "1";
+      document.getElementById("decoy-two").style.zIndex = "2";
+      newPrevButton.style.zIndex = "2";
+    });
+  }
+}
 
 // Mobile Dropdown Fix for Shopping Cart Empty Page
 document.addEventListener("DOMContentLoaded", function () {

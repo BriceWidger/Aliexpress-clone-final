@@ -466,6 +466,7 @@
   /* Slides container */
   .slides-container {
     overflow-x: scroll !important;
+    width: 100% !important;
   }
 
   /* Reset carousel scroll position to show first card */
@@ -473,6 +474,13 @@
   #slides-container,
   #slides-containerB {
     scroll-behavior: smooth !important;
+  }
+
+  /* Enable horizontal scrolling for all items on mobile */
+  .slide {
+    flex: none !important;
+    width: auto !important;
+    min-width: calc(10 * 180px + 9 * 14.4px) !important; /* 10 cards + gaps */
   }
 
   /* ===================================
@@ -854,6 +862,7 @@
   /* Content layout adjustments */
   .slides-container {
     overflow-x: scroll !important;
+    width: 100% !important;
   }
 
   /* Reset carousel scroll position to show first card */
@@ -865,7 +874,9 @@
 
   .slide {
     /* Scroll snapping removed to allow free scrolling */
-    min-width: max-content;
+    flex: none !important;
+    width: auto !important;
+    min-width: calc(10 * 180px + 9 * 14.4px) !important; /* 10 cards + gaps */
   }
 
   .row-a-bcd-container {
