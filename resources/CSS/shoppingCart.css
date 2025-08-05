@@ -2485,6 +2485,7 @@ body .footer-bottom-text {
 .footer-copywrite-sc {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #000;
   color: #fff;
   font-size: 14px;
