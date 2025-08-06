@@ -17,24 +17,37 @@ function showAdded(element) {
     return;
   }
 
-  // Disable pointer events and set cursor to default
-  document.body.style.pointerEvents = "none";
-  document.body.style.cursor = "default";
+  // Instead of disabling all pointer events, only disable add-on-icon interactions
+  // This allows scrolling while preventing multiple clicks on add-on-icons
+  const allAddOnIcons = document.querySelectorAll('[class*="add-on-icon"], [class*="add-to-cart"]');
+  allAddOnIcons.forEach(icon => {
+    icon.style.pointerEvents = "none";
+    icon.style.cursor = "default";
+  });
 
+  // Create a more targeted overlay that only prevents clicks on interactive elements
   const overlay = document.createElement("div");
   Object.assign(overlay.style, {
-    position: "absolute",
+    position: "fixed",
     top: "0",
     left: "0",
-    width: "100%",
-    height: "100%",
+    width: "100vw",
+    height: "100vh",
     background: "transparent",
-    zIndex: "1",
-    cursor: "default",
+    zIndex: "9999",
+    pointerEvents: "none", // Allow scroll events to pass through
   });
-  wrapper.appendChild(overlay);
-
-  overlay.addEventListener("click", (event) => event.preventDefault());
+  
+  // Only prevent clicks on specific interactive elements, not scrolling
+  overlay.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target.matches('[class*="add-on-icon"], [class*="add-to-cart"]')) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+  
+  document.body.appendChild(overlay);
 
   element.style.backgroundColor = "lightgreen";
   element.style.backgroundImage = "none";
@@ -53,11 +66,17 @@ function showAdded(element) {
     element.style.setProperty('background-size', '29px 29px', 'important');
     element.style.setProperty('background-position', 'center', 'important');
     element.style.setProperty('background-color', '#fff', 'important');
-    if (wrapper.contains(overlay)) wrapper.removeChild(overlay);
+    
+    // Remove overlay
+    if (document.body.contains(overlay)) {
+      document.body.removeChild(overlay);
+    }
 
-    // Re-enable pointer events and reset cursor
-    document.body.style.pointerEvents = "auto";
-    document.body.style.cursor = "pointer";
+    // Re-enable pointer events on add-on-icons
+    allAddOnIcons.forEach(icon => {
+      icon.style.pointerEvents = "auto";
+      icon.style.cursor = "pointer";
+    });
   }, 1000);
 }
 
@@ -65,12 +84,16 @@ function showAdded(element) {
  * FOR PRODUCT PAGES
  *
  * Show an "Added!" notification on the "Add to Cart" button.
- * Pointer events will be disabled during the notification duration.
+ * Pointer events will be disabled only on add-on-icons during the notification duration.
  */
 function showAdded_addToCartBtn(element) {
-  // Disable pointer events and set cursor to default
-  document.body.style.pointerEvents = "none";
-  document.body.style.cursor = "default";
+  // Instead of disabling all pointer events, only disable add-on-icon interactions
+  // This allows scrolling while preventing multiple clicks on add-on-icons
+  const allAddOnIcons = document.querySelectorAll('[class*="add-on-icon"], [class*="add-to-cart"]');
+  allAddOnIcons.forEach(icon => {
+    icon.style.pointerEvents = "none";
+    icon.style.cursor = "default";
+  });
 
   element.style.backgroundColor = "lightgreen";
   element.style.backgroundImage = "none";
@@ -84,9 +107,11 @@ function showAdded_addToCartBtn(element) {
       'url("/resources/images/plus-icon-black.png")';
     element.style.backgroundColor = "";
 
-    // Re-enable pointer events and reset cursor
-    document.body.style.pointerEvents = "auto";
-    document.body.style.cursor = "pointer";
+    // Re-enable pointer events on add-on-icons
+    allAddOnIcons.forEach(icon => {
+      icon.style.pointerEvents = "auto";
+      icon.style.cursor = "pointer";
+    });
   }, 1000);
 }
 
