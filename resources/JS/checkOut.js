@@ -141,6 +141,95 @@ document.addEventListener("DOMContentLoaded", () => {
   shippingObserver.observe(shippingElement, { childList: true });
 });
 
+// Override decrement functions to prevent count from going below 1 on checkout page
+function decrementProductCountOne() {
+  const productCountOne = document.getElementById("productCountOne");
+  const currentCount = parseInt(productCountOne.textContent);
+  if (currentCount > 1) {
+    productCountOne.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountTwo() {
+  const productCountTwo = document.getElementById("productCountTwo");
+  const currentCount = parseInt(productCountTwo.textContent);
+  if (currentCount > 1) {
+    productCountTwo.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountThree() {
+  const productCountThree = document.getElementById("productCountThree");
+  const currentCount = parseInt(productCountThree.textContent);
+  if (currentCount > 1) {
+    productCountThree.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountFour() {
+  const productCountFour = document.getElementById("productCountFour");
+  const currentCount = parseInt(productCountFour.textContent);
+  if (currentCount > 1) {
+    productCountFour.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountFive() {
+  const productCountFive = document.getElementById("productCountFive");
+  const currentCount = parseInt(productCountFive.textContent);
+  if (currentCount > 1) {
+    productCountFive.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountSix() {
+  const productCountSix = document.getElementById("productCountSix");
+  const currentCount = parseInt(productCountSix.textContent);
+  if (currentCount > 1) {
+    productCountSix.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountSeven() {
+  const productCountSeven = document.getElementById("productCountSeven");
+  const currentCount = parseInt(productCountSeven.textContent);
+  if (currentCount > 1) {
+    productCountSeven.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountEight() {
+  const productCountEight = document.getElementById("productCountEight");
+  const currentCount = parseInt(productCountEight.textContent);
+  if (currentCount > 1) {
+    productCountEight.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountNine() {
+  const productCountNine = document.getElementById("productCountNine");
+  const currentCount = parseInt(productCountNine.textContent);
+  if (currentCount > 1) {
+    productCountNine.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountTen() {
+  const productCountTen = document.getElementById("productCountTen");
+  const currentCount = parseInt(productCountTen.textContent);
+  if (currentCount > 1) {
+    productCountTen.textContent = currentCount - 1;
+  }
+}
+
+function decrementProductCountEleven() {
+  const productCountEleven = document.getElementById("productCountEleven");
+  const currentCount = parseInt(productCountEleven.textContent);
+  if (currentCount > 1) {
+    productCountEleven.textContent = currentCount - 1;
+  }
+}
+
 // Ensure keys ending with _TEMP and having NaN as their value are removed from localStorage
 window.addEventListener("DOMContentLoaded", () => {
   Object.keys(localStorage).forEach((key) => {
