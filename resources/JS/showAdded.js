@@ -38,13 +38,21 @@ function showAdded(element) {
 
   element.style.backgroundColor = "lightgreen";
   element.style.backgroundImage = "none";
+  element.style.backgroundRepeat = "no-repeat";
+  element.style.backgroundSize = "auto";
+  element.style.backgroundPosition = "center";
+  element.style.background = "lightgreen";
   element.querySelector(".notification-text").innerText = "Added!";
 
   setTimeout(() => {
     element.querySelector(".notification-text").innerText = "";
+    element.style.background = "";
+    element.style.backgroundColor = "";
     element.style.backgroundImage =
       'url("/resources/images/plus-icon-black.png")';
-    element.style.backgroundColor = "";
+    element.style.backgroundRepeat = "no-repeat";
+    element.style.backgroundSize = "29px 29px";
+    element.style.backgroundPosition = "center";
     if (wrapper.contains(overlay)) wrapper.removeChild(overlay);
 
     // Re-enable pointer events and reset cursor
@@ -66,10 +74,12 @@ function showAdded_addToCartBtn(element) {
 
   element.style.backgroundColor = "lightgreen";
   element.style.backgroundImage = "none";
+  element.style.background = "lightgreen";
 
   setTimeout(() => {
     element.querySelector(".notification-text-add-to-cart-button").innerText =
       "";
+    element.style.background = "";
     element.style.backgroundImage =
       'url("/resources/images/plus-icon-black.png")';
     element.style.backgroundColor = "";

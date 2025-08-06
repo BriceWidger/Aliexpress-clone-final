@@ -2141,7 +2141,6 @@ a {
   position: relative;
   top: -25px;
   left: 124px;
-  transition: all 0.3s;
 }
 
 /* .notification-text {
@@ -2901,25 +2900,25 @@ body.shopping-cart-empty-page {
   .row-container-b-SC {
     overflow-x: visible; /* Remove any blocking overflow */
   }
-  
+
   .all-row-b-containers {
     width: 100%; /* Use full available width */
     max-width: 100%;
     overflow-x: visible; /* Remove any blocking overflow */
   }
-  
+
   .slider-wrapper {
     width: 100%; /* Use full available width */
     max-width: 100%;
   }
-  
+
   .slides-container {
     overflow-x: auto; /* Enable horizontal scrolling within slide container */
     overflow-y: visible;
     width: 100%; /* Use full available width */
     max-width: 100%;
   }
-  
+
   .slide {
     /* Calculate exact width needed for all 10 items:
        Each item: 180.37px (max-width) + 32px (padding) = 212.37px
@@ -2932,7 +2931,7 @@ body.shopping-cart-empty-page {
     flex-shrink: 0; /* Prevent shrinking */
     flex-grow: 0; /* Prevent growing */
   }
-  
+
   /* Ensure individual item containers maintain their size */
   .row-b-card-container {
     flex-shrink: 0; /* Prevent individual items from shrinking */

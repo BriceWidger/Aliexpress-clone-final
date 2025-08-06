@@ -1144,7 +1144,6 @@ h4 {
   position: relative;
   top: -25px;
   left: 124px;
-  transition: all 0.3s;
 }
 .add-on-icon-pillow-row-c,
 .add-on-icon-rccar-row-c,
@@ -1171,7 +1170,6 @@ h4 {
   height: 45.0333px;
   top: -166px;
   left: 125px;
-  transition: all 0.3s;
 }
 .add-on-icon-pillow-row-d,
 .add-on-icon-rccar-row-d,
@@ -1198,7 +1196,6 @@ h4 {
   height: 45.0333px;
   top: -72px;
   left: 147px;
-  transition: all 0.3s;
 }
 .add-on-icon-pillow:hover,
 .add-on-icon-rccar:hover,
