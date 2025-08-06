@@ -1857,7 +1857,7 @@ h4 {
 
   .slides-container {
     overflow-x: auto; /* Enable horizontal scrolling within slide container */
-    overflow-y: visible;
+    overflow-y: hidden; /* Prevent vertical scrolling */
     width: 100%; /* Use full available width */
     max-width: 100%;
   }
