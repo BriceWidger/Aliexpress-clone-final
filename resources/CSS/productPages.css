@@ -1317,9 +1317,9 @@ h4 {
   .product-page-add-on-icon-truthhoodie:hover,
   .product-page-add-on-icon-makeuptwo:hover,
   .product-page-add-on-icon-degreaser:hover {
-    background-image: url("/resources/images/plus-icon-black.png") !important;
-    background-color: #fff !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background-image: url("/resources/images/plus-icon-black.png");
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -1381,9 +1381,9 @@ h4 {
 @media (hover: none) and (pointer: coarse) {
   .shopping-cart-add-on:hover,
   .shopping-cart-add-on-row-c:hover {
-    background-image: url("/resources/images/plus-icon-black.png") !important;
-    background-color: #fff !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background-image: url("/resources/images/plus-icon-black.png");
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
 

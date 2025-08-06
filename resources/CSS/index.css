@@ -1268,9 +1268,9 @@ h4 {
   .add-on-icon-simonrabbit-row-d:hover,
   .add-on-icon-truthhoodie-row-d:hover,
   .add-on-icon-makeuptwo-row-d:hover {
-    background-image: url("/resources/images/plus-icon-black.png") !important;
-    background-color: #fff !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background-image: url("/resources/images/plus-icon-black.png");
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
 .notification-text {
