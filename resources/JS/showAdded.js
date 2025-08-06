@@ -80,8 +80,9 @@ function showAdded_addToCartBtn(element) {
     element.querySelector(".notification-text-add-to-cart-button").innerText =
       "";
     element.style.background = "";
-    element.style.setProperty('background-image', 'url("/resources/images/plus-icon-black.png")', 'important');
-    element.style.setProperty('background-color', '#fff', 'important');
+    element.style.backgroundImage =
+      'url("/resources/images/plus-icon-black.png")';
+    element.style.backgroundColor = "";
 
     // Re-enable pointer events and reset cursor
     document.body.style.pointerEvents = "auto";
