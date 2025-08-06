@@ -48,11 +48,11 @@ function showAdded(element) {
     element.querySelector(".notification-text").innerText = "";
     element.style.background = "";
     element.style.backgroundColor = "";
-    element.style.backgroundImage =
-      'url("/resources/images/plus-icon-black.png")';
-    element.style.backgroundRepeat = "no-repeat";
-    element.style.backgroundSize = "29px 29px";
-    element.style.backgroundPosition = "center";
+    element.style.setProperty('background-image', 'url("/resources/images/plus-icon-black.png")', 'important');
+    element.style.setProperty('background-repeat', 'no-repeat', 'important');
+    element.style.setProperty('background-size', '29px 29px', 'important');
+    element.style.setProperty('background-position', 'center', 'important');
+    element.style.setProperty('background-color', '#fff', 'important');
     if (wrapper.contains(overlay)) wrapper.removeChild(overlay);
 
     // Re-enable pointer events and reset cursor
@@ -80,9 +80,8 @@ function showAdded_addToCartBtn(element) {
     element.querySelector(".notification-text-add-to-cart-button").innerText =
       "";
     element.style.background = "";
-    element.style.backgroundImage =
-      'url("/resources/images/plus-icon-black.png")';
-    element.style.backgroundColor = "";
+    element.style.setProperty('background-image', 'url("/resources/images/plus-icon-black.png")', 'important');
+    element.style.setProperty('background-color', '#fff', 'important');
 
     // Re-enable pointer events and reset cursor
     document.body.style.pointerEvents = "auto";
