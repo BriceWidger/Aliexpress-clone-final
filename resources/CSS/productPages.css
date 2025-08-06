@@ -1304,6 +1304,25 @@ h4 {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Disable hover effects on touch devices for product page add-on icons */
+@media (hover: none) and (pointer: coarse) {
+  .product-page-add-on-icon-pillow:hover,
+  .product-page-add-on-icon-rccar:hover,
+  .product-page-add-on-icon-camera:hover,
+  .product-page-add-on-icon-potatohead:hover,
+  .product-page-add-on-icon-makeupone:hover,
+  .product-page-add-on-icon-beatsbydre:hover,
+  .product-page-add-on-icon-jblspeaker:hover,
+  .product-page-add-on-icon-simonrabbit:hover,
+  .product-page-add-on-icon-truthhoodie:hover,
+  .product-page-add-on-icon-makeuptwo:hover,
+  .product-page-add-on-icon-degreaser:hover {
+    background-image: url("/resources/images/plus-icon-black.png") !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
 .notification-text {
   display: block;
   position: absolute;
@@ -1356,6 +1375,16 @@ h4 {
   background-image: url("/resources/images/plus-icon-white.png");
   background-color: #000;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Disable hover effects on touch devices for shopping cart add-on icons */
+@media (hover: none) and (pointer: coarse) {
+  .shopping-cart-add-on:hover,
+  .shopping-cart-add-on-row-c:hover {
+    background-image: url("/resources/images/plus-icon-black.png") !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
 }
 
 .row-b-img-all-text-wrap {

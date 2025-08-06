@@ -1233,6 +1233,46 @@ h4 {
   background-color: #000;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+/* Disable hover effects on touch devices for add-on icons */
+@media (hover: none) and (pointer: coarse) {
+  .add-on-icon-pillow:hover,
+  .add-on-icon-rccar:hover,
+  .add-on-icon-camera:hover,
+  .add-on-icon-potatohead:hover,
+  .add-on-icon-makeupone:hover,
+  .add-on-icon-beatsbydre:hover,
+  .add-on-icon-jblspeaker:hover,
+  .add-on-icon-simonrabbit:hover,
+  .add-on-icon-truthhoodie:hover,
+  .add-on-icon-makeuptwo:hover,
+  .add-on-icon-degreaser:hover,
+  .add-on-icon-pillow-row-c:hover,
+  .add-on-icon-rccar-row-c:hover,
+  .add-on-icon-camera-row-c:hover,
+  .add-on-icon-potatohead-row-c:hover,
+  .add-on-icon-makeupone-row-c:hover,
+  .add-on-icon-beatsbydre-row-c:hover,
+  .add-on-icon-jblspeaker-row-c:hover,
+  .add-on-icon-simonrabbit-row-c:hover,
+  .add-on-icon-truthhoodie-row-c:hover,
+  .add-on-icon-makeuptwo-row-c:hover,
+  .add-on-icon-degreaser-row-c:hover,
+  .add-on-icon-pillow-row-d:hover,
+  .add-on-icon-rccar-row-d:hover,
+  .add-on-icon-camera-row-d:hover,
+  .add-on-icon-potatohead-row-d:hover,
+  .add-on-icon-makeupone-row-d:hover,
+  .add-on-icon-beatsbydre-row-d:hover,
+  .add-on-icon-jblspeaker-row-d:hover,
+  .add-on-icon-simonrabbit-row-d:hover,
+  .add-on-icon-truthhoodie-row-d:hover,
+  .add-on-icon-makeuptwo-row-d:hover {
+    background-image: url("/resources/images/plus-icon-black.png") !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
 .notification-text {
   display: block;
   position: absolute;
