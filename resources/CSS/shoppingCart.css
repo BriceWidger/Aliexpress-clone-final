@@ -874,7 +874,7 @@ a {
 #custom-prompt-co {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -893,6 +893,7 @@ a {
   border: 1px solid #888;
   width: 360px;
   border-radius: 12px;
+  z-index: 1001;
 }
 
 #custom-prompt-co .content-btn h2 {
@@ -1033,7 +1034,7 @@ a {
 #custom-prompt-co-individualCount-eleven {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -1055,7 +1056,7 @@ a {
 #custom-prompt-co-individualCount-trash-eleven {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -1084,6 +1085,7 @@ a {
   border: 1px solid #888;
   width: 360px;
   border-radius: 12px;
+  z-index: 1001;
 }
 
 #custom-prompt-co-individualCount-trash-one
@@ -1117,6 +1119,7 @@ a {
   border: 1px solid #888;
   width: 360px;
   border-radius: 12px;
+  z-index: 1001;
 }
 
 #custom-prompt-co-individualCount-one
